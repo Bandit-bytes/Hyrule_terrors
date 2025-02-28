@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "id": "hyrule_terrors",
+  "version": "${version}",
+  "name": "Hyrule Terrors",
+  "description": "",
+  "authors": [
+    "Bandit-Bytes"
+  ],
+  "contact": {
+    "homepage": ""
+  },
+  "license": "MIT",
+  "icon": "assets/hyrule_terrors/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.bandit.hyrule_terrors.fabric.Hyrule_terrorsFabric"
+    ],
+    "client": [
+      "net.bandit.hyrule_terrors.fabric.client.Hyrule_terrorsFabricClient"
+    ]
+  },
+  "mixins": [
+    "hyrule_terrors.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.10",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "architectury": ">=13.0.8",
+    "fabric-api": "*",
+    "azurelib": ">=3.0.0",
+    "cloth-config": ">=15.0.140"
+  },
+  "recommends":  {
+    "modmenu": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.pixeldreamstudios.net"
+      }
+    }
+  }
+}
