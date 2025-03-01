@@ -1,6 +1,7 @@
 package net.bandit.hyrule_terrors.entity.mobs;
 
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
+import net.bandit.hyrule_terrors.entity.attack.DelayedAttackGoal;
 import net.bandit.hyrule_terrors.helper.AnimationDispatcher;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
@@ -41,26 +42,27 @@ public class Bokoblin extends AbstractTerrorMob {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(1, new PanicGoal(this, (double)1.25F));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.3D, false));
-//        {
-//            @Override
-//            protected void checkAndPerformAttack(LivingEntity target) {
-//                super.checkAndPerformAttack(target);
-//                this.resetAttackCooldown();
-//                if (this.mob instanceof Bokoblin Bokoblin)
-//                    Bokoblin.dispatcher.attack();
-//            }
-//        });
+        this.goalSelector.addGoal(1, new PanicGoal(this, 1.25D));
+        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.3D, false) {
+            @Override
+            protected void checkAndPerformAttack(LivingEntity target) {
+                if (this.canPerformAttack(target)) {
+                    super.checkAndPerformAttack(target);
+                    if (this.mob instanceof Bokoblin bokoblin) {
+                        bokoblin.dispatcher.attack();
+                    }
+                }
+            }
+        });
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.8D));
+
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, IronGolem.class, true));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, true));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
     }
-
 
     @Override
     protected SoundEvent getAmbientSound() {

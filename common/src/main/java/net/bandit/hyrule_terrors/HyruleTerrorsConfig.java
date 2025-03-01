@@ -11,11 +11,11 @@ public class HyruleTerrorsConfig implements ConfigData{
     @ConfigEntry.Category("bokoblin")
     @ConfigEntry.Gui.NoTooltip
     @ConfigEntry.BoundedDiscrete(min = 1, max = 100)
-    public int bokoblinHealth = 10;
+    public int bokoblinHealth = 18;
     @ConfigEntry.Category("bokoblin")
     @ConfigEntry.Gui.NoTooltip
     @ConfigEntry.BoundedDiscrete(min = 1, max = 20)
-    public int bokoblinAttackDamage = 2;
+    public int bokoblinAttackDamage = 3;
     @ConfigEntry.Category("bokoblin")
     @ConfigEntry.Gui.NoTooltip
     @ConfigEntry.BoundedDiscrete(max = 100)
