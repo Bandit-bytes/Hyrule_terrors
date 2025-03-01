@@ -8,7 +8,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 
 public class TabRegistry {
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(HyruleTerrorsMod.MOD_ID, Registries.CREATIVE_MODE_TAB);
@@ -16,7 +15,7 @@ public class TabRegistry {
             HyruleTerrorsMod.MOD_ID + "_tab",
             () -> CreativeTabRegistry.create(
                     Component.translatable("category." + HyruleTerrorsMod.MOD_ID),
-                    () -> new ItemStack(Items.EMERALD)
+                    () -> new ItemStack(ItemRegistry.BOKOBLIN_FANG)
             )
     );
 

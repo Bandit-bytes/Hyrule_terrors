@@ -6,7 +6,9 @@ import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import mod.azure.azurelib.common.internal.common.AzureLib;
 import net.bandit.hyrule_terrors.entity.client.renderer.BokoblinRenderer;
 import net.bandit.hyrule_terrors.entity.client.renderer.ChuchuRenderer;
+import net.bandit.hyrule_terrors.entity.client.renderer.LizalfosRenderer;
 import net.bandit.hyrule_terrors.registry.EntityRegistry;
+import net.bandit.hyrule_terrors.registry.ItemRegistry;
 import net.bandit.hyrule_terrors.registry.TabRegistry;
 
 public final class HyruleTerrorsMod {
@@ -20,9 +22,11 @@ public final class HyruleTerrorsMod {
         AzureLib.initialize();
         EntityRegistry.init();
         TabRegistry.init();
+        ItemRegistry.register();
     }
     public static void initClient() {
         EntityRendererRegistry.register(EntityRegistry.BOKOBLIN, BokoblinRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.CHUCHU, ChuchuRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.LIZALFOS, LizalfosRenderer::new);
     }
 }

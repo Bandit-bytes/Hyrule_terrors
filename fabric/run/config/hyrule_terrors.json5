@@ -4,5 +4,8 @@
 	"bokoblinSpawnWeight": 10,
 	"chuchuHealth": 10,
 	"chuchuAttackDamage": 2,
-	"chuchuSpawnWeight": 10
+	"chuchuSpawnWeight": 10,
+	"lizalfosHealth": 20,
+	"lizalfosAttackDamage": 4,
+	"lizalfosSpawnWeight": 10
 }
