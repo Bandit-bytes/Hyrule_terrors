@@ -17,6 +17,12 @@ public class AnimationDispatcher {
             AzPlayBehaviors.LOOP
     );
 
+    private static final AzCommand ATTACK_COMMAND = AzCommand.create(
+            "base_controller",
+            "attack",
+            AzPlayBehaviors.PLAY_ONCE
+    );
+
     private static final AzCommand RUN_COMMAND = AzCommand.create(
             "base_controller",
             "run",
@@ -39,5 +45,9 @@ public class AnimationDispatcher {
 
     public void run() {
         RUN_COMMAND.sendForEntity(animatedEntity);
+    }
+
+    public void attack() {
+        ATTACK_COMMAND.sendForEntity(animatedEntity);
     }
 }

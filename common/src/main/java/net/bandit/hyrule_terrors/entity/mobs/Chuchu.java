@@ -19,16 +19,15 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class Bokoblin extends AbstractTerrorMob {
+public class Chuchu extends AbstractTerrorMob{
 
-    public Bokoblin(EntityType<? extends PathfinderMob> entityType, Level level) {
+    public Chuchu(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
     }
-
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, HyruleTerrorsMod.config.bokoblinHealth)
-                .add(Attributes.ATTACK_DAMAGE, HyruleTerrorsMod.config.bokoblinAttackDamage)
+                .add(Attributes.MAX_HEALTH, HyruleTerrorsMod.config.chuchuHealth)
+                .add(Attributes.ATTACK_DAMAGE, HyruleTerrorsMod.config.chuchuAttackDamage)
                 .add(Attributes.ATTACK_SPEED, 1.0)
                 .add(Attributes.ATTACK_KNOCKBACK, 1.0)
                 .add(Attributes.MOVEMENT_SPEED, 0.3);
@@ -47,6 +46,9 @@ public class Bokoblin extends AbstractTerrorMob {
     }
 
     protected void addBehaviourGoals() {
+        this.goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+
+        // Attack behavior
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setAlertOthers());
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
@@ -55,21 +57,22 @@ public class Bokoblin extends AbstractTerrorMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.PIGLIN_AMBIENT;
+        return SoundEvents.SLIME_SQUISH;
+    }
+    @Override
+    protected SoundEvent getHurtSound(DamageSource arg) {
+        return SoundEvents.SLIME_HURT;
     }
 
-    @Override
-    protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.PIGLIN_HURT;
-    }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.PIGLIN_DEATH;
+        return SoundEvents.SLIME_DEATH;
     }
 
     @Override
     protected void playStepSound(BlockPos pos, BlockState state) {
-        this.playSound(SoundEvents.PIGLIN_STEP, 0.15F, 1.0F);
+        this.playSound(SoundEvents.SLIME_JUMP, 0.15F, 1.0F);
     }
 }
+

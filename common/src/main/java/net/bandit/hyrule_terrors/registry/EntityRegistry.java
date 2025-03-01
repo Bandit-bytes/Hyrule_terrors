@@ -7,6 +7,7 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.entity.mobs.Bokoblin;
+import net.bandit.hyrule_terrors.entity.mobs.Chuchu;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -20,11 +21,15 @@ import java.util.function.Supplier;
 public class EntityRegistry {
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(HyruleTerrorsMod.MOD_ID, Registries.ENTITY_TYPE);
 
-    public static final RegistrySupplier<EntityType<Bokoblin>> BOKOBLIN = registerEntity("bokoblin", Bokoblin::new, MobCategory.CREATURE, 0.75f, 1.75f);
+    public static final RegistrySupplier<EntityType<Bokoblin>> BOKOBLIN = registerEntity("bokoblin", Bokoblin::new, MobCategory.MONSTER, 0.75f, 1.75f);
+    public static final RegistrySupplier<EntityType<Chuchu>> CHUCHU = registerEntity("chuchu", Chuchu::new, MobCategory.MONSTER, 0.50f, 0.75f);
 
     private static void initSpawns() {
         registerSpawnPlacements(EntityRegistry.BOKOBLIN, Bokoblin::checkMobSpawnRules);
         addBiomeProperties(TagRegistry.BOKOBLIN_BIOMES, MobCategory.CREATURE, BOKOBLIN.get(), HyruleTerrorsMod.config.bokoblinSpawnWeight, 1, 1);
+
+        registerSpawnPlacements(EntityRegistry.CHUCHU, Chuchu::checkMobSpawnRules);
+        addBiomeProperties(TagRegistry.CHUCHU_BIOMES, MobCategory.CREATURE, CHUCHU.get(), HyruleTerrorsMod.config.chuchuSpawnWeight, 1, 1);
 
     }
 
@@ -55,6 +60,7 @@ public class EntityRegistry {
 
     private static void initAttributes() {
         EntityAttributeRegistry.register(BOKOBLIN, Bokoblin::createAttributes);
+        EntityAttributeRegistry.register(CHUCHU, Chuchu::createAttributes);
 
     }
 

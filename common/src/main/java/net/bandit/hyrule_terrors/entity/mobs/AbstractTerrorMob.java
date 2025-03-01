@@ -22,18 +22,19 @@ public class AbstractTerrorMob extends PathfinderMob {
         moveAnalysis.update();
 
         if (this.level().isClientSide) {
-            var isMovingOnGround = moveAnalysis.isMovingHorizontally() && onGround();
+            boolean isMovingOnGround = moveAnalysis.isMovingHorizontally() && onGround();
             Runnable animationRunner;
-            if (isMovingOnGround) {
-                if (this.isAggressive()) {
-                    animationRunner = animationDispatcher::run;
-                } else {
-                    animationRunner = animationDispatcher::walk;
-                }
+
+            if (this.swinging) {
+                animationRunner = animationDispatcher::attack;
+            } else if (isMovingOnGround) {
+                animationRunner = this.isAggressive() ? animationDispatcher::run : animationDispatcher::walk;
             } else {
                 animationRunner = animationDispatcher::idle;
             }
+
             animationRunner.run();
         }
     }
+
 }

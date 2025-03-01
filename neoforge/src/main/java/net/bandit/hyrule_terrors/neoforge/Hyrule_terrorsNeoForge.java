@@ -6,7 +6,6 @@ import net.neoforged.fml.common.Mod;
 @Mod(HyruleTerrorsMod.MOD_ID)
 public final class Hyrule_terrorsNeoForge {
     public Hyrule_terrorsNeoForge() {
-        // Run our common setup.
         HyruleTerrorsMod.init();
     }
 }
