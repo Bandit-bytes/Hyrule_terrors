@@ -10,3 +10,5 @@
 /neoforge/.gradle/
 /neoforge/build/
 /fabric/run/
+/fabric/run/**
+/neoforge/run/**

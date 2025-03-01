@@ -1,1 +1,16 @@
 /summon hyrule_terrors:bokoblin
+/time set day
+/summon hyrule_terrors:bokoblin
+/summon hyrule_terrors:chuchu
+/summon hyrule_terrors:bokoblin
+/summon hyrule_terrors:chuchu
+/summon hyrule_terrors:bokoblin
+/summon hyrule_terrors:chuchu
+/summon hyrule_terrors:bokoblin
+/time set day
+/summon hyrule_terrors:bokoblin
+/summon hyrule_terrors:chuchu
+/summon hyrule_terrors:bokoblin
+/locate biome minecraft:plains
+/tp @s 71 82 -36
+/summon hyrule_terrors:bokoblin
