@@ -20,6 +20,11 @@ public class BokoblinAnimator extends AzEntityAnimator<Bokoblin> {
                 AzAnimationController.builder(this, "base_controller")
                         .build()
         );
+        animationControllerContainer.add(
+                AzAnimationController.builder(this, "attack_controller")
+                        .setTransitionLength(5)
+                        .build()
+        );
     }
 
     @Override

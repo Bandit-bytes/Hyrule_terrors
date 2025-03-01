@@ -18,7 +18,7 @@ public class AnimationDispatcher {
     );
 
     private static final AzCommand ATTACK_COMMAND = AzCommand.create(
-            "base_controller",
+            "attack_controller",
             "attack",
             AzPlayBehaviors.PLAY_ONCE
     );

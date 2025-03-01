@@ -15,26 +15,24 @@ public class AbstractTerrorMob extends PathfinderMob {
         this.animationDispatcher = new AnimationDispatcher(this);
         this.moveAnalysis = new MoveAnalysis(this);
     }
-
     @Override
     public void tick() {
         super.tick();
         moveAnalysis.update();
 
         if (this.level().isClientSide) {
-            boolean isMovingOnGround = moveAnalysis.isMovingHorizontally() && onGround();
+            var isMovingOnGround = moveAnalysis.isMovingHorizontally() && onGround();
             Runnable animationRunner;
-
-            if (this.swinging) {
-                animationRunner = animationDispatcher::attack;
-            } else if (isMovingOnGround) {
-                animationRunner = this.isAggressive() ? animationDispatcher::run : animationDispatcher::walk;
+            if (isMovingOnGround) {
+                if (this.isAggressive()) {
+                    animationRunner = animationDispatcher::run;
+                } else {
+                    animationRunner = animationDispatcher::walk;
+                }
             } else {
                 animationRunner = animationDispatcher::idle;
             }
-
             animationRunner.run();
         }
     }
-
 }
