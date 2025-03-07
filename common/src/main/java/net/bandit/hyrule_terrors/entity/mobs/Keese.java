@@ -1,5 +1,6 @@
 package net.bandit.hyrule_terrors.entity.mobs;
 
+import mod.azure.azurelib.rewrite.util.MoveAnalysis;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.entity.attack.FlyingAttackGoal;
 import net.bandit.hyrule_terrors.entity.ai.RandomFlyingGoal;
@@ -16,16 +17,21 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.FlyingMoveControl;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.ambient.Bat;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class Keese extends AbstractFlyTerrorMob {
+public class Keese extends Bat  {
     public AnimationDispatcher dispatcher;
+    public final AnimationDispatcher animationDispatcher;
+    public final MoveAnalysis moveAnalysis;
 
-    public Keese(EntityType<? extends AbstractFlyTerrorMob> entityType, Level level) {
+    public Keese(EntityType<? extends Bat> entityType, Level level) {
         super(entityType, level);
+        this.animationDispatcher = new AnimationDispatcher(this);
+        this.moveAnalysis = new MoveAnalysis(this);
         dispatcher = new AnimationDispatcher(this);
         this.moveControl = new FlyingMoveControl(this, 10, true);
         this.setNoGravity(true);
@@ -50,27 +56,25 @@ public class Keese extends AbstractFlyTerrorMob {
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
-
     @Override
-    public void tick() {
-        super.tick();
+    public void swing(net.minecraft.world.InteractionHand hand, boolean updateSelf) {
+        super.swing(hand, updateSelf);
 
-        if (!this.level().isClientSide && this.tickCount % 20 == 0) {
-            double x = this.getX() + (this.random.nextFloat() - 0.5) * 8.0;
-            double y = this.getY() + (this.random.nextFloat() - 0.2) * 2.5 + 5.0;
-            double z = this.getZ() + (this.random.nextFloat() - 0.5) * 8.0;
-            this.getMoveControl().setWantedPosition(x, y, z, 0.5);
-        }
-
-        if (!this.level().isClientSide && this.tickCount % 40 == 0) {
-            double hoverAmount = Math.sin(this.tickCount * 0.2) * 0.4;
-            this.setDeltaMovement(this.getDeltaMovement().add(0, hoverAmount, 0));
+        if (this.level().isClientSide) {
+            dispatcher.attack();
         }
     }
 
     @Override
-    protected SoundEvent getAmbientSound() {
-        return SoundEvents.BAT_AMBIENT;
+    public void tick() {
+        super.tick();
+        moveAnalysis.update();
+
+        if (this.level().isClientSide) {
+            boolean isFlying = !this.onGround();
+            Runnable animationRunner = isFlying ? animationDispatcher::fly : animationDispatcher::idle;
+            animationRunner.run();
+        }
     }
 
     @Override

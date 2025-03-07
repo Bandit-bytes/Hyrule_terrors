@@ -13,7 +13,7 @@ import net.minecraft.world.item.Tiers;
 
 public class ItemRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(HyruleTerrorsMod.MOD_ID, Registries.ITEM);
-
+    //Eggies
     public static final RegistrySupplier<Item> BOKOBLIN_SPAWN_EGG = ITEMS.register("bokoblin_spawn_egg",
             () -> new ArchitecturySpawnEggItem(EntityRegistry.BOKOBLIN,
                     0xCF6E11, 0xA85807, new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB))); // Orange
@@ -26,7 +26,7 @@ public class ItemRegistry {
     public static final RegistrySupplier<Item> KEESE_SPAWN_EGG = ITEMS.register("keese_spawn_egg",
             () -> new ArchitecturySpawnEggItem(EntityRegistry.KEESE,
                     0x3A3A3A, 0x888888, new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB))); // Black/Gray
-
+    //Items
     public static final RegistrySupplier<Item> BOKOBLIN_FANG = ITEMS.register("bokoblin_fang",
             () -> new BokoblinFang(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE)));
     public static final RegistrySupplier<Item> BOKOBLIN_HORN = ITEMS.register("bokoblin_horn",
@@ -39,11 +39,9 @@ public class ItemRegistry {
             () -> new LizalfosTalon(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE)));
     public static final RegistrySupplier<Item> CHUCHU_JELLY = ITEMS.register("chuchu_jelly",
             () -> new ChuchuJelly(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.UNCOMMON)));
-
     // WEAPONS
     public static final RegistrySupplier<Item> LIZALFOS_HORN_DAGGER = ITEMS.register("lizalfos_horn_dagger", () -> new SwordItem(Tiers.IRON,
             new Item.Properties().attributes(SwordItem.createAttributes(Tiers.IRON, 2, -1.5F)).rarity(Rarity.UNCOMMON).durability(75).arch$tab(TabRegistry.HYRULE_TERRORS_TAB)));
-
 
 
     public static void register() {

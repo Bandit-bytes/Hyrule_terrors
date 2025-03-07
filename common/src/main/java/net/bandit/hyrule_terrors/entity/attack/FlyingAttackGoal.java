@@ -1,5 +1,6 @@
 package net.bandit.hyrule_terrors.entity.attack;
 
+import net.bandit.hyrule_terrors.entity.mobs.Keese;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.Goal;
@@ -51,7 +52,7 @@ public class FlyingAttackGoal extends Goal {
             }
 
             if (distance < 2.5D && attackCooldown == 0) {
-                if (this.mob instanceof net.bandit.hyrule_terrors.entity.mobs.Keese keese) {
+                if (this.mob instanceof Keese keese) {
                     keese.dispatcher.attack();
                 }
 

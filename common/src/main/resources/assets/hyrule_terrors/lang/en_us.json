@@ -31,5 +31,24 @@
   "entity.hyrule_terrors.bokoblin": "Bokoblin",
   "entity.hyrule_terrors.chuchu": "Chuchu",
   "entity.hyrule_terrors.keese": "Keese",
-  "entity.hyrule_terrors.lizalfos": "Lizalfos"
+  "entity.hyrule_terrors.lizalfos": "Lizalfos",
+
+
+  "text.autoconfig.hyrule_terrors.category.bokoblin": "Bokoblin Options",
+  "text.autoconfig.hyrule_terrors.category.lizalfos": "Lizalfos Options",
+  "text.autoconfig.hyrule_terrors.category.chuchu": "Chuchu Options",
+  "text.autoconfig.hyrule_terrors.category.keese": "Keese Options",
+
+  "text.autoconfig.hyrule_terrors.option.bokoblinHealth": "Bokoblin Health",
+  "text.autoconfig.hyrule_terrors.option.bokoblinAttackDamage": "Bokoblin Attack Damage",
+  "text.autoconfig.hyrule_terrors.option.bokoblinSpawnWeight": "Bokoblin Spawn Weight",
+  "text.autoconfig.hyrule_terrors.option.chuchuHealth": "Chuchu Health",
+  "text.autoconfig.hyrule_terrors.option.chuchuAttackDamage": "Chuchu Attack Damage",
+  "text.autoconfig.hyrule_terrors.option.chuchuSpawnWeight": "chuchu Spawn Weight",
+  "text.autoconfig.hyrule_terrors.option.keeseHealth": "Keese Health",
+  "text.autoconfig.hyrule_terrors.option.keeseAttackDamage": "Keese Attack Damage",
+  "text.autoconfig.hyrule_terrors.option.keeseSpawnWeight": "Keese Spawn Weight",
+  "text.autoconfig.hyrule_terrors.option.lizalfosHealth": "Lizalfos Health",
+  "text.autoconfig.hyrule_terrors.option.lizalfosAttackDamage": "Lizalfos Attack Damage",
+  "text.autoconfig.hyrule_terrors.option.lizalfosSpawnWeight": "Lizalfos Spawn Weight"
 }
