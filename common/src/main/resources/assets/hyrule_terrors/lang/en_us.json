@@ -1,8 +1,25 @@
 {
   "category.hyrule_terrors": "Hyrule Terrors",
+
   "item.hyrule_terrors.bokoblin_fang": "Bokoblin Fang",
   "item.hyrule_terrors.bokoblin_horn": "Bokoblin Horn",
+  "item.hyrule_terrors.lizalfos_horn": "Lizalfos Horn",
+  "item.hyrule_terrors.lizalfos_talon": "Lizalfos Talon",
+  "item.hyrule_terrors.lizalfos_tail": "Lizalfos Tail",
+  "item.hyrule_terrors.chuchu_jelly": "Chuchu Jelly",
+  "item.hyrule_terrors.bokoblin_spawn_egg": "Bokoblin Spawn Egg",
+  "item.hyrule_terrors.lizalfos_spawn_egg": "Lizalfos Spawn Egg",
+  "item.hyrule_terrors.chuchu_spawn_egg": "Chuchu Spawn Egg",
+  "item.hyrule_terrors.keese_spawn_egg": "Keese Spawn Egg",
 
+  "item.hyrule_terrors.hold_shift": "§8[Hold §eShift§8] for more info",
+  "item.chuchu_jelly.tooltip": "A gelatinous substance that came from a chuchu. It's unusable in this state.",
+  "item.bokoblin_horn.tooltip": "A sharp horn with multiple barbs.",
+  "item.bokoblin_fang.tooltip": "It's worn down and not very sharp, but its still pretty hard.",
+  "item.lizalfos_horn.tooltip": "A thin, sharp knife-like horn.",
+  "item.lizalfos_tail.tooltip": "The severed tail of a Lizalfos. It continues to wriggle even after being separated from its body.",
+  "item.lizalfos_tail.tooltip_1": "Gives Strength for 30s",
+  "item.lizalfos_talon.tooltip": "This talon once grew from the elbow of a Lizalfos.",
 
 
   "entity.hyrule_terrors.bokoblin": "Bokoblin",

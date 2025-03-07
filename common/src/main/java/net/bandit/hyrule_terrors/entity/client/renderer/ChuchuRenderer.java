@@ -4,7 +4,6 @@ import mod.azure.azurelib.rewrite.render.entity.AzEntityRenderer;
 import mod.azure.azurelib.rewrite.render.entity.AzEntityRendererConfig;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.entity.client.animator.ChuchuAnimator;
-import net.bandit.hyrule_terrors.entity.mobs.Bokoblin;
 import net.bandit.hyrule_terrors.entity.mobs.Chuchu;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -28,4 +27,5 @@ public class ChuchuRenderer extends AzEntityRenderer<Chuchu> {
         );
         this.shadowRadius = 0.25f;
     }
+
 }

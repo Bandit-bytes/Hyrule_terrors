@@ -27,4 +27,5 @@ public class BokoblinRenderer extends AzEntityRenderer<Bokoblin> {
         );
         this.shadowRadius = 0.5f;
     }
+
 }

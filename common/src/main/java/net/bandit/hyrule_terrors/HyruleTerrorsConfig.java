@@ -35,6 +35,20 @@ public class HyruleTerrorsConfig implements ConfigData{
     @ConfigEntry.BoundedDiscrete(max = 100)
     public int chuchuSpawnWeight = 10;
 
+    // Keese
+    @ConfigEntry.Category("keese")
+    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 100)
+    public int keeseHealth = 10;
+    @ConfigEntry.Category("keese")
+    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 20)
+    public int keeseAttackDamage = 2;
+    @ConfigEntry.Category("keese")
+    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.BoundedDiscrete(max = 100)
+    public int keeseSpawnWeight = 10;
+
     // Lizalfos
     @ConfigEntry.Category("lizalfos")
     @ConfigEntry.Gui.NoTooltip

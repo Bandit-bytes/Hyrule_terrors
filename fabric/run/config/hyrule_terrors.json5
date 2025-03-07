@@ -5,6 +5,9 @@
 	"chuchuHealth": 10,
 	"chuchuAttackDamage": 2,
 	"chuchuSpawnWeight": 10,
+	"keeseHealth": 10,
+	"keeseAttackDamage": 2,
+	"keeseSpawnWeight": 10,
 	"lizalfosHealth": 20,
 	"lizalfosAttackDamage": 4,
 	"lizalfosSpawnWeight": 10

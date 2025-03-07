@@ -6,6 +6,7 @@ import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import mod.azure.azurelib.common.internal.common.AzureLib;
 import net.bandit.hyrule_terrors.entity.client.renderer.BokoblinRenderer;
 import net.bandit.hyrule_terrors.entity.client.renderer.ChuchuRenderer;
+import net.bandit.hyrule_terrors.entity.client.renderer.KeeseRenderer;
 import net.bandit.hyrule_terrors.entity.client.renderer.LizalfosRenderer;
 import net.bandit.hyrule_terrors.registry.EntityRegistry;
 import net.bandit.hyrule_terrors.registry.ItemRegistry;
@@ -20,7 +21,9 @@ public final class HyruleTerrorsMod {
         config = AutoConfig.getConfigHolder(HyruleTerrorsConfig.class).getConfig();
 
         AzureLib.initialize();
+
         EntityRegistry.init();
+
         TabRegistry.init();
         ItemRegistry.register();
     }
@@ -28,5 +31,6 @@ public final class HyruleTerrorsMod {
         EntityRendererRegistry.register(EntityRegistry.BOKOBLIN, BokoblinRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.CHUCHU, ChuchuRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.LIZALFOS, LizalfosRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.KEESE, KeeseRenderer::new);
     }
 }

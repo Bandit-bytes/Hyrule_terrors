@@ -2,7 +2,11 @@ package net.bandit.hyrule_terrors.entity.mobs;
 
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.helper.AnimationDispatcher;
+import net.bandit.hyrule_terrors.registry.ItemRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
@@ -18,6 +22,10 @@ import net.minecraft.world.entity.animal.IronGolem;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.npc.AbstractVillager;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -47,8 +55,8 @@ public class Lizalfos extends AbstractTerrorMob {
             protected void checkAndPerformAttack(LivingEntity target) {
                 if (this.canPerformAttack(target)) {
                     super.checkAndPerformAttack(target);
-                    if (this.mob instanceof Lizalfos bokoblin) {
-                        bokoblin.dispatcher.attack();
+                    if (this.mob instanceof Lizalfos lizalfos) {
+                        lizalfos.dispatcher.attack();
                     }
                 }
             }
@@ -60,24 +68,47 @@ public class Lizalfos extends AbstractTerrorMob {
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
     }
-
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.PIGLIN_AMBIENT;
+        return SoundEvents.AXOLOTL_IDLE_AIR;
     }
-
     @Override
     protected SoundEvent getHurtSound(DamageSource source) {
-        return SoundEvents.PIGLIN_HURT;
+        return SoundEvents.TURTLE_HURT;
     }
-
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.PIGLIN_DEATH;
+        return SoundEvents.TURTLE_DEATH;
     }
-
     @Override
     protected void playStepSound(BlockPos pos, BlockState state) {
-        this.playSound(SoundEvents.PIGLIN_STEP, 0.15F, 1.0F);
+        this.playSound(SoundEvents.TURTLE_SHAMBLE, 0.15F, 1.0F);
+    }
+    @Override
+    protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) {
+        super.dropCustomDeathLoot(level, source, recentlyHit);
+
+        if (level.isClientSide()) return;
+
+        int lootingLevel = 0;
+        if (source.getEntity() instanceof LivingEntity attacker) {
+            Holder<Enchantment> looting = level.registryAccess()
+                    .registryOrThrow(Registries.ENCHANTMENT)
+                    .getHolderOrThrow(Enchantments.LOOTING);
+
+            lootingLevel = EnchantmentHelper.getItemEnchantmentLevel(looting, attacker.getMainHandItem());
+        }
+
+        this.spawnAtLocation(ItemRegistry.LIZALFOS_HORN.get(), 1 + this.random.nextInt(2));
+        if (this.random.nextFloat() < 0.2F + (0.05F * lootingLevel)) {
+            this.spawnAtLocation(ItemRegistry.LIZALFOS_TALON.get(), 1);
+        }
+        if (this.random.nextFloat() < 0.1F + (0.02F * lootingLevel)) {
+            this.spawnAtLocation(ItemRegistry.LIZALFOS_TAIL.get(), 1);
+        }
+        ItemStack heldItem = this.getMainHandItem();
+        if (!heldItem.isEmpty() && this.random.nextFloat() < 0.1F + (0.03F * lootingLevel)) {
+            this.spawnAtLocation(heldItem);
+        }
     }
 }

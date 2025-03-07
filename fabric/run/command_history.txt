@@ -22,3 +22,22 @@
 /summon hyrule_terrors:bokoblin
 /summon hyrule_terrors:chuchu
 /summon hyrule_terrors:bokoblin
+/summon hyrule_terrors:lizalfos
+/tp @s 71 82 -36
+/setworldspawn
+/summon hyrule_terrors:lizalfos
+/time set day
+/summon hyrule_terrors:lizalfos
+/summon hyrule_terrors:chuchu
+/summon hyrule_terrors:lizalfos
+/give Player522 hyrule_terrors:lizalfos_tail
+/summon hyrule_terrors:keese
+/time set day
+/summon hyrule_terrors:keese
+/summon hyrule_terrors:bokoblin
+/summon hyrule_terrors:lizalfos
+/summon hyrule_terrors:chuchu
+/time set day
+/give Player240 minecraft:spawner
+/time set night
+/time set day

@@ -11,7 +11,7 @@ import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 @Mod(value = HyruleTerrorsMod.MOD_ID, dist = Dist.CLIENT)
 public class HyruleTerrorsNeoForgeClient {
     public HyruleTerrorsNeoForgeClient() {
-        HyruleTerrorsMod.initClient();
+//        HyruleTerrorsMod.initClient();
         ModLoadingContext.get().registerExtensionPoint(IConfigScreenFactory.class, () -> (modContainer, screen) -> AutoConfig.getConfigScreen(HyruleTerrorsConfig.class, screen).get());
     }
 }

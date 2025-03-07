@@ -28,26 +28,38 @@ public class AnimationDispatcher {
             "run",
             AzPlayBehaviors.LOOP
     );
+    private static final AzCommand CRAWL_COMMAND = AzCommand.create(
+            "base_controller",
+            "crawl",
+            AzPlayBehaviors.LOOP
+    );
+    private static final AzCommand FLY_COMMAND = AzCommand.create(
+            "base_controller",
+            "fly",
+            AzPlayBehaviors.LOOP
+    );
 
     private final Entity animatedEntity;
 
     public AnimationDispatcher(Entity animatable) {
         this.animatedEntity = animatable;
     }
-
     public void idle() {
         IDLE_COMMAND.sendForEntity(animatedEntity);
     }
-
     public void walk() {
         WALK_COMMAND.sendForEntity(animatedEntity);
     }
-
     public void run() {
         RUN_COMMAND.sendForEntity(animatedEntity);
     }
-
     public void attack() {
         ATTACK_COMMAND.sendForEntity(animatedEntity);
+    }
+    public void crawl() {
+        CRAWL_COMMAND.sendForEntity(animatedEntity);
+    }
+    public void fly() {
+        FLY_COMMAND.sendForEntity(animatedEntity);
     }
 }
