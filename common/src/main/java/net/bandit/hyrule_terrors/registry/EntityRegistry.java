@@ -6,10 +6,7 @@ import dev.architectury.registry.level.entity.SpawnPlacementsRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
-import net.bandit.hyrule_terrors.entity.mobs.Bokoblin;
-import net.bandit.hyrule_terrors.entity.mobs.Chuchu;
-import net.bandit.hyrule_terrors.entity.mobs.Keese;
-import net.bandit.hyrule_terrors.entity.mobs.Lizalfos;
+import net.bandit.hyrule_terrors.entity.mobs.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.*;
@@ -49,7 +46,7 @@ public class EntityRegistry {
         SpawnPlacementsRegistry.register(EntityRegistry.LIZALFOS, SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Lizalfos::checkMobSpawnRules);
         BiomeModifications.addProperties(b -> b.hasTag(TagRegistry.LIZALFOS_BIOMES), (ctx, b) -> b.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(LIZALFOS.get(), HyruleTerrorsMod.config.lizalfosSpawnWeight, 2, 5)));
 
-        SpawnPlacementsRegistry.register(EntityRegistry.KEESE, SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Keese::checkMobSpawnRules);
+        SpawnPlacementsRegistry.register(EntityRegistry.KEESE, SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Keese::checkMobSpawnRules);
         BiomeModifications.addProperties(b -> b.hasTag(TagRegistry.KEESE_BIOMES), (ctx, b) -> b.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(KEESE.get(), HyruleTerrorsMod.config.keeseSpawnWeight, 2, 4)));
     }
 

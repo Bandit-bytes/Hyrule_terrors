@@ -1,6 +1,7 @@
 package net.bandit.hyrule_terrors.entity.mobs;
 
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
+import net.bandit.hyrule_terrors.entity.ai.SneakyCrawlGoal;
 import net.bandit.hyrule_terrors.helper.AnimationDispatcher;
 import net.bandit.hyrule_terrors.registry.ItemRegistry;
 import net.minecraft.core.BlockPos;
@@ -50,7 +51,7 @@ public class Lizalfos extends AbstractTerrorMob {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(1, new PanicGoal(this, 1.25D));
+//        this.goalSelector.addGoal(1, new PanicGoal(this, 1.25D));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.3D, false) {
             @Override
             protected void checkAndPerformAttack(LivingEntity target) {
@@ -62,6 +63,8 @@ public class Lizalfos extends AbstractTerrorMob {
                 }
             }
         });
+//        this.goalSelector.addGoal(3, new SneakyCrawlGoal(this, 1.0D));
+
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.8D));
@@ -69,6 +72,19 @@ public class Lizalfos extends AbstractTerrorMob {
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
     }
+    @Override
+    public void tick() {
+        super.tick();
+
+        if (this.getHealth() < this.getMaxHealth() * 0.3) {
+            this.dispatcher.crawl();
+            this.getNavigation().moveTo(this.getX() + (random.nextBoolean() ? 4 : -4),
+                    this.getY(),
+                    this.getZ() + (random.nextBoolean() ? 4 : -4),
+                    1.2);
+        }
+    }
+
     @Override
     protected SoundEvent getAmbientSound() {
         return SoundEvents.AXOLOTL_IDLE_AIR;
@@ -101,10 +117,10 @@ public class Lizalfos extends AbstractTerrorMob {
         }
 
         this.spawnAtLocation(ItemRegistry.LIZALFOS_HORN.get(), 1 + this.random.nextInt(2));
-        if (this.random.nextFloat() < 0.2F + (0.05F * lootingLevel)) {
+        if (this.random.nextFloat() < 0.3F + (0.05F * lootingLevel)) {
             this.spawnAtLocation(ItemRegistry.LIZALFOS_TALON.get(), 1);
         }
-        if (this.random.nextFloat() < 0.1F + (0.02F * lootingLevel)) {
+        if (this.random.nextFloat() < 0.3F + (0.04F * lootingLevel)) {
             this.spawnAtLocation(ItemRegistry.LIZALFOS_TAIL.get(), 1);
         }
         ItemStack heldItem = this.getMainHandItem();
