@@ -18,52 +18,41 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.Heightmap;
 
-
-
 public class EntityRegistry {
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(HyruleTerrorsMod.MOD_ID, Registries.ENTITY_TYPE);
 
-    public static final RegistrySupplier<EntityType<Lizalfos>> LIZALFOS = registerEntity("lizalfos", Lizalfos::new, 1.0f, 2.0f);
-    public static final RegistrySupplier<EntityType<Chuchu>> CHUCHU = registerEntity("chuchu", Chuchu::new, 0.55f, 0.75f);
-    public static final RegistrySupplier<EntityType<Keese>> KEESE = registerEntity("keese", Keese::new, 0.55f, 0.75f);
-    public static final RegistrySupplier<EntityType<Bokoblin>> BOKOBLIN = registerEntity("bokoblin", Bokoblin::new, 0.75f, 1.75f);
+    public static final RegistrySupplier<EntityType<Lizalfos>> LIZALFOS = ENTITIES.register("lizalfos", () ->
+            EntityType.Builder.of(Lizalfos::new, MobCategory.CREATURE)
+                    .sized(1.0f, 2.0f)
+                    .build(ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID, "lizalfos").toString()));
+
+    public static final RegistrySupplier<EntityType<Chuchu>> CHUCHU = ENTITIES.register("chuchu", () ->
+            EntityType.Builder.of(Chuchu::new, MobCategory.CREATURE)
+                    .sized(0.55f, 0.75f)
+                    .build(ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID, "chuchu").toString()));
+
+    public static final RegistrySupplier<EntityType<Keese>> KEESE = ENTITIES.register("keese", () ->
+            EntityType.Builder.of(Keese::new, MobCategory.CREATURE)
+                    .sized(0.55f, 0.75f)
+                    .build(ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID, "keese").toString()));
+
+    public static final RegistrySupplier<EntityType<Bokoblin>> BOKOBLIN = ENTITIES.register("bokoblin", () ->
+            EntityType.Builder.of(Bokoblin::new, MobCategory.CREATURE)
+                    .sized(0.75f, 1.75f)
+                    .build(ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID, "bokoblin").toString()));
 
     private static void initSpawns() {
+        SpawnPlacementsRegistry.register(EntityRegistry.BOKOBLIN, SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Bokoblin::checkMobSpawnRules);
+        BiomeModifications.addProperties(b -> b.hasTag(TagRegistry.BOKOBLIN_BIOMES), (ctx, b) -> b.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(BOKOBLIN.get(), HyruleTerrorsMod.config.bokoblinSpawnWeight, 2, 5)));
 
-        registerSpawnPlacements(EntityRegistry.BOKOBLIN, Bokoblin::checkMobSpawnRules);
-        addBiomeProperties(TagRegistry.BOKOBLIN_BIOMES, BOKOBLIN.get(), HyruleTerrorsMod.config.bokoblinSpawnWeight, 2, 5);
-        registerSpawnPlacements(EntityRegistry.CHUCHU, Chuchu::checkMobSpawnRules);
-        addBiomeProperties(TagRegistry.CHUCHU_BIOMES, CHUCHU.get(), HyruleTerrorsMod.config.chuchuSpawnWeight, 2, 5);
-        registerSpawnPlacements(EntityRegistry.LIZALFOS, Lizalfos::checkMobSpawnRules);
-        addBiomeProperties(TagRegistry.LIZALFOS_BIOMES, LIZALFOS.get(), HyruleTerrorsMod.config.lizalfosSpawnWeight, 2, 5);
-        registerSpawnPlacements(EntityRegistry.KEESE, Keese::checkMobSpawnRules);
-        addBiomeProperties(TagRegistry.KEESE_BIOMES, KEESE.get(), HyruleTerrorsMod.config.keeseSpawnWeight, 2, 4);
-    }
+        SpawnPlacementsRegistry.register(EntityRegistry.CHUCHU, SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Chuchu::checkMobSpawnRules);
+        BiomeModifications.addProperties(b -> b.hasTag(TagRegistry.CHUCHU_BIOMES), (ctx, b) -> b.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(CHUCHU.get(), HyruleTerrorsMod.config.chuchuSpawnWeight, 2, 5)));
 
-    private static <T extends Mob> RegistrySupplier<EntityType<T>> registerEntity(
-            String id, EntityType.EntityFactory<T> entityFactory, float hitboxWidth, float hitboxHeight) {
-        return ENTITIES.register(id, () ->
-                EntityType.Builder.of(entityFactory, MobCategory.CREATURE)
-                        .sized(hitboxWidth, hitboxHeight)
-                        .build(ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID, id).toString())
-        );
-    }
+        SpawnPlacementsRegistry.register(EntityRegistry.LIZALFOS, SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Lizalfos::checkMobSpawnRules);
+        BiomeModifications.addProperties(b -> b.hasTag(TagRegistry.LIZALFOS_BIOMES), (ctx, b) -> b.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(LIZALFOS.get(), HyruleTerrorsMod.config.lizalfosSpawnWeight, 2, 5)));
 
-    private static <T extends Mob> void registerSpawnPlacements(RegistrySupplier<EntityType<T>> type, SpawnPlacements.SpawnPredicate<T> spawnPredicate) {
-        SpawnPlacementsRegistry.register(
-                type,
-                SpawnPlacementTypes.ON_GROUND,
-                Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                spawnPredicate
-        );
-    }
-
-
-    private static void addBiomeProperties(TagKey<Biome> tag, EntityType<?> entityType, int spawnWeight, int minGroup, int maxGroup) {
-        BiomeModifications.addProperties(
-                b -> b.hasTag(tag),
-                (ctx, b) -> b.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(entityType, spawnWeight, minGroup, maxGroup))
-        );
+        SpawnPlacementsRegistry.register(EntityRegistry.KEESE, SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Keese::checkMobSpawnRules);
+        BiomeModifications.addProperties(b -> b.hasTag(TagRegistry.KEESE_BIOMES), (ctx, b) -> b.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(KEESE.get(), HyruleTerrorsMod.config.keeseSpawnWeight, 2, 4)));
     }
 
     private static void initAttributes() {
@@ -76,7 +65,6 @@ public class EntityRegistry {
     public static void init() {
         ENTITIES.register();
         initAttributes();
-//        LifecycleEvent.SERVER_LEVEL_LOAD.register(level -> initSpawns());
         initSpawns();
     }
 }
