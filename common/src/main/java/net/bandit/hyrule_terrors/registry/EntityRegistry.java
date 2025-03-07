@@ -59,6 +59,7 @@ public class EntityRegistry {
         );
     }
 
+
     private static void addBiomeProperties(TagKey<Biome> tag, MobCategory category, EntityType<?> entityType, int spawnWeight, int minGroup, int maxGroup) {
         BiomeModifications.addProperties(
                 b -> b.hasTag(tag),
