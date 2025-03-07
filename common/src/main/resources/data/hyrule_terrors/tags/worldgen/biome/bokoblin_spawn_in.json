@@ -1,5 +1,11 @@
 {
   "values": [
-    "#c:is_temperate"
+    "#c:is_temperate",
+    "#c:is_badlands",
+    "#c:is_desert",
+    "#c:is_dry",
+    "#c:is_hot",
+    "minecraft:badlands",
+    "minecraft:mushroom_fields"
   ]
 }

@@ -11,7 +11,6 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ExperienceOrb;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.FlyingMoveControl;
@@ -47,8 +46,8 @@ public class Keese extends AbstractFlyTerrorMob {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new RandomFlyingGoal(this, 0.5));
         this.goalSelector.addGoal(2, new FlyingAttackGoal(this, 0.8));
-        this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 12.0F));
-        this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 12.0F));
+        this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
 
@@ -56,13 +55,16 @@ public class Keese extends AbstractFlyTerrorMob {
     public void tick() {
         super.tick();
 
-        if (this.getTarget() != null) {
-            LivingEntity target = this.getTarget();
-            double distance = this.distanceTo(target);
+        if (!this.level().isClientSide && this.tickCount % 20 == 0) {
+            double x = this.getX() + (this.random.nextFloat() - 0.5) * 8.0;
+            double y = this.getY() + (this.random.nextFloat() - 0.2) * 2.5 + 5.0;
+            double z = this.getZ() + (this.random.nextFloat() - 0.5) * 8.0;
+            this.getMoveControl().setWantedPosition(x, y, z, 0.5);
+        }
 
-            if (distance > 3.0D) {
-                this.getMoveControl().setWantedPosition(target.getX(), target.getY() + 2, target.getZ(), 1.0);
-            }
+        if (!this.level().isClientSide && this.tickCount % 40 == 0) {
+            double hoverAmount = Math.sin(this.tickCount * 0.2) * 0.4;
+            this.setDeltaMovement(this.getDeltaMovement().add(0, hoverAmount, 0));
         }
     }
 

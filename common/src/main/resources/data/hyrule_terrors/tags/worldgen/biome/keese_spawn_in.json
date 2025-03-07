@@ -1,5 +1,7 @@
 {
   "values": [
-    "#c:is_temperate"
+    "#c:is_cave",
+    "minecraft:lush_caves",
+    "minecraft:wooded_badlands"
   ]
 }

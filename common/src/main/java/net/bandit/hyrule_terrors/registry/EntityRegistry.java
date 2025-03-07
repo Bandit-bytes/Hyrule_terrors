@@ -1,6 +1,5 @@
 package net.bandit.hyrule_terrors.registry;
 
-import dev.architectury.event.events.common.LifecycleEvent;
 import dev.architectury.registry.level.biome.BiomeModifications;
 import dev.architectury.registry.level.entity.EntityAttributeRegistry;
 import dev.architectury.registry.level.entity.SpawnPlacementsRegistry;
@@ -24,27 +23,27 @@ import net.minecraft.world.level.levelgen.Heightmap;
 public class EntityRegistry {
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(HyruleTerrorsMod.MOD_ID, Registries.ENTITY_TYPE);
 
-    public static final RegistrySupplier<EntityType<Lizalfos>> LIZALFOS = registerEntity("lizalfos", Lizalfos::new, MobCategory.MONSTER, 1.0f, 2.0f);
-    public static final RegistrySupplier<EntityType<Chuchu>> CHUCHU = registerEntity("chuchu", Chuchu::new, MobCategory.MONSTER, 0.55f, 0.75f);
-    public static final RegistrySupplier<EntityType<Keese>> KEESE = registerEntity("keese", Keese::new, MobCategory.MONSTER, 0.55f, 0.75f);
-    public static final RegistrySupplier<EntityType<Bokoblin>> BOKOBLIN = registerEntity("bokoblin", Bokoblin::new, MobCategory.MONSTER, 0.75f, 1.75f);
+    public static final RegistrySupplier<EntityType<Lizalfos>> LIZALFOS = registerEntity("lizalfos", Lizalfos::new, 1.0f, 2.0f);
+    public static final RegistrySupplier<EntityType<Chuchu>> CHUCHU = registerEntity("chuchu", Chuchu::new, 0.55f, 0.75f);
+    public static final RegistrySupplier<EntityType<Keese>> KEESE = registerEntity("keese", Keese::new, 0.55f, 0.75f);
+    public static final RegistrySupplier<EntityType<Bokoblin>> BOKOBLIN = registerEntity("bokoblin", Bokoblin::new, 0.75f, 1.75f);
 
     private static void initSpawns() {
 
         registerSpawnPlacements(EntityRegistry.BOKOBLIN, Bokoblin::checkMobSpawnRules);
-        addBiomeProperties(TagRegistry.BOKOBLIN_BIOMES, MobCategory.MONSTER, BOKOBLIN.get(), HyruleTerrorsMod.config.bokoblinSpawnWeight, 1, 1);
+        addBiomeProperties(TagRegistry.BOKOBLIN_BIOMES, BOKOBLIN.get(), HyruleTerrorsMod.config.bokoblinSpawnWeight, 2, 5);
         registerSpawnPlacements(EntityRegistry.CHUCHU, Chuchu::checkMobSpawnRules);
-        addBiomeProperties(TagRegistry.CHUCHU_BIOMES, MobCategory.MONSTER, CHUCHU.get(), HyruleTerrorsMod.config.chuchuSpawnWeight, 1, 1);
+        addBiomeProperties(TagRegistry.CHUCHU_BIOMES, CHUCHU.get(), HyruleTerrorsMod.config.chuchuSpawnWeight, 2, 5);
         registerSpawnPlacements(EntityRegistry.LIZALFOS, Lizalfos::checkMobSpawnRules);
-        addBiomeProperties(TagRegistry.LIZALFOS_BIOMES, MobCategory.MONSTER, LIZALFOS.get(), HyruleTerrorsMod.config.lizalfosSpawnWeight, 1, 1);
+        addBiomeProperties(TagRegistry.LIZALFOS_BIOMES, LIZALFOS.get(), HyruleTerrorsMod.config.lizalfosSpawnWeight, 2, 5);
         registerSpawnPlacements(EntityRegistry.KEESE, Keese::checkMobSpawnRules);
-        addBiomeProperties(TagRegistry.KEESE_BIOMES, MobCategory.MONSTER, KEESE.get(), HyruleTerrorsMod.config.keeseSpawnWeight, 1, 1);
+        addBiomeProperties(TagRegistry.KEESE_BIOMES, KEESE.get(), HyruleTerrorsMod.config.keeseSpawnWeight, 2, 4);
     }
 
     private static <T extends Mob> RegistrySupplier<EntityType<T>> registerEntity(
-            String id, EntityType.EntityFactory<T> entityFactory, MobCategory category, float hitboxWidth, float hitboxHeight) {
+            String id, EntityType.EntityFactory<T> entityFactory, float hitboxWidth, float hitboxHeight) {
         return ENTITIES.register(id, () ->
-                EntityType.Builder.of(entityFactory, category)
+                EntityType.Builder.of(entityFactory, MobCategory.CREATURE)
                         .sized(hitboxWidth, hitboxHeight)
                         .build(ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID, id).toString())
         );
@@ -60,10 +59,10 @@ public class EntityRegistry {
     }
 
 
-    private static void addBiomeProperties(TagKey<Biome> tag, MobCategory category, EntityType<?> entityType, int spawnWeight, int minGroup, int maxGroup) {
+    private static void addBiomeProperties(TagKey<Biome> tag, EntityType<?> entityType, int spawnWeight, int minGroup, int maxGroup) {
         BiomeModifications.addProperties(
                 b -> b.hasTag(tag),
-                (ctx, b) -> b.getSpawnProperties().addSpawn(category, new MobSpawnSettings.SpawnerData(entityType, spawnWeight, minGroup, maxGroup))
+                (ctx, b) -> b.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(entityType, spawnWeight, minGroup, maxGroup))
         );
     }
 
@@ -77,6 +76,7 @@ public class EntityRegistry {
     public static void init() {
         ENTITIES.register();
         initAttributes();
-        LifecycleEvent.SETUP.register(EntityRegistry::initSpawns);
+//        LifecycleEvent.SERVER_LEVEL_LOAD.register(level -> initSpawns());
+        initSpawns();
     }
 }
