@@ -1,5 +1,6 @@
 package net.bandit.hyrule_terrors.registry;
 
+import dev.architectury.event.events.common.LifecycleEvent;
 import dev.architectury.registry.level.biome.BiomeModifications;
 import dev.architectury.registry.level.entity.EntityAttributeRegistry;
 import dev.architectury.registry.level.entity.SpawnPlacementsRegistry;
@@ -75,6 +76,6 @@ public class EntityRegistry {
     public static void init() {
         ENTITIES.register();
         initAttributes();
-        initSpawns();
+        LifecycleEvent.SETUP.register(EntityRegistry::initSpawns);
     }
 }

@@ -4,6 +4,7 @@
   "item.hyrule_terrors.bokoblin_fang": "Bokoblin Fang",
   "item.hyrule_terrors.bokoblin_horn": "Bokoblin Horn",
   "item.hyrule_terrors.lizalfos_horn": "Lizalfos Horn",
+  "item.hyrule_terrors.lizalfos_horn_dagger": "Lizalfos Horn Dagger",
   "item.hyrule_terrors.lizalfos_talon": "Lizalfos Talon",
   "item.hyrule_terrors.lizalfos_tail": "Lizalfos Tail",
   "item.hyrule_terrors.chuchu_jelly": "Chuchu Jelly",
@@ -14,15 +15,21 @@
 
   "item.hyrule_terrors.hold_shift": "§8[Hold §eShift§8] for more info",
   "item.chuchu_jelly.tooltip": "A gelatinous substance that came from a chuchu. It's unusable in this state.",
+  "item.chuchu_jelly.tooltip1": "Can be crafted into Slime balls.",
   "item.bokoblin_horn.tooltip": "A sharp horn with multiple barbs.",
+  "item.bokoblin_horn.tooltip1": "Can be crafted into bone.",
   "item.bokoblin_fang.tooltip": "It's worn down and not very sharp, but its still pretty hard.",
+  "item.bokoblin_fang.tooltip1": "CAn be crafted into Yellow Dye.",
   "item.lizalfos_horn.tooltip": "A thin, sharp knife-like horn.",
+  "item.lizalfos_horn.tooltip1": "Can be crafted into White Dye or a Dagger.",
   "item.lizalfos_tail.tooltip": "The severed tail of a Lizalfos. It continues to wriggle even after being separated from its body.",
   "item.lizalfos_tail.tooltip_1": "Gives Strength for 30s",
   "item.lizalfos_talon.tooltip": "This talon once grew from the elbow of a Lizalfos.",
+  "item.lizalfos_talon.tooltip1": "Can be crafted into Grey Dye.",
 
 
   "entity.hyrule_terrors.bokoblin": "Bokoblin",
   "entity.hyrule_terrors.chuchu": "Chuchu",
+  "entity.hyrule_terrors.keese": "Keese",
   "entity.hyrule_terrors.lizalfos": "Lizalfos"
 }

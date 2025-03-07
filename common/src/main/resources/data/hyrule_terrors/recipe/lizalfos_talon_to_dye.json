@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hyrule_terrors:lizalfos_talon"
+    }
+  ],
+  "result": {
+    "id": "minecraft:gray_dye",
+    "count": 4
+  }
+}

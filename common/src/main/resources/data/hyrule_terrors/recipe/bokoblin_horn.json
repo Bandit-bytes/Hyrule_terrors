@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hyrule_terrors:bokoblin_horn"
+    }
+  ],
+  "result": {
+    "id": "minecraft:bone",
+    "count": 2
+  }
+}

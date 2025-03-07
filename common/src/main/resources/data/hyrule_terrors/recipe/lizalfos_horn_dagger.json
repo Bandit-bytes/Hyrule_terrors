@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " H ",
+    " H ",
+    " S "
+  ],
+  "key": {
+    "H": {
+      "item": "hyrule_terrors:lizalfos_horn"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "id": "hyrule_terrors:lizalfos_horn_dagger",
+    "count": 1
+  }
+}

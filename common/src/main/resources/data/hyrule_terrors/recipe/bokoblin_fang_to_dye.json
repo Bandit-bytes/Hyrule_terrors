@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hyrule_terrors:bokoblin_fang"
+    }
+  ],
+  "result": {
+    "id": "minecraft:yellow_dye",
+    "count": 4
+  }
+}

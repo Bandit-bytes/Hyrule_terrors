@@ -11,6 +11,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -98,6 +99,7 @@ public class Bokoblin extends AbstractTerrorMob {
                     .getHolderOrThrow(net.minecraft.world.item.enchantment.Enchantments.LOOTING);
 
             lootingLevel = EnchantmentHelper.getItemEnchantmentLevel(looting, attacker.getMainHandItem());
+
         }
         this.spawnAtLocation(ItemRegistry.BOKOBLIN_FANG.get(), 1 + this.random.nextInt(2));
 
@@ -108,5 +110,11 @@ public class Bokoblin extends AbstractTerrorMob {
         if (!heldItem.isEmpty() && this.random.nextFloat() < 0.1F + (0.03F * lootingLevel)) {
             this.spawnAtLocation(heldItem);
         }
+        this.dropExperience();
+    }
+    protected void dropExperience() {
+        int baseXP = 5;
+        int xpDrop = baseXP + this.random.nextInt(3);
+        this.level().addFreshEntity(new ExperienceOrb(this.level(), this.getX(), this.getY(), this.getZ(), xpDrop));
     }
 }

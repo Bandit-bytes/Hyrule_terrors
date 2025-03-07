@@ -8,6 +8,8 @@ import net.bandit.hyrule_terrors.item.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tiers;
 
 public class ItemRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(HyruleTerrorsMod.MOD_ID, Registries.ITEM);
@@ -37,6 +39,10 @@ public class ItemRegistry {
             () -> new LizalfosTalon(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE)));
     public static final RegistrySupplier<Item> CHUCHU_JELLY = ITEMS.register("chuchu_jelly",
             () -> new ChuchuJelly(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.UNCOMMON)));
+
+    // WEAPONS
+    public static final RegistrySupplier<Item> LIZALFOS_HORN_DAGGER = ITEMS.register("lizalfos_horn_dagger", () -> new SwordItem(Tiers.IRON,
+            new Item.Properties().attributes(SwordItem.createAttributes(Tiers.IRON, 2, -1.5F)).rarity(Rarity.UNCOMMON).durability(75).arch$tab(TabRegistry.HYRULE_TERRORS_TAB)));
 
 
 

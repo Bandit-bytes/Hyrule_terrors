@@ -23,7 +23,6 @@ public final class HyruleTerrorsMod {
         AzureLib.initialize();
 
         EntityRegistry.init();
-
         TabRegistry.init();
         ItemRegistry.register();
     }

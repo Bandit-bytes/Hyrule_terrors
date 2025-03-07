@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "hyrule_terrors:chuchu_jelly"
+    }
+  ],
+  "result": {
+    "id": "minecraft:slime_ball",
+    "count": 2
+  }
+}

@@ -11,6 +11,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -110,5 +111,11 @@ public class Lizalfos extends AbstractTerrorMob {
         if (!heldItem.isEmpty() && this.random.nextFloat() < 0.1F + (0.03F * lootingLevel)) {
             this.spawnAtLocation(heldItem);
         }
+        this.dropExperience();
+    }
+    protected void dropExperience() {
+        int baseXP = 5;
+        int xpDrop = baseXP + this.random.nextInt(3);
+        this.level().addFreshEntity(new ExperienceOrb(this.level(), this.getX(), this.getY(), this.getZ(), xpDrop));
     }
 }

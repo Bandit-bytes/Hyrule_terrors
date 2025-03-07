@@ -41,3 +41,8 @@
 /give Player240 minecraft:spawner
 /time set night
 /time set day
+/reload
+/summon hyrule_terrors:lizalfos
+/xp set Player581 0 levels
+/xp set Player581 0 points
+/summon hyrule_terrors:lizalfos
