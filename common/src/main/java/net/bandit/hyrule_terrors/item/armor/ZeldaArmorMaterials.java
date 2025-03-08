@@ -21,5 +21,21 @@ public class ZeldaArmorMaterials {
         enumMap.put(ArmorItem.Type.HELMET, 2);
         enumMap.put(ArmorItem.Type.BODY, 5);
     }), 9, SoundEvents.ARMOR_EQUIP_IRON, 1.0F, 1.0F, () -> Ingredient.of(Items.IRON_INGOT));
+
+    public static final Holder<ArmorMaterial> EVIL_SPIRIT = ZeldaArmorMaterialsRegister.registerArmorMaterial(HyruleTerrorsMod.MOD_ID, "evil_spirit", Util.make(new EnumMap(ArmorItem.Type.class), enumMap -> {
+        enumMap.put(ArmorItem.Type.BOOTS, 4);
+        enumMap.put(ArmorItem.Type.LEGGINGS, 7);
+        enumMap.put(ArmorItem.Type.CHESTPLATE, 9);
+        enumMap.put(ArmorItem.Type.HELMET, 4);
+        enumMap.put(ArmorItem.Type.BODY, 7);
+}), 9, SoundEvents.ARMOR_EQUIP_NETHERITE, 2.0F, 1.5F, () -> Ingredient.of(Items.NETHERITE_INGOT));
+
+    public static final Holder<ArmorMaterial> KNIGHT_ARMOR = ZeldaArmorMaterialsRegister.registerArmorMaterial(HyruleTerrorsMod.MOD_ID, "knight_armor", Util.make(new EnumMap(ArmorItem.Type.class), enumMap -> {
+        enumMap.put(ArmorItem.Type.BOOTS, 3);
+        enumMap.put(ArmorItem.Type.LEGGINGS, 6);
+        enumMap.put(ArmorItem.Type.CHESTPLATE, 8);
+        enumMap.put(ArmorItem.Type.HELMET, 3);
+        enumMap.put(ArmorItem.Type.BODY, 6);
+    }), 9, SoundEvents.ARMOR_EQUIP_DIAMOND, 1.5F, 1.5F, () -> Ingredient.of(Items.DIAMOND));
 }
 

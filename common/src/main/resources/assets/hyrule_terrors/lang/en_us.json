@@ -18,7 +18,19 @@
   "item.hyrule_terrors.zora_leggings": "Zora Greaves",
   "item.hyrule_terrors.zora_boots": "Zora Boots",
 
+  "item.hyrule_terrors.knight_helmet": "Knight Helm",
+  "item.hyrule_terrors.knight_chestplate": "Knight Chestplate",
+  "item.hyrule_terrors.knight_leggings": "knight Greaves",
+  "item.hyrule_terrors.knight_boots": "Knight Boots",
+
+  "item.hyrule_terrors.evil_spirit_helmet": "Evil Spirit Helm",
+  "item.hyrule_terrors.evil_spirit_chestplate": "Evil Spirit Chestplate",
+  "item.hyrule_terrors.evil_spirit_leggings": "Evil Spirit Greaves",
+  "item.hyrule_terrors.evil_spirit_boots": "Evil Spirit Boots",
+
   "item.hyrule_terrors.zora_armor.tooltip": "Wearing the full set grants Water Breathing & Swim Speed Boost!",
+  "item.hyrule_terrors.knight_armor.tooltip": "Wearing the full set grants Damage Resistance!",
+  "item.hyrule_terrors.evil_spirit.tooltip": "Wearing the full set grants Damage Boost and Night Vision!",
 
 
   "item.hyrule_terrors.hold_shift": "§8[Hold §eShift§8] for more info",
@@ -27,7 +39,7 @@
   "item.bokoblin_horn.tooltip": "A sharp horn with multiple barbs.",
   "item.bokoblin_horn.tooltip1": "Can be crafted into bone.",
   "item.bokoblin_fang.tooltip": "It's worn down and not very sharp, but its still pretty hard.",
-  "item.bokoblin_fang.tooltip1": "CAn be crafted into Yellow Dye.",
+  "item.bokoblin_fang.tooltip1": "Can be crafted into Yellow Dye.",
   "item.lizalfos_horn.tooltip": "A thin, sharp knife-like horn.",
   "item.lizalfos_horn.tooltip1": "Can be crafted into White Dye or a Dagger.",
   "item.lizalfos_tail.tooltip": "The severed tail of a Lizalfos. It continues to wriggle even after being separated from its body.",
@@ -55,5 +67,8 @@
   "text.autoconfig.hyrule_terrors.option.keeseHealth": "Keese Health",
   "text.autoconfig.hyrule_terrors.option.keeseAttackDamage": "Keese Attack Damage",
   "text.autoconfig.hyrule_terrors.option.lizalfosHealth": "Lizalfos Health",
-  "text.autoconfig.hyrule_terrors.option.lizalfosAttackDamage": "Lizalfos Attack Damage"
+  "text.autoconfig.hyrule_terrors.option.lizalfosAttackDamage": "Lizalfos Attack Damage",
+
+  "advancements.hyrule_terrors.description": "Embark on a new adventure with Hyrule Monsters, Armors, and Items!!",
+  "advancements.hyrule_terrors.title": "Hyrule Terror's"
 }

@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "id": "hyrule_terrors:chuchu_jelly"
+    },
+    "title": {
+      "translate": "advancements.hyrule_terrors.title"
+    },
+    "description": {
+      "translate": "advancements.hyrule_terrors.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "background": "hyrule_terrors:textures/block/hyrule_terrors_advancement.png"
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

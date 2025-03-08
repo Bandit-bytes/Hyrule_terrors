@@ -5,7 +5,6 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.item.*;
-import net.bandit.hyrule_terrors.item.armor.sets.ZoraArmorItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.*;
 
