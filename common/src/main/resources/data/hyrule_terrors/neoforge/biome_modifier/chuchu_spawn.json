@@ -1,0 +1,12 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#hyrule_terrors:chuchu_spawn_in",
+  "spawners": [
+    {
+      "type": "hyrule_terrors:chuchu",
+      "weight": 25,
+      "minCount": 2,
+      "maxCount": 5
+    }
+  ]
+}

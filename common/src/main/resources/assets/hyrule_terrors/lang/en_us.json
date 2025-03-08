@@ -13,6 +13,14 @@
   "item.hyrule_terrors.chuchu_spawn_egg": "Chuchu Spawn Egg",
   "item.hyrule_terrors.keese_spawn_egg": "Keese Spawn Egg",
 
+  "item.hyrule_terrors.zora_helmet": "Zora Helm",
+  "item.hyrule_terrors.zora_chestplate": "Zora Chestplate",
+  "item.hyrule_terrors.zora_leggings": "Zora Greaves",
+  "item.hyrule_terrors.zora_boots": "Zora Boots",
+
+  "item.hyrule_terrors.zora_armor.tooltip": "Wearing the full set grants Water Breathing & Swim Speed Boost!",
+
+
   "item.hyrule_terrors.hold_shift": "§8[Hold §eShift§8] for more info",
   "item.chuchu_jelly.tooltip": "A gelatinous substance that came from a chuchu. It's unusable in this state.",
   "item.chuchu_jelly.tooltip1": "Can be crafted into Slime balls.",
@@ -34,6 +42,7 @@
   "entity.hyrule_terrors.lizalfos": "Lizalfos",
 
 
+  "text.autoconfig.hyrule_terrors.title": "Hyrule Terror's Config Options",
   "text.autoconfig.hyrule_terrors.category.bokoblin": "Bokoblin Options",
   "text.autoconfig.hyrule_terrors.category.lizalfos": "Lizalfos Options",
   "text.autoconfig.hyrule_terrors.category.chuchu": "Chuchu Options",
@@ -41,14 +50,10 @@
 
   "text.autoconfig.hyrule_terrors.option.bokoblinHealth": "Bokoblin Health",
   "text.autoconfig.hyrule_terrors.option.bokoblinAttackDamage": "Bokoblin Attack Damage",
-  "text.autoconfig.hyrule_terrors.option.bokoblinSpawnWeight": "Bokoblin Spawn Weight",
   "text.autoconfig.hyrule_terrors.option.chuchuHealth": "Chuchu Health",
   "text.autoconfig.hyrule_terrors.option.chuchuAttackDamage": "Chuchu Attack Damage",
-  "text.autoconfig.hyrule_terrors.option.chuchuSpawnWeight": "chuchu Spawn Weight",
   "text.autoconfig.hyrule_terrors.option.keeseHealth": "Keese Health",
   "text.autoconfig.hyrule_terrors.option.keeseAttackDamage": "Keese Attack Damage",
-  "text.autoconfig.hyrule_terrors.option.keeseSpawnWeight": "Keese Spawn Weight",
   "text.autoconfig.hyrule_terrors.option.lizalfosHealth": "Lizalfos Health",
-  "text.autoconfig.hyrule_terrors.option.lizalfosAttackDamage": "Lizalfos Attack Damage",
-  "text.autoconfig.hyrule_terrors.option.lizalfosSpawnWeight": "Lizalfos Spawn Weight"
+  "text.autoconfig.hyrule_terrors.option.lizalfosAttackDamage": "Lizalfos Attack Damage"
 }

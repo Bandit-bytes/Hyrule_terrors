@@ -1,5 +1,6 @@
 package net.bandit.hyrule_terrors.registry;
 
+
 import dev.architectury.registry.level.biome.BiomeModifications;
 import dev.architectury.registry.level.entity.EntityAttributeRegistry;
 import dev.architectury.registry.level.entity.SpawnPlacementsRegistry;
@@ -18,7 +19,7 @@ public class EntityRegistry {
 
     public static final RegistrySupplier<EntityType<Lizalfos>> LIZALFOS = ENTITIES.register("lizalfos", () ->
             EntityType.Builder.of(Lizalfos::new, MobCategory.CREATURE)
-                    .sized(1.0f, 2.0f)
+                    .sized(1.5f, 2.5f)
                     .build(ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID, "lizalfos").toString()));
 
     public static final RegistrySupplier<EntityType<Chuchu>> CHUCHU = ENTITIES.register("chuchu", () ->
@@ -37,17 +38,18 @@ public class EntityRegistry {
                     .build(ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID, "bokoblin").toString()));
 
     private static void initSpawns() {
+
         SpawnPlacementsRegistry.register(EntityRegistry.BOKOBLIN, SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Bokoblin::checkMobSpawnRules);
-        BiomeModifications.addProperties(b -> b.hasTag(TagRegistry.BOKOBLIN_BIOMES), (ctx, b) -> b.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(BOKOBLIN.get(), HyruleTerrorsMod.config.bokoblinSpawnWeight, 2, 5)));
+        BiomeModifications.addProperties(b -> b.hasTag(TagRegistry.BOKOBLIN_BIOMES), (ctx, b) -> b.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(BOKOBLIN.get(), 15, 2, 5)));
 
         SpawnPlacementsRegistry.register(EntityRegistry.CHUCHU, SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Chuchu::checkMobSpawnRules);
-        BiomeModifications.addProperties(b -> b.hasTag(TagRegistry.CHUCHU_BIOMES), (ctx, b) -> b.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(CHUCHU.get(), HyruleTerrorsMod.config.chuchuSpawnWeight, 2, 5)));
+        BiomeModifications.addProperties(b -> b.hasTag(TagRegistry.CHUCHU_BIOMES), (ctx, b) -> b.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(CHUCHU.get(),  15, 2, 5)));
 
         SpawnPlacementsRegistry.register(EntityRegistry.LIZALFOS, SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Lizalfos::checkMobSpawnRules);
-        BiomeModifications.addProperties(b -> b.hasTag(TagRegistry.LIZALFOS_BIOMES), (ctx, b) -> b.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(LIZALFOS.get(), HyruleTerrorsMod.config.lizalfosSpawnWeight, 2, 5)));
+        BiomeModifications.addProperties(b -> b.hasTag(TagRegistry.LIZALFOS_BIOMES), (ctx, b) -> b.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(LIZALFOS.get(), 15, 2, 5)));
 
         SpawnPlacementsRegistry.register(EntityRegistry.KEESE, SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Keese::checkMobSpawnRules);
-        BiomeModifications.addProperties(b -> b.hasTag(TagRegistry.KEESE_BIOMES), (ctx, b) -> b.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(KEESE.get(), HyruleTerrorsMod.config.keeseSpawnWeight, 2, 4)));
+        BiomeModifications.addProperties(b -> b.hasTag(TagRegistry.KEESE_BIOMES), (ctx, b) -> b.getSpawnProperties().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(KEESE.get(),  15, 2, 4)));
     }
 
     private static void initAttributes() {

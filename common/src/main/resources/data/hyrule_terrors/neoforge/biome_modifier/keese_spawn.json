@@ -1,0 +1,12 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "#hyrule_terrors:keese_spawn_in",
+  "spawners": [
+    {
+      "type": "hyrule_terrors:keese",
+      "weight": 25,
+      "minCount": 2,
+      "maxCount": 5
+    }
+  ]
+}

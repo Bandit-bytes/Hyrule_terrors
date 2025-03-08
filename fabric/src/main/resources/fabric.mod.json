@@ -8,9 +8,10 @@
     "Bandit-Bytes"
   ],
   "contact": {
-    "homepage": ""
+    "homepage": "",
+    "issues": "https://github.com/Bandit-bytes/Hyrule_terrors/issues"
   },
-  "license": "MIT",
+  "license": "GNU GPL 3.0",
   "icon": "assets/hyrule_terrors/icon.png",
   "environment": "*",
   "entrypoints": {
@@ -19,6 +20,9 @@
     ],
     "client": [
       "net.bandit.hyrule_terrors.fabric.client.Hyrule_terrorsFabricClient"
+    ],
+    "modmenu": [
+      "net.bandit.hyrule_terrors.fabric.ModMenuIntegration"
     ]
   },
   "mixins": [

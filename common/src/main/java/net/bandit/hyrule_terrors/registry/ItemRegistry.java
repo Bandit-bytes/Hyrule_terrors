@@ -5,11 +5,9 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.item.*;
+import net.bandit.hyrule_terrors.item.armor.sets.ZoraArmorItem;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tiers;
+import net.minecraft.world.item.*;
 
 public class ItemRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(HyruleTerrorsMod.MOD_ID, Registries.ITEM);
@@ -43,6 +41,15 @@ public class ItemRegistry {
     public static final RegistrySupplier<Item> LIZALFOS_HORN_DAGGER = ITEMS.register("lizalfos_horn_dagger", () -> new SwordItem(Tiers.IRON,
             new Item.Properties().attributes(SwordItem.createAttributes(Tiers.IRON, 2, -1.5F)).rarity(Rarity.UNCOMMON).durability(75).arch$tab(TabRegistry.HYRULE_TERRORS_TAB)));
 
+    //ARMOR
+    public static final RegistrySupplier<Item> ZORA_HELMET = ITEMS.register("zora_helmet",
+            () -> new ZoraArmorItem(ArmorItem.Type.HELMET, new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.UNCOMMON)));
+    public static final RegistrySupplier<Item> ZORA_CHESTPLATE = ITEMS.register("zora_chestplate",
+            () -> new ZoraArmorItem(ArmorItem.Type.CHESTPLATE, new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.UNCOMMON)));
+    public static final RegistrySupplier<Item> ZORA_LEGGINGS = ITEMS.register("zora_leggings",
+            () -> new ZoraArmorItem(ArmorItem.Type.LEGGINGS, new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.UNCOMMON)));
+    public static final RegistrySupplier<Item> ZORA_BOOTS = ITEMS.register("zora_boots",
+            () -> new ZoraArmorItem(ArmorItem.Type.BOOTS, new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.UNCOMMON)));
 
     public static void register() {
         ITEMS.register();

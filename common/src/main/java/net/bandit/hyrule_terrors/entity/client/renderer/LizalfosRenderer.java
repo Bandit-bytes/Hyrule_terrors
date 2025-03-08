@@ -31,7 +31,7 @@ public class LizalfosRenderer extends AzEntityRenderer<Lizalfos> {
     }
     @Override
     public void render(Lizalfos entity, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
-        float scaleFactor = 1.3F;
+        float scaleFactor = 1.4F;
         poseStack.scale(scaleFactor, scaleFactor, scaleFactor);
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }

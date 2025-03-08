@@ -1,5 +1,3 @@
-/summon hyrule_terrors:bokoblin
-/summon hyrule_terrors:chuchu
 /summon hyrule_terrors:lizalfos
 /summon hyrule_terrors:bokoblin
 /summon hyrule_terrors:chuchu
@@ -48,3 +46,5 @@
 /effect give Player211 minecraft:night_vision infinite
 /locate biome minecraft:mushroom_fields
 /tp @s 803 66 -908
+/locate biome #c:is_floral
+/tp @s 259 77 67
