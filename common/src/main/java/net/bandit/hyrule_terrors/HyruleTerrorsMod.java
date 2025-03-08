@@ -34,6 +34,6 @@ public final class HyruleTerrorsMod {
         EntityRendererRegistry.register(EntityRegistry.CHUCHU, ChuchuRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.LIZALFOS, LizalfosRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.KEESE, KeeseRenderer::new);
-        ArmorRegistry.initClient(MOD_ID);
+//        ArmorRegistry.initClient(MOD_ID);
     }
 }
