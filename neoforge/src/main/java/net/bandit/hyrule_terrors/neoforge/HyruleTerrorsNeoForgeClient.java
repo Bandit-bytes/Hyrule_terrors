@@ -8,7 +8,9 @@ import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
-@Mod(value = HyruleTerrorsMod.MOD_ID, dist = Dist.CLIENT)
+import static net.bandit.hyrule_terrors.HyruleTerrorsMod.MOD_ID;
+
+@Mod(value = MOD_ID, dist = Dist.CLIENT)
 public class HyruleTerrorsNeoForgeClient {
     public HyruleTerrorsNeoForgeClient() {
         HyruleTerrorsMod.initClient();

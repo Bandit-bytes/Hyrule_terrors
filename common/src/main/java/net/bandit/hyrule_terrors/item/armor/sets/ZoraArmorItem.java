@@ -21,7 +21,7 @@ public class ZoraArmorItem extends ZeldaArmorItem{
 
     public final ZeldaArmorDispatcher DISPATCHER;
 
-    public ZoraArmorItem(Type type, Properties rarity) {
+    public ZoraArmorItem(Type type) {
         super(ZeldaArmorMaterials.ZORA_ARMOR, type, ZoraArmorRenderer::new);
         this.DISPATCHER = new ZeldaArmorDispatcher();
     }

@@ -19,7 +19,7 @@
       "net.bandit.hyrule_terrors.fabric.Hyrule_terrorsFabric"
     ],
     "client": [
-      "net.bandit.hyrule_terrors.fabric.client.Hyrule_terrorsFabricClient"
+      "net.bandit.hyrule_terrors.fabric.client.HyruleTerrorsFabricClient"
     ],
     "modmenu": [
       "net.bandit.hyrule_terrors.fabric.ModMenuIntegration"

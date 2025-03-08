@@ -8,12 +8,13 @@ import net.bandit.hyrule_terrors.entity.client.renderer.BokoblinRenderer;
 import net.bandit.hyrule_terrors.entity.client.renderer.ChuchuRenderer;
 import net.bandit.hyrule_terrors.entity.client.renderer.KeeseRenderer;
 import net.bandit.hyrule_terrors.entity.client.renderer.LizalfosRenderer;
-import net.bandit.hyrule_terrors.registry.EntityRegistry;
-import net.bandit.hyrule_terrors.registry.ItemRegistry;
-import net.bandit.hyrule_terrors.registry.TabRegistry;
+import net.bandit.hyrule_terrors.registry.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public final class HyruleTerrorsMod {
     public static final String MOD_ID = "hyrule_terrors";
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     public static HyruleTerrorsConfig config;
 
     public static void init() {
@@ -21,15 +22,18 @@ public final class HyruleTerrorsMod {
         config = AutoConfig.getConfigHolder(HyruleTerrorsConfig.class).getConfig();
 
         AzureLib.initialize();
-
+        ItemRegistry.register();
         EntityRegistry.init();
         TabRegistry.init();
-        ItemRegistry.register();
+
+        ArmorItemRegistry.init();
+        ArmorRegistry.init(MOD_ID);
     }
     public static void initClient() {
         EntityRendererRegistry.register(EntityRegistry.BOKOBLIN, BokoblinRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.CHUCHU, ChuchuRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.LIZALFOS, LizalfosRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.KEESE, KeeseRenderer::new);
+        ArmorRegistry.initClient(MOD_ID);
     }
 }
