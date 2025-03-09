@@ -1,7 +1,21 @@
 {
   "values": [
-    "#c:is_cave",
-    "minecraft:lush_caves",
-    "minecraft:wooded_badlands"
-  ]
+    "minecraft:forest",
+    "#c:is_temperate",
+    "#c:is_badlands",
+    "#c:is_desert",
+    "#c:is_dry",
+    "#c:is_forest",
+    "minecraft:badlands",
+    "minecraft:meadow",
+    "minecraft:dark_forest",
+    "minecraft:desert",
+    "minecraft:mushroom_fields",
+    "minecraft:plains",
+    "minecraft:savanna",
+    "minecraft:flower_forest",
+    "minecraft:grove",
+    "minecraft:jungle",
+    "minecraft:lush_caves"
+    ]
 }

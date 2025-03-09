@@ -4,7 +4,7 @@
   "spawners": [
     {
       "type": "hyrule_terrors:bokoblin",
-      "weight": 15,
+      "weight": 25,
       "minCount": 2,
       "maxCount": 4
     }
