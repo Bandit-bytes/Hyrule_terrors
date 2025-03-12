@@ -62,12 +62,16 @@
 
   "text.autoconfig.hyrule_terrors.option.bokoblinHealth": "Bokoblin Health",
   "text.autoconfig.hyrule_terrors.option.bokoblinAttackDamage": "Bokoblin Attack Damage",
+  "text.autoconfig.hyrule_terrors.option.bokoblinSpawnWeight": "Weight(Fabric only/Neo use datapack)",
   "text.autoconfig.hyrule_terrors.option.chuchuHealth": "Chuchu Health",
   "text.autoconfig.hyrule_terrors.option.chuchuAttackDamage": "Chuchu Attack Damage",
+  "text.autoconfig.hyrule_terrors.option.chuchuSpawnWeight": "Weight(Fabric only/Neo use datapack)",
   "text.autoconfig.hyrule_terrors.option.keeseHealth": "Keese Health",
   "text.autoconfig.hyrule_terrors.option.keeseAttackDamage": "Keese Attack Damage",
+  "text.autoconfig.hyrule_terrors.option.keeseSpawnWeight": "Weight(Fabric only/Neo use datapack)",
   "text.autoconfig.hyrule_terrors.option.lizalfosHealth": "Lizalfos Health",
   "text.autoconfig.hyrule_terrors.option.lizalfosAttackDamage": "Lizalfos Attack Damage",
+  "text.autoconfig.hyrule_terrors.option.lizalfosSpawnWeight": "Weight(Fabric only/Neo use datapack)",
 
   "advancements.hyrule_terrors.description": "Embark on a new adventure with Hyrule Monsters, Armors, and Items!!",
   "advancements.hyrule_terrors.title": "Hyrule Terror's"

@@ -19,7 +19,7 @@ public class HyruleTerrorsConfig implements ConfigData{
     @ConfigEntry.Category("bokoblin")
     @ConfigEntry.Gui.NoTooltip
     @ConfigEntry.BoundedDiscrete(max = 100)
-    public int bokoblinSpawnWeight = 10;
+    public int bokoblinSpawnWeight = 15;
 
     // Chuchu
     @ConfigEntry.Category("chuchu")
@@ -33,7 +33,7 @@ public class HyruleTerrorsConfig implements ConfigData{
     @ConfigEntry.Category("chuchu")
     @ConfigEntry.Gui.NoTooltip
     @ConfigEntry.BoundedDiscrete(max = 100)
-    public int chuchuSpawnWeight = 10;
+    public int chuchuSpawnWeight = 15;
 
 
     // Keese
@@ -48,7 +48,7 @@ public class HyruleTerrorsConfig implements ConfigData{
     @ConfigEntry.Category("keese")
     @ConfigEntry.Gui.NoTooltip
     @ConfigEntry.BoundedDiscrete(max = 100)
-    public int keeseSpawnWeight = 10;
+    public int keeseSpawnWeight = 15;
 
 
     // Lizalfos
@@ -63,6 +63,6 @@ public class HyruleTerrorsConfig implements ConfigData{
     @ConfigEntry.Category("lizalfos")
     @ConfigEntry.Gui.NoTooltip
     @ConfigEntry.BoundedDiscrete(max = 100)
-    public int lizalfosSpawnWeight = 10;
+    public int lizalfosSpawnWeight = 15;
 
 }

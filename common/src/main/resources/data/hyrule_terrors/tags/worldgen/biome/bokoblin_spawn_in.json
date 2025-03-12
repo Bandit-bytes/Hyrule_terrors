@@ -1,6 +1,5 @@
 {
   "values": [
-    "#c:is_overworld",
     "#c:is_temperate",
     "#c:is_badlands",
     "#c:is_desert",
