@@ -18,6 +18,11 @@
   "item.hyrule_terrors.zora_leggings": "Zora Greaves",
   "item.hyrule_terrors.zora_boots": "Zora Boots",
 
+  "item.hyrule_terrors.barbarian_helmet": "Barbarian Helm",
+  "item.hyrule_terrors.barbarian_chestplate": "Barbarian Chestplate",
+  "item.hyrule_terrors.barbarian_leggings": "Barbarian Greaves",
+  "item.hyrule_terrors.barbarian_boots": "Barbarian Boots",
+
   "item.hyrule_terrors.knight_helmet": "Knight Helm",
   "item.hyrule_terrors.knight_chestplate": "Knight Chestplate",
   "item.hyrule_terrors.knight_leggings": "knight Greaves",
@@ -29,6 +34,7 @@
   "item.hyrule_terrors.evil_spirit_boots": "Evil Spirit Boots",
 
   "item.hyrule_terrors.zora_armor.tooltip": "Wearing the full set grants Water Breathing & Swim Speed Boost!",
+  "item.hyrule_terrors.barbarian_armor.tooltip": "Wearing the full set grants Damage Boost!",
   "item.hyrule_terrors.knight_armor.tooltip": "Wearing the full set grants Damage Resistance!",
   "item.hyrule_terrors.evil_spirit.tooltip": "Wearing the full set grants Damage Boost and Night Vision!",
 

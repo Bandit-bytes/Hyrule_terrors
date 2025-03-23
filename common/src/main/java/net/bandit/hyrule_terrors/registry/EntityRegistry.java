@@ -19,12 +19,12 @@ public class EntityRegistry {
 
     public static final RegistrySupplier<EntityType<Lizalfos>> LIZALFOS = ENTITIES.register("lizalfos", () ->
             EntityType.Builder.of(Lizalfos::new, MobCategory.MONSTER)
-                    .sized(1.5f, 2.5f)
+                    .sized(1.5f, 2.0f)
                     .build(ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID, "lizalfos").toString()));
 
     public static final RegistrySupplier<EntityType<Chuchu>> CHUCHU = ENTITIES.register("chuchu", () ->
             EntityType.Builder.of(Chuchu::new, MobCategory.MONSTER)
-                    .sized(0.55f, 0.75f)
+                    .sized(0.60f, 0.75f)
                     .build(ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID, "chuchu").toString()));
 
     public static final RegistrySupplier<EntityType<Keese>> KEESE = ENTITIES.register("keese", () ->
