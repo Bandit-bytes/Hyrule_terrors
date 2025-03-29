@@ -4,10 +4,16 @@
   "item.hyrule_terrors.bokoblin_fang": "Bokoblin Fang",
   "item.hyrule_terrors.bokoblin_horn": "Bokoblin Horn",
   "item.hyrule_terrors.lizalfos_horn": "Lizalfos Horn",
-  "item.hyrule_terrors.lizalfos_horn_dagger": "Lizalfos Horn Dagger",
   "item.hyrule_terrors.lizalfos_talon": "Lizalfos Talon",
   "item.hyrule_terrors.lizalfos_tail": "Lizalfos Tail",
   "item.hyrule_terrors.chuchu_jelly": "Chuchu Jelly",
+
+  "item.hyrule_terrors.lizalfos_horn_dagger": "Lizalfos Horn Dagger",
+  "item.hyrule_terrors.bokoblin_arm": "Bokoblin Arm",
+  "item.hyrule_terrors.silver_longsword": "Silver Longsword",
+  "item.hyrule_terrors.knights_claymore": "Knights Claymore",
+  "item.hyrule_terrors.boulder_breaker": "Boulder Breaker",
+
   "item.hyrule_terrors.bokoblin_spawn_egg": "Bokoblin Spawn Egg",
   "item.hyrule_terrors.lizalfos_spawn_egg": "Lizalfos Spawn Egg",
   "item.hyrule_terrors.chuchu_spawn_egg": "Chuchu Spawn Egg",
@@ -25,7 +31,7 @@
 
   "item.hyrule_terrors.knight_helmet": "Knight Helm",
   "item.hyrule_terrors.knight_chestplate": "Knight Chestplate",
-  "item.hyrule_terrors.knight_leggings": "knight Greaves",
+  "item.hyrule_terrors.knight_leggings": "Knight Greaves",
   "item.hyrule_terrors.knight_boots": "Knight Boots",
 
   "item.hyrule_terrors.evil_spirit_helmet": "Evil Spirit Helm",
@@ -53,12 +59,10 @@
   "item.lizalfos_talon.tooltip": "This talon once grew from the elbow of a Lizalfos.",
   "item.lizalfos_talon.tooltip1": "Can be crafted into Grey Dye.",
 
-
   "entity.hyrule_terrors.bokoblin": "Bokoblin",
   "entity.hyrule_terrors.chuchu": "Chuchu",
   "entity.hyrule_terrors.keese": "Keese",
   "entity.hyrule_terrors.lizalfos": "Lizalfos",
-
 
   "text.autoconfig.hyrule_terrors.title": "Hyrule Terror's Config Options",
   "text.autoconfig.hyrule_terrors.category.bokoblin": "Bokoblin Options",
@@ -78,6 +82,14 @@
   "text.autoconfig.hyrule_terrors.option.lizalfosHealth": "Lizalfos Health",
   "text.autoconfig.hyrule_terrors.option.lizalfosAttackDamage": "Lizalfos Attack Damage",
   "text.autoconfig.hyrule_terrors.option.lizalfosSpawnWeight": "Weight(Fabric only/Neo use datapack)",
+  "item.hyrule_terrors.silver_longsword.tooltip": "A sleek Zora blade, glimmering with elegance.",
+  "item.hyrule_terrors.silver_longsword.tooltip1": "Deals extra damage when wet. Even more powerful when wearing full Zora armor.",
+  "item.hyrule_terrors.knights_claymore.tooltip": "A mighty blade once wielded by Hyrule's knights.",
+  "item.hyrule_terrors.knights_claymore.tooltip1": "Heavy and slow, but devastating. Gains bonus damage with full Knight Armor.",
+  "item.hyrule_terrors.boulder_breaker.tooltip": "Daruk’s prized weapon, forged to crush stone and bone.",
+  "item.hyrule_terrors.boulder_breaker.tooltip1": "Smashes armored foes, slows enemies, and breaks stone with ease.",
+  "item.Bokoblin_arm.tooltip": "It's... still moving?",
+  "item.bokoblin_arm.tooltip1": "A brittle arm torn from a Bokoblin. May even fly out of your hand when swinging.",
 
   "advancements.hyrule_terrors.description": "Embark on a new adventure with Hyrule Monsters, Armors, and Items!!",
   "advancements.hyrule_terrors.title": "Hyrule Terror's"

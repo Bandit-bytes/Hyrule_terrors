@@ -109,6 +109,10 @@ public class Bokoblin extends AbstractTerrorMob {
         if (!heldItem.isEmpty() && this.random.nextFloat() < 0.1F + (0.03F * lootingLevel)) {
             this.spawnAtLocation(heldItem);
         }
+        if (this.random.nextFloat() < 0.2F + (0.05F * lootingLevel)) {
+            this.spawnAtLocation(new ItemStack(ItemRegistry.BOKOBLIN_ARM.get()));
+        }
+
         this.dropExperience();
     }
     protected void dropExperience() {

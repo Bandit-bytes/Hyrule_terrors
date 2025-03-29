@@ -38,7 +38,15 @@ public class ItemRegistry {
             () -> new ChuchuJelly(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.UNCOMMON)));
     // WEAPONS
     public static final RegistrySupplier<Item> LIZALFOS_HORN_DAGGER = ITEMS.register("lizalfos_horn_dagger",
-            () -> new SwordItem(Tiers.IRON, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.IRON, 2, -1.5F)).rarity(Rarity.UNCOMMON).durability(75).arch$tab(TabRegistry.HYRULE_TERRORS_TAB)));
+            () -> new SwordItem(Tiers.IRON, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.IRON, 2, -0.5F)).rarity(Rarity.UNCOMMON).durability(125).arch$tab(TabRegistry.HYRULE_TERRORS_TAB)));
+    public static final RegistrySupplier<Item> BOKOBLIN_ARM = ITEMS.register("bokoblin_arm",
+            () -> new BokoblinArm(Tiers.IRON, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.STONE, 2, -0.5F)).rarity(Rarity.RARE).durability(75).arch$tab(TabRegistry.HYRULE_TERRORS_TAB)));
+    public static final RegistrySupplier<Item> SILVER_LONGSWORD = ITEMS.register("silver_longsword",
+            () -> new SilverLongsword(Tiers.IRON, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.DIAMOND, 4, -1.0F)).rarity(Rarity.RARE).durability(250).arch$tab(TabRegistry.HYRULE_TERRORS_TAB)));
+    public static final RegistrySupplier<Item> KNIGHTS_CLAYMORE = ITEMS.register("knights_claymore",
+            () -> new KnightsClaymore(Tiers.IRON, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.DIAMOND, 9, -2.5F)).rarity(Rarity.RARE).durability(375).arch$tab(TabRegistry.HYRULE_TERRORS_TAB)));
+    public static final RegistrySupplier<Item> BOULDER_BREAKER = ITEMS.register("boulder_breaker",
+            () -> new BoulderBreaker(Tiers.IRON, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.NETHERITE, 9, -3.0F)).rarity(Rarity.EPIC).durability(475).arch$tab(TabRegistry.HYRULE_TERRORS_TAB)));
 
 
     public static void register() {

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    " P ",
+    " S "
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "S": {
+      "item": "hyrule_terrors:lizalfos_horn"
+    }
+  },
+  "result": {
+    "id": "hyrule_terrors:silver_longsword",
+    "count": 1
+  }
+}
