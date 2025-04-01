@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-    "hyrule_terrors:lizalfos_horn_dagger"
+    "hyrule_terrors:lizalfos_horn_dagger",
+    "hyrule_terrors:bokoblin_arm",
+    "hyrule_terrors:knights_claymore",
+    "hyrule_terrors:boulder_breaker",
+    "hyrule_terrors:silver_longsword"
   ]
 }
