@@ -1,13 +1,16 @@
 package net.bandit.hyrule_terrors.registry;
 
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
+import net.bandit.hyrule_terrors.item.HyruleWeaponMaterials;
 import net.bandit.hyrule_terrors.item.armor.sets.BarbarianArmorItem;
 import net.bandit.hyrule_terrors.item.armor.sets.EvilSpiritArmorItem;
 import net.bandit.hyrule_terrors.item.armor.sets.KnightArmorItem;
 import net.bandit.hyrule_terrors.item.armor.sets.ZoraArmorItem;
+import net.bandit.hyrule_terrors.item.weapon.geo_weapon.BokoblinArm;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.SwordItem;
 
 public class ArmorItemRegistry {
     public static void init() {
@@ -38,5 +41,14 @@ public class ArmorItemRegistry {
         ArmorRegistry.registerItem(HyruleTerrorsMod.MOD_ID, "evil_spirit_chestplate", () -> new EvilSpiritArmorItem(ArmorItem.Type.CHESTPLATE, EvilProps));
         ArmorRegistry.registerItem(HyruleTerrorsMod.MOD_ID, "evil_spirit_leggings", () -> new EvilSpiritArmorItem(ArmorItem.Type.LEGGINGS, EvilProps));
         ArmorRegistry.registerItem(HyruleTerrorsMod.MOD_ID, "evil_spirit_boots", () -> new EvilSpiritArmorItem(ArmorItem.Type.BOOTS, EvilProps));
+
+        ArmorRegistry.registerItem(HyruleTerrorsMod.MOD_ID, "bokoblin_arm", () ->
+                new BokoblinArm( new Item.Properties()
+                                .attributes(SwordItem.createAttributes(HyruleWeaponMaterials.BOKOBLIN_TIER, 2, -2.5f))
+                                .durability(101)
+                                .rarity(Rarity.RARE)
+                                .arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
+                )
+        );
     }
 }

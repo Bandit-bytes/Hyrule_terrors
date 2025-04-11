@@ -4,10 +4,12 @@ import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import mod.azure.azurelib.common.internal.common.AzureLib;
+import mod.azure.azurelib.rewrite.render.item.AzItemRendererRegistry;
 import net.bandit.hyrule_terrors.entity.client.renderer.BokoblinRenderer;
 import net.bandit.hyrule_terrors.entity.client.renderer.ChuchuRenderer;
 import net.bandit.hyrule_terrors.entity.client.renderer.KeeseRenderer;
 import net.bandit.hyrule_terrors.entity.client.renderer.LizalfosRenderer;
+import net.bandit.hyrule_terrors.item.weapon.client.renderer.BokoblinArmRenderer;
 import net.bandit.hyrule_terrors.registry.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,6 +36,5 @@ public final class HyruleTerrorsMod {
         EntityRendererRegistry.register(EntityRegistry.CHUCHU, ChuchuRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.LIZALFOS, LizalfosRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.KEESE, KeeseRenderer::new);
-//        ArmorRegistry.initClient(MOD_ID);
     }
 }

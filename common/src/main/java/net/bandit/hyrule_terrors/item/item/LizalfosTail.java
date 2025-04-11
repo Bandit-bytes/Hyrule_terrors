@@ -1,4 +1,4 @@
-package net.bandit.hyrule_terrors.item;
+package net.bandit.hyrule_terrors.item.item;
 
 import net.bandit.hyrule_terrors.registry.TabRegistry;
 import net.minecraft.ChatFormatting;

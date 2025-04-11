@@ -1,4 +1,4 @@
-package net.bandit.hyrule_terrors.item;
+package net.bandit.hyrule_terrors.item.weapon.weapons;
 
 import net.bandit.hyrule_terrors.item.armor.sets.KnightArmorItem;
 import net.minecraft.ChatFormatting;

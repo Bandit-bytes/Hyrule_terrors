@@ -1,4 +1,4 @@
-package net.bandit.hyrule_terrors.item;
+package net.bandit.hyrule_terrors.item.item;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;

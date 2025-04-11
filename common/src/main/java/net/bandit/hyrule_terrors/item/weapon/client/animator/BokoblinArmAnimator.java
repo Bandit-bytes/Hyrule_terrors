@@ -1,4 +1,4 @@
-package net.bandit.hyrule_terrors.item.armor.client.animator;
+package net.bandit.hyrule_terrors.item.weapon.client.animator;
 
 import mod.azure.azurelib.rewrite.animation.controller.AzAnimationController;
 import mod.azure.azurelib.rewrite.animation.controller.AzAnimationControllerContainer;
@@ -8,11 +8,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
-public class BarbarianAnimator extends AzItemAnimator {
-
+public class BokoblinArmAnimator extends AzItemAnimator {
     private static final ResourceLocation ANIMATIONS = ResourceLocation.fromNamespaceAndPath(
             HyruleTerrorsMod.MOD_ID,
-            "animations/armor/barbarian.animation.json");
+            "animations/weapon/bokoblin_arm.animation.json"
+    );
 
     @Override
     public void registerControllers(AzAnimationControllerContainer<ItemStack> animationControllerContainer) {
@@ -21,6 +21,7 @@ public class BarbarianAnimator extends AzItemAnimator {
                         .build()
         );
     }
+
     @Override
     public @NotNull ResourceLocation getAnimationLocation(ItemStack animatable) {
         return ANIMATIONS;

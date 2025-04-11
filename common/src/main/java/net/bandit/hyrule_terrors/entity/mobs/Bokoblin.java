@@ -9,7 +9,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -23,7 +22,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class Bokoblin extends AbstractTerrorMob {
@@ -108,9 +106,6 @@ public class Bokoblin extends AbstractTerrorMob {
         ItemStack heldItem = this.getMainHandItem();
         if (!heldItem.isEmpty() && this.random.nextFloat() < 0.1F + (0.03F * lootingLevel)) {
             this.spawnAtLocation(heldItem);
-        }
-        if (this.random.nextFloat() < 0.2F + (0.05F * lootingLevel)) {
-            this.spawnAtLocation(new ItemStack(ItemRegistry.BOKOBLIN_ARM.get()));
         }
 
         this.dropExperience();

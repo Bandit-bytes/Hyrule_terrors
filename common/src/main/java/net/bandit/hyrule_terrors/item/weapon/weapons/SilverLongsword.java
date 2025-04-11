@@ -1,4 +1,4 @@
-package net.bandit.hyrule_terrors.item;
+package net.bandit.hyrule_terrors.item.weapon.weapons;
 
 import net.bandit.hyrule_terrors.item.armor.sets.ZoraArmorItem;
 import net.minecraft.ChatFormatting;

@@ -4,8 +4,9 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import mod.azure.azurelib.rewrite.animation.cache.AzIdentityRegistry;
 import mod.azure.azurelib.rewrite.render.armor.AzArmorRendererRegistry;
-import net.bandit.hyrule_terrors.HyruleTerrorsMod;
+import mod.azure.azurelib.rewrite.render.item.AzItemRendererRegistry;
 import net.bandit.hyrule_terrors.item.armor.sets.ZeldaArmorItem;
+import net.bandit.hyrule_terrors.item.weapon.geo_weapon.WeaponItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 
@@ -45,6 +46,12 @@ public class ArmorRegistry {
             Item item = entry.getValue().get();
             if (item instanceof ZeldaArmorItem) {
                 AzArmorRendererRegistry.register(item, ((ZeldaArmorItem) item).RENDERER);
+            }
+            if (item instanceof WeaponItem) {
+                AzItemRendererRegistry.register(item, ((WeaponItem) item).RENDERER);
+            }
+            if (item instanceof WeaponItem) {
+                AzIdentityRegistry.register(item);
             }
         }
     }
