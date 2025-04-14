@@ -33,9 +33,11 @@ public class BokoblinArm  extends WeaponItem {
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
         if (level.isClientSide && entity instanceof LivingEntity living) {
+            System.out.println("Sending ground_idle");
             dispatcher.ground_idle(living, stack);
         }
     }
+
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if (!attacker.level().isClientSide()) {

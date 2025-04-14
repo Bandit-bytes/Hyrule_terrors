@@ -52,9 +52,6 @@ public class ArmorRegistry {
             if (item instanceof WeaponItem) {
                 AzItemRendererRegistry.register(item, ((WeaponItem) item).RENDERER);
             }
-            if (item instanceof WeaponItem) {
-                AzIdentityRegistry.register(item);
-            }
         }
     }
 }

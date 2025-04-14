@@ -1,4 +1,4 @@
-package net.bandit.hyrule_terrors.item.armor.client.dispatcher;
+package net.bandit.hyrule_terrors.item.weapon.dispatcher;
 
 import mod.azure.azurelib.rewrite.animation.dispatch.command.AzCommand;
 import mod.azure.azurelib.rewrite.animation.play_behavior.AzPlayBehaviors;
