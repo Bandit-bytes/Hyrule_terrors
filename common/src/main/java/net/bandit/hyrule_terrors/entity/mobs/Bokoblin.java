@@ -9,6 +9,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -22,6 +23,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class Bokoblin extends AbstractTerrorMob {
@@ -65,6 +68,21 @@ public class Bokoblin extends AbstractTerrorMob {
     }
 
     @Override
+    public boolean checkSpawnRules(LevelAccessor level, MobSpawnType spawnType) {
+        if (level.getDifficulty() == Difficulty.PEACEFUL) {
+            return false;
+        }
+        BlockPos pos = this.blockPosition();
+        int skyLight = level.getBrightness(LightLayer.SKY, pos);
+        int blockLight = level.getBrightness(LightLayer.BLOCK, pos);
+
+        if (skyLight > 7 || blockLight > 7) {
+            return false;
+        }
+        return super.checkSpawnRules(level, spawnType);
+    }
+
+    @Override
     protected SoundEvent getAmbientSound() {
         return SoundEvents.PIGLIN_AMBIENT;
     }
@@ -89,25 +107,6 @@ public class Bokoblin extends AbstractTerrorMob {
         super.dropCustomDeathLoot(level, source, recentlyHit);
 
         if (level.isClientSide()) return;
-        int lootingLevel = 0;
-        if (source.getEntity() instanceof LivingEntity attacker) {
-            Holder<Enchantment> looting = level.registryAccess()
-                    .registryOrThrow(Registries.ENCHANTMENT)
-                    .getHolderOrThrow(net.minecraft.world.item.enchantment.Enchantments.LOOTING);
-
-            lootingLevel = EnchantmentHelper.getItemEnchantmentLevel(looting, attacker.getMainHandItem());
-
-        }
-        this.spawnAtLocation(ItemRegistry.BOKOBLIN_FANG.get(), 1 + this.random.nextInt(2));
-
-        if (this.random.nextFloat() < 0.2F + (0.05F * lootingLevel)) {
-            this.spawnAtLocation(ItemRegistry.BOKOBLIN_HORN.get(), 1 + this.random.nextInt(2));
-        }
-        ItemStack heldItem = this.getMainHandItem();
-        if (!heldItem.isEmpty() && this.random.nextFloat() < 0.1F + (0.03F * lootingLevel)) {
-            this.spawnAtLocation(heldItem);
-        }
-
         this.dropExperience();
     }
     protected void dropExperience() {

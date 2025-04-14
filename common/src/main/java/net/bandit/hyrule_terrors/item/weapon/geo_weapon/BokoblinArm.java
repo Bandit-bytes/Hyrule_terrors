@@ -1,6 +1,6 @@
 package net.bandit.hyrule_terrors.item.weapon.geo_weapon;
 
-import net.bandit.hyrule_terrors.item.armor.client.dispatcher.HyruleItemDispatcher;
+import net.bandit.hyrule_terrors.item.weapon.dispatcher.HyruleItemDispatcher;
 import net.bandit.hyrule_terrors.item.HyruleWeaponMaterials;
 import net.bandit.hyrule_terrors.item.weapon.client.renderer.BokoblinArmRenderer;
 import net.minecraft.ChatFormatting;

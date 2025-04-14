@@ -1,7 +1,7 @@
 package net.bandit.hyrule_terrors.item.weapon.geo_weapon;
 
 import mod.azure.azurelib.rewrite.render.item.AzItemRenderer;
-import net.bandit.hyrule_terrors.item.armor.client.dispatcher.HyruleItemDispatcher;
+import net.bandit.hyrule_terrors.item.weapon.dispatcher.HyruleItemDispatcher;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tier;
 

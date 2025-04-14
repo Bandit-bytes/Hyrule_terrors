@@ -21,7 +21,6 @@ public class ArmorRegistry {
     private static DeferredRegister<Item> getOrCreateRegister(String modId) {
         return MOD_REGISTERS.computeIfAbsent(modId, id -> DeferredRegister.create(id, Registries.ITEM));
     }
-
     public static RegistrySupplier<Item> registerItem(String modId, String name, Supplier<Item> itemSupplier) {
         String fullName = modId + ":" + name;
         if (REGISTERED_ITEMS.containsKey(fullName)) {
@@ -29,10 +28,13 @@ public class ArmorRegistry {
         }
         DeferredRegister<Item> register = getOrCreateRegister(modId);
         RegistrySupplier<Item> item = register.register(name, itemSupplier);
-        if (item instanceof ZeldaArmorItem) AzIdentityRegistry.register(((ZeldaArmorItem) item).asItem());
+
+        item.listen(i -> AzIdentityRegistry.register(i));
+
         REGISTERED_ITEMS.put(fullName, item);
         return item;
     }
+
     public static RegistrySupplier<Item> getItem(String modId, String name) {
         return REGISTERED_ITEMS.get(modId + ":" + name);
     }

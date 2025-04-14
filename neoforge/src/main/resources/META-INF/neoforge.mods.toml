@@ -37,7 +37,7 @@ side = "BOTH"
 [[dependencies.hyrule_terrors]]
 modId = "azurelib"
 type = "required"
-versionRange = "[3.0.0,)"
+versionRange = "[3.0.11,)"
 ordering = "NONE"
 side = "BOTH"
 

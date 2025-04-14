@@ -47,7 +47,7 @@ public class ItemRegistry {
     public static final RegistrySupplier<Item> KNIGHTS_CLAYMORE = ITEMS.register("knights_claymore",
             () -> new KnightsClaymore(Tiers.IRON, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.DIAMOND, 9, -3.0F)).rarity(Rarity.RARE).durability(375).arch$tab(TabRegistry.HYRULE_TERRORS_TAB)));
     public static final RegistrySupplier<Item> BOULDER_BREAKER = ITEMS.register("boulder_breaker",
-            () -> new BoulderBreaker(Tiers.IRON, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.NETHERITE, 9, -2.5F)).rarity(Rarity.EPIC).durability(475).arch$tab(TabRegistry.HYRULE_TERRORS_TAB)));
+            () -> new BoulderBreaker(Tiers.IRON, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.NETHERITE, 9, -3.0F)).rarity(Rarity.EPIC).durability(475).arch$tab(TabRegistry.HYRULE_TERRORS_TAB)));
 
 
     public static void register() {

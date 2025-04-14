@@ -11,6 +11,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -28,6 +29,7 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class Lizalfos extends AbstractTerrorMob {
@@ -72,6 +74,20 @@ public class Lizalfos extends AbstractTerrorMob {
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
     }
     @Override
+    public boolean checkSpawnRules(LevelAccessor level, MobSpawnType spawnType) {
+        if (level.getDifficulty() == Difficulty.PEACEFUL) {
+            return false;
+        }
+        BlockPos pos = this.blockPosition();
+        int skyLight = level.getBrightness(LightLayer.SKY, pos);
+        int blockLight = level.getBrightness(LightLayer.BLOCK, pos);
+
+        if (skyLight > 7 || blockLight > 7) {
+            return false;
+        }
+        return super.checkSpawnRules(level, spawnType);
+    }
+    @Override
     public void tick() {
         super.tick();
 
@@ -105,27 +121,6 @@ public class Lizalfos extends AbstractTerrorMob {
         super.dropCustomDeathLoot(level, source, recentlyHit);
 
         if (level.isClientSide()) return;
-
-        int lootingLevel = 0;
-        if (source.getEntity() instanceof LivingEntity attacker) {
-            Holder<Enchantment> looting = level.registryAccess()
-                    .registryOrThrow(Registries.ENCHANTMENT)
-                    .getHolderOrThrow(Enchantments.LOOTING);
-
-            lootingLevel = EnchantmentHelper.getItemEnchantmentLevel(looting, attacker.getMainHandItem());
-        }
-
-        this.spawnAtLocation(ItemRegistry.LIZALFOS_HORN.get(), 1 + this.random.nextInt(2));
-        if (this.random.nextFloat() < 0.3F + (0.05F * lootingLevel)) {
-            this.spawnAtLocation(ItemRegistry.LIZALFOS_TALON.get(), 1);
-        }
-        if (this.random.nextFloat() < 0.3F + (0.04F * lootingLevel)) {
-            this.spawnAtLocation(ItemRegistry.LIZALFOS_TAIL.get(), 1);
-        }
-        ItemStack heldItem = this.getMainHandItem();
-        if (!heldItem.isEmpty() && this.random.nextFloat() < 0.1F + (0.03F * lootingLevel)) {
-            this.spawnAtLocation(heldItem);
-        }
         this.dropExperience();
     }
     protected void dropExperience() {
