@@ -18,6 +18,7 @@ public class BokoblinArmAnimator extends AzItemAnimator {
     public void registerControllers(AzAnimationControllerContainer<ItemStack> animationControllerContainer) {
         animationControllerContainer.add(
                 AzAnimationController.builder(this, "base_controller")
+                        .setTransitionLength(5)
                         .build()
         );
     }

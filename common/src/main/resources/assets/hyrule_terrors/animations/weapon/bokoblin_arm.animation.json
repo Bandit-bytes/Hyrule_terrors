@@ -3,6 +3,7 @@
 	"animations": {
 		"ground_idle": {
 			"loop": true,
+			"animation_length": 5,
 			"bones": {
 				"bone": {
 					"rotation": {

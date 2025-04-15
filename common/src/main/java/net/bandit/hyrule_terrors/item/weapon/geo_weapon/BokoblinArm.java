@@ -16,12 +16,15 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 
-import java.util.List;
+import java.util.*;
 
 import static mod.azure.azurelib.sblforked.util.RandomUtil.RANDOM;
 
+
 public class BokoblinArm  extends WeaponItem {
     public final HyruleItemDispatcher dispatcher;
+    private static final Map<UUID, Integer> cooldowns = new HashMap<>();
+    private static final int LOOP_INTERVAL_TICKS = 80;
 
     public BokoblinArm(Properties properties) {
         super(HyruleWeaponMaterials.BOKOBLIN_TIER, BokoblinArmRenderer::new, properties
@@ -33,11 +36,30 @@ public class BokoblinArm  extends WeaponItem {
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slot, boolean selected) {
         if (level.isClientSide && entity instanceof LivingEntity living) {
-            System.out.println("Sending ground_idle");
-            dispatcher.ground_idle(living, stack);
+            UUID id = living.getUUID();
+            int ticksLeft = cooldowns.getOrDefault(id, 0);
+            if (!selected) {
+                cooldowns.remove(id);
+                return;
+            }
+            if (ticksLeft <= 0) {
+                cooldowns.put(id, LOOP_INTERVAL_TICKS);
+                dispatcher.ground_idle(living, stack);
+                System.out.println("[DEBUG] Animation triggered for " + id);
+
+            } else {
+                cooldowns.put(id, ticksLeft - 1);
+            }
         }
     }
-
+//    @Override
+//    public void onUseTick(Level level, LivingEntity livingEntity, ItemStack stack, int remainingUseDuration) {
+//        super.onUseTick(level, livingEntity, stack, remainingUseDuration);
+//        if (livingEntity instanceof Player player && !level.isClientSide()) {
+//            // This is where you now trigger an animation to play
+//            dispatcher.ground_idle(player, stack);
+//        }
+//    }
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if (!attacker.level().isClientSide()) {
@@ -47,6 +69,7 @@ public class BokoblinArm  extends WeaponItem {
             if (RANDOM.nextFloat() < 0.10f) {
                 player.drop(stack.copy(), false);
                 player.setItemInHand(player.getUsedItemHand(), ItemStack.EMPTY);
+                player.displayClientMessage(Component.literal("The Bokoblin Arm slips from your hand!").withStyle(ChatFormatting.GRAY), true);
             }
         }
 
