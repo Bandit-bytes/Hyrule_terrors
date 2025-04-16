@@ -53,7 +53,7 @@ public class ItemRegistry {
     public static final RegistrySupplier<Item> BOULDER_BREAKER = ITEMS.register("boulder_breaker",
             () -> new BoulderBreaker(Tiers.IRON, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.NETHERITE, 9, -3.0F)).rarity(Rarity.EPIC).durability(475).arch$tab(TabRegistry.HYRULE_TERRORS_TAB)));
     public static final RegistrySupplier<Item> BOKOBLIN_ARM = ITEMS.register("bokoblin_arm",
-            () -> new BokoblinArm(new Item.Properties().attributes(SwordItem.createAttributes(HyruleWeaponMaterials.BOKOBLIN_TIER, 2, -1f)).durability(100).rarity(Rarity.UNCOMMON).arch$tab(TabRegistry.HYRULE_TERRORS_TAB)));
+            () -> new BokoblinArm(new Item.Properties().attributes(SwordItem.createAttributes(HyruleWeaponMaterials.BOKOBLIN_TIER, -1, -2f)).durability(100).rarity(Rarity.UNCOMMON).arch$tab(TabRegistry.HYRULE_TERRORS_TAB)));
 
 
     public static void register() {

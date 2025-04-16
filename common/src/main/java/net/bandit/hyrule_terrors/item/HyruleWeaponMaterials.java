@@ -14,8 +14,8 @@ public class HyruleWeaponMaterials implements Tier {
 
     public static final Tier BOKOBLIN_TIER = new HyruleWeaponMaterials(
             101,
-            4.0f,
-            5.0f,
+            1.0f,
+            3.0f,
             3,
             BlockTags.NEEDS_STONE_TOOL,
         () -> Ingredient.of(Items.BONE));
