@@ -21,7 +21,8 @@ public class HyruleItemDispatcher {
     public void firing(Entity entity, ItemStack itemStack) {
         FIRING_COMMAND.sendForItem(entity, itemStack);
     }
-    public void ground_idle(Entity entity, ItemStack itemStack) {
+
+    public void serverFire(Entity entity, ItemStack itemStack) {
         GROUND_IDLE_COMMAND.sendForItem(entity, itemStack);
     }
 }

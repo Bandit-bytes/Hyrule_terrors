@@ -1,5 +1,6 @@
 package net.bandit.hyrule_terrors.item.weapon.client.animator;
 
+import mod.azure.azurelib.rewrite.animation.AzAnimatorConfig;
 import mod.azure.azurelib.rewrite.animation.controller.AzAnimationController;
 import mod.azure.azurelib.rewrite.animation.controller.AzAnimationControllerContainer;
 import mod.azure.azurelib.rewrite.animation.impl.AzItemAnimator;
@@ -13,12 +14,15 @@ public class BokoblinArmAnimator extends AzItemAnimator {
             HyruleTerrorsMod.MOD_ID,
             "animations/weapon/bokoblin_arm.animation.json"
     );
+    public BokoblinArmAnimator() {
+        super(AzAnimatorConfig.defaultConfig());
+    }
 
     @Override
     public void registerControllers(AzAnimationControllerContainer<ItemStack> animationControllerContainer) {
         animationControllerContainer.add(
                 AzAnimationController.builder(this, "base_controller")
-                        .setTransitionLength(5)
+//                        .setTransitionLength(5)
                         .build()
         );
     }

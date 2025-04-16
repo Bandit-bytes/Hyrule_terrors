@@ -4,12 +4,16 @@ import dev.architectury.core.item.ArchitecturySpawnEggItem;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
+import net.bandit.hyrule_terrors.item.HyruleWeaponMaterials;
 import net.bandit.hyrule_terrors.item.item.*;
+import net.bandit.hyrule_terrors.item.weapon.geo_weapon.BokoblinArm;
 import net.bandit.hyrule_terrors.item.weapon.weapons.BoulderBreaker;
 import net.bandit.hyrule_terrors.item.weapon.weapons.KnightsClaymore;
 import net.bandit.hyrule_terrors.item.weapon.weapons.SilverLongsword;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.*;
+
+import java.util.function.Supplier;
 
 public class ItemRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(HyruleTerrorsMod.MOD_ID, Registries.ITEM);
@@ -48,6 +52,8 @@ public class ItemRegistry {
             () -> new KnightsClaymore(Tiers.IRON, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.DIAMOND, 9, -3.0F)).rarity(Rarity.RARE).durability(375).arch$tab(TabRegistry.HYRULE_TERRORS_TAB)));
     public static final RegistrySupplier<Item> BOULDER_BREAKER = ITEMS.register("boulder_breaker",
             () -> new BoulderBreaker(Tiers.IRON, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.NETHERITE, 9, -3.0F)).rarity(Rarity.EPIC).durability(475).arch$tab(TabRegistry.HYRULE_TERRORS_TAB)));
+    public static final RegistrySupplier<Item> BOKOBLIN_ARM = ITEMS.register("bokoblin_arm",
+            () -> new BokoblinArm(new Item.Properties().attributes(SwordItem.createAttributes(HyruleWeaponMaterials.BOKOBLIN_TIER, 2, -1f)).durability(100).rarity(Rarity.UNCOMMON).arch$tab(TabRegistry.HYRULE_TERRORS_TAB)));
 
 
     public static void register() {

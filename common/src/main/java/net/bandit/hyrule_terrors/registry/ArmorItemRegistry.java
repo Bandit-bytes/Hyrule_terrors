@@ -42,13 +42,5 @@ public class ArmorItemRegistry {
         ArmorRegistry.registerItem(HyruleTerrorsMod.MOD_ID, "evil_spirit_leggings", () -> new EvilSpiritArmorItem(ArmorItem.Type.LEGGINGS, EvilProps));
         ArmorRegistry.registerItem(HyruleTerrorsMod.MOD_ID, "evil_spirit_boots", () -> new EvilSpiritArmorItem(ArmorItem.Type.BOOTS, EvilProps));
 
-        ArmorRegistry.registerItem(HyruleTerrorsMod.MOD_ID, "bokoblin_arm", () ->
-                new BokoblinArm( new Item.Properties()
-                                .attributes(SwordItem.createAttributes(HyruleWeaponMaterials.BOKOBLIN_TIER, 2, -2.5f))
-                                .durability(101)
-                                .rarity(Rarity.RARE)
-                                .arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
-                )
-        );
     }
 }
