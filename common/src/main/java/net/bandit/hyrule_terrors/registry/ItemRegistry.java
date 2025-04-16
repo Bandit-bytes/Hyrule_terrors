@@ -5,6 +5,10 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.item.HyruleWeaponMaterials;
+import net.bandit.hyrule_terrors.item.armor.sets.BarbarianArmorItem;
+import net.bandit.hyrule_terrors.item.armor.sets.EvilSpiritArmorItem;
+import net.bandit.hyrule_terrors.item.armor.sets.KnightArmorItem;
+import net.bandit.hyrule_terrors.item.armor.sets.ZoraArmorItem;
 import net.bandit.hyrule_terrors.item.item.*;
 import net.bandit.hyrule_terrors.item.weapon.geo_weapon.BokoblinArm;
 import net.bandit.hyrule_terrors.item.weapon.weapons.BoulderBreaker;
@@ -17,6 +21,10 @@ import java.util.function.Supplier;
 
 public class ItemRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(HyruleTerrorsMod.MOD_ID, Registries.ITEM);
+
+    static Item.Properties defaultProps = new Item.Properties().durability(390).stacksTo(1).rarity(Rarity.RARE).arch$tab(TabRegistry.HYRULE_TERRORS_TAB);
+    static Item.Properties KnightProps = new Item.Properties().durability(440).stacksTo(1).rarity(Rarity.RARE).arch$tab(TabRegistry.HYRULE_TERRORS_TAB);
+    static Item.Properties EvilProps = new Item.Properties().durability(510).stacksTo(1).rarity(Rarity.EPIC).arch$tab(TabRegistry.HYRULE_TERRORS_TAB);
     //Eggies
     public static final RegistrySupplier<Item> BOKOBLIN_SPAWN_EGG = ITEMS.register("bokoblin_spawn_egg",
             () -> new ArchitecturySpawnEggItem(EntityRegistry.BOKOBLIN,
@@ -43,6 +51,30 @@ public class ItemRegistry {
             () -> new LizalfosTalon(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE)));
     public static final RegistrySupplier<Item> CHUCHU_JELLY = ITEMS.register("chuchu_jelly",
             () -> new ChuchuJelly(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.UNCOMMON)));
+    //ARMOR
+    
+        public static final RegistrySupplier<Item> ZORA_HELMET = ITEMS.register("zora_helmet", () -> new ZoraArmorItem(ArmorItem.Type.HELMET, defaultProps));
+        public static final RegistrySupplier<Item> ZORA_CHESTPLATE = ITEMS.register("zora_chestplate", () -> new ZoraArmorItem(ArmorItem.Type.CHESTPLATE, defaultProps));
+        public static final RegistrySupplier<Item> ZORA_LEGGINGS = ITEMS.register("zora_leggings", () -> new ZoraArmorItem(ArmorItem.Type.LEGGINGS, defaultProps));
+        public static final RegistrySupplier<Item> ZORA_BOOTS = ITEMS.register("zora_boots", () -> new ZoraArmorItem(ArmorItem.Type.BOOTS, defaultProps));
+
+    //Barbarian Armor
+        public static final RegistrySupplier<Item> BARBARIAN_HELMET = ITEMS.register("barbarian_helmet", () -> new BarbarianArmorItem(ArmorItem.Type.HELMET, defaultProps));
+        public static final RegistrySupplier<Item> BARBARIAN_CHESTPLATE = ITEMS.register("barbarian_chestplate", () -> new BarbarianArmorItem(ArmorItem.Type.CHESTPLATE, defaultProps));
+        public static final RegistrySupplier<Item> BARBARIAN_LEGGINGS = ITEMS.register("barbarian_leggings", () -> new BarbarianArmorItem(ArmorItem.Type.LEGGINGS, defaultProps));
+        public static final RegistrySupplier<Item> BARBARIAN_BOOTS = ITEMS.register("barbarian_boots", () -> new BarbarianArmorItem(ArmorItem.Type.BOOTS, defaultProps));
+
+    // Knight Armor
+        public static final RegistrySupplier<Item> KNIGHT_HELMET = ITEMS.register("knight_helmet", () -> new KnightArmorItem(ArmorItem.Type.HELMET, KnightProps));
+        public static final RegistrySupplier<Item> KNIGHT_CHESTPLATE = ITEMS.register("knight_chestplate", () -> new KnightArmorItem(ArmorItem.Type.CHESTPLATE, KnightProps));
+        public static final RegistrySupplier<Item> KNIGHT_LEGGINGS = ITEMS.register("knight_leggings", () -> new KnightArmorItem(ArmorItem.Type.LEGGINGS, KnightProps));
+        public static final RegistrySupplier<Item> KNIGHT_BOOTS = ITEMS.register("knight_boots", () -> new KnightArmorItem(ArmorItem.Type.BOOTS, KnightProps));
+
+    // Evil Spirit Armor
+        public static final RegistrySupplier<Item> EVIL_SPIRIT_HELMET = ITEMS.register("evil_spirit_helmet", () -> new EvilSpiritArmorItem(ArmorItem.Type.HELMET, EvilProps));
+        public static final RegistrySupplier<Item> EVIL_SPIRIT_CHESTPLATE = ITEMS.register("evil_spirit_chestplate", () -> new EvilSpiritArmorItem(ArmorItem.Type.CHESTPLATE, EvilProps));
+        public static final RegistrySupplier<Item> EVIL_SPIRIT_LEGGINGS = ITEMS.register("evil_spirit_leggings", () -> new EvilSpiritArmorItem(ArmorItem.Type.LEGGINGS, EvilProps));
+        public static final RegistrySupplier<Item> EVIL_SPIRIT_BOOTS = ITEMS.register("evil_spirit_boots", () -> new EvilSpiritArmorItem(ArmorItem.Type.BOOTS, EvilProps));
     // WEAPONS
     public static final RegistrySupplier<Item> LIZALFOS_HORN_DAGGER = ITEMS.register("lizalfos_horn_dagger",
             () -> new SwordItem(Tiers.IRON, new Item.Properties().attributes(SwordItem.createAttributes(Tiers.IRON, 2, -1.5F)).rarity(Rarity.UNCOMMON).durability(125).arch$tab(TabRegistry.HYRULE_TERRORS_TAB)));

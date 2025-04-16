@@ -12,18 +12,19 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 
 import java.util.List;
 
-public class BarbarianArmorItem extends ZeldaArmorItem{
+public class BarbarianArmorItem extends ArmorItem {
 
     public final ZeldaArmorDispatcher DISPATCHER;
 
     public BarbarianArmorItem(Type type, Properties properties) {
-        super(ZeldaArmorMaterials.BARBARAIN_ARMOR, type, BarbarianArmorRenderer::new, properties
+        super(ZeldaArmorMaterials.BARBARAIN_ARMOR, type, properties
         );
         this.DISPATCHER = new ZeldaArmorDispatcher();
     }

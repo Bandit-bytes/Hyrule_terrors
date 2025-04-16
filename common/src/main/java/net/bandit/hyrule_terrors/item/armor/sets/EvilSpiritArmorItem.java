@@ -12,6 +12,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -19,12 +20,12 @@ import net.minecraft.world.level.Level;
 
 import java.util.List;
 
-public class EvilSpiritArmorItem extends ZeldaArmorItem{
+public class EvilSpiritArmorItem extends ArmorItem {
 
     public final ZeldaArmorDispatcher DISPATCHER;
 
     public EvilSpiritArmorItem(Type type, Item.Properties properties) {
-        super(ZeldaArmorMaterials.EVIL_SPIRIT, type, EvilSpiritRenderer::new, properties
+        super(ZeldaArmorMaterials.EVIL_SPIRIT, type, properties
         );
         this.DISPATCHER = new ZeldaArmorDispatcher();
     }
