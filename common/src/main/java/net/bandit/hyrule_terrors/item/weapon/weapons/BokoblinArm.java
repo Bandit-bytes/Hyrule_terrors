@@ -1,4 +1,4 @@
-package net.bandit.hyrule_terrors.item.weapon.geo_weapon;
+package net.bandit.hyrule_terrors.item.weapon.weapons;
 
 import net.bandit.hyrule_terrors.item.HyruleWeaponMaterials;
 import net.bandit.hyrule_terrors.item.weapon.dispatcher.HyruleItemDispatcher;
@@ -8,14 +8,12 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
@@ -81,8 +79,8 @@ public class BokoblinArm  extends Item {
                 player.displayClientMessage(Component.literal("The Bokoblin Arm slips from your hand!").withStyle(ChatFormatting.GRAY), true);
             }
         }
-
-        return super.hurtEnemy(stack, target, attacker);
+        stack.hurtAndBreak(1, attacker, (EquipmentSlot.MAINHAND));
+        return true;
     }
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {

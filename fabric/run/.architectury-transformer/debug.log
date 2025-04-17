@@ -1,9 +1,9 @@
 [Architectury Transformer] Architectury Runtime 5.2.87
-[Architectury Transformer DEBUG] Closed File Systems for D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\common\build\devlibs\Hyrule_Terrors-common-1.0.1-1.21.1-dev.jar
+[Architectury Transformer DEBUG] Closed File Systems for D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\common\build\devlibs\Hyrule_Terrors-common-1.0.3-1.21.1-dev.jar
 [Architectury Transformer DEBUG] Preparing tiny remapper prepared transformer: dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Provided 114 classpath jar(s):
 [Architectury Transformer DEBUG]  - C:\Users\noide\.gradle\caches\modules-2\files-2.1\dev.architectury\architectury-injectables\1.0.10\62db2a366d662606d1b23ad02ccc3212ed37ec3\architectury-injectables-1.0.10.jar
-[Architectury Transformer DEBUG]  - C:\Users\noide\.gradle\caches\modules-2\files-2.1\net.fabricmc\fabric-loader\0.16.10\dbd932c2a3641d2c41cf9abfe47e140a5753fa86\fabric-loader-0.16.10.jar
+[Architectury Transformer DEBUG]  - C:\Users\noide\.gradle\caches\modules-2\files-2.1\net.fabricmc\fabric-loader\0.16.13\98c9beaf1e9b7290882be44120b8a3967e7b1f28\fabric-loader-0.16.13.jar
 [Architectury Transformer DEBUG]  - C:\Users\noide\.gradle\caches\modules-2\files-2.1\org.jetbrains\annotations\25.0.0\c1e6b966db352094ac3bf7f88f3bdef332fe43f0\annotations-25.0.0.jar
 [Architectury Transformer DEBUG]  - C:\Users\noide\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm\9.7.1\f0ed132a49244b042cd0e15702ab9f2ce3cc8436\asm-9.7.1.jar
 [Architectury Transformer DEBUG]  - C:\Users\noide\.gradle\caches\modules-2\files-2.1\org.ow2.asm\asm-analysis\9.7.1\f97a3b319f0ed6a8cd944dc79060d3912a28985f\asm-analysis-9.7.1.jar
@@ -63,7 +63,7 @@
 [Architectury Transformer DEBUG]  - C:\Users\noide\.gradle\caches\modules-2\files-2.1\io.netty\netty-transport-native-epoll\4.1.97.Final\5514744c588190ffda076b35a9b8c9f24946a960\netty-transport-native-epoll-4.1.97.Final-linux-aarch_64.jar
 [Architectury Transformer DEBUG]  - D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\.gradle\loom-cache\remapped_mods\loom_mappings_1_21_1_layered_hash_40545_v2\net\fabricmc\fabric-api\fabric-api\0.115.1+1.21.1\fabric-api-0.115.1+1.21.1.jar
 [Architectury Transformer DEBUG]  - D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\.gradle\loom-cache\remapped_mods\loom_mappings_1_21_1_layered_hash_40545_v2\dev\architectury\architectury-fabric\13.0.8\architectury-fabric-13.0.8.jar
-[Architectury Transformer DEBUG]  - D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\.gradle\loom-cache\remapped_mods\loom_mappings_1_21_1_layered_hash_40545_v2\mod\azure\azurelib\azurelib-fabric-1.21.1\3.0.8\azurelib-fabric-1.21.1-3.0.8.jar
+[Architectury Transformer DEBUG]  - D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\.gradle\loom-cache\remapped_mods\loom_mappings_1_21_1_layered_hash_40545_v2\mod\azure\azurelib\azurelib-fabric-1.21.1\3.0.11\azurelib-fabric-1.21.1-3.0.11.jar
 [Architectury Transformer DEBUG]  - D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\.gradle\loom-cache\remapped_mods\loom_mappings_1_21_1_layered_hash_40545_v2\net\fabricmc\fabric-api\fabric-transfer-api-v1\5.4.2+c24bd99419\fabric-transfer-api-v1-5.4.2+c24bd99419.jar
 [Architectury Transformer DEBUG]  - D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\.gradle\loom-cache\remapped_mods\loom_mappings_1_21_1_layered_hash_40545_v2\net\fabricmc\fabric-api\fabric-api-lookup-api-v1\1.6.70+b559734419\fabric-api-lookup-api-v1-1.6.70+b559734419.jar
 [Architectury Transformer DEBUG]  - D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\.gradle\loom-cache\remapped_mods\loom_mappings_1_21_1_layered_hash_40545_v2\net\fabricmc\fabric-api\fabric-blockrenderlayer-v1\1.1.52+0af3f5a719\fabric-blockrenderlayer-v1-1.1.52+0af3f5a719.jar
@@ -116,15 +116,15 @@
 [Architectury Transformer DEBUG]  - D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\.gradle\loom-cache\remapped_mods\loom_mappings_1_21_1_layered_hash_40545_v2\com\terraformersmc\modmenu\11.0.3\modmenu-11.0.3.jar
 [Architectury Transformer DEBUG]  - D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\.gradle\loom-cache\remapped_mods\loom_mappings_1_21_1_layered_hash_40545_v2\me\shedaniel\cloth\cloth-config-fabric\15.0.140\cloth-config-fabric-15.0.140-fabric.jar
 [Architectury Transformer DEBUG]  - D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\.gradle\loom-cache\remapped_mods\loom_mappings_1_21_1_layered_hash_40545_v2\me\shedaniel\cloth\basic-math\0.6.1\basic-math-0.6.1.jar
-[Architectury Transformer] Read classpath in 1.105 s
-[Architectury Transformer DEBUG] Closed File Systems for D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\common\build\devlibs\Hyrule_Terrors-common-1.0.1-1.21.1-dev.jar
-[Architectury Transformer DEBUG] Transforming 5 transformer(s) from D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\common\build\devlibs\Hyrule_Terrors-common-1.0.1-1.21.1-dev.jar to C:\Users\noide\AppData\Local\Temp\11639409785982821114.jar: 
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.RuntimeMixinRefmapDetector@2b546384
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.GenerateFakeFabricMod@5d740a0f
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.TransformExpectPlatform@214b199c
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.RemapInjectables@20d3d15a
-[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.TransformPlatformOnly@2893de87
-[Architectury Transformer DEBUG] Transforming from D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\common\build\devlibs\Hyrule_Terrors-common-1.0.1-1.21.1-dev.jar to C:\Users\noide\AppData\Local\Temp\11639409785982821114.jar with 5 transformer(s) on dev.architectury.transformer.handler.SimpleTransformerHandler
+[Architectury Transformer] Read classpath in 1.040 s
+[Architectury Transformer DEBUG] Closed File Systems for D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\common\build\devlibs\Hyrule_Terrors-common-1.0.3-1.21.1-dev.jar
+[Architectury Transformer DEBUG] Transforming 5 transformer(s) from D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\common\build\devlibs\Hyrule_Terrors-common-1.0.3-1.21.1-dev.jar to C:\Users\noide\AppData\Local\Temp\11017527785320570701.jar: 
+[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.RuntimeMixinRefmapDetector@60d8c9b7
+[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.GenerateFakeFabricMod@48aaecc3
+[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.TransformExpectPlatform@7c0c77c7
+[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.RemapInjectables@7adda9cc
+[Architectury Transformer DEBUG]  - dev.architectury.transformer.transformers.TransformPlatformOnly@5cee5251
+[Architectury Transformer DEBUG] Transforming from D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\common\build\devlibs\Hyrule_Terrors-common-1.0.3-1.21.1-dev.jar to C:\Users\noide\AppData\Local\Temp\11017527785320570701.jar with 5 transformer(s) on dev.architectury.transformer.handler.SimpleTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/ai/RandomFlyingGoal with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/ai/SneakyCrawlGoal with maxs=true frames=true
@@ -150,25 +150,36 @@
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/helper/AnimationDispatcher with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/HyruleTerrorsConfig with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/HyruleTerrorsMod with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/client/animator/BarbarianAnimator with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/client/animator/EvilSpiritAnimator with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/client/animator/KnightArmorAnimator with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/client/animator/ZoraArmorAnimator with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/client/dispatcher/ZeldaArmorDispatcher with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/client/renderer/BarbarianArmorRenderer with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/client/renderer/EvilSpiritRenderer with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/client/renderer/KnightArmorRenderer with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/client/renderer/ZoraArmorRenderer with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/sets/BarbarianArmorItem with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/sets/EvilSpiritArmorItem with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/sets/KnightArmorItem with maxs=true frames=true
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/sets/ZeldaArmorItem with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/sets/ZoraArmorItem with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/ZeldaArmorMaterials with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/ZeldaArmorMaterialsRegister with maxs=true frames=true
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/BokoblinFang with maxs=true frames=true
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/BokoblinHorn with maxs=true frames=true
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/ChuchuJelly with maxs=true frames=true
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/LizalfosHorn with maxs=true frames=true
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/LizalfosTail with maxs=true frames=true
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/LizalfosTalon with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/HyruleWeaponMaterials with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/item/BokoblinFang with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/item/BokoblinHorn with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/item/ChuchuJelly with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/item/LizalfosHorn with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/item/LizalfosTail with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/item/LizalfosTalon with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/weapon/client/animator/BokoblinArmAnimator with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/weapon/client/renderer/BokoblinArmRenderer with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/weapon/dispatcher/HyruleItemDispatcher with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/weapon/geo_weapon/BokoblinArm with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/weapon/geo_weapon/WeaponItem with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/weapon/weapons/BoulderBreaker with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/weapon/weapons/KnightsClaymore with maxs=true frames=true
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/weapon/weapons/SilverLongsword with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/registry/ArmorItemRegistry with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/registry/ArmorRegistry with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/registry/EntityRegistry with maxs=true frames=true
@@ -176,185 +187,221 @@
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/registry/TabRegistry with maxs=true frames=true
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/registry/TagRegistry with maxs=true frames=true
 [Architectury Transformer DEBUG] Checking whether /hyrule_terrors.mixins.json is a mixin config.
-[Architectury Transformer DEBUG] Closed File Systems for C:\Users\noide\AppData\Local\Temp\11639409785982821114.jar
-[Architectury Transformer] Listening at D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\common\build\devlibs\Hyrule_Terrors-common-1.0.1-1.21.1-dev.jar
-[Architectury Transformer DEBUG] Temporary jar [C:\Users\noide\AppData\Local\Temp\11639409785982821114.jar] contains packages: net.bandit.hyrule_terrors.helper, net.bandit.hyrule_terrors.item.armor.client.dispatcher, net.bandit.hyrule_terrors, net.bandit.hyrule_terrors.item.armor.client.animator, net.bandit.hyrule_terrors.entity.client.renderer, net.bandit.hyrule_terrors.item, net.bandit.hyrule_terrors.entity.client.animator, net.bandit.hyrule_terrors.entity.ai, net.bandit.hyrule_terrors.registry, net.bandit.hyrule_terrors.item.armor.client.renderer, net.bandit.hyrule_terrors.entity.attack, net.bandit.hyrule_terrors.item.armor.sets, net.bandit.hyrule_terrors.item.armor, net.bandit.hyrule_terrors.entity.mobs
-[Architectury Transformer DEBUG] Closed File Systems for D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\common\build\devlibs\Hyrule_Terrors-common-1.0.1-1.21.1-dev.jar
+[Architectury Transformer DEBUG] Closed File Systems for C:\Users\noide\AppData\Local\Temp\11017527785320570701.jar
+[Architectury Transformer] Listening at D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\common\build\devlibs\Hyrule_Terrors-common-1.0.3-1.21.1-dev.jar
+[Architectury Transformer DEBUG] Temporary jar [C:\Users\noide\AppData\Local\Temp\11017527785320570701.jar] contains packages: net.bandit.hyrule_terrors.item.weapon.weapons, net.bandit.hyrule_terrors.helper, net.bandit.hyrule_terrors.item.item, net.bandit.hyrule_terrors.item.armor.client.dispatcher, net.bandit.hyrule_terrors.item.weapon.client.renderer, net.bandit.hyrule_terrors, net.bandit.hyrule_terrors.item.armor.client.animator, net.bandit.hyrule_terrors.entity.client.renderer, net.bandit.hyrule_terrors.item.weapon.geo_weapon, net.bandit.hyrule_terrors.item, net.bandit.hyrule_terrors.entity.client.animator, net.bandit.hyrule_terrors.entity.ai, net.bandit.hyrule_terrors.registry, net.bandit.hyrule_terrors.item.weapon.client.animator, net.bandit.hyrule_terrors.item.armor.client.renderer, net.bandit.hyrule_terrors.entity.attack, net.bandit.hyrule_terrors.item.weapon.dispatcher, net.bandit.hyrule_terrors.item.armor.sets, net.bandit.hyrule_terrors.item.armor, net.bandit.hyrule_terrors.entity.mobs
+[Architectury Transformer DEBUG] Closed File Systems for D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\common\build\devlibs\Hyrule_Terrors-common-1.0.3-1.21.1-dev.jar
 [Architectury Transformer DEBUG] Classpath entry [D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\fabric\build\resources\main] contains packages: 
 [Architectury Transformer DEBUG] Classpath entry [D:\SolidState Driver\bandits mod development\Hyrule Terrors_new\common\build\resources\main] contains packages: 
 [Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/HyruleTerrorsMod.class to net/bandit/hyrule_terrors/HyruleTerrorsMod.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/HyruleTerrorsMod with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/HyruleTerrorsMod in 1.296 ms
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/HyruleTerrorsMod in 1.711 ms
 [Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/HyruleTerrorsConfig.class to net/bandit/hyrule_terrors/HyruleTerrorsConfig.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/HyruleTerrorsConfig with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/HyruleTerrorsConfig in 540.3 μs
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/HyruleTerrorsConfig in 533.8 μs
 [Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/registry/ItemRegistry.class to net/bandit/hyrule_terrors/registry/ItemRegistry.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/registry/ItemRegistry with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/registry/ItemRegistry in 844.8 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/LizalfosHorn.class to net/bandit/hyrule_terrors/item/LizalfosHorn.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/LizalfosHorn with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/LizalfosHorn in 454.6 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/BokoblinHorn.class to net/bandit/hyrule_terrors/item/BokoblinHorn.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/BokoblinHorn with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/BokoblinHorn in 495.1 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/BokoblinFang.class to net/bandit/hyrule_terrors/item/BokoblinFang.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/BokoblinFang with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/BokoblinFang in 460.9 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/LizalfosTalon.class to net/bandit/hyrule_terrors/item/LizalfosTalon.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/LizalfosTalon with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/LizalfosTalon in 283.4 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/ChuchuJelly.class to net/bandit/hyrule_terrors/item/ChuchuJelly.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/ChuchuJelly with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/ChuchuJelly in 424.0 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/LizalfosTail.class to net/bandit/hyrule_terrors/item/LizalfosTail.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/LizalfosTail with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/LizalfosTail in 515.6 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/registry/EntityRegistry.class to net/bandit/hyrule_terrors/registry/EntityRegistry.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/registry/EntityRegistry with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/registry/EntityRegistry in 763.6 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/registry/TabRegistry.class to net/bandit/hyrule_terrors/registry/TabRegistry.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/registry/TabRegistry with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/registry/TabRegistry in 258.5 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/mobs/Lizalfos.class to net/bandit/hyrule_terrors/entity/mobs/Lizalfos.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/mobs/Lizalfos with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/mobs/Lizalfos in 836.2 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/mobs/AbstractTerrorMob.class to net/bandit/hyrule_terrors/entity/mobs/AbstractTerrorMob.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/mobs/AbstractTerrorMob with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/mobs/AbstractTerrorMob in 371.0 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/mobs/Lizalfos$1.class to net/bandit/hyrule_terrors/entity/mobs/Lizalfos$1.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/mobs/Lizalfos$1 with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/mobs/Lizalfos$1 in 283.5 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/mobs/Chuchu.class to net/bandit/hyrule_terrors/entity/mobs/Chuchu.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/mobs/Chuchu with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/mobs/Chuchu in 503.4 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/mobs/Chuchu$1.class to net/bandit/hyrule_terrors/entity/mobs/Chuchu$1.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/mobs/Chuchu$1 with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/mobs/Chuchu$1 in 199.8 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/mobs/Keese.class to net/bandit/hyrule_terrors/entity/mobs/Keese.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/mobs/Keese with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/mobs/Keese in 483.0 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/ai/RandomFlyingGoal.class to net/bandit/hyrule_terrors/entity/ai/RandomFlyingGoal.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/ai/RandomFlyingGoal with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/ai/RandomFlyingGoal in 352.1 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/attack/FlyingAttackGoal.class to net/bandit/hyrule_terrors/entity/attack/FlyingAttackGoal.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/attack/FlyingAttackGoal with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/attack/FlyingAttackGoal in 636.9 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/mobs/Bokoblin.class to net/bandit/hyrule_terrors/entity/mobs/Bokoblin.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/mobs/Bokoblin with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/mobs/Bokoblin in 602.7 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/mobs/Bokoblin$1.class to net/bandit/hyrule_terrors/entity/mobs/Bokoblin$1.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/mobs/Bokoblin$1 with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/mobs/Bokoblin$1 in 153.5 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/registry/ArmorItemRegistry.class to net/bandit/hyrule_terrors/registry/ArmorItemRegistry.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/registry/ArmorItemRegistry with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/registry/ArmorItemRegistry in 1.075 ms
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/registry/ItemRegistry in 1.581 ms
 [Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/armor/sets/KnightArmorItem.class to net/bandit/hyrule_terrors/item/armor/sets/KnightArmorItem.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/sets/KnightArmorItem with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/sets/KnightArmorItem in 453.7 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/armor/sets/ZeldaArmorItem.class to net/bandit/hyrule_terrors/item/armor/sets/ZeldaArmorItem.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/sets/ZeldaArmorItem with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/sets/ZeldaArmorItem in 211.7 μs
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/sets/KnightArmorItem in 455.2 μs
 [Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/armor/sets/EvilSpiritArmorItem.class to net/bandit/hyrule_terrors/item/armor/sets/EvilSpiritArmorItem.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/sets/EvilSpiritArmorItem with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/sets/EvilSpiritArmorItem in 370.2 μs
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/sets/EvilSpiritArmorItem in 381.2 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/weapon/geo_weapon/BokoblinArm.class to net/bandit/hyrule_terrors/item/weapon/geo_weapon/BokoblinArm.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/weapon/geo_weapon/BokoblinArm with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/weapon/geo_weapon/BokoblinArm in 392.8 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/weapon/weapons/BoulderBreaker.class to net/bandit/hyrule_terrors/item/weapon/weapons/BoulderBreaker.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/weapon/weapons/BoulderBreaker with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/weapon/weapons/BoulderBreaker in 391.1 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/weapon/weapons/KnightsClaymore.class to net/bandit/hyrule_terrors/item/weapon/weapons/KnightsClaymore.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/weapon/weapons/KnightsClaymore with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/weapon/weapons/KnightsClaymore in 372.9 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/weapon/weapons/SilverLongsword.class to net/bandit/hyrule_terrors/item/weapon/weapons/SilverLongsword.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/weapon/weapons/SilverLongsword with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/weapon/weapons/SilverLongsword in 430.0 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/item/LizalfosHorn.class to net/bandit/hyrule_terrors/item/item/LizalfosHorn.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/item/LizalfosHorn with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/item/LizalfosHorn in 274.2 μs
 [Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/armor/sets/ZoraArmorItem.class to net/bandit/hyrule_terrors/item/armor/sets/ZoraArmorItem.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/sets/ZoraArmorItem with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/sets/ZoraArmorItem in 399.9 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/registry/ArmorRegistry.class to net/bandit/hyrule_terrors/registry/ArmorRegistry.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/sets/ZoraArmorItem in 286.3 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/item/ChuchuJelly.class to net/bandit/hyrule_terrors/item/item/ChuchuJelly.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/registry/ArmorRegistry with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/registry/ArmorRegistry in 360.8 μs
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/item/ChuchuJelly with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/item/ChuchuJelly in 498.3 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/item/LizalfosTalon.class to net/bandit/hyrule_terrors/item/item/LizalfosTalon.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/item/LizalfosTalon with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/item/LizalfosTalon in 449.0 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/armor/sets/BarbarianArmorItem.class to net/bandit/hyrule_terrors/item/armor/sets/BarbarianArmorItem.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/sets/BarbarianArmorItem with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/sets/BarbarianArmorItem in 484.5 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/item/LizalfosTail.class to net/bandit/hyrule_terrors/item/item/LizalfosTail.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/item/LizalfosTail with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/item/LizalfosTail in 318.3 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/item/BokoblinFang.class to net/bandit/hyrule_terrors/item/item/BokoblinFang.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/item/BokoblinFang with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/item/BokoblinFang in 323.1 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/item/BokoblinHorn.class to net/bandit/hyrule_terrors/item/item/BokoblinHorn.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/item/BokoblinHorn with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/item/BokoblinHorn in 183.8 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/registry/TabRegistry.class to net/bandit/hyrule_terrors/registry/TabRegistry.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/registry/TabRegistry with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/registry/TabRegistry in 370.5 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/registry/EntityRegistry.class to net/bandit/hyrule_terrors/registry/EntityRegistry.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/registry/EntityRegistry with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/registry/EntityRegistry in 660.1 μs
 [Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/armor/ZeldaArmorMaterials.class to net/bandit/hyrule_terrors/item/armor/ZeldaArmorMaterials.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/ZeldaArmorMaterials with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/ZeldaArmorMaterials in 331.6 μs
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/ZeldaArmorMaterials in 903.6 μs
 [Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/armor/ZeldaArmorMaterialsRegister.class to net/bandit/hyrule_terrors/item/armor/ZeldaArmorMaterialsRegister.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/ZeldaArmorMaterialsRegister with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/ZeldaArmorMaterialsRegister in 432.7 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/armor/client/renderer/ZoraArmorRenderer.class to net/bandit/hyrule_terrors/item/armor/client/renderer/ZoraArmorRenderer.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/client/renderer/ZoraArmorRenderer with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/client/renderer/ZoraArmorRenderer in 230.0 μs
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/ZeldaArmorMaterialsRegister in 476.1 μs
 [Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/armor/client/dispatcher/ZeldaArmorDispatcher.class to net/bandit/hyrule_terrors/item/armor/client/dispatcher/ZeldaArmorDispatcher.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/client/dispatcher/ZeldaArmorDispatcher with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/client/dispatcher/ZeldaArmorDispatcher in 162.1 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/armor/client/renderer/KnightArmorRenderer.class to net/bandit/hyrule_terrors/item/armor/client/renderer/KnightArmorRenderer.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/client/dispatcher/ZeldaArmorDispatcher in 181.5 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/HyruleWeaponMaterials.class to net/bandit/hyrule_terrors/item/HyruleWeaponMaterials.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/client/renderer/KnightArmorRenderer with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/client/renderer/KnightArmorRenderer in 256.5 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/armor/client/renderer/EvilSpiritRenderer.class to net/bandit/hyrule_terrors/item/armor/client/renderer/EvilSpiritRenderer.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/HyruleWeaponMaterials with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/HyruleWeaponMaterials in 663.6 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/weapon/dispatcher/HyruleItemDispatcher.class to net/bandit/hyrule_terrors/item/weapon/dispatcher/HyruleItemDispatcher.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/client/renderer/EvilSpiritRenderer with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/client/renderer/EvilSpiritRenderer in 280.2 μs
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/weapon/dispatcher/HyruleItemDispatcher with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/weapon/dispatcher/HyruleItemDispatcher in 271.9 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/mobs/Lizalfos.class to net/bandit/hyrule_terrors/entity/mobs/Lizalfos.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/mobs/Lizalfos with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/mobs/Lizalfos in 651.5 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/mobs/AbstractTerrorMob.class to net/bandit/hyrule_terrors/entity/mobs/AbstractTerrorMob.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/mobs/AbstractTerrorMob with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/mobs/AbstractTerrorMob in 293.5 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/mobs/Lizalfos$1.class to net/bandit/hyrule_terrors/entity/mobs/Lizalfos$1.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/mobs/Lizalfos$1 with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/mobs/Lizalfos$1 in 681.8 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/mobs/Chuchu.class to net/bandit/hyrule_terrors/entity/mobs/Chuchu.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/mobs/Chuchu with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/mobs/Chuchu in 430.8 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/mobs/Chuchu$1.class to net/bandit/hyrule_terrors/entity/mobs/Chuchu$1.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/mobs/Chuchu$1 with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/mobs/Chuchu$1 in 152.9 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/mobs/Keese.class to net/bandit/hyrule_terrors/entity/mobs/Keese.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/mobs/Keese with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/mobs/Keese in 485.4 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/ai/RandomFlyingGoal.class to net/bandit/hyrule_terrors/entity/ai/RandomFlyingGoal.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/ai/RandomFlyingGoal with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/ai/RandomFlyingGoal in 293.6 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/attack/FlyingAttackGoal.class to net/bandit/hyrule_terrors/entity/attack/FlyingAttackGoal.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/attack/FlyingAttackGoal with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/attack/FlyingAttackGoal in 489.7 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/mobs/Bokoblin.class to net/bandit/hyrule_terrors/entity/mobs/Bokoblin.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/mobs/Bokoblin with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/mobs/Bokoblin in 404.9 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/mobs/Bokoblin$1.class to net/bandit/hyrule_terrors/entity/mobs/Bokoblin$1.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/mobs/Bokoblin$1 with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/mobs/Bokoblin$1 in 184.3 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/registry/ArmorItemRegistry.class to net/bandit/hyrule_terrors/registry/ArmorItemRegistry.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/registry/ArmorItemRegistry with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/registry/ArmorItemRegistry in 301.3 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/registry/ArmorRegistry.class to net/bandit/hyrule_terrors/registry/ArmorRegistry.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/registry/ArmorRegistry with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/registry/ArmorRegistry in 453.0 μs
 [Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/client/renderer/BokoblinRenderer.class to net/bandit/hyrule_terrors/entity/client/renderer/BokoblinRenderer.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/client/renderer/BokoblinRenderer with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/client/renderer/BokoblinRenderer in 401.9 μs
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/client/renderer/BokoblinRenderer in 366.6 μs
 [Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/client/renderer/ChuchuRenderer.class to net/bandit/hyrule_terrors/entity/client/renderer/ChuchuRenderer.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/client/renderer/ChuchuRenderer with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/client/renderer/ChuchuRenderer in 282.0 μs
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/client/renderer/ChuchuRenderer in 169.0 μs
 [Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/client/renderer/LizalfosRenderer.class to net/bandit/hyrule_terrors/entity/client/renderer/LizalfosRenderer.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/client/renderer/LizalfosRenderer with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/client/renderer/LizalfosRenderer in 314.4 μs
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/client/renderer/LizalfosRenderer in 216.5 μs
 [Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/client/renderer/KeeseRenderer.class to net/bandit/hyrule_terrors/entity/client/renderer/KeeseRenderer.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/client/renderer/KeeseRenderer with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/client/renderer/KeeseRenderer in 330.8 μs
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/client/renderer/KeeseRenderer in 152.4 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/armor/client/renderer/ZoraArmorRenderer.class to net/bandit/hyrule_terrors/item/armor/client/renderer/ZoraArmorRenderer.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/client/renderer/ZoraArmorRenderer with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/client/renderer/ZoraArmorRenderer in 255.1 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/armor/client/renderer/EvilSpiritRenderer.class to net/bandit/hyrule_terrors/item/armor/client/renderer/EvilSpiritRenderer.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/client/renderer/EvilSpiritRenderer with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/client/renderer/EvilSpiritRenderer in 145.8 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/armor/client/renderer/BarbarianArmorRenderer.class to net/bandit/hyrule_terrors/item/armor/client/renderer/BarbarianArmorRenderer.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/client/renderer/BarbarianArmorRenderer with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/client/renderer/BarbarianArmorRenderer in 352.2 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/armor/client/renderer/KnightArmorRenderer.class to net/bandit/hyrule_terrors/item/armor/client/renderer/KnightArmorRenderer.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/client/renderer/KnightArmorRenderer with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/client/renderer/KnightArmorRenderer in 225.8 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/weapon/client/renderer/BokoblinArmRenderer.class to net/bandit/hyrule_terrors/item/weapon/client/renderer/BokoblinArmRenderer.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/weapon/client/renderer/BokoblinArmRenderer with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/weapon/client/renderer/BokoblinArmRenderer in 194.4 μs
 [Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/client/animator/LizalfosAnimator.class to net/bandit/hyrule_terrors/entity/client/animator/LizalfosAnimator.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/client/animator/LizalfosAnimator with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/client/animator/LizalfosAnimator in 951.1 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/client/animator/BokoblinAnimator.class to net/bandit/hyrule_terrors/entity/client/animator/BokoblinAnimator.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/client/animator/BokoblinAnimator with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/client/animator/BokoblinAnimator in 387.6 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/client/animator/ChuchuAnimator.class to net/bandit/hyrule_terrors/entity/client/animator/ChuchuAnimator.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
-[Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/client/animator/ChuchuAnimator with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/client/animator/ChuchuAnimator in 417.2 μs
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/client/animator/LizalfosAnimator in 762.3 μs
 [Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/client/animator/KeeseAnimator.class to net/bandit/hyrule_terrors/entity/client/animator/KeeseAnimator.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/client/animator/KeeseAnimator with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/client/animator/KeeseAnimator in 259.1 μs
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/client/animator/KeeseAnimator in 505.7 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/client/animator/ChuchuAnimator.class to net/bandit/hyrule_terrors/entity/client/animator/ChuchuAnimator.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/client/animator/ChuchuAnimator with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/client/animator/ChuchuAnimator in 563.3 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/entity/client/animator/BokoblinAnimator.class to net/bandit/hyrule_terrors/entity/client/animator/BokoblinAnimator.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/entity/client/animator/BokoblinAnimator with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/entity/client/animator/BokoblinAnimator in 393.6 μs
 [Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/registry/TagRegistry.class to net/bandit/hyrule_terrors/registry/TagRegistry.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/registry/TagRegistry with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/registry/TagRegistry in 489.9 μs
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/registry/TagRegistry in 547.6 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/weapon/client/animator/BokoblinArmAnimator.class to net/bandit/hyrule_terrors/item/weapon/client/animator/BokoblinArmAnimator.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Found class transformer
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/weapon/client/animator/BokoblinArmAnimator with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/weapon/client/animator/BokoblinArmAnimator in 599.9 μs
 [Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/helper/AnimationDispatcher.class to net/bandit/hyrule_terrors/helper/AnimationDispatcher.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
 [Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/helper/AnimationDispatcher with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/helper/AnimationDispatcher in 566.6 μs
-[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/armor/client/animator/ZoraArmorAnimator.class to net/bandit/hyrule_terrors/item/armor/client/animator/ZoraArmorAnimator.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/helper/AnimationDispatcher in 308.0 μs
+[Architectury Transformer DEBUG] Transforming from net/bandit/hyrule_terrors/item/armor/client/animator/EvilSpiritAnimator.class to net/bandit/hyrule_terrors/item/armor/client/animator/EvilSpiritAnimator.class with 5 transformer(s) on dev.architectury.transformer.handler.TinyRemapperPreparedTransformerHandler
 [Architectury Transformer DEBUG] Found class transformer
-[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/client/animator/ZoraArmorAnimator with maxs=true frames=true
-[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/client/animator/ZoraArmorAnimator in 720.9 μs
+[Architectury Transformer DEBUG] Writing net/bandit/hyrule_terrors/item/armor/client/animator/EvilSpiritAnimator with maxs=true frames=true
+[Architectury Transformer DEBUG] Transformed net/bandit/hyrule_terrors/item/armor/client/animator/EvilSpiritAnimator in 1.003 ms

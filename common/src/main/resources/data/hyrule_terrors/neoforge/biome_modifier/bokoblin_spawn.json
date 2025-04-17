@@ -1,12 +1,11 @@
 {
   "type": "neoforge:add_spawns",
   "biomes": "#hyrule_terrors:bokoblin_spawn_in",
-  "spawners": [
+  "spawners":
     {
       "type": "hyrule_terrors:bokoblin",
       "weight": 15,
       "minCount": 2,
       "maxCount": 4
     }
-  ]
 }

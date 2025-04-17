@@ -1,5 +1,6 @@
 package net.bandit.hyrule_terrors.entity.client.animator;
 
+import mod.azure.azurelib.rewrite.animation.AzAnimatorConfig;
 import mod.azure.azurelib.rewrite.animation.controller.AzAnimationController;
 import mod.azure.azurelib.rewrite.animation.controller.AzAnimationControllerContainer;
 import mod.azure.azurelib.rewrite.animation.impl.AzEntityAnimator;
@@ -13,6 +14,9 @@ public class LizalfosAnimator extends AzEntityAnimator<Lizalfos> {
             HyruleTerrorsMod.MOD_ID,
             "animations/entity/lizalfos.animation.json"
     );
+    public LizalfosAnimator() {
+        super(AzAnimatorConfig.defaultConfig());
+    }
 
     @Override
     public void registerControllers(AzAnimationControllerContainer<Lizalfos> animationControllerContainer) {

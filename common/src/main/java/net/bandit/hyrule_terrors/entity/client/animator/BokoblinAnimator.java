@@ -1,8 +1,10 @@
 package net.bandit.hyrule_terrors.entity.client.animator;
 
+import mod.azure.azurelib.rewrite.animation.AzAnimatorConfig;
 import mod.azure.azurelib.rewrite.animation.controller.AzAnimationController;
 import mod.azure.azurelib.rewrite.animation.controller.AzAnimationControllerContainer;
 import mod.azure.azurelib.rewrite.animation.impl.AzEntityAnimator;
+import mod.azure.azurelib.rewrite.animation.impl.AzItemAnimator;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.entity.mobs.Bokoblin;
 import net.minecraft.resources.ResourceLocation;
@@ -13,6 +15,9 @@ public class BokoblinAnimator extends AzEntityAnimator<Bokoblin> {
             HyruleTerrorsMod.MOD_ID,
             "animations/entity/bokoblin.animation.json"
     );
+    public BokoblinAnimator() {
+        super(AzAnimatorConfig.defaultConfig());
+    }
 
     @Override
     public void registerControllers(AzAnimationControllerContainer<Bokoblin> animationControllerContainer) {

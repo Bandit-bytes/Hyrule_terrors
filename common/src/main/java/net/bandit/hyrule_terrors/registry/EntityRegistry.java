@@ -8,6 +8,7 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.entity.mobs.*;
+import net.minecraft.commands.arguments.OperationArgument;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.*;
@@ -37,6 +38,8 @@ public class EntityRegistry {
                     .sized(0.75f, 1.75f)
                     .build(ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID, "bokoblin").toString()));
 
+
+// IVE TRIED MONSTER/CREATURE/ANIMAL; CUSTOM SPAWN RULES AND REMOVING THIS SECTION AND MANUALLY ADDING NOT WORKING
     private static void initSpawns() {
 
         SpawnPlacementsRegistry.register(EntityRegistry.BOKOBLIN, SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Bokoblin::checkMobSpawnRules);

@@ -3,17 +3,7 @@
     "#c:is_mushroom",
     "#c:is_floral",
     "#c:is_mountain",
-    "minecraft:forest",
-    "#c:is_forest",
-    "minecraft:meadow",
-    "minecraft:dark_forest",
-    "minecraft:desert",
-    "minecraft:mushroom_fields",
-    "minecraft:plains",
-    "minecraft:savanna",
-    "minecraft:flower_forest",
-    "minecraft:grove",
-    "minecraft:jungle",
-    "minecraft:lush_caves"
+    "#c:is_plains",
+    "#c:is_forest"
     ]
 }

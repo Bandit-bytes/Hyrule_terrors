@@ -4,12 +4,20 @@ import mod.azure.azurelib.rewrite.animation.cache.AzIdentityRegistry;
 import mod.azure.azurelib.rewrite.render.armor.AzArmorRendererRegistry;
 import mod.azure.azurelib.rewrite.render.item.AzItemRendererRegistry;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
+import net.bandit.hyrule_terrors.entity.mobs.Bokoblin;
 import net.bandit.hyrule_terrors.item.armor.client.renderer.BarbarianArmorRenderer;
 import net.bandit.hyrule_terrors.item.armor.client.renderer.EvilSpiritRenderer;
 import net.bandit.hyrule_terrors.item.armor.client.renderer.KnightArmorRenderer;
 import net.bandit.hyrule_terrors.item.armor.client.renderer.ZoraArmorRenderer;
 import net.bandit.hyrule_terrors.item.weapon.client.renderer.BokoblinArmRenderer;
+import net.bandit.hyrule_terrors.registry.EntityRegistry;
 import net.bandit.hyrule_terrors.registry.ItemRegistry;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.SpawnPlacementType;
+import net.minecraft.world.entity.SpawnPlacementTypes;
+import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -19,6 +27,8 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.ModelEvent;
+import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
+import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 
 import static net.bandit.hyrule_terrors.HyruleTerrorsMod.MOD_ID;
 
@@ -89,6 +99,12 @@ public final class HyruleTerrorsNeoForge {
                 ItemRegistry.KNIGHT_LEGGINGS.get(),
                 ItemRegistry.KNIGHT_BOOTS.get()
         );
+    }
+    //THIS DOES NOT WORK - JSONS for biome modifiers dont see to be working either
+    @SubscribeEvent
+    public static void registerSpawnPlacements(RegisterSpawnPlacementsEvent event) {
+              event.register(EntityRegistry.BOKOBLIN.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                      Monster::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
     }
 }
 

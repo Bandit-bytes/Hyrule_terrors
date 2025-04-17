@@ -21,7 +21,6 @@ public class BokoblinRenderer extends AzEntityRenderer<Bokoblin> {
         super(
                 AzEntityRendererConfig.<Bokoblin>builder(MODEL, TEXTURE)
                         .setAnimatorProvider(BokoblinAnimator::new)
-                        .setDeathMaxRotation(0.0F)
                         .build(),
                 context
         );

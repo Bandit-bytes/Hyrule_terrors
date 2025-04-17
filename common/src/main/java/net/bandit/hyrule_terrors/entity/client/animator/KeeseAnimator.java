@@ -1,5 +1,6 @@
 package net.bandit.hyrule_terrors.entity.client.animator;
 
+import mod.azure.azurelib.rewrite.animation.AzAnimatorConfig;
 import mod.azure.azurelib.rewrite.animation.controller.AzAnimationController;
 import mod.azure.azurelib.rewrite.animation.controller.AzAnimationControllerContainer;
 import mod.azure.azurelib.rewrite.animation.impl.AzEntityAnimator;
@@ -13,6 +14,9 @@ public class KeeseAnimator extends AzEntityAnimator<Keese> {
             HyruleTerrorsMod.MOD_ID,
             "animations/entity/keese.animation.json"
     );
+    public KeeseAnimator() {
+        super(AzAnimatorConfig.defaultConfig());
+    }
 
     @Override
     public void registerControllers(AzAnimationControllerContainer<Keese> animationControllerContainer) {

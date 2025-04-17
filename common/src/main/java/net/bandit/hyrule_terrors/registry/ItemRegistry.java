@@ -10,14 +10,12 @@ import net.bandit.hyrule_terrors.item.armor.sets.EvilSpiritArmorItem;
 import net.bandit.hyrule_terrors.item.armor.sets.KnightArmorItem;
 import net.bandit.hyrule_terrors.item.armor.sets.ZoraArmorItem;
 import net.bandit.hyrule_terrors.item.item.*;
-import net.bandit.hyrule_terrors.item.weapon.geo_weapon.BokoblinArm;
+import net.bandit.hyrule_terrors.item.weapon.weapons.BokoblinArm;
 import net.bandit.hyrule_terrors.item.weapon.weapons.BoulderBreaker;
 import net.bandit.hyrule_terrors.item.weapon.weapons.KnightsClaymore;
 import net.bandit.hyrule_terrors.item.weapon.weapons.SilverLongsword;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.*;
-
-import java.util.function.Supplier;
 
 public class ItemRegistry {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(HyruleTerrorsMod.MOD_ID, Registries.ITEM);
