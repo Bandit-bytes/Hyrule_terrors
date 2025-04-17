@@ -7,6 +7,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.Difficulty;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -19,7 +20,9 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.Nullable;
 
 public class Bokoblin extends AbstractTerrorMob {
     public AnimationDispatcher dispatcher;
@@ -61,20 +64,20 @@ public class Bokoblin extends AbstractTerrorMob {
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
     }
 
-    @Override
-    public boolean checkSpawnRules(LevelAccessor level, MobSpawnType spawnType) {
-        if (level.getDifficulty() == Difficulty.PEACEFUL) {
-            return false;
-        }
-        BlockPos pos = this.blockPosition();
-        int skyLight = level.getBrightness(LightLayer.SKY, pos);
-        int blockLight = level.getBrightness(LightLayer.BLOCK, pos);
-
-        if (skyLight > 7 || blockLight > 7) {
-            return false;
-        }
-        return super.checkSpawnRules(level, spawnType);
-    }
+//    @Override
+//    public boolean checkSpawnRules(LevelAccessor level, MobSpawnType spawnType) {
+//        if (level.getDifficulty() == Difficulty.PEACEFUL) {
+//            return false;
+//        }
+//        BlockPos pos = this.blockPosition();
+//        int skyLight = level.getBrightness(LightLayer.SKY, pos);
+//        int blockLight = level.getBrightness(LightLayer.BLOCK, pos);
+//
+//        if (skyLight > 7 || blockLight > 7) {
+//            return false;
+//        }
+//        return super.checkSpawnRules(level, spawnType);
+//    }
 
     @Override
     protected SoundEvent getAmbientSound() {
@@ -107,5 +110,11 @@ public class Bokoblin extends AbstractTerrorMob {
         int baseXP = 5;
         int xpDrop = baseXP + this.random.nextInt(3);
         this.level().addFreshEntity(new ExperienceOrb(this.level(), this.getX(), this.getY(), this.getZ(), xpDrop));
+    }
+
+    @Nullable
+    @Override
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType, @Nullable SpawnGroupData spawnGroupData) {
+        return super.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, spawnGroupData);
     }
 }
