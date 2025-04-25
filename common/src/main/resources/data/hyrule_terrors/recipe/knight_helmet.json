@@ -6,11 +6,11 @@
   ],
   "key": {
     "S": {
-      "item": "hyrule_terrors:steel"
+      "tag": "c:ingots/steel"
     }
   },
   "result": {
-    "id": "hyrule_terrors:knight_boots",
+    "id": "hyrule_terrors:knight_helmet",
     "count": 1
   }
 }
