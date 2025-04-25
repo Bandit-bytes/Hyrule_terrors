@@ -1,8 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#c:is_temperate",
-    "#c:is_forest",
-    "#c:is_plains"
+    "#c:is_mountain",
+    "#c:is_forest"
   ]
 }

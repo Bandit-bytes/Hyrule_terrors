@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S C",
+    "SSS",
+    "LSL"
+  ],
+  "key": {
+    "S": {
+      "item": "hyrule_terrors:steel"
+    },
+    "L": {
+      "item": "hyrule_terrors:lizalfos_talon"
+    },
+    "C": {
+      "item": "hyrule_terrors:chuchu_jelly"
+    }
+  },
+  "result": {
+    "id": "hyrule_terrors:evil_spirit_chestplate",
+    "count": 1
+  }
+}

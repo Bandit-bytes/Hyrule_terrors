@@ -39,6 +39,8 @@ public class ItemRegistry {
     //Items
     public static final RegistrySupplier<Item> BOKOBLIN_FANG = ITEMS.register("bokoblin_fang",
             () -> new BokoblinFang(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE)));
+    public static final RegistrySupplier<Item> STEEL = ITEMS.register("steel",
+            () -> new BokoblinFang(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE)));
     public static final RegistrySupplier<Item> BOKOBLIN_HORN = ITEMS.register("bokoblin_horn",
             () -> new BokoblinHorn(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE)));
     public static final RegistrySupplier<Item> LIZALFOS_HORN = ITEMS.register("lizalfos_horn",

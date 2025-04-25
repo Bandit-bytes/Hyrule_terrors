@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "HSH",
+    "S S"
+  ],
+  "key": {
+    "S": {
+      "item": "hyrule_terrors:steel"
+    },
+    "H": {
+      "item": "hyrule_terrors:bokoblin_horn"
+    }
+  },
+  "result": {
+    "id": "hyrule_terrors:evil_spirit_helmet",
+    "count": 1
+  }
+}

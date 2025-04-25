@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SLC",
+    "S S",
+    "L L"
+  ],
+  "key": {
+    "S": {
+      "item": "hyrule_terrors:steel"
+    },
+    "L": {
+      "item": "hyrule_terrors:lizalfos_talon"
+    },
+    "C": {
+      "item": "hyrule_terrors:chuchu_jelly"
+    }
+  },
+  "result": {
+    "id": "hyrule_terrors:evil_spirit_leggings",
+    "count": 1
+  }
+}

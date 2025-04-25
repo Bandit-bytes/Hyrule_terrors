@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PKP",
+    "S S"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:leather"
+    },
+    "K": {
+      "item": "minecraft:emerald"
+    },
+    "S": {
+      "item": "hyrule_terrors:chuchu_jelly"
+    }
+  },
+  "result": {
+    "id": "hyrule_terrors:zora_helmet",
+    "count": 1
+  }
+}

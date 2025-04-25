@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PKP",
+    "S S"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:leather"
+    },
+    "K": {
+      "item": "minecraft:skeleton_skull"
+    },
+    "S": {
+      "item": "hyrule_terrors:bokoblin_horn"
+    }
+  },
+  "result": {
+    "id": "hyrule_terrors:barbarian_helmet",
+    "count": 1
+  }
+}

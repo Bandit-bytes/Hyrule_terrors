@@ -92,5 +92,9 @@
   "item.bokoblin_arm.tooltip1": "A brittle arm torn from a Bokoblin. May even fly out of your hand when swinging.",
 
   "advancements.hyrule_terrors.description": "Embark on a new adventure with Hyrule Monsters, Armors, and Items!!",
-  "advancements.hyrule_terrors.title": "Hyrule Terror's"
+  "advancements.hyrule_terrors.title": "Hyrule Terror's",
+  "advancements.hyrule_terrors.enter_fort.title": "Bokoblin Fort",
+  "advancements.hyrule_terrors.bokoblin_arm.title": "Bokoblin Arm!",
+  "advancements.hyrule_terrors.enter_fort.description": "Find a Bokoblin fort!",
+  "advancements.hyrule_terrors.bokoblin_arm.description": "ITS STILL ALLIVVVVEEE!"
 }

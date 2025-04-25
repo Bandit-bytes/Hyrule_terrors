@@ -29,6 +29,9 @@ repositories {
         name = 'NeoForged'
         url = 'https://maven.neoforged.net/releases'
     }
+    maven {
+        url "https://cursemaven.com"
+    }
 }
 
 dependencies {
@@ -39,6 +42,7 @@ dependencies {
     common(project(path: ':common', configuration: 'namedElements')) { transitive false }
     shadowBundle project(path: ':common', configuration: 'transformProductionNeoForge')
     implementation "mod.azure.azurelib:azurelib-neo-${minecraft_version}:${azurelib_version}"
+    implementation "curse.maven:worldedit-225608:5830452"
     modApi "me.shedaniel.cloth:cloth-config-neoforge:${rootProject.cloth_config_version}"
 }
 

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S C",
+    "S S"
+  ],
+  "key": {
+    "S": {
+      "item": "hyrule_terrors:steel"
+    },
+    "C": {
+      "item": "hyrule_terrors:chuchu_jelly"
+    }
+  },
+  "result": {
+    "id": "hyrule_terrors:evil_spirit_boots",
+    "count": 1
+  }
+}

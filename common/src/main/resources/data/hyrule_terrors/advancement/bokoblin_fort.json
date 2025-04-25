@@ -1,0 +1,36 @@
+{
+  "display": {
+    "hidden": true,
+    "icon": {
+      "id": "hyrule_terrors:bokoblin_horn"
+    },
+    "title": {
+      "translate": "advancements.hyrule_terrors.enter_fort.title"
+    },
+    "description": {
+      "translate": "advancements.hyrule_terrors.enter_fort.description"
+    },
+    "announce_to_chat": true,
+    "show_toast": true,
+    "frame": "task"
+  },
+  "parent": "hyrule_terrors:hyrule_terrors",
+  "criteria": {
+    "in_fort": {
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structures": "hyrule_terrors:bokoblin_fort"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
+    }
+  }
+}

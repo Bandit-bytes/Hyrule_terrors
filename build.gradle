@@ -25,6 +25,9 @@ subprojects {
 
     repositories {
         maven { url 'https://maven.azuredoom.com/mods' }
+        maven {
+            url "https://cursemaven.com"
+        }
     }
 
     dependencies {

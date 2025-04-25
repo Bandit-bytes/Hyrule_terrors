@@ -1,7 +1,8 @@
 modLoader = "javafml"
 loaderVersion = "[4,)"
 issueTrackerURL = "https://github.com/Bandit-bytes/Hyrule_terrors/issues"
-license = "GNU GPL 3.0"
+license = "ALL RIGHTS RESERVED"
+logoFile = "assets/hyrule_terrors/icon.png"
 
 [[mods]]
 modId = "hyrule_terrors"
@@ -9,7 +10,7 @@ version = "${version}"
 displayName = "Hyrule Terrors"
 authors = "Bandit-Bytes"
 description = '''
-A mod that adds creatures and items inspired by The Legend of Zelda.
+A mod that adds creatures, structures, armors, and items inspired by The Legend of Zelda.
 '''
 #logoFile = ""
 

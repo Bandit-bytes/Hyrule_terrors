@@ -4,7 +4,7 @@
   "spawners":
     {
       "type": "hyrule_terrors:chuchu",
-      "weight": 15,
+      "weight": 10,
       "minCount": 2,
       "maxCount": 4
     }

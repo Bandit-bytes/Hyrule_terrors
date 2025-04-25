@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S S",
+    "S S"
+  ],
+  "key": {
+    "S": {
+      "item": "hyrule_terrors:steel"
+    }
+  },
+  "result": {
+    "id": "hyrule_terrors:knight_boots",
+    "count": 1
+  }
+}
