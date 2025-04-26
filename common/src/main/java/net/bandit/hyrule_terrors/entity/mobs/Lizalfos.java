@@ -73,20 +73,20 @@ public class Lizalfos extends AbstractTerrorMob {
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
     }
-//    @Override
-//    public boolean checkSpawnRules(LevelAccessor level, MobSpawnType spawnType) {
-//        if (level.getDifficulty() == Difficulty.PEACEFUL) {
-//            return false;
-//        }
-//        BlockPos pos = this.blockPosition();
-//        int skyLight = level.getBrightness(LightLayer.SKY, pos);
-//        int blockLight = level.getBrightness(LightLayer.BLOCK, pos);
-//
-//        if (skyLight > 7 || blockLight > 7) {
-//            return false;
-//        }
-//        return super.checkSpawnRules(level, spawnType);
-//    }
+    @Override
+    public boolean checkSpawnRules(LevelAccessor level, MobSpawnType spawnType) {
+        if (level.getDifficulty() == Difficulty.PEACEFUL) {
+            return false;
+        }
+        BlockPos pos = this.blockPosition();
+        int blockLight = level.getBrightness(LightLayer.BLOCK, pos);
+
+        if (blockLight > 4) {
+            return false;
+        }
+
+        return super.checkSpawnRules(level, spawnType);
+    }
     @Override
     public void tick() {
         super.tick();

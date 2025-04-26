@@ -4,6 +4,10 @@ import mod.azure.azurelib.rewrite.animation.cache.AzIdentityRegistry;
 import mod.azure.azurelib.rewrite.render.armor.AzArmorRendererRegistry;
 import mod.azure.azurelib.rewrite.render.item.AzItemRendererRegistry;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
+import net.bandit.hyrule_terrors.entity.mobs.Bokoblin;
+import net.bandit.hyrule_terrors.entity.mobs.Chuchu;
+import net.bandit.hyrule_terrors.entity.mobs.Keese;
+import net.bandit.hyrule_terrors.entity.mobs.Lizalfos;
 import net.bandit.hyrule_terrors.item.armor.client.renderer.BarbarianArmorRenderer;
 import net.bandit.hyrule_terrors.item.armor.client.renderer.EvilSpiritRenderer;
 import net.bandit.hyrule_terrors.item.armor.client.renderer.KnightArmorRenderer;
@@ -11,7 +15,6 @@ import net.bandit.hyrule_terrors.item.armor.client.renderer.ZoraArmorRenderer;
 import net.bandit.hyrule_terrors.item.weapon.client.renderer.BokoblinArmRenderer;
 import net.bandit.hyrule_terrors.registry.EntityRegistry;
 import net.bandit.hyrule_terrors.registry.ItemRegistry;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.api.distmarker.Dist;
@@ -99,13 +102,13 @@ public final class HyruleTerrorsNeoForge {
     @SubscribeEvent
     public static void registerSpawnPlacements(RegisterSpawnPlacementsEvent event) {
               event.register(EntityRegistry.BOKOBLIN.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                      Mob::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
-              event.register(EntityRegistry.KEESE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                Mob::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+                      Bokoblin::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+              event.register(EntityRegistry.KEESE.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                Keese::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
               event.register(EntityRegistry.LIZALFOS.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                Mob::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+                Lizalfos::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
               event.register(EntityRegistry.CHUCHU.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-                Mob::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+                Chuchu::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
     }
 }
 

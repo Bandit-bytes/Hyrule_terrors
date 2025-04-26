@@ -26,7 +26,7 @@ public class KnightsClaymore extends SwordItem {
         Level level = attacker.level();
 
         if (!level.isClientSide()) {
-            level.playSound(null, attacker.blockPosition(), SoundEvents.ANVIL_LAND, SoundSource.PLAYERS, 1.0F, 0.9F);
+            level.playSound(null, attacker.blockPosition(), SoundEvents.ANVIL_LAND, SoundSource.PLAYERS, 0.4F, 0.7F);
         }
 
         target.knockback(0.6D, attacker.getX() - target.getX(), attacker.getZ() - target.getZ());

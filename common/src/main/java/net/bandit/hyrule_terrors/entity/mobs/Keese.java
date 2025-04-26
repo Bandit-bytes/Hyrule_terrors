@@ -70,20 +70,20 @@ public class Keese extends Bat  {
             dispatcher.attack();
         }
     }
-//    @Override
-//    public boolean checkSpawnRules(LevelAccessor level, MobSpawnType spawnType) {
-//        if (level.getDifficulty() == Difficulty.PEACEFUL) {
-//            return false;
-//        }
-//        BlockPos pos = this.blockPosition();
-//        int skyLight = level.getBrightness(LightLayer.SKY, pos);
-//        int blockLight = level.getBrightness(LightLayer.BLOCK, pos);
-//
-//        if (skyLight > 7 || blockLight > 7) {
-//            return false;
-//        }
-//        return super.checkSpawnRules(level, spawnType);
-//    }
+    @Override
+    public boolean checkSpawnRules(LevelAccessor level, MobSpawnType spawnType) {
+        if (level.getDifficulty() == Difficulty.PEACEFUL) {
+            return false;
+        }
+        BlockPos pos = this.blockPosition();
+        int blockLight = level.getBrightness(LightLayer.BLOCK, pos);
+
+        if (blockLight > 4) {
+            return false;
+        }
+
+        return super.checkSpawnRules(level, spawnType);
+    }
 
     @Override
     public void tick() {
