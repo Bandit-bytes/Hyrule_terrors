@@ -1,6 +1,5 @@
 package net.bandit.hyrule_terrors.neoforge;
 
-import mod.azure.azurelib.rewrite.animation.cache.AzIdentityRegistry;
 import mod.azure.azurelib.rewrite.render.armor.AzArmorRendererRegistry;
 import mod.azure.azurelib.rewrite.render.item.AzItemRendererRegistry;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
@@ -25,11 +24,9 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
-import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 
 import static net.bandit.hyrule_terrors.HyruleTerrorsMod.MOD_ID;
-
 
 @Mod(MOD_ID)
 @EventBusSubscriber(modid = HyruleTerrorsMod.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -40,31 +37,10 @@ public final class HyruleTerrorsNeoForge {
         modEventBus.addListener(this::commonSetup);
     }
     public void commonSetup(final FMLCommonSetupEvent event) {
+        HyruleTerrorsMod.initAzIdentityRegistry();
     }
 
     private void onClientSetup(final FMLClientSetupEvent event) {
-    }
-    @SubscribeEvent
-    public static void onModelRegister(ModelEvent.RegisterAdditional event) {
-        AzIdentityRegistry.register(
-                ItemRegistry.BOKOBLIN_ARM.get(),
-                ItemRegistry.ZORA_HELMET.get(),
-                ItemRegistry.ZORA_CHESTPLATE.get(),
-                ItemRegistry.ZORA_LEGGINGS.get(),
-                ItemRegistry.ZORA_BOOTS.get(),
-                ItemRegistry.EVIL_SPIRIT_HELMET.get(),
-                ItemRegistry.EVIL_SPIRIT_CHESTPLATE.get(),
-                ItemRegistry.EVIL_SPIRIT_LEGGINGS.get(),
-                ItemRegistry.EVIL_SPIRIT_BOOTS.get(),
-                ItemRegistry.BARBARIAN_HELMET.get(),
-                ItemRegistry.BARBARIAN_CHESTPLATE.get(),
-                ItemRegistry.BARBARIAN_LEGGINGS.get(),
-                ItemRegistry.BARBARIAN_BOOTS.get(),
-                ItemRegistry.KNIGHT_HELMET.get(),
-                ItemRegistry.KNIGHT_CHESTPLATE.get(),
-                ItemRegistry.KNIGHT_LEGGINGS.get(),
-                ItemRegistry.KNIGHT_BOOTS.get()
-                );
     }
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
