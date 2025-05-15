@@ -14,12 +14,18 @@ public class BokoblinFang extends Item {
     public BokoblinFang(Properties properties) {
         super(properties);
     }
+
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+    public void appendHoverText(
+        ItemStack stack,
+        TooltipContext context,
+        List<Component> tooltipComponents,
+        TooltipFlag tooltipFlag
+    ) {
         if (Screen.hasShiftDown()) {
             tooltipComponents.add(Component.translatable("item.bokoblin_fang.tooltip"));
             tooltipComponents.add(Component.translatable("item.bokoblin_fang.tooltip1").withStyle(ChatFormatting.GRAY));
-        }else {
+        } else {
             tooltipComponents.add(Component.translatable("item.hyrule_terrors.hold_shift"));
         }
     }

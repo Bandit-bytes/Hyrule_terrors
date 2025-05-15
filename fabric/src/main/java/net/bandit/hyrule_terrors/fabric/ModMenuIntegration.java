@@ -6,6 +6,7 @@ import me.shedaniel.autoconfig.AutoConfig;
 import net.bandit.hyrule_terrors.HyruleTerrorsConfig;
 
 public class ModMenuIntegration implements ModMenuApi {
+
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
         return parent -> AutoConfig.getConfigScreen(HyruleTerrorsConfig.class, parent).get();

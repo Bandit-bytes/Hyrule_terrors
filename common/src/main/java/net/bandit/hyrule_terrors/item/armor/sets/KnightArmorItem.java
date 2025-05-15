@@ -2,7 +2,6 @@ package net.bandit.hyrule_terrors.item.armor.sets;
 
 import net.bandit.hyrule_terrors.item.armor.ZeldaArmorMaterials;
 import net.bandit.hyrule_terrors.item.armor.client.dispatcher.ZeldaArmorDispatcher;
-import net.bandit.hyrule_terrors.item.armor.client.renderer.KnightArmorRenderer;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -21,10 +20,14 @@ public class KnightArmorItem extends ArmorItem {
     public final ZeldaArmorDispatcher DISPATCHER;
 
     public KnightArmorItem(Type type, Item.Properties properties) {
-        super(ZeldaArmorMaterials.KNIGHT_ARMOR, type, properties
+        super(
+            ZeldaArmorMaterials.KNIGHT_ARMOR,
+            type,
+            properties
         );
         this.DISPATCHER = new ZeldaArmorDispatcher();
     }
+
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
         if (!level.isClientSide() && entity instanceof Player player) {
@@ -35,16 +38,26 @@ public class KnightArmorItem extends ArmorItem {
             }
         }
     }
+
     private boolean hasFullSet(LivingEntity entity) {
         return entity.getItemBySlot(EquipmentSlot.HEAD).getItem() instanceof KnightArmorItem &&
-                entity.getItemBySlot(EquipmentSlot.CHEST).getItem() instanceof KnightArmorItem &&
-                entity.getItemBySlot(EquipmentSlot.LEGS).getItem() instanceof KnightArmorItem &&
-                entity.getItemBySlot(EquipmentSlot.FEET).getItem() instanceof KnightArmorItem;
+            entity.getItemBySlot(EquipmentSlot.CHEST).getItem() instanceof KnightArmorItem &&
+            entity.getItemBySlot(EquipmentSlot.LEGS).getItem() instanceof KnightArmorItem &&
+            entity.getItemBySlot(EquipmentSlot.FEET).getItem() instanceof KnightArmorItem;
     }
+
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        tooltipComponents.add(Component.translatable("item.hyrule_terrors.knight_armor.tooltip").withStyle(ChatFormatting.ITALIC));
+    public void appendHoverText(
+        ItemStack stack,
+        TooltipContext context,
+        List<Component> tooltipComponents,
+        TooltipFlag tooltipFlag
+    ) {
+        tooltipComponents.add(
+            Component.translatable("item.hyrule_terrors.knight_armor.tooltip").withStyle(ChatFormatting.ITALIC)
+        );
     }
+
     @Override
     public boolean isValidRepairItem(ItemStack toRepair, ItemStack repair) {
         return repair.is(Items.IRON_INGOT);

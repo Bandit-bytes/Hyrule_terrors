@@ -10,10 +10,11 @@ import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
 public class ChuchuAnimator extends AzEntityAnimator<Chuchu> {
-    private static final ResourceLocation ANIMATIONS = ResourceLocation.fromNamespaceAndPath(
-            HyruleTerrorsMod.MOD_ID,
-            "animations/entity/chuchu.animation.json"
+
+    private static final ResourceLocation ANIMATIONS = HyruleTerrorsMod.modResource(
+        "animations/entity/chuchu.animation.json"
     );
+
     public ChuchuAnimator() {
         super(AzAnimatorConfig.defaultConfig());
     }
@@ -21,13 +22,13 @@ public class ChuchuAnimator extends AzEntityAnimator<Chuchu> {
     @Override
     public void registerControllers(AzAnimationControllerContainer<Chuchu> animationControllerContainer) {
         animationControllerContainer.add(
-                AzAnimationController.builder(this, "base_controller")
-                        .build()
+            AzAnimationController.builder(this, "base_controller")
+                .build()
         );
         animationControllerContainer.add(
-                AzAnimationController.builder(this, "attack_controller")
-                        .setTransitionLength(5)
-                        .build()
+            AzAnimationController.builder(this, "attack_controller")
+                .setTransitionLength(5)
+                .build()
         );
     }
 

@@ -25,6 +25,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
 public class Bokoblin extends AbstractTerrorMob {
+
     public AnimationDispatcher dispatcher;
 
     public Bokoblin(EntityType<? extends PathfinderMob> entityType, Level level) {
@@ -34,11 +35,11 @@ public class Bokoblin extends AbstractTerrorMob {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, HyruleTerrorsMod.config.bokoblinHealth)
-                .add(Attributes.ATTACK_DAMAGE, HyruleTerrorsMod.config.bokoblinAttackDamage)
-                .add(Attributes.ATTACK_SPEED, 1.3)
-                .add(Attributes.ATTACK_KNOCKBACK, 1.0)
-                .add(Attributes.MOVEMENT_SPEED, 0.4);
+            .add(Attributes.MAX_HEALTH, HyruleTerrorsMod.config.bokoblinHealth)
+            .add(Attributes.ATTACK_DAMAGE, HyruleTerrorsMod.config.bokoblinAttackDamage)
+            .add(Attributes.ATTACK_SPEED, 1.3)
+            .add(Attributes.ATTACK_KNOCKBACK, 1.0)
+            .add(Attributes.MOVEMENT_SPEED, 0.4);
     }
 
     @Override
@@ -46,6 +47,7 @@ public class Bokoblin extends AbstractTerrorMob {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new PanicGoal(this, 1.25D));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.3D, false) {
+
             @Override
             protected void checkAndPerformAttack(LivingEntity target) {
                 if (this.canPerformAttack(target)) {
@@ -103,9 +105,11 @@ public class Bokoblin extends AbstractTerrorMob {
     protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) {
         super.dropCustomDeathLoot(level, source, recentlyHit);
 
-        if (level.isClientSide()) return;
+        if (level.isClientSide())
+            return;
         this.dropExperience();
     }
+
     protected void dropExperience() {
         int baseXP = 5;
         int xpDrop = baseXP + this.random.nextInt(3);
@@ -114,7 +118,12 @@ public class Bokoblin extends AbstractTerrorMob {
 
     @Nullable
     @Override
-    public SpawnGroupData finalizeSpawn(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType, @Nullable SpawnGroupData spawnGroupData) {
+    public SpawnGroupData finalizeSpawn(
+        ServerLevelAccessor serverLevelAccessor,
+        DifficultyInstance difficultyInstance,
+        MobSpawnType mobSpawnType,
+        @Nullable SpawnGroupData spawnGroupData
+    ) {
         return super.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, spawnGroupData);
     }
 }

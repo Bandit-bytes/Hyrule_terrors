@@ -14,12 +14,18 @@ public class BokoblinHorn extends Item {
     public BokoblinHorn(Properties properties) {
         super(properties);
     }
+
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+    public void appendHoverText(
+        ItemStack stack,
+        TooltipContext context,
+        List<Component> tooltipComponents,
+        TooltipFlag tooltipFlag
+    ) {
         if (Screen.hasShiftDown()) {
             tooltipComponents.add(Component.translatable("item.bokoblin_horn.tooltip"));
             tooltipComponents.add(Component.translatable("item.bokoblin_horn.tooltip1").withStyle(ChatFormatting.GRAY));
-        }else {
+        } else {
             tooltipComponents.add(Component.translatable("item.hyrule_terrors.hold_shift"));
         }
     }

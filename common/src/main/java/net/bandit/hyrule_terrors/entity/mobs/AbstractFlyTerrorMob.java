@@ -7,7 +7,9 @@ import net.minecraft.world.entity.FlyingMob;
 import net.minecraft.world.level.Level;
 
 public class AbstractFlyTerrorMob extends FlyingMob {
+
     public final AnimationDispatcher animationDispatcher;
+
     public final MoveAnalysis moveAnalysis;
 
     protected AbstractFlyTerrorMob(EntityType<? extends FlyingMob> entityType, Level level) {

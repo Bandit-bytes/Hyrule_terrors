@@ -3,10 +3,13 @@ package net.bandit.hyrule_terrors.entity.ai;
 import net.bandit.hyrule_terrors.entity.mobs.Lizalfos;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
+
 import java.util.EnumSet;
 
 public class SneakyCrawlGoal extends Goal {
+
     private final Lizalfos lizalfos;
+
     private final double crawlSpeed;
 
     public SneakyCrawlGoal(Lizalfos lizalfos, double speed) {
@@ -35,6 +38,7 @@ public class SneakyCrawlGoal extends Goal {
             }
         }
     }
+
     @Override
     public void stop() {
         if (!lizalfos.getNavigation().isInProgress()) {

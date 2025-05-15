@@ -7,21 +7,20 @@ import net.bandit.hyrule_terrors.item.armor.client.animator.BarbarianAnimator;
 import net.minecraft.resources.ResourceLocation;
 
 public class BarbarianArmorRenderer extends AzArmorRenderer {
-    private static final ResourceLocation GEO = ResourceLocation.fromNamespaceAndPath(
-            HyruleTerrorsMod.MOD_ID,
-            "geo/armor/barbarian_armor.geo.json"
+
+    private static final ResourceLocation GEO = HyruleTerrorsMod.modResource(
+        "geo/armor/barbarian_armor.geo.json"
     );
 
-    private static final ResourceLocation TEX = ResourceLocation.fromNamespaceAndPath(
-            HyruleTerrorsMod.MOD_ID,
-            "textures/armor/barbarian_armor.png"
+    private static final ResourceLocation TEX = HyruleTerrorsMod.modResource(
+        "textures/armor/barbarian_armor.png"
     );
 
     public BarbarianArmorRenderer() {
         super(
-                AzArmorRendererConfig.builder(GEO, TEX)
-                        .setAnimatorProvider(BarbarianAnimator::new)
-                        .build()
+            AzArmorRendererConfig.builder(GEO, TEX)
+                .setAnimatorProvider(BarbarianAnimator::new)
+                .build()
         );
     }
 }

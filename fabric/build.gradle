@@ -1,5 +1,6 @@
 plugins {
     id 'com.github.johnrengelman.shadow'
+    id 'com.diffplug.spotless' version "7.0.0.BETA3"
 }
 
 architectury {
@@ -59,4 +60,19 @@ shadowJar {
 
 remapJar {
     input.set shadowJar.archiveFile
+}
+
+spotless {
+    java {
+        eclipse().configFile("$rootDir/eclipse-formatter.xml")
+        endWithNewline()
+        importOrder("", "java", group.toString(), "\\#")
+        indentWithSpaces(4)
+        removeUnusedImports()
+        trimTrailingWhitespace()
+    }
+}
+
+tasks.build {
+    dependsOn("spotlessApply")
 }

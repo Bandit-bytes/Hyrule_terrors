@@ -10,16 +10,18 @@ import org.jetbrains.annotations.NotNull;
 
 public class KnightArmorAnimator extends AzItemAnimator {
 
-    private static final ResourceLocation ANIMATIONS = ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID,
-            "animations/armor/knight_armor.animation.json");
+    private static final ResourceLocation ANIMATIONS = HyruleTerrorsMod.modResource(
+        "animations/armor/knight_armor.animation.json"
+    );
 
     @Override
     public void registerControllers(AzAnimationControllerContainer<ItemStack> animationControllerContainer) {
         animationControllerContainer.add(
-                AzAnimationController.builder(this, "base_controller")
-                        .build()
+            AzAnimationController.builder(this, "base_controller")
+                .build()
         );
     }
+
     @Override
     public @NotNull ResourceLocation getAnimationLocation(ItemStack animatable) {
         return ANIMATIONS;

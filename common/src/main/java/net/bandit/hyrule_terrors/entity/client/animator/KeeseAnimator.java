@@ -10,10 +10,11 @@ import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
 public class KeeseAnimator extends AzEntityAnimator<Keese> {
-    private static final ResourceLocation ANIMATIONS = ResourceLocation.fromNamespaceAndPath(
-            HyruleTerrorsMod.MOD_ID,
-            "animations/entity/keese.animation.json"
+
+    private static final ResourceLocation ANIMATIONS = HyruleTerrorsMod.modResource(
+        "animations/entity/keese.animation.json"
     );
+
     public KeeseAnimator() {
         super(AzAnimatorConfig.defaultConfig());
     }
@@ -21,13 +22,13 @@ public class KeeseAnimator extends AzEntityAnimator<Keese> {
     @Override
     public void registerControllers(AzAnimationControllerContainer<Keese> animationControllerContainer) {
         animationControllerContainer.add(
-                AzAnimationController.builder(this, "base_controller")
-                        .build()
+            AzAnimationController.builder(this, "base_controller")
+                .build()
         );
         animationControllerContainer.add(
-                AzAnimationController.builder(this, "attack_controller")
-                        .setTransitionLength(5)
-                        .build()
+            AzAnimationController.builder(this, "attack_controller")
+                .setTransitionLength(5)
+                .build()
         );
     }
 

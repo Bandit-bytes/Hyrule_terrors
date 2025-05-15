@@ -10,10 +10,11 @@ import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 public class BokoblinArmAnimator extends AzItemAnimator {
-    private static final ResourceLocation ANIMATIONS = ResourceLocation.fromNamespaceAndPath(
-            HyruleTerrorsMod.MOD_ID,
-            "animations/weapon/bokoblin_arm.animation.json"
+
+    private static final ResourceLocation ANIMATIONS = HyruleTerrorsMod.modResource(
+        "animations/weapon/bokoblin_arm.animation.json"
     );
+
     public BokoblinArmAnimator() {
         super(AzAnimatorConfig.defaultConfig());
     }
@@ -21,9 +22,9 @@ public class BokoblinArmAnimator extends AzItemAnimator {
     @Override
     public void registerControllers(AzAnimationControllerContainer<ItemStack> animationControllerContainer) {
         animationControllerContainer.add(
-                AzAnimationController.builder(this, "base_controller")
-//                        .setTransitionLength(5)
-                        .build()
+            AzAnimationController.builder(this, "base_controller")
+                // .setTransitionLength(5)
+                .build()
         );
     }
 

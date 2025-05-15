@@ -34,7 +34,7 @@
     "java": ">=21",
     "architectury": ">=13.0.8",
     "fabric-api": "*",
-    "azurelib": ">=3.0.11",
+    "azurelib": ">=3.0.18",
     "cloth-config": ">=15.0.140"
   },
   "recommends":  {

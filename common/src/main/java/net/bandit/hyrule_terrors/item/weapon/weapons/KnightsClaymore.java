@@ -21,6 +21,7 @@ public class KnightsClaymore extends SwordItem {
     public KnightsClaymore(Tier tier, Properties properties) {
         super(tier, properties);
     }
+
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         Level level = attacker.level();
@@ -45,23 +46,37 @@ public class KnightsClaymore extends SwordItem {
 
     private boolean isWearingFullKnightSet(Player player) {
         return player.getItemBySlot(EquipmentSlot.HEAD).getItem() instanceof KnightArmorItem &&
-                player.getItemBySlot(EquipmentSlot.CHEST).getItem() instanceof KnightArmorItem &&
-                player.getItemBySlot(EquipmentSlot.LEGS).getItem() instanceof KnightArmorItem &&
-                player.getItemBySlot(EquipmentSlot.FEET).getItem() instanceof KnightArmorItem;
+            player.getItemBySlot(EquipmentSlot.CHEST).getItem() instanceof KnightArmorItem &&
+            player.getItemBySlot(EquipmentSlot.LEGS).getItem() instanceof KnightArmorItem &&
+            player.getItemBySlot(EquipmentSlot.FEET).getItem() instanceof KnightArmorItem;
     }
 
     @Override
     public boolean isValidRepairItem(ItemStack toRepair, ItemStack repairWith) {
-        return repairWith.is(Items.IRON_INGOT) || repairWith.is(Items.IRON_BLOCK) || super.isValidRepairItem(toRepair, repairWith);
+        return repairWith.is(Items.IRON_INGOT) || repairWith.is(Items.IRON_BLOCK) || super.isValidRepairItem(
+            toRepair,
+            repairWith
+        );
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+    public void appendHoverText(
+        ItemStack stack,
+        TooltipContext context,
+        List<Component> tooltipComponents,
+        TooltipFlag tooltipFlag
+    ) {
         if (Screen.hasShiftDown()) {
-            tooltipComponents.add(Component.translatable("item.hyrule_terrors.knights_claymore.tooltip").withStyle(ChatFormatting.GOLD));
-            tooltipComponents.add(Component.translatable("item.hyrule_terrors.knights_claymore.tooltip1").withStyle(ChatFormatting.GRAY));
+            tooltipComponents.add(
+                Component.translatable("item.hyrule_terrors.knights_claymore.tooltip").withStyle(ChatFormatting.GOLD)
+            );
+            tooltipComponents.add(
+                Component.translatable("item.hyrule_terrors.knights_claymore.tooltip1").withStyle(ChatFormatting.GRAY)
+            );
         } else {
-            tooltipComponents.add(Component.translatable("item.hyrule_terrors.hold_shift").withStyle(ChatFormatting.DARK_GRAY));
+            tooltipComponents.add(
+                Component.translatable("item.hyrule_terrors.hold_shift").withStyle(ChatFormatting.DARK_GRAY)
+            );
         }
     }
 }

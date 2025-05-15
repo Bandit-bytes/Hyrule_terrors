@@ -13,21 +13,34 @@ import java.util.function.Supplier;
 public class HyruleWeaponMaterials implements Tier {
 
     public static final Tier BOKOBLIN_TIER = new HyruleWeaponMaterials(
-            101,
-            1.0f,
-            3.0f,
-            3,
-            BlockTags.NEEDS_STONE_TOOL,
-        () -> Ingredient.of(Items.BONE));
+        101,
+        1.0f,
+        3.0f,
+        3,
+        BlockTags.NEEDS_STONE_TOOL,
+        () -> Ingredient.of(Items.BONE)
+    );
 
     int uses;
+
     float damage;
+
     float speed;
+
     int enchantmentValue;
+
     TagKey<Block> incorrectBlocksForDrops;
+
     Supplier<Ingredient> repairIngredient;
 
-    public HyruleWeaponMaterials(int uses, float damage, float speed, int enchantmentValue, TagKey<Block> incorrectBlocksForDrops, Supplier<Ingredient> repairIngredient) {
+    public HyruleWeaponMaterials(
+        int uses,
+        float damage,
+        float speed,
+        int enchantmentValue,
+        TagKey<Block> incorrectBlocksForDrops,
+        Supplier<Ingredient> repairIngredient
+    ) {
         this.uses = uses;
         this.damage = damage;
         this.speed = speed;

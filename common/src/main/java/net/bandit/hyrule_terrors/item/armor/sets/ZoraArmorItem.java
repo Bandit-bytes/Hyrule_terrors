@@ -2,9 +2,7 @@ package net.bandit.hyrule_terrors.item.armor.sets;
 
 import net.bandit.hyrule_terrors.item.armor.ZeldaArmorMaterials;
 import net.bandit.hyrule_terrors.item.armor.client.dispatcher.ZeldaArmorDispatcher;
-import net.bandit.hyrule_terrors.item.armor.client.renderer.ZoraArmorRenderer;
 import net.bandit.hyrule_terrors.registry.ItemRegistry;
-import net.bandit.hyrule_terrors.registry.TabRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -26,6 +24,7 @@ public class ZoraArmorItem extends ArmorItem {
         super(ZeldaArmorMaterials.ZORA_ARMOR, type, properties);
         this.DISPATCHER = new ZeldaArmorDispatcher();
     }
+
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
         if (!level.isClientSide() && entity instanceof Player player) {
@@ -37,16 +36,28 @@ public class ZoraArmorItem extends ArmorItem {
             }
         }
     }
+
     private boolean hasFullSet(LivingEntity entity) {
         return entity.getItemBySlot(EquipmentSlot.HEAD).getItem() instanceof ZoraArmorItem &&
-                entity.getItemBySlot(EquipmentSlot.CHEST).getItem() instanceof ZoraArmorItem &&
-                entity.getItemBySlot(EquipmentSlot.LEGS).getItem() instanceof ZoraArmorItem &&
-                entity.getItemBySlot(EquipmentSlot.FEET).getItem() instanceof ZoraArmorItem;
+            entity.getItemBySlot(EquipmentSlot.CHEST).getItem() instanceof ZoraArmorItem &&
+            entity.getItemBySlot(EquipmentSlot.LEGS).getItem() instanceof ZoraArmorItem &&
+            entity.getItemBySlot(EquipmentSlot.FEET).getItem() instanceof ZoraArmorItem;
     }
+
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        tooltipComponents.add(Component.translatable("item.hyrule_terrors.zora_armor.tooltip").withStyle(ChatFormatting.AQUA).withStyle(ChatFormatting.ITALIC));
+    public void appendHoverText(
+        ItemStack stack,
+        TooltipContext context,
+        List<Component> tooltipComponents,
+        TooltipFlag tooltipFlag
+    ) {
+        tooltipComponents.add(
+            Component.translatable("item.hyrule_terrors.zora_armor.tooltip")
+                .withStyle(ChatFormatting.AQUA)
+                .withStyle(ChatFormatting.ITALIC)
+        );
     }
+
     @Override
     public boolean isValidRepairItem(ItemStack toRepair, ItemStack repair) {
         return repair.is(ItemRegistry.CHUCHU_JELLY.get());
