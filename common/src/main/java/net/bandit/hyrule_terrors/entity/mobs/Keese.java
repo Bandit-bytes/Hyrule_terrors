@@ -2,19 +2,17 @@ package net.bandit.hyrule_terrors.entity.mobs;
 
 import mod.azure.azurelib.rewrite.util.MoveAnalysis;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
-import net.bandit.hyrule_terrors.entity.attack.FlyingAttackGoal;
 import net.bandit.hyrule_terrors.entity.ai.RandomFlyingGoal;
+import net.bandit.hyrule_terrors.entity.attack.FlyingAttackGoal;
 import net.bandit.hyrule_terrors.helper.AnimationDispatcher;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ExperienceOrb;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -29,9 +27,12 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class Keese extends Bat  {
+public class Keese extends Bat {
+
     public AnimationDispatcher dispatcher;
+
     public final AnimationDispatcher animationDispatcher;
+
     public final MoveAnalysis moveAnalysis;
 
     public Keese(EntityType<? extends Bat> entityType, Level level) {
@@ -45,12 +46,12 @@ public class Keese extends Bat  {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, HyruleTerrorsMod.config.keeseHealth)
-                .add(Attributes.ATTACK_DAMAGE, HyruleTerrorsMod.config.keeseAttackDamage)
-                .add(Attributes.ATTACK_SPEED, 1.0)
-                .add(Attributes.ATTACK_KNOCKBACK, 1.0)
-                .add(Attributes.FLYING_SPEED, 0.6)
-                .add(Attributes.MOVEMENT_SPEED, 0.3);
+            .add(Attributes.MAX_HEALTH, HyruleTerrorsMod.config.keeseHealth)
+            .add(Attributes.ATTACK_DAMAGE, HyruleTerrorsMod.config.keeseAttackDamage)
+            .add(Attributes.ATTACK_SPEED, 1.0)
+            .add(Attributes.ATTACK_KNOCKBACK, 1.0)
+            .add(Attributes.FLYING_SPEED, 0.6)
+            .add(Attributes.MOVEMENT_SPEED, 0.3);
     }
 
     @Override
@@ -62,6 +63,7 @@ public class Keese extends Bat  {
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
+
     @Override
     public void swing(net.minecraft.world.InteractionHand hand, boolean updateSelf) {
         super.swing(hand, updateSelf);
@@ -70,6 +72,7 @@ public class Keese extends Bat  {
             dispatcher.attack();
         }
     }
+
     @Override
     public boolean checkSpawnRules(LevelAccessor level, MobSpawnType spawnType) {
         if (level.getDifficulty() == Difficulty.PEACEFUL) {
@@ -115,7 +118,8 @@ public class Keese extends Bat  {
     @Override
     protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) {
         super.dropCustomDeathLoot(level, source, recentlyHit);
-        if (level.isClientSide()) return;
+        if (level.isClientSide())
+            return;
         this.dropExperience();
     }
 

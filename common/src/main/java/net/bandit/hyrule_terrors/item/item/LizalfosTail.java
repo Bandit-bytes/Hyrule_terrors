@@ -18,23 +18,34 @@ import java.util.List;
 public class LizalfosTail extends Item {
 
     private static final FoodProperties LIZALFOS_TAIL_FOOD = new FoodProperties.Builder()
-            .nutrition(2)
-            .saturationModifier(0.3f)
-            .alwaysEdible()
-            .effect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 20 * 30, 0), 1.0F)
-            .build();
+        .nutrition(2)
+        .saturationModifier(0.3f)
+        .alwaysEdible()
+        .effect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 20 * 30, 0), 1.0F)
+        .build();
 
     public LizalfosTail(Properties properties) {
         super(new Properties().food(LIZALFOS_TAIL_FOOD).arch$tab(TabRegistry.HYRULE_TERRORS_TAB));
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+    public void appendHoverText(
+        ItemStack stack,
+        TooltipContext context,
+        List<Component> tooltipComponents,
+        TooltipFlag tooltipFlag
+    ) {
         if (Screen.hasShiftDown()) {
-            tooltipComponents.add(Component.translatable("item.lizalfos_tail.tooltip").withStyle(ChatFormatting.DARK_GREEN));
+            tooltipComponents.add(
+                Component.translatable("item.lizalfos_tail.tooltip").withStyle(ChatFormatting.DARK_GREEN)
+            );
         } else {
             tooltipComponents.add(Component.translatable("item.hyrule_terrors.hold_shift"));
-            tooltipComponents.add(Component.translatable("item.lizalfos_tail.tooltip_1").withStyle(ChatFormatting.ITALIC).withStyle(ChatFormatting.GRAY));
+            tooltipComponents.add(
+                Component.translatable("item.lizalfos_tail.tooltip_1")
+                    .withStyle(ChatFormatting.ITALIC)
+                    .withStyle(ChatFormatting.GRAY)
+            );
         }
     }
 

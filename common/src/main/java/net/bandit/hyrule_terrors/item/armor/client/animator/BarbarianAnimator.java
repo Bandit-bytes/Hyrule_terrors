@@ -11,15 +11,17 @@ import org.jetbrains.annotations.NotNull;
 public class BarbarianAnimator extends AzItemAnimator {
 
     private static final ResourceLocation ANIMATIONS = HyruleTerrorsMod.modResource(
-            "animations/armor/barbarian.animation.json");
+        "animations/armor/barbarian.animation.json"
+    );
 
     @Override
     public void registerControllers(AzAnimationControllerContainer<ItemStack> animationControllerContainer) {
         animationControllerContainer.add(
-                AzAnimationController.builder(this, "base_controller")
-                        .build()
+            AzAnimationController.builder(this, "base_controller")
+                .build()
         );
     }
+
     @Override
     public @NotNull ResourceLocation getAnimationLocation(ItemStack animatable) {
         return ANIMATIONS;

@@ -8,8 +8,11 @@ import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.level.Level;
 
 public class AbstractTerrorMob extends PathfinderMob {
+
     public final AnimationDispatcher animationDispatcher;
+
     public final MoveAnalysis moveAnalysis;
+
     public AnimationSelector<AbstractTerrorMob> animationSelector;
 
     protected AbstractTerrorMob(EntityType<? extends PathfinderMob> entityType, Level level) {
@@ -17,6 +20,7 @@ public class AbstractTerrorMob extends PathfinderMob {
         this.animationDispatcher = new AnimationDispatcher(this);
         this.moveAnalysis = new MoveAnalysis(this);
     }
+
     @Override
     public void tick() {
         super.tick();

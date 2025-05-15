@@ -11,21 +11,22 @@ import net.minecraft.resources.ResourceLocation;
 public class LizalfosRenderer extends AzEntityRenderer<Lizalfos> {
 
     private static final ResourceLocation MODEL = HyruleTerrorsMod.modResource(
-            "geo/entity/lizalfos.geo.json"
+        "geo/entity/lizalfos.geo.json"
     );
+
     private static final ResourceLocation TEXTURE = HyruleTerrorsMod.modResource(
-            "textures/entity/lizalfos.png"
+        "textures/entity/lizalfos.png"
     );
 
     public LizalfosRenderer(EntityRendererProvider.Context context) {
         super(
-                AzEntityRendererConfig.<Lizalfos>builder(MODEL, TEXTURE)
-                        .setAnimatorProvider(LizalfosAnimator::new)
-                        .setDeathMaxRotation(0.5F)
-                        .setShadowRadius(0.75F)
-                        .setScale(1.4F)
-                        .build(),
-                context
+            AzEntityRendererConfig.<Lizalfos>builder(MODEL, TEXTURE)
+                .setAnimatorProvider(LizalfosAnimator::new)
+                .setDeathMaxRotation(0.5F)
+                .setShadowRadius(0.75F)
+                .setScale(1.4F)
+                .build(),
+            context
         );
     }
 }

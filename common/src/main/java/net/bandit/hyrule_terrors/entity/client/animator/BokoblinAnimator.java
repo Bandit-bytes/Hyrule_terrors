@@ -4,16 +4,17 @@ import mod.azure.azurelib.rewrite.animation.AzAnimatorConfig;
 import mod.azure.azurelib.rewrite.animation.controller.AzAnimationController;
 import mod.azure.azurelib.rewrite.animation.controller.AzAnimationControllerContainer;
 import mod.azure.azurelib.rewrite.animation.impl.AzEntityAnimator;
-import mod.azure.azurelib.rewrite.animation.impl.AzItemAnimator;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.entity.mobs.Bokoblin;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
 public class BokoblinAnimator extends AzEntityAnimator<Bokoblin> {
+
     private static final ResourceLocation ANIMATIONS = HyruleTerrorsMod.modResource(
-            "animations/entity/bokoblin.animation.json"
+        "animations/entity/bokoblin.animation.json"
     );
+
     public BokoblinAnimator() {
         super(AzAnimatorConfig.defaultConfig());
     }
@@ -21,13 +22,13 @@ public class BokoblinAnimator extends AzEntityAnimator<Bokoblin> {
     @Override
     public void registerControllers(AzAnimationControllerContainer<Bokoblin> animationControllerContainer) {
         animationControllerContainer.add(
-                AzAnimationController.builder(this, "base_controller")
-                        .build()
+            AzAnimationController.builder(this, "base_controller")
+                .build()
         );
         animationControllerContainer.add(
-                AzAnimationController.builder(this, "attack_controller")
-                        .setTransitionLength(5)
-                        .build()
+            AzAnimationController.builder(this, "attack_controller")
+                .setTransitionLength(5)
+                .build()
         );
     }
 

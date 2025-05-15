@@ -2,13 +2,18 @@ package net.bandit.hyrule_terrors.entity.ai;
 
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.Goal;
+
 import java.util.EnumSet;
 import java.util.Random;
 
 public class RandomFlyingGoal extends Goal {
+
     private final Mob mob;
+
     private final double speed;
+
     private int idleTime = 0;
+
     private final Random random = new Random();
 
     public RandomFlyingGoal(Mob mob, double speed) {

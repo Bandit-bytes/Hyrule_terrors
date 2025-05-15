@@ -37,10 +37,10 @@ public class SilverLongsword extends SwordItem {
             ItemStack boots = player.getInventory().getArmor(0);
 
             wearingFullZoraSet =
-                    head.getItem() instanceof ZoraArmorItem &&
-                            chest.getItem() instanceof ZoraArmorItem &&
-                            legs.getItem() instanceof ZoraArmorItem &&
-                            boots.getItem() instanceof ZoraArmorItem;
+                head.getItem() instanceof ZoraArmorItem &&
+                    chest.getItem() instanceof ZoraArmorItem &&
+                    legs.getItem() instanceof ZoraArmorItem &&
+                    boots.getItem() instanceof ZoraArmorItem;
         }
 
         if (isWet && !level.isClientSide()) {
@@ -55,19 +55,30 @@ public class SilverLongsword extends SwordItem {
         return super.hurtEnemy(stack, target, attacker);
     }
 
-
     @Override
     public boolean isValidRepairItem(ItemStack toRepair, ItemStack repairWith) {
-        return repairWith.is(Items.PRISMARINE_CRYSTALS) || repairWith.is(Items.PRISMARINE_SHARD) || super.isValidRepairItem(toRepair, repairWith);
+        return repairWith.is(Items.PRISMARINE_CRYSTALS) || repairWith.is(Items.PRISMARINE_SHARD)
+            || super.isValidRepairItem(toRepair, repairWith);
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+    public void appendHoverText(
+        ItemStack stack,
+        TooltipContext context,
+        List<Component> tooltipComponents,
+        TooltipFlag tooltipFlag
+    ) {
         if (Screen.hasShiftDown()) {
-            tooltipComponents.add(Component.translatable("item.hyrule_terrors.silver_longsword.tooltip").withStyle(ChatFormatting.AQUA));
-            tooltipComponents.add(Component.translatable("item.hyrule_terrors.silver_longsword.tooltip1").withStyle(ChatFormatting.GRAY));
+            tooltipComponents.add(
+                Component.translatable("item.hyrule_terrors.silver_longsword.tooltip").withStyle(ChatFormatting.AQUA)
+            );
+            tooltipComponents.add(
+                Component.translatable("item.hyrule_terrors.silver_longsword.tooltip1").withStyle(ChatFormatting.GRAY)
+            );
         } else {
-            tooltipComponents.add(Component.translatable("item.hyrule_terrors.hold_shift").withStyle(ChatFormatting.DARK_GRAY));
+            tooltipComponents.add(
+                Component.translatable("item.hyrule_terrors.hold_shift").withStyle(ChatFormatting.DARK_GRAY)
+            );
         }
     }
 }

@@ -42,9 +42,13 @@ public class BoulderBreaker extends SwordItem {
         if (level.isClientSide()) {
             BlockState stateBelow = level.getBlockState(target.blockPosition().below());
             level.addParticle(
-                    new BlockParticleOption(ParticleTypes.BLOCK, stateBelow),
-                    target.getX(), target.getY(), target.getZ(),
-                    0.0D, 0.1D, 0.0D
+                new BlockParticleOption(ParticleTypes.BLOCK, stateBelow),
+                target.getX(),
+                target.getY(),
+                target.getZ(),
+                0.0D,
+                0.1D,
+                0.0D
             );
         }
 
@@ -65,12 +69,23 @@ public class BoulderBreaker extends SwordItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+    public void appendHoverText(
+        ItemStack stack,
+        TooltipContext context,
+        List<Component> tooltipComponents,
+        TooltipFlag tooltipFlag
+    ) {
         if (Screen.hasShiftDown()) {
-            tooltipComponents.add(Component.translatable("item.hyrule_terrors.boulder_breaker.tooltip").withStyle(ChatFormatting.RED));
-            tooltipComponents.add(Component.translatable("item.hyrule_terrors.boulder_breaker.tooltip1").withStyle(ChatFormatting.GRAY));
+            tooltipComponents.add(
+                Component.translatable("item.hyrule_terrors.boulder_breaker.tooltip").withStyle(ChatFormatting.RED)
+            );
+            tooltipComponents.add(
+                Component.translatable("item.hyrule_terrors.boulder_breaker.tooltip1").withStyle(ChatFormatting.GRAY)
+            );
         } else {
-            tooltipComponents.add(Component.translatable("item.hyrule_terrors.hold_shift").withStyle(ChatFormatting.DARK_GRAY));
+            tooltipComponents.add(
+                Component.translatable("item.hyrule_terrors.hold_shift").withStyle(ChatFormatting.DARK_GRAY)
+            );
         }
     }
 }

@@ -11,20 +11,21 @@ import net.minecraft.resources.ResourceLocation;
 public class KeeseRenderer extends AzEntityRenderer<Keese> {
 
     private static final ResourceLocation MODEL = HyruleTerrorsMod.modResource(
-            "geo/entity/keese.geo.json"
+        "geo/entity/keese.geo.json"
     );
+
     private static final ResourceLocation TEXTURE = HyruleTerrorsMod.modResource(
-            "textures/entity/keese.png"
+        "textures/entity/keese.png"
     );
 
     public KeeseRenderer(EntityRendererProvider.Context context) {
         super(
-                AzEntityRendererConfig.<Keese>builder(MODEL, TEXTURE)
-                        .setAnimatorProvider(KeeseAnimator::new)
-                        .setDeathMaxRotation(0.0F)
-                        .setShadowRadius(0.25F)
-                        .build(),
-                context
+            AzEntityRendererConfig.<Keese>builder(MODEL, TEXTURE)
+                .setAnimatorProvider(KeeseAnimator::new)
+                .setDeathMaxRotation(0.0F)
+                .setShadowRadius(0.25F)
+                .build(),
+            context
         );
     }
 }

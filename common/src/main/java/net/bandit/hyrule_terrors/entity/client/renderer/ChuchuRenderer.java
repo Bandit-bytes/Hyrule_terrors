@@ -11,20 +11,21 @@ import net.minecraft.resources.ResourceLocation;
 public class ChuchuRenderer extends AzEntityRenderer<Chuchu> {
 
     private static final ResourceLocation MODEL = HyruleTerrorsMod.modResource(
-            "geo/entity/chuchu.geo.json"
+        "geo/entity/chuchu.geo.json"
     );
+
     private static final ResourceLocation TEXTURE = HyruleTerrorsMod.modResource(
-            "textures/entity/chuchu.png"
+        "textures/entity/chuchu.png"
     );
 
     public ChuchuRenderer(EntityRendererProvider.Context context) {
         super(
-                AzEntityRendererConfig.<Chuchu>builder(MODEL, TEXTURE)
-                        .setAnimatorProvider(ChuchuAnimator::new)
-                        .setDeathMaxRotation(0.0F)
-                        .setShadowRadius(0.25F)
-                        .build(),
-                context
+            AzEntityRendererConfig.<Chuchu>builder(MODEL, TEXTURE)
+                .setAnimatorProvider(ChuchuAnimator::new)
+                .setDeathMaxRotation(0.0F)
+                .setShadowRadius(0.25F)
+                .build(),
+            context
         );
     }
 

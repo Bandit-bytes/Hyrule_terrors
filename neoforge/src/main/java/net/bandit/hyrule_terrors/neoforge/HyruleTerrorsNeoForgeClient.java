@@ -12,8 +12,13 @@ import static net.bandit.hyrule_terrors.HyruleTerrorsMod.MOD_ID;
 
 @Mod(value = MOD_ID, dist = Dist.CLIENT)
 public class HyruleTerrorsNeoForgeClient {
+
     public HyruleTerrorsNeoForgeClient() {
         HyruleTerrorsMod.initClient();
-        ModLoadingContext.get().registerExtensionPoint(IConfigScreenFactory.class, () -> (modContainer, screen) -> AutoConfig.getConfigScreen(HyruleTerrorsConfig.class, screen).get());
+        ModLoadingContext.get()
+            .registerExtensionPoint(
+                IConfigScreenFactory.class,
+                () -> (modContainer, screen) -> AutoConfig.getConfigScreen(HyruleTerrorsConfig.class, screen).get()
+            );
     }
 }

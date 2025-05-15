@@ -9,20 +9,20 @@ import net.minecraft.resources.ResourceLocation;
 public class BokoblinArmRenderer extends AzItemRenderer {
 
     private static final ResourceLocation MODEL = HyruleTerrorsMod.modResource(
-            "geo/weapon/bokoblin_arm.geo.json"
+        "geo/weapon/bokoblin_arm.geo.json"
     );
 
     private static final ResourceLocation TEXTURE = HyruleTerrorsMod.modResource(
-            "textures/weapon/bokoblin_arm.png"
+        "textures/weapon/bokoblin_arm.png"
     );
 
     public BokoblinArmRenderer() {
         super(
-                AzItemRendererConfig.builder(itemStack -> MODEL, itemStack -> TEXTURE)
-                        .setAnimatorProvider(BokoblinArmAnimator::new)
-                        .useEntityGuiLighting()
-                        .useNewOffset(true)
-                        .build()
+            AzItemRendererConfig.builder(itemStack -> MODEL, itemStack -> TEXTURE)
+                .setAnimatorProvider(BokoblinArmAnimator::new)
+                .useEntityGuiLighting()
+                .useNewOffset(true)
+                .build()
         );
     }
 

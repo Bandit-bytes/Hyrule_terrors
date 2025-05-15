@@ -14,8 +14,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public final class HyruleTerrorsMod {
+
     public static final String MOD_ID = "hyrule_terrors";
+
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
     public static HyruleTerrorsConfig config;
 
     public static void init() {
@@ -26,12 +29,14 @@ public final class HyruleTerrorsMod {
         EntityRegistry.init();
         TabRegistry.init();
     }
+
     public static void initClient() {
         EntityRendererRegistry.register(EntityRegistry.BOKOBLIN, BokoblinRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.CHUCHU, ChuchuRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.LIZALFOS, LizalfosRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.KEESE, KeeseRenderer::new);
     }
+
     public static void initAzIdentityRegistry() {
         AzIdentityRegistry.register(
             ItemRegistry.BOKOBLIN_ARM.get(),
@@ -53,6 +58,7 @@ public final class HyruleTerrorsMod {
             ItemRegistry.KNIGHT_BOOTS.get()
         );
     }
+
     public static ResourceLocation modResource(String name) {
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, name);
     }

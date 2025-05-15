@@ -14,13 +14,13 @@ import org.jetbrains.annotations.NotNull;
 public class EvilSpiritAnimator extends AzItemAnimator {
 
     private static final ResourceLocation ANIMATIONS = HyruleTerrorsMod.modResource(
-            "animations/armor/evil_spirit.animation.json"
+        "animations/armor/evil_spirit.animation.json"
     );
 
     @Override
     public void registerControllers(AzAnimationControllerContainer<ItemStack> animationControllerContainer) {
         animationControllerContainer.add(
-                AzAnimationController.builder(this, "base_controller").build()
+            AzAnimationController.builder(this, "base_controller").build()
         );
     }
 
@@ -34,14 +34,17 @@ public class EvilSpiritAnimator extends AzItemAnimator {
         super.setCustomAnimations(stack, partialTick);
 
         var model = this.context().boneCache().getBakedModel();
-        if (model == null) return;
+        if (model == null)
+            return;
 
         var capeOpt = model.getBone("cape");
-        if (capeOpt.isEmpty()) return;
+        if (capeOpt.isEmpty())
+            return;
 
         var cape = capeOpt.get();
         Player player = ClientUtils.getClientPlayer();
-        if (player == null) return;
+        if (player == null)
+            return;
 
         float h = partialTick;
         double dx = Mth.lerp(h, player.xCloakO, player.xCloak) - Mth.lerp(h, player.xo, player.getX());
@@ -55,13 +58,14 @@ public class EvilSpiritAnimator extends AzItemAnimator {
         float verticalMotion = (float) dy * 10.0f;
         verticalMotion = Mth.clamp(verticalMotion, -6.0f, 32.0f);
 
-        float capeSwayX = (float)(dx * sin + dz * cos) * 100.0f;
+        float capeSwayX = (float) (dx * sin + dz * cos) * 100.0f;
         capeSwayX = Mth.clamp(capeSwayX, 0.0f, 150.0f);
 
-        float capeSwayZ = (float)(dx * cos - dz * sin) * 100.0f;
+        float capeSwayZ = (float) (dx * cos - dz * sin) * 100.0f;
         capeSwayZ = Mth.clamp(capeSwayZ, -20.0f, 20.0f);
 
-        if (capeSwayX < 0.0f) capeSwayX = 0.0f;
+        if (capeSwayX < 0.0f)
+            capeSwayX = 0.0f;
 
         float walkBob = Mth.lerp(h, player.oBob, player.bob);
         verticalMotion += Mth.sin(Mth.lerp(h, player.walkDistO, player.walkDist) * 6.0f) * 8.0f * walkBob;
@@ -69,7 +73,6 @@ public class EvilSpiritAnimator extends AzItemAnimator {
         if (player.isCrouching()) {
             verticalMotion += 10.0f;
         }
-
 
         float baseX = 0.1f;
         float baseY = 0.0f;

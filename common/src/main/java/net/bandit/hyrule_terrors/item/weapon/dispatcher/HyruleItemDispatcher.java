@@ -6,16 +6,17 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
 
 public class HyruleItemDispatcher {
+
     private static final AzCommand FIRING_COMMAND = AzCommand.create(
-            "base_controller",
-            "firing",
-            AzPlayBehaviors.PLAY_ONCE
+        "base_controller",
+        "firing",
+        AzPlayBehaviors.PLAY_ONCE
     );
 
     private static final AzCommand GROUND_IDLE_COMMAND = AzCommand.create(
-            "base_controller",
-            "ground_idle",
-            AzPlayBehaviors.LOOP
+        "base_controller",
+        "ground_idle",
+        AzPlayBehaviors.LOOP
     );
 
     public void firing(Entity entity, ItemStack itemStack) {
