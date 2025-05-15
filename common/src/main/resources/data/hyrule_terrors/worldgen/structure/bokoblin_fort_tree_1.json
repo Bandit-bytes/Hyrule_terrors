@@ -1,7 +1,7 @@
 {
   "type": "minecraft:jigsaw",
   "liquid_settings": "ignore_waterlogging",
-  "biomes": "#hyrule_terrors:bokoblin_spawn_in",
+  "biomes": "#c:is_forest",
   "step": "surface_structures",
   "spawn_overrides": {
     "monster": {
@@ -16,7 +16,7 @@
       ]
     }
   },
-  "start_pool": "hyrule_terrors:bokoblin_fort",
+  "start_pool": "hyrule_terrors:bokoblin_fort_tree_1",
   "terrain_adaptation": "beard_thin",
   "size": 2,
   "start_height": {
