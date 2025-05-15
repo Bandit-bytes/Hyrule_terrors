@@ -1,28 +1,15 @@
 package net.bandit.hyrule_terrors;
 
-import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import mod.azure.azurelib.rewrite.render.armor.AzArmorRendererRegistry;
 import mod.azure.azurelib.rewrite.render.item.AzItemRendererRegistry;
-import net.bandit.hyrule_terrors.entity.client.renderer.BokoblinRenderer;
-import net.bandit.hyrule_terrors.entity.client.renderer.ChuchuRenderer;
-import net.bandit.hyrule_terrors.entity.client.renderer.KeeseRenderer;
-import net.bandit.hyrule_terrors.entity.client.renderer.LizalfosRenderer;
 import net.bandit.hyrule_terrors.item.armor.client.renderer.BarbarianArmorRenderer;
 import net.bandit.hyrule_terrors.item.armor.client.renderer.EvilSpiritRenderer;
 import net.bandit.hyrule_terrors.item.armor.client.renderer.KnightArmorRenderer;
 import net.bandit.hyrule_terrors.item.armor.client.renderer.ZoraArmorRenderer;
 import net.bandit.hyrule_terrors.item.weapon.client.renderer.BokoblinArmRenderer;
-import net.bandit.hyrule_terrors.registry.EntityRegistry;
 import net.bandit.hyrule_terrors.registry.ItemRegistry;
 
 public class HyruleTerrorsClientMod {
-
-    public static void initClientEntityRenders() {
-        EntityRendererRegistry.register(EntityRegistry.BOKOBLIN, BokoblinRenderer::new);
-        EntityRendererRegistry.register(EntityRegistry.CHUCHU, ChuchuRenderer::new);
-        EntityRendererRegistry.register(EntityRegistry.LIZALFOS, LizalfosRenderer::new);
-        EntityRendererRegistry.register(EntityRegistry.KEESE, KeeseRenderer::new);
-    }
 
     public static void initClientAzRenders() {
         AzItemRendererRegistry.register(ItemRegistry.BOKOBLIN_ARM.get(), BokoblinArmRenderer::new);
