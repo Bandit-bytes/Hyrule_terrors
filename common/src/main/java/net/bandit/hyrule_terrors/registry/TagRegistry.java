@@ -9,15 +9,15 @@ import net.minecraft.world.level.biome.Biome;
 public class TagRegistry {
     // MOB BIOME SPAWN TAGS
     public static TagKey<Biome> CHUCHU_BIOMES = TagKey.create(Registries.BIOME,
-            ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID, "chuchu_spawn_in")
+            HyruleTerrorsMod.modResource("chuchu_spawn_in")
     );
     public static TagKey<Biome> BOKOBLIN_BIOMES = TagKey.create(Registries.BIOME,
-            ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID, "bokoblin_spawn_in")
+            HyruleTerrorsMod.modResource("bokoblin_spawn_in")
     );
     public static TagKey<Biome> KEESE_BIOMES = TagKey.create(Registries.BIOME,
-            ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID, "keese_spawn_in")
+            HyruleTerrorsMod.modResource("keese_spawn_in")
     );
     public static TagKey<Biome> LIZALFOS_BIOMES = TagKey.create(Registries.BIOME,
-            ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID, "lizalfos_spawn_in")
+            HyruleTerrorsMod.modResource("lizalfos_spawn_in")
     );
 }

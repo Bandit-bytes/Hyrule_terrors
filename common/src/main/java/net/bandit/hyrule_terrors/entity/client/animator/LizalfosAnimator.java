@@ -10,8 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
 public class LizalfosAnimator extends AzEntityAnimator<Lizalfos> {
-    private static final ResourceLocation ANIMATIONS = ResourceLocation.fromNamespaceAndPath(
-            HyruleTerrorsMod.MOD_ID,
+    private static final ResourceLocation ANIMATIONS = HyruleTerrorsMod.modResource(
             "animations/entity/lizalfos.animation.json"
     );
     public LizalfosAnimator() {

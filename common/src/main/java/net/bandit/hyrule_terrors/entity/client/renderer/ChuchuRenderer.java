@@ -10,11 +10,11 @@ import net.minecraft.resources.ResourceLocation;
 
 public class ChuchuRenderer extends AzEntityRenderer<Chuchu> {
 
-    private static final ResourceLocation MODEL = ResourceLocation.fromNamespaceAndPath(
-            HyruleTerrorsMod.MOD_ID, "geo/entity/chuchu.geo.json"
+    private static final ResourceLocation MODEL = HyruleTerrorsMod.modResource(
+            "geo/entity/chuchu.geo.json"
     );
-    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(
-            HyruleTerrorsMod.MOD_ID, "textures/entity/chuchu.png"
+    private static final ResourceLocation TEXTURE = HyruleTerrorsMod.modResource(
+            "textures/entity/chuchu.png"
     );
 
     public ChuchuRenderer(EntityRendererProvider.Context context) {

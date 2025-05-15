@@ -21,22 +21,22 @@ public class EntityRegistry {
     public static final RegistrySupplier<EntityType<Lizalfos>> LIZALFOS = ENTITIES.register("lizalfos", () ->
             EntityType.Builder.of(Lizalfos::new, MobCategory.MONSTER)
                     .sized(1.5f, 2.0f)
-                    .build(ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID, "lizalfos").toString()));
+                    .build(HyruleTerrorsMod.modResource("lizalfos").toString()));
 
     public static final RegistrySupplier<EntityType<Chuchu>> CHUCHU = ENTITIES.register("chuchu", () ->
             EntityType.Builder.of(Chuchu::new, MobCategory.MONSTER)
                     .sized(0.60f, 0.75f)
-                    .build(ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID, "chuchu").toString()));
+                    .build(HyruleTerrorsMod.modResource("chuchu").toString()));
 
     public static final RegistrySupplier<EntityType<Keese>> KEESE = ENTITIES.register("keese", () ->
             EntityType.Builder.of(Keese::new, MobCategory.MONSTER)
                     .sized(0.55f, 0.75f)
-                    .build(ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID, "keese").toString()));
+                    .build(HyruleTerrorsMod.modResource("keese").toString()));
 
     public static final RegistrySupplier<EntityType<Bokoblin>> BOKOBLIN = ENTITIES.register("bokoblin", () ->
             EntityType.Builder.of(Bokoblin::new, MobCategory.MONSTER)
                     .sized(0.75f, 1.75f)
-                    .build(ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID, "bokoblin").toString()));
+                    .build(HyruleTerrorsMod.modResource("bokoblin").toString()));
 
     private static void initSpawns() {
 

@@ -10,11 +10,11 @@ import net.minecraft.resources.ResourceLocation;
 
 public class LizalfosRenderer extends AzEntityRenderer<Lizalfos> {
 
-    private static final ResourceLocation MODEL = ResourceLocation.fromNamespaceAndPath(
-            HyruleTerrorsMod.MOD_ID, "geo/entity/lizalfos.geo.json"
+    private static final ResourceLocation MODEL = HyruleTerrorsMod.modResource(
+            "geo/entity/lizalfos.geo.json"
     );
-    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(
-            HyruleTerrorsMod.MOD_ID, "textures/entity/lizalfos.png"
+    private static final ResourceLocation TEXTURE = HyruleTerrorsMod.modResource(
+            "textures/entity/lizalfos.png"
     );
 
     public LizalfosRenderer(EntityRendererProvider.Context context) {

@@ -13,8 +13,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class EvilSpiritAnimator extends AzItemAnimator {
 
-    private static final ResourceLocation ANIMATIONS = ResourceLocation.fromNamespaceAndPath(
-            HyruleTerrorsMod.MOD_ID,
+    private static final ResourceLocation ANIMATIONS = HyruleTerrorsMod.modResource(
             "animations/armor/evil_spirit.animation.json"
     );
 

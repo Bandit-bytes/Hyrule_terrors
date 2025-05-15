@@ -10,8 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class BarbarianAnimator extends AzItemAnimator {
 
-    private static final ResourceLocation ANIMATIONS = ResourceLocation.fromNamespaceAndPath(
-            HyruleTerrorsMod.MOD_ID,
+    private static final ResourceLocation ANIMATIONS = HyruleTerrorsMod.modResource(
             "animations/armor/barbarian.animation.json");
 
     @Override

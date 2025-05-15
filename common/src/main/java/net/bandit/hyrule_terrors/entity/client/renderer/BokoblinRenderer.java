@@ -10,11 +10,11 @@ import net.minecraft.resources.ResourceLocation;
 
 public class BokoblinRenderer extends AzEntityRenderer<Bokoblin> {
     
-    private static final ResourceLocation MODEL = ResourceLocation.fromNamespaceAndPath(
-            HyruleTerrorsMod.MOD_ID, "geo/entity/bokoblin.geo.json"
+    private static final ResourceLocation MODEL = HyruleTerrorsMod.modResource(
+            "geo/entity/bokoblin.geo.json"
     );
-    private static final ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(
-            HyruleTerrorsMod.MOD_ID, "textures/entity/bokoblin.png"
+    private static final ResourceLocation TEXTURE = HyruleTerrorsMod.modResource(
+            "textures/entity/bokoblin.png"
     );
 
     public BokoblinRenderer(EntityRendererProvider.Context context) {

@@ -10,8 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 public class BokoblinArmAnimator extends AzItemAnimator {
-    private static final ResourceLocation ANIMATIONS = ResourceLocation.fromNamespaceAndPath(
-            HyruleTerrorsMod.MOD_ID,
+    private static final ResourceLocation ANIMATIONS = HyruleTerrorsMod.modResource(
             "animations/weapon/bokoblin_arm.animation.json"
     );
     public BokoblinArmAnimator() {

@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class ZoraArmorAnimator extends AzItemAnimator {
 
-    private static final ResourceLocation ANIMATIONS = ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID,
+    private static final ResourceLocation ANIMATIONS = HyruleTerrorsMod.modResource(
             "animations/armor/zora_armor.animation.json");
 
     @Override

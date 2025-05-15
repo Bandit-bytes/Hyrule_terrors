@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class KnightArmorAnimator extends AzItemAnimator {
 
-    private static final ResourceLocation ANIMATIONS = ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID,
+    private static final ResourceLocation ANIMATIONS = HyruleTerrorsMod.modResource(
             "animations/armor/knight_armor.animation.json");
 
     @Override
