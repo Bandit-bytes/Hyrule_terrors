@@ -1,13 +1,8 @@
 package net.bandit.hyrule_terrors;
 
-import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import mod.azure.azurelib.rewrite.animation.cache.AzIdentityRegistry;
-import net.bandit.hyrule_terrors.entity.client.renderer.BokoblinRenderer;
-import net.bandit.hyrule_terrors.entity.client.renderer.ChuchuRenderer;
-import net.bandit.hyrule_terrors.entity.client.renderer.KeeseRenderer;
-import net.bandit.hyrule_terrors.entity.client.renderer.LizalfosRenderer;
 import net.bandit.hyrule_terrors.registry.*;
 import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;
@@ -28,13 +23,6 @@ public final class HyruleTerrorsMod {
         ItemRegistry.register();
         EntityRegistry.init();
         TabRegistry.init();
-    }
-
-    public static void initClient() {
-        EntityRendererRegistry.register(EntityRegistry.BOKOBLIN, BokoblinRenderer::new);
-        EntityRendererRegistry.register(EntityRegistry.CHUCHU, ChuchuRenderer::new);
-        EntityRendererRegistry.register(EntityRegistry.LIZALFOS, LizalfosRenderer::new);
-        EntityRendererRegistry.register(EntityRegistry.KEESE, KeeseRenderer::new);
     }
 
     public static void initAzIdentityRegistry() {
