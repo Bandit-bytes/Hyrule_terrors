@@ -24,10 +24,10 @@ public class LizalfosRenderer extends AzEntityRenderer<Lizalfos> {
                 AzEntityRendererConfig.<Lizalfos>builder(MODEL, TEXTURE)
                         .setAnimatorProvider(LizalfosAnimator::new)
                         .setDeathMaxRotation(0.5F)
+                        .setShadowRadius(0.75F)
                         .build(),
                 context
         );
-        this.shadowRadius = 0.75f;
     }
     @Override
     public void render(Lizalfos entity, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {

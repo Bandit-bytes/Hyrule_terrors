@@ -22,10 +22,10 @@ public class ChuchuRenderer extends AzEntityRenderer<Chuchu> {
                 AzEntityRendererConfig.<Chuchu>builder(MODEL, TEXTURE)
                         .setAnimatorProvider(ChuchuAnimator::new)
                         .setDeathMaxRotation(0.0F)
+                        .setShadowRadius(0.25F)
                         .build(),
                 context
         );
-        this.shadowRadius = 0.25f;
     }
 
 }

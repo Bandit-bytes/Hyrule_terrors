@@ -22,9 +22,9 @@ public class KeeseRenderer extends AzEntityRenderer<Keese> {
                 AzEntityRendererConfig.<Keese>builder(MODEL, TEXTURE)
                         .setAnimatorProvider(KeeseAnimator::new)
                         .setDeathMaxRotation(0.0F)
+                        .setShadowRadius(0.25F)
                         .build(),
                 context
         );
-        this.shadowRadius = 0.25f;
     }
 }
