@@ -23,7 +23,7 @@ public class HyruleTerrorsNeoForgeClient {
 
     @SubscribeEvent
     public static void onClientSetup(final FMLClientSetupEvent event) {
-        HyruleTerrorsClientMod.initClientAzRenders();
+        HyruleTerrorsMod.initClient();
         ModLoadingContext.get()
             .registerExtensionPoint(
                 IConfigScreenFactory.class,

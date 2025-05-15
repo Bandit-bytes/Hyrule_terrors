@@ -50,4 +50,7 @@ public final class HyruleTerrorsMod {
     public static ResourceLocation modResource(String name) {
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, name);
     }
+    public static void initClient() {
+        HyruleTerrorsClientMod.initClientAzRenders();
+    }
 }
