@@ -1,8 +1,6 @@
 package net.bandit.hyrule_terrors.neoforge;
 
-import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import me.shedaniel.autoconfig.AutoConfig;
-import net.bandit.hyrule_terrors.HyruleTerrorsClientMod;
 import net.bandit.hyrule_terrors.HyruleTerrorsConfig;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.entity.client.renderer.BokoblinRenderer;
