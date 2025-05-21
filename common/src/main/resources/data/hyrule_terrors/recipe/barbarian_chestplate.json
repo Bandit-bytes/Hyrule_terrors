@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "P P",
-    "SPS",
+    "SNS",
     "PPP"
   ],
   "key": {
@@ -11,6 +11,9 @@
     },
     "S": {
       "item": "hyrule_terrors:bokoblin_horn"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
     }
   },
   "result": {

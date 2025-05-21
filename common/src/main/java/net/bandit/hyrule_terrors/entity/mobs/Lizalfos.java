@@ -36,7 +36,7 @@ public class Lizalfos extends AbstractTerrorMob {
             .add(Attributes.ATTACK_DAMAGE, HyruleTerrorsMod.config.lizalfosAttackDamage)
             .add(Attributes.ATTACK_SPEED, 1.3)
             .add(Attributes.ATTACK_KNOCKBACK, 1.0)
-            .add(Attributes.MOVEMENT_SPEED, 0.4);
+            .add(Attributes.MOVEMENT_SPEED, HyruleTerrorsMod.config.lizalfosMovementSpeed);
     }
 
     @Override

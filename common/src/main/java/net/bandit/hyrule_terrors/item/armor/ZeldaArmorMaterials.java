@@ -26,7 +26,7 @@ public class ZeldaArmorMaterials {
         9,
         SoundEvents.ARMOR_EQUIP_IRON,
         1.0F,
-        1.0F,
+        0.2F,
         () -> Ingredient.of(Items.IRON_INGOT)
     );
 
@@ -43,7 +43,7 @@ public class ZeldaArmorMaterials {
         9,
         SoundEvents.ARMOR_EQUIP_NETHERITE,
         2.0F,
-        1.5F,
+        0.5F,
         () -> Ingredient.of(Items.NETHERITE_INGOT)
     );
 
@@ -60,7 +60,7 @@ public class ZeldaArmorMaterials {
         9,
         SoundEvents.ARMOR_EQUIP_DIAMOND,
         1.5F,
-        1.5F,
+        0.4F,
         () -> Ingredient.of(Items.DIAMOND)
     );
 
@@ -77,7 +77,7 @@ public class ZeldaArmorMaterials {
         9,
         SoundEvents.ARMOR_EQUIP_LEATHER,
         3.5F,
-        3.5F,
+        0.6F,
         () -> Ingredient.of(Items.DIAMOND)
     );
 }

@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "S C",
-    "SSS",
+    "SNS",
     "LSL"
   ],
   "key": {
@@ -11,6 +11,9 @@
     },
     "L": {
       "item": "hyrule_terrors:lizalfos_talon"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
     },
     "C": {
       "item": "hyrule_terrors:chuchu_jelly"
