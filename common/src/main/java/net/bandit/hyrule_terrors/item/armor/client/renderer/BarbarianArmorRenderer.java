@@ -4,6 +4,7 @@ import mod.azure.azurelib.rewrite.render.armor.AzArmorRenderer;
 import mod.azure.azurelib.rewrite.render.armor.AzArmorRendererConfig;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.item.armor.client.animator.BarbarianAnimator;
+import net.bandit.hyrule_terrors.item.armor.client.bone.BarbarianBoneProvider;
 import net.minecraft.resources.ResourceLocation;
 
 public class BarbarianArmorRenderer extends AzArmorRenderer {
@@ -20,6 +21,7 @@ public class BarbarianArmorRenderer extends AzArmorRenderer {
         super(
             AzArmorRendererConfig.builder(GEO, TEX)
                 .setAnimatorProvider(BarbarianAnimator::new)
+                .setBoneProvider(new BarbarianBoneProvider())
                 .build()
         );
     }

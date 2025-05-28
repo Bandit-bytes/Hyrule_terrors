@@ -59,7 +59,7 @@ public class EntityRegistry {
             (ctx, b) -> b.getSpawnProperties()
                 .addSpawn(
                     MobCategory.MONSTER,
-                    new MobSpawnSettings.SpawnerData(BOKOBLIN.get(), HyruleTerrorsMod.config.bokoblinSpawnWeight, 2, 4)
+                    new MobSpawnSettings.SpawnerData(BOKOBLIN.get(), HyruleTerrorsMod.config.bokoblinSpawnWeight, 1, 3)
                 )
         );
 
@@ -89,7 +89,7 @@ public class EntityRegistry {
             (ctx, b) -> b.getSpawnProperties()
                 .addSpawn(
                     MobCategory.MONSTER,
-                    new MobSpawnSettings.SpawnerData(LIZALFOS.get(), HyruleTerrorsMod.config.lizalfosSpawnWeight, 2, 3)
+                    new MobSpawnSettings.SpawnerData(LIZALFOS.get(), HyruleTerrorsMod.config.lizalfosSpawnWeight, 1, 3)
                 )
         );
 
