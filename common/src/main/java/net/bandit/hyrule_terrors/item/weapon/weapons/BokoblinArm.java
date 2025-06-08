@@ -8,6 +8,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -80,8 +81,14 @@ public class BokoblinArm extends Item {
         }
         if (attacker instanceof Player player && !player.getAbilities().instabuild) {
             if (RANDOM.nextFloat() < 0.10f) {
-                player.drop(stack.copy(), false);
-                player.setItemInHand(player.getUsedItemHand(), ItemStack.EMPTY);
+                InteractionHand hand = player.getMainHandItem() == stack ? InteractionHand.MAIN_HAND :
+                        player.getOffhandItem() == stack ? InteractionHand.OFF_HAND : null;
+
+                if (hand != null) {
+                    player.drop(stack, false);
+                    player.setItemInHand(hand, ItemStack.EMPTY);
+                }
+
                 player.displayClientMessage(
                     Component.literal("The Bokoblin Arm slips from your hand!").withStyle(ChatFormatting.GRAY),
                     true
