@@ -1,7 +1,7 @@
 package net.bandit.hyrule_terrors;
 
-import mod.azure.azurelib.rewrite.render.armor.AzArmorRendererRegistry;
-import mod.azure.azurelib.rewrite.render.item.AzItemRendererRegistry;
+import mod.azure.azurelib.common.render.armor.AzArmorRendererRegistry;
+import mod.azure.azurelib.common.render.item.AzItemRendererRegistry;
 import net.bandit.hyrule_terrors.item.armor.client.renderer.BarbarianArmorRenderer;
 import net.bandit.hyrule_terrors.item.armor.client.renderer.EvilSpiritRenderer;
 import net.bandit.hyrule_terrors.item.armor.client.renderer.KnightArmorRenderer;

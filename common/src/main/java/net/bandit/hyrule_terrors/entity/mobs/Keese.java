@@ -1,6 +1,6 @@
 package net.bandit.hyrule_terrors.entity.mobs;
 
-import mod.azure.azurelib.rewrite.util.MoveAnalysis;
+import mod.azure.azurelib.common.util.MoveAnalysis;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.entity.ai.RandomFlyingGoal;
 import net.bandit.hyrule_terrors.entity.attack.FlyingAttackGoal;

@@ -1,7 +1,7 @@
 package net.bandit.hyrule_terrors.item.armor.client.renderer;
 
-import mod.azure.azurelib.rewrite.render.armor.AzArmorRenderer;
-import mod.azure.azurelib.rewrite.render.armor.AzArmorRendererConfig;
+import mod.azure.azurelib.common.render.armor.AzArmorRenderer;
+import mod.azure.azurelib.common.render.armor.AzArmorRendererConfig;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.item.armor.client.animator.KnightArmorAnimator;
 import net.minecraft.resources.ResourceLocation;

@@ -1,7 +1,7 @@
 package net.bandit.hyrule_terrors.item.weapon.client.renderer;
 
-import mod.azure.azurelib.rewrite.render.item.AzItemRenderer;
-import mod.azure.azurelib.rewrite.render.item.AzItemRendererConfig;
+import mod.azure.azurelib.common.render.item.AzItemRenderer;
+import mod.azure.azurelib.common.render.item.AzItemRendererConfig;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.item.weapon.client.animator.BokoblinArmAnimator;
 import net.minecraft.resources.ResourceLocation;

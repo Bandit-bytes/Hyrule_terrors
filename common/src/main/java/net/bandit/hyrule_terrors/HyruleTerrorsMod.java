@@ -2,7 +2,7 @@ package net.bandit.hyrule_terrors;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
-import mod.azure.azurelib.rewrite.animation.cache.AzIdentityRegistry;
+import mod.azure.azurelib.common.animation.cache.AzIdentityRegistry;
 import net.bandit.hyrule_terrors.registry.*;
 import net.minecraft.resources.ResourceLocation;
 import org.slf4j.Logger;

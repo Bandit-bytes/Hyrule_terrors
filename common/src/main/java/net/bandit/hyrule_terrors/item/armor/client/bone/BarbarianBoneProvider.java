@@ -1,8 +1,8 @@
 package net.bandit.hyrule_terrors.item.armor.client.bone;
 
-import mod.azure.azurelib.rewrite.model.AzBakedModel;
-import mod.azure.azurelib.rewrite.model.AzBone;
-import mod.azure.azurelib.rewrite.render.armor.bone.AzDefaultArmorBoneProvider;
+import mod.azure.azurelib.common.model.AzBakedModel;
+import mod.azure.azurelib.common.model.AzBone;
+import mod.azure.azurelib.common.render.armor.bone.AzDefaultArmorBoneProvider;
 
 public class BarbarianBoneProvider extends AzDefaultArmorBoneProvider {
 

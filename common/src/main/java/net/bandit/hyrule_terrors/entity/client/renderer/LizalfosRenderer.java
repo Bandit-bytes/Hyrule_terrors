@@ -1,7 +1,7 @@
 package net.bandit.hyrule_terrors.entity.client.renderer;
 
-import mod.azure.azurelib.rewrite.render.entity.AzEntityRenderer;
-import mod.azure.azurelib.rewrite.render.entity.AzEntityRendererConfig;
+import mod.azure.azurelib.common.render.entity.AzEntityRenderer;
+import mod.azure.azurelib.common.render.entity.AzEntityRendererConfig;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.entity.client.animator.LizalfosAnimator;
 import net.bandit.hyrule_terrors.entity.mobs.Lizalfos;

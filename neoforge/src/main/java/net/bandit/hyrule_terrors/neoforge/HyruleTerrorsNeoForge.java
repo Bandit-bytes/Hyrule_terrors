@@ -1,8 +1,8 @@
 package net.bandit.hyrule_terrors.neoforge;
 
-import mod.azure.azurelib.rewrite.animation.cache.AzIdentityRegistry;
-import mod.azure.azurelib.rewrite.render.armor.AzArmorRendererRegistry;
-import mod.azure.azurelib.rewrite.render.item.AzItemRendererRegistry;
+import mod.azure.azurelib.common.animation.cache.AzIdentityRegistry;
+import mod.azure.azurelib.common.render.armor.AzArmorRendererRegistry;
+import mod.azure.azurelib.common.render.item.AzItemRendererRegistry;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.entity.mobs.Bokoblin;
 import net.bandit.hyrule_terrors.entity.mobs.Chuchu;

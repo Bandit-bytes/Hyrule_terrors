@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "#c:is_mushroom",
     "#c:is_floral",
     "#c:is_forest"
     ]

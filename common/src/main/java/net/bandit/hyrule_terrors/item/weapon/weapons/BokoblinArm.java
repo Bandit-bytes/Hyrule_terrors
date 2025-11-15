@@ -18,8 +18,6 @@ import net.minecraft.world.level.Level;
 
 import java.util.*;
 
-import static mod.azure.azurelib.sblforked.util.RandomUtil.RANDOM;
-
 public class BokoblinArm extends Item {
 
     public final HyruleItemDispatcher dispatcher;
@@ -80,9 +78,10 @@ public class BokoblinArm extends Item {
                 .playSound(null, attacker.blockPosition(), SoundEvents.SKELETON_HURT, SoundSource.PLAYERS, 1.0F, 1.0F);
         }
         if (attacker instanceof Player player && !player.getAbilities().instabuild) {
-            if (RANDOM.nextFloat() < 0.10f) {
-                InteractionHand hand = player.getMainHandItem() == stack ? InteractionHand.MAIN_HAND :
-                        player.getOffhandItem() == stack ? InteractionHand.OFF_HAND : null;
+            if (attacker.getRandom().nextFloat() < 0.10f) {
+                InteractionHand hand = player.getMainHandItem() == stack
+                    ? InteractionHand.MAIN_HAND
+                    : player.getOffhandItem() == stack ? InteractionHand.OFF_HAND : null;
 
                 if (hand != null) {
                     player.drop(stack, false);
@@ -95,6 +94,7 @@ public class BokoblinArm extends Item {
                 );
             }
         }
+
         stack.hurtAndBreak(1, attacker, (EquipmentSlot.MAINHAND));
         return true;
     }
