@@ -97,5 +97,7 @@
   "advancements.hyrule_terrors.enter_fort.title": "Bokoblin Fort",
   "advancements.hyrule_terrors.bokoblin_arm.title": "Bokoblin Arm!",
   "advancements.hyrule_terrors.enter_fort.description": "You've stumbled upon a Bokoblin fort!",
-  "advancements.hyrule_terrors.bokoblin_arm.description": "ITS STILL ALLIVVVVEEE!"
+  "advancements.hyrule_terrors.bokoblin_arm.description": "ITS STILL ALLIVVVVEEE!",
+  "item.steel.tooltip": "Used for Crafting Hyule Armor!",
+  "item.steel.tooltip1": "Can be made by smelting Iron."
 }

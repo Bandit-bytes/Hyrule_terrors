@@ -88,7 +88,9 @@ public class ItemRegistry {
 
     public static final RegistrySupplier<Item> STEEL = ITEMS.register(
         "steel",
-        () -> new BokoblinFang(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE))
+        () -> new SteelIngot(
+            new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).stacksTo(64).rarity(Rarity.RARE)
+        )
     );
 
     public static final RegistrySupplier<Item> BOKOBLIN_HORN = ITEMS.register(
