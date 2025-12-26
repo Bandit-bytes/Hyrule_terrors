@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "P P",
+    "SNS",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "minecraft:leather"
+    },
+    "S": {
+      "item": "hyrule_terrors:chuchu_jelly"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "result": {
+    "item": "hyrule_terrors:zora_chestplate",
+    "count": 1
+  }
+}

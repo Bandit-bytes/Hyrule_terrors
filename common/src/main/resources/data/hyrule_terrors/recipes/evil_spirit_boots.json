@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S C",
+    "S S"
+  ],
+  "key": {
+    "S": {
+      "tag": "c:ingots/steel"
+    },
+    "C": {
+      "item": "hyrule_terrors:chuchu_jelly"
+    }
+  },
+  "result": {
+    "item": "hyrule_terrors:evil_spirit_boots",
+    "count": 1
+  }
+}

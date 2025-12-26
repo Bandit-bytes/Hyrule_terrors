@@ -1,0 +1,39 @@
+package net.bandit.hyrule_terrors.entity.client.animator;
+
+import mod.azure.azurelib.animation.AzAnimatorConfig;
+import mod.azure.azurelib.animation.controller.AzAnimationController;
+import mod.azure.azurelib.animation.controller.AzAnimationControllerContainer;
+import mod.azure.azurelib.animation.impl.AzEntityAnimator;
+import net.bandit.hyrule_terrors.HyruleTerrorsMod;
+import net.bandit.hyrule_terrors.entity.mobs.Keese;
+import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
+
+public class KeeseAnimator extends AzEntityAnimator<Keese> {
+
+    private static final ResourceLocation ANIMATIONS = HyruleTerrorsMod.modResource(
+        "animations/entity/keese.animation.json"
+    );
+
+    public KeeseAnimator() {
+        super(AzAnimatorConfig.defaultConfig());
+    }
+
+    @Override
+    public void registerControllers(AzAnimationControllerContainer<Keese> animationControllerContainer) {
+        animationControllerContainer.add(
+            AzAnimationController.builder(this, "base_controller")
+                .build()
+        );
+        animationControllerContainer.add(
+            AzAnimationController.builder(this, "attack_controller")
+                .setTransitionLength(5)
+                .build()
+        );
+    }
+
+    @Override
+    public @NotNull ResourceLocation getAnimationLocation(Keese animatable) {
+        return ANIMATIONS;
+    }
+}
