@@ -90,13 +90,23 @@ public enum ZeldaArmorMaterials implements ArmorMaterial {
 
     @Override
     public int getDurabilityForType(ArmorItem.Type type) {
-        return 0;
+        return HEALTH_PER_SLOT[getIndex(type)] * durabilityMultiplier;
     }
 
     @Override
     public int getDefenseForType(ArmorItem.Type type) {
-        return 0;
+        return protection[getIndex(type)];
     }
+
+    private static int getIndex(ArmorItem.Type type) {
+        return switch (type) {
+            case BOOTS -> 0;
+            case LEGGINGS -> 1;
+            case CHESTPLATE -> 2;
+            case HELMET -> 3;
+        };
+    }
+
 
     @Override
     public int getEnchantmentValue() {
@@ -115,7 +125,6 @@ public enum ZeldaArmorMaterials implements ArmorMaterial {
 
     @Override
     public String getName() {
-        // 1.20.1 expects a string like "modid:material_name"
         return HyruleTerrorsMod.MOD_ID + ":" + name;
     }
 
