@@ -2,12 +2,12 @@ package net.bandit.hyrule_terrors.entity.mobs;
 
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.helper.AnimationDispatcher;
+import net.bandit.hyrule_terrors.registry.EntityRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.Difficulty;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -65,6 +65,41 @@ public class Chuchu extends AbstractTerrorMob {
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
     }
+    @Override
+    public void aiStep() {
+        super.aiStep();
+
+        if (!this.level().isClientSide() && this.isOnFire()) {
+            this.convertToRed();
+        }
+    }
+
+    private void convertToRed() {
+        if (!(this.level() instanceof ServerLevel serverLevel)) return;
+        if (this.isRemoved()) return;
+
+        ChuchuRed red = EntityRegistry.CHUCHU_RED.get().create(serverLevel);
+        if (red == null) return;
+
+        red.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), this.getXRot());
+
+        red.setDeltaMovement(this.getDeltaMovement());
+
+
+        if (this.hasCustomName()) {
+            red.setCustomName(this.getCustomName());
+            red.setCustomNameVisible(this.isCustomNameVisible());
+        }
+
+        red.setBaby(this.isBaby());
+        float pct = this.getHealth() / Math.max(1.0F, this.getMaxHealth());
+        red.setHealth(red.getMaxHealth() * pct);
+        red.clearFire();
+        if (serverLevel.addFreshEntity(red)) {
+            this.discard();
+        }
+    }
+
 
     @Override
     public boolean checkSpawnRules(LevelAccessor level, MobSpawnType spawnType) {

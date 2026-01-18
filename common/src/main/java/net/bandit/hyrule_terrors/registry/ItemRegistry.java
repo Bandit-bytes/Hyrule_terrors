@@ -67,6 +67,16 @@ public class ItemRegistry {
         )
     ); // Blue/Cyan/Light Blue
 
+    public static final RegistrySupplier<Item> RED_CHUCHU_SPAWN_EGG = ITEMS.register(
+            "red_chuchu_spawn_egg",
+            () -> new ArchitecturySpawnEggItem(
+                    EntityRegistry.CHUCHU_RED,
+                    0xB71C1C,
+                    0xFF6D00,
+                    new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
+            )
+    ); // red/orange
+
     public static final RegistrySupplier<Item> KEESE_SPAWN_EGG = ITEMS.register(
         "keese_spawn_egg",
         () -> new ArchitecturySpawnEggItem(
@@ -81,6 +91,11 @@ public class ItemRegistry {
     public static final RegistrySupplier<Item> BOKOBLIN_FANG = ITEMS.register(
         "bokoblin_fang",
         () -> new BokoblinFang(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE))
+    );
+
+    public static final RegistrySupplier<Item> RUPEE = ITEMS.register(
+            "rupee",
+            () -> new Item(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE))
     );
 
     public static final RegistrySupplier<Item> STEEL = ITEMS.register(
@@ -113,6 +128,10 @@ public class ItemRegistry {
     public static final RegistrySupplier<Item> CHUCHU_JELLY = ITEMS.register(
         "chuchu_jelly",
         () -> new ChuchuJelly(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.UNCOMMON))
+    );
+    public static final RegistrySupplier<Item> CHUCHU_JELLY_RED = ITEMS.register(
+            "chuchu_jelly_red",
+            () -> new ChuchuJellyRed(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.UNCOMMON))
     );
     // ARMOR
 

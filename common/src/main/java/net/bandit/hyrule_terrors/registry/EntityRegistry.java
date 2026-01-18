@@ -6,10 +6,7 @@ import dev.architectury.registry.level.entity.SpawnPlacementsRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
-import net.bandit.hyrule_terrors.entity.mobs.Bokoblin;
-import net.bandit.hyrule_terrors.entity.mobs.Chuchu;
-import net.bandit.hyrule_terrors.entity.mobs.Keese;
-import net.bandit.hyrule_terrors.entity.mobs.Lizalfos;
+import net.bandit.hyrule_terrors.entity.mobs.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -36,6 +33,13 @@ public class EntityRegistry {
         () -> EntityType.Builder.of(Chuchu::new, MobCategory.MONSTER)
             .sized(0.60f, 0.75f)
             .build(HyruleTerrorsMod.modResource("chuchu").toString())
+    );
+
+    public static final RegistrySupplier<EntityType<ChuchuRed>> CHUCHU_RED = ENTITIES.register(
+            "chuchu_red",
+            () -> EntityType.Builder.of(ChuchuRed::new, MobCategory.MONSTER)
+                    .sized(0.60f, 0.75f)
+                    .build(HyruleTerrorsMod.modResource("chuchu_red").toString())
     );
 
     public static final RegistrySupplier<EntityType<Keese>> KEESE = ENTITIES.register(
@@ -114,6 +118,7 @@ public class EntityRegistry {
     private static void initAttributes() {
         EntityAttributeRegistry.register(BOKOBLIN, Bokoblin::createAttributes);
         EntityAttributeRegistry.register(CHUCHU, Chuchu::createAttributes);
+        EntityAttributeRegistry.register(CHUCHU_RED, ChuchuRed::createAttributes);
         EntityAttributeRegistry.register(LIZALFOS, Lizalfos::createAttributes);
         EntityAttributeRegistry.register(KEESE, Keese::createAttributes);
     }

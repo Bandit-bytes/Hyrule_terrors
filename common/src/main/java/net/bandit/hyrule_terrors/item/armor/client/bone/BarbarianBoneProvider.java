@@ -6,6 +6,8 @@ import mod.azure.azurelib.render.armor.bone.AzDefaultArmorBoneProvider;
 
 public class BarbarianBoneProvider extends AzDefaultArmorBoneProvider {
 
+
+    //leave this backwards for the legs, didnt realize the error and already edited the geo for barb
     @Override
     public AzBone getLeftBootBone(AzBakedModel model) {
         return model.getBone("armorRightBoot").orElse(null);

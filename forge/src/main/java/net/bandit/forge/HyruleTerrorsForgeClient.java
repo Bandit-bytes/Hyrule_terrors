@@ -3,10 +3,7 @@ package net.bandit.forge;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.bandit.hyrule_terrors.HyruleTerrorsConfig;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
-import net.bandit.hyrule_terrors.entity.client.renderer.BokoblinRenderer;
-import net.bandit.hyrule_terrors.entity.client.renderer.ChuchuRenderer;
-import net.bandit.hyrule_terrors.entity.client.renderer.KeeseRenderer;
-import net.bandit.hyrule_terrors.entity.client.renderer.LizalfosRenderer;
+import net.bandit.hyrule_terrors.entity.client.renderer.*;
 import net.bandit.hyrule_terrors.registry.EntityRegistry;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.ConfigScreenHandler;
@@ -35,6 +32,7 @@ public final class HyruleTerrorsForgeClient {
     public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(EntityRegistry.BOKOBLIN.get(), BokoblinRenderer::new);
         event.registerEntityRenderer(EntityRegistry.CHUCHU.get(), ChuchuRenderer::new);
+        event.registerEntityRenderer(EntityRegistry.CHUCHU_RED.get(), ChuchuRedRenderer::new);
         event.registerEntityRenderer(EntityRegistry.LIZALFOS.get(), LizalfosRenderer::new);
         event.registerEntityRenderer(EntityRegistry.KEESE.get(), KeeseRenderer::new);
     }
