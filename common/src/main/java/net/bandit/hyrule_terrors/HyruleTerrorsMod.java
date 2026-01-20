@@ -3,6 +3,7 @@ package net.bandit.hyrule_terrors;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import mod.azure.azurelib.animation.cache.AzIdentityRegistry;
+import net.bandit.hyrule_terrors.registry.BlockRegistry;
 import net.bandit.hyrule_terrors.registry.EntityRegistry;
 import net.bandit.hyrule_terrors.registry.ItemRegistry;
 import net.bandit.hyrule_terrors.registry.TabRegistry;
@@ -19,6 +20,7 @@ public final class HyruleTerrorsMod {
         config = AutoConfig.getConfigHolder(HyruleTerrorsConfig.class).getConfig();
 
         ItemRegistry.register();
+        BlockRegistry.register();
         EntityRegistry.init();
         TabRegistry.init();
 
@@ -51,5 +53,6 @@ public final class HyruleTerrorsMod {
 
     public static void initClient() {
         HyruleTerrorsClientMod.initClientAzRenders();
+
     }
 }

@@ -93,6 +93,15 @@ public class ItemRegistry {
         () -> new BokoblinFang(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE))
     );
 
+    public static final RegistrySupplier<Item> BOKOBLIN_HEAD = ITEMS.register(
+            "bokoblin_head",
+            () -> new BokoblinHeadItem(
+                    BlockRegistry.BOKOBLIN_HEAD.get(),
+                    BlockRegistry.BOKOBLIN_WALL_HEAD.get(),
+                    new Item.Properties().stacksTo(1).arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
+            )
+    );
+
     public static final RegistrySupplier<Item> RUPEE = ITEMS.register(
             "rupee",
             () -> new Item(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE))
@@ -223,8 +232,8 @@ public class ItemRegistry {
             "lizalfos_horn_dagger",
             () -> new SwordItem(
                     Tiers.IRON,
-                    2,          // attack damage bonus
-                    -1.5F,      // attack speed
+                    2,
+                    -1.5F,
                     new Item.Properties()
                             .rarity(Rarity.UNCOMMON)
                             .durability(125)

@@ -11,6 +11,9 @@ import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
+import net.bandit.hyrule_terrors.registry.BlockRegistry;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 @Mod.EventBusSubscriber(modid = HyruleTerrorsMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -19,7 +22,10 @@ public final class HyruleTerrorsForgeClient {
     @SubscribeEvent
     public static void onClientSetup(final FMLClientSetupEvent event) {
         HyruleTerrorsMod.initClient();
-
+        event.enqueueWork(() -> {
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.BOKOBLIN_HEAD.get(), RenderType.cutout());
+            ItemBlockRenderTypes.setRenderLayer(BlockRegistry.BOKOBLIN_WALL_HEAD.get(), RenderType.cutout());
+        });
         ModLoadingContext.get().registerExtensionPoint(
                 ConfigScreenHandler.ConfigScreenFactory.class,
                 () -> new ConfigScreenHandler.ConfigScreenFactory(
