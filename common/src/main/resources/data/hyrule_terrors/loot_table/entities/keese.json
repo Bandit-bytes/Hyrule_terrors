@@ -22,28 +22,18 @@
       "rolls": 1,
       "entries": [
         {
-          "name": "hyrule_terrors:chuchu_jelly_red",
+          "name": "hyrule_terrors:keese_eyeball",
           "type": "minecraft:item",
-          "functions": [
+          "conditions": [
             {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 0,
-                "max": 2
-              }
-            },
-            {
-              "function": "minecraft:enchanted_count_increase",
+              "condition": "random_chance_with_enchanted_bonus",
               "enchantment": "minecraft:looting",
-              "count": {
-                "min": 0,
-                "max": 1
-              }
+              "unenchanted_chance": 0.4,
+              "enchanted_chance": 0.2
             }
           ]
         }
       ]
     }
-  ],
-  "random_sequence": "hyrule_terrors:entities/chuchu_red"
+  ]
 }

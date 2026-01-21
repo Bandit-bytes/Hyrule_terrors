@@ -96,6 +96,11 @@ public class ItemRegistry {
         () -> new BokoblinFang(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE))
     );
 
+    public static final RegistrySupplier<Item> KEESE_EYEBALL = ITEMS.register(
+            "keese_eyeball",
+            () -> new KeeseEyeball(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.UNCOMMON))
+    );
+
     public static final RegistrySupplier<Item> BOKOBLIN_HEAD = ITEMS.register(
             "bokoblin_head",
             () -> new BokoblinHeadItem(
