@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "hyrule_terrors:block/bokoblin_head", "y": 0 },
+    "facing=east":  { "model": "hyrule_terrors:block/bokoblin_head", "y": 90 },
+    "facing=south": { "model": "hyrule_terrors:block/bokoblin_head", "y": 180 },
+    "facing=west":  { "model": "hyrule_terrors:block/bokoblin_head", "y": 270 }
+  }
+}

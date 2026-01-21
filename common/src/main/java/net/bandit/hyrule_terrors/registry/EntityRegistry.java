@@ -33,6 +33,13 @@ public class EntityRegistry {
             .build(HyruleTerrorsMod.modResource("chuchu").toString())
     );
 
+    public static final RegistrySupplier<EntityType<ChuchuRed>> CHUCHU_RED = ENTITIES.register(
+            "chuchu_red",
+            () -> EntityType.Builder.of(ChuchuRed::new, MobCategory.MONSTER)
+                    .sized(0.60f, 0.75f)
+                    .build(HyruleTerrorsMod.modResource("chuchu_red").toString())
+    );
+
     public static final RegistrySupplier<EntityType<Keese>> KEESE = ENTITIES.register(
         "keese",
         () -> EntityType.Builder.of(Keese::new, MobCategory.MONSTER)
@@ -112,6 +119,7 @@ public class EntityRegistry {
     private static void initAttributes() {
         EntityAttributeRegistry.register(BOKOBLIN, Bokoblin::createAttributes);
         EntityAttributeRegistry.register(CHUCHU, Chuchu::createAttributes);
+        EntityAttributeRegistry.register(CHUCHU_RED, ChuchuRed::createAttributes);
         EntityAttributeRegistry.register(LIZALFOS, Lizalfos::createAttributes);
         EntityAttributeRegistry.register(KEESE, Keese::createAttributes);
     }

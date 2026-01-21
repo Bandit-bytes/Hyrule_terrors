@@ -21,6 +21,7 @@ public final class HyruleTerrorsMod {
         config = AutoConfig.getConfigHolder(HyruleTerrorsConfig.class).getConfig();
 
         ItemRegistry.register();
+        BlockRegistry.register();
         EntityRegistry.init();
         TabRegistry.init();
     }

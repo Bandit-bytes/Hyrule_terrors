@@ -4,6 +4,7 @@ import mod.azure.azurelib.common.render.entity.AzEntityRenderer;
 import mod.azure.azurelib.common.render.entity.AzEntityRendererConfig;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.entity.client.animator.BokoblinAnimator;
+import net.bandit.hyrule_terrors.entity.client.renderer.layer.BokoblinItemLayer;
 import net.bandit.hyrule_terrors.entity.mobs.Bokoblin;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -22,10 +23,10 @@ public class BokoblinRenderer extends AzEntityRenderer<Bokoblin> {
         super(
             AzEntityRendererConfig.<Bokoblin>builder(MODEL, TEXTURE)
                 .setAnimatorProvider(BokoblinAnimator::new)
+                    .addRenderLayer(new BokoblinItemLayer())
                 .setShadowRadius(0.5F)
                 .build(),
             context
         );
     }
-
 }

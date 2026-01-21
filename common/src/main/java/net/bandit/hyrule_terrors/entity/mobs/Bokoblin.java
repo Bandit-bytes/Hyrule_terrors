@@ -2,10 +2,15 @@ package net.bandit.hyrule_terrors.entity.mobs;
 
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.helper.AnimationDispatcher;
+import net.bandit.hyrule_terrors.registry.ItemRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
@@ -17,16 +22,27 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class Bokoblin extends AbstractTerrorMob {
 
     public AnimationDispatcher dispatcher;
+
+    private int hornCooldownTicks = 0;
+    private boolean hasAlertedThisTarget = false;
+
+    private static final EntityDataAccessor<Boolean> HORN_BLOWER =
+            SynchedEntityData.defineId(Bokoblin.class, EntityDataSerializers.BOOLEAN);
 
     public Bokoblin(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
@@ -35,19 +51,31 @@ public class Bokoblin extends AbstractTerrorMob {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMobAttributes()
-            .add(Attributes.MAX_HEALTH, HyruleTerrorsMod.config.bokoblinHealth)
-            .add(Attributes.ATTACK_DAMAGE, HyruleTerrorsMod.config.bokoblinAttackDamage)
-            .add(Attributes.ATTACK_SPEED, 1.3)
-            .add(Attributes.ATTACK_KNOCKBACK, 1.0)
-            .add(Attributes.MOVEMENT_SPEED, HyruleTerrorsMod.config.BokoblinMovementSpeed);
+                .add(Attributes.MAX_HEALTH, HyruleTerrorsMod.config.bokoblinHealth)
+                .add(Attributes.ATTACK_DAMAGE, HyruleTerrorsMod.config.bokoblinAttackDamage)
+                .add(Attributes.ATTACK_SPEED, 1.3)
+                .add(Attributes.ATTACK_KNOCKBACK, 1.0)
+                .add(Attributes.MOVEMENT_SPEED, HyruleTerrorsMod.config.BokoblinMovementSpeed);
+    }
+
+    @Override
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        super.defineSynchedData(builder);
+        builder.define(HORN_BLOWER, false);
+    }
+
+    public boolean isHornBlower() {
+        return this.entityData.get(HORN_BLOWER);
+    }
+
+    public void setHornBlower(boolean value) {
+        this.entityData.set(HORN_BLOWER, value);
     }
 
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(1, new PanicGoal(this, 1.25D));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.3D, false) {
-
             @Override
             protected void checkAndPerformAttack(LivingEntity target) {
                 if (this.canPerformAttack(target)) {
@@ -58,25 +86,101 @@ public class Bokoblin extends AbstractTerrorMob {
                 }
             }
         });
+
+        this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.8D));
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
-        this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.8D));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true) {
+            @Override
+            public boolean canUse() {
+                if (!super.canUse()) return false;
 
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+                if (this.target instanceof Player player) {
+                    if (mob.getLastHurtByMob() == player) return true;
+
+                    return !((Bokoblin) mob).isDisguised(player);
+                }
+                return true;
+            }
+
+            @Override
+            public boolean canContinueToUse() {
+                if (!super.canContinueToUse()) return false;
+
+                if (this.target instanceof Player player) {
+                    if (mob.getLastHurtByMob() == player) return true;
+
+                    return !((Bokoblin) mob).isDisguised(player);
+                }
+                return true;
+            }
+        });
+
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
     }
 
     @Override
-    public boolean checkSpawnRules(LevelAccessor level, MobSpawnType spawnType) {
-        if (level.getDifficulty() == Difficulty.PEACEFUL) {
-            return false;
+    public void aiStep() {
+        super.aiStep();
+
+        if (hornCooldownTicks > 0) hornCooldownTicks--;
+
+        if (this.level().isClientSide()) return;
+        if (!this.isHornBlower()) return;
+
+        LivingEntity target = this.getTarget();
+
+        if (!(target instanceof Player player) || !target.isAlive()) {
+            hasAlertedThisTarget = false;
+            return;
         }
+
+        if (!hasAlertedThisTarget && hornCooldownTicks <= 0) {
+            hasAlertedThisTarget = true;
+            hornCooldownTicks = 20 * 12;
+
+            blowHornAndAlertAllies(player);
+        }
+    }
+
+    private void blowHornAndAlertAllies(Player player) {
+        if (!(this.level() instanceof ServerLevel serverLevel)) return;
+        if (isDisguised(player)) return;
+
+        SoundEvent hornSound = SoundEvents.GOAT_HORN_SOUND_VARIANTS.get(3).value();
+
+        serverLevel.playSound(
+                null,
+                this.blockPosition(),
+                hornSound,
+                SoundSource.HOSTILE,
+                2.0F,
+                1.0F
+        );
+
+        double radius = 24.0D;
+        AABB box = this.getBoundingBox().inflate(radius);
+
+        List<Bokoblin> allies = serverLevel.getEntitiesOfClass(
+                Bokoblin.class,
+                box,
+                b -> b != this && b.isAlive()
+        );
+
+        for (Bokoblin ally : allies) {
+            if (ally.getTarget() == null) {
+                ally.setTarget(player);
+            }
+        }
+    }
+
+    @Override
+    public boolean checkSpawnRules(LevelAccessor level, MobSpawnType spawnType) {
+        if (level.getDifficulty() == Difficulty.PEACEFUL) return false;
+
         BlockPos pos = this.blockPosition();
         int blockLight = level.getBrightness(LightLayer.BLOCK, pos);
-
-        if (blockLight > 4) {
-            return false;
-        }
+        if (blockLight > 4) return false;
 
         return super.checkSpawnRules(level, spawnType);
     }
@@ -105,8 +209,15 @@ public class Bokoblin extends AbstractTerrorMob {
     protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) {
         super.dropCustomDeathLoot(level, source, recentlyHit);
 
-        if (level.isClientSide())
-            return;
+        if (level.isClientSide()) return;
+        if (this.isHornBlower()) {
+            float chance = 0.30F;
+
+            if (this.random.nextFloat() < chance) {
+                this.spawnAtLocation(ItemRegistry.BOKOBLIN_HEAD.get());
+            }
+        }
+
         this.dropExperience();
     }
 
@@ -119,11 +230,25 @@ public class Bokoblin extends AbstractTerrorMob {
     @Nullable
     @Override
     public SpawnGroupData finalizeSpawn(
-        ServerLevelAccessor serverLevelAccessor,
-        DifficultyInstance difficultyInstance,
-        MobSpawnType mobSpawnType,
-        @Nullable SpawnGroupData spawnGroupData
+            ServerLevelAccessor level,
+            DifficultyInstance difficulty,
+            MobSpawnType reason,
+            @Nullable SpawnGroupData spawnData
     ) {
-        return super.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, spawnGroupData);
+        SpawnGroupData data = super.finalizeSpawn(level, difficulty, reason, spawnData);
+
+        boolean horn = this.random.nextInt(8) == 0;
+        this.setHornBlower(horn);
+
+        if (horn) {
+            this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.GOAT_HORN));
+            this.setDropChance(EquipmentSlot.MAINHAND, 0.25F);
+        }
+        return data;
+    }
+
+    private boolean isDisguised(Player player) {
+        ItemStack helmet = player.getItemBySlot(EquipmentSlot.HEAD);
+        return helmet.is(ItemRegistry.BOKOBLIN_HEAD.get());
     }
 }
