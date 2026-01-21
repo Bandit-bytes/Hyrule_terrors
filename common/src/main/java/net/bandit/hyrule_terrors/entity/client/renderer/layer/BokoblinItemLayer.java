@@ -1,4 +1,4 @@
-package net.bandit.hyrule_terrors.entity.client.renderer.layor;
+package net.bandit.hyrule_terrors.entity.client.renderer.layer;
 
 import com.mojang.math.Axis;
 import mod.azure.azurelib.model.AzBone;

@@ -4,7 +4,7 @@ import mod.azure.azurelib.render.entity.AzEntityRenderer;
 import mod.azure.azurelib.render.entity.AzEntityRendererConfig;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.entity.client.animator.BokoblinAnimator;
-import net.bandit.hyrule_terrors.entity.client.renderer.layor.BokoblinItemLayer;
+import net.bandit.hyrule_terrors.entity.client.renderer.layer.BokoblinItemLayer;
 import net.bandit.hyrule_terrors.entity.mobs.Bokoblin;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;

@@ -2,6 +2,7 @@ package net.bandit.hyrule_terrors.entity.mobs;
 
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.helper.AnimationDispatcher;
+import net.bandit.hyrule_terrors.registry.ItemRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -82,7 +83,30 @@ public class Bokoblin extends AbstractTerrorMob {
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.8D));
 
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true) {
+            @Override
+            public boolean canUse() {
+                if (!super.canUse()) return false;
+                if (this.target instanceof Player player) {
+                    if (mob.getLastHurtByMob() == player) return true;
+
+                    return !((Bokoblin) mob).isDisguised(player);
+                }
+                return true;
+            }
+
+            @Override
+            public boolean canContinueToUse() {
+                if (!super.canContinueToUse()) return false;
+
+                if (this.target instanceof Player player) {
+                    if (mob.getLastHurtByMob() == player) return true;
+                    return !((Bokoblin) mob).isDisguised(player);
+                }
+                return true;
+            }
+        });
+
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
     }
 
@@ -126,6 +150,7 @@ public class Bokoblin extends AbstractTerrorMob {
     }
     private void blowHornAndAlertAllies(Player player) {
         if (!(this.level() instanceof ServerLevel serverLevel)) return;
+        if (isDisguised(player)) return;
 
         SoundEvent hornSound = SoundEvents.GOAT_HORN_SOUND_VARIANTS.get(3).value();
 
@@ -179,9 +204,15 @@ public class Bokoblin extends AbstractTerrorMob {
     protected void dropCustomDeathLoot(DamageSource source, int looting, boolean recentlyHit) {
         super.dropCustomDeathLoot(source, looting, recentlyHit);
 
-        if (!this.level().isClientSide()) {
-            this.dropExperience();
+        if (this.level().isClientSide()) return;
+        if (this.isHornBlower()) {
+            float chance = 0.30F + (0.05F * looting);
+
+            if (this.random.nextFloat() < chance) {
+                this.spawnAtLocation(ItemRegistry.BOKOBLIN_HEAD.get());
+            }
         }
+        this.dropExperience();
     }
 
     protected void dropExperience() {
@@ -226,11 +257,13 @@ public class Bokoblin extends AbstractTerrorMob {
 
         if (horn) {
             this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.GOAT_HORN));
-            this.setDropChance(EquipmentSlot.MAINHAND, 0.0F);
+            this.setDropChance(EquipmentSlot.MAINHAND, 0.25F);
         }
 
         return data;
     }
-
-
+    private boolean isDisguised(Player player) {
+        ItemStack helmet = player.getItemBySlot(EquipmentSlot.HEAD);
+        return helmet.is(net.bandit.hyrule_terrors.registry.ItemRegistry.BOKOBLIN_HEAD.get());
+    }
 }

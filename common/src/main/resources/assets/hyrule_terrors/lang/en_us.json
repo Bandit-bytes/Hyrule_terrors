@@ -10,6 +10,7 @@
   "item.hyrule_terrors.chuchu_jelly_red": "Red Chuchu Jelly",
   "item.hyrule_terrors.steel": "Steel Ingot",
   "item.hyrule_terrors.rupee": "Rupee",
+  "item.hyrule_terrors.keese_eyeball": "Keese Eyeball",
   "item.hyrule_terrors.bokoblin_head": "Bokoblin Head",
   "block.hyrule_terrors.bokoblin_head": "Bokoblin Head",
 
@@ -108,8 +109,11 @@
   "advancements.hyrule_terrors.bokoblin_arm.description": "ITS STILL ALLIVVVVEEE!",
   "item.steel.tooltip": "Used for Crafting Hyule Armor!",
   "item.steel.tooltip1": "Can be made by smelting Iron.",
+  "item.keese_eyeball.tooltip": "It's fun to look at, but it doesn't seem to have much use at first glance.",
+  "item.keese_eyeball.tooltip1": "Can be crafted into orange dye and right click to wear on head.",
   "text.autoconfig.hyrule_terrors.option.BokoblinMovementSpeed": "Speed",
   "text.autoconfig.hyrule_terrors.option.lizalfosMovementSpeed": "Speed",
   "item.hyrule_terrors.chuchu_jelly_red.tooltip": "Volatile, fire-infused jelly.",
-  "item.hyrule_terrors.chuchu_jelly_red.tooltip1": "Crafting: Red Chuchu Jelly crafts into 2 Magma Cream's."
+  "item.hyrule_terrors.chuchu_jelly_red.tooltip1": "Crafting: Red Chuchu Jelly crafts into 2 Magma Cream's.",
+  "item.bokoblin_head.tooltip": "Right Click to equip as a mask! Wearing the mask prevents Bokoblin from alerting nearby Allies and Attacking."
 }
