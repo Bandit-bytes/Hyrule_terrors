@@ -264,6 +264,6 @@ public class Bokoblin extends AbstractTerrorMob {
     }
     private boolean isDisguised(Player player) {
         ItemStack helmet = player.getItemBySlot(EquipmentSlot.HEAD);
-        return helmet.is(net.bandit.hyrule_terrors.registry.ItemRegistry.BOKOBLIN_HEAD.get());
+        return helmet.is(ItemRegistry.BOKOBLIN_HEAD.get());
     }
 }
