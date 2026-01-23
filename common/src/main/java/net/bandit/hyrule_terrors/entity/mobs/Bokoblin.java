@@ -214,7 +214,7 @@ public class Bokoblin extends AbstractTerrorMob {
             float chance = 0.30F + (0.05F * looting);
 
             if (this.random.nextFloat() < chance) {
-                this.spawnAtLocation(BlockRegistry.BOKOBLIN_HEAD_BLOCK.asItem());
+                this.spawnAtLocation(BlockRegistry.BOKOBLIN_HEAD_ITEM.get());
 
             }
         }

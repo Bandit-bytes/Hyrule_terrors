@@ -13,36 +13,32 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
 public class BlockRegistry {
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(
-            HyruleTerrorsMod.MOD_ID,
-            Registries.BLOCK
-    );
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(HyruleTerrorsMod.MOD_ID, Registries.ITEM );
 
-    public static final Block BOKOBLIN_HEAD_BLOCK = new BokoblinHeadBlock(
-            BlockBehaviour.Properties.of().strength(1.0F).noOcclusion()
-    );
+    public static final DeferredRegister<Block> BLOCKS =
+            DeferredRegister.create(HyruleTerrorsMod.MOD_ID, Registries.BLOCK);
 
-    public static final Block BOKOBLIN_WALL_HEAD_BLOCK = new BokoblinWallHeadBlock(
-            BlockBehaviour.Properties.of().strength(1.0F).noOcclusion()
-    );
+    public static final DeferredRegister<Item> ITEMS =
+            DeferredRegister.create(HyruleTerrorsMod.MOD_ID, Registries.ITEM);
 
     public static final RegistrySupplier<Block> BOKOBLIN_HEAD = BLOCKS.register(
             "bokoblin_head",
-            () -> BOKOBLIN_HEAD_BLOCK
+            () -> new BokoblinHeadBlock(BlockBehaviour.Properties.of().strength(1.0F).noOcclusion())
     );
 
     public static final RegistrySupplier<Block> BOKOBLIN_WALL_HEAD = BLOCKS.register(
             "bokoblin_wall_head",
-            () -> BOKOBLIN_WALL_HEAD_BLOCK
+            () -> new BokoblinWallHeadBlock(BlockBehaviour.Properties.of().strength(1.0F).noOcclusion())
     );
 
     public static final RegistrySupplier<Item> BOKOBLIN_HEAD_ITEM = ITEMS.register(
             "bokoblin_head",
             () -> new BokoblinHeadItem(
-                    BlockRegistry.BOKOBLIN_HEAD_BLOCK,
-                    BlockRegistry.BOKOBLIN_WALL_HEAD_BLOCK,
-                    new Item.Properties().stacksTo(1).arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE)
+                    BOKOBLIN_HEAD.get(),
+                    BOKOBLIN_WALL_HEAD.get(),
+                    new Item.Properties()
+                            .stacksTo(1)
+                            .arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
+                            .rarity(Rarity.RARE)
             )
     );
 

@@ -118,5 +118,13 @@
   "item.hyrule_terrors.chuchu_jelly_red.tooltip1": "Crafting: Red Chuchu Jelly crafts into 2 Magma Cream's.",
   "item.bokoblin_head.tooltip": "Right Click to equip as a mask! Wearing the mask prevents Bokoblin from alerting nearby Allies and Attacking.",
   "item.lizal_spear.tooltip": "A savage spear favored by Lizalfos.",
-  "item.lizal_spear.tooltip_1": "Right-click to lunge forward."
+  "item.lizal_spear.tooltip_1": "Right-click to lunge forward.",
+  "item.hyrule_terrors.hylian_shield": "Hylian Shield",
+  "item.hyrule_terrors.hylian_shield.tooltip_1": "A royal relic of unmatched endurance.",
+
+  "item.hyrule_terrors.hylian_shield.tooltip": "Hylian Shield",
+  "item.hyrule_terrors.hylian_shield.tooltip_royal": "Passed down through Hyrule’s Royal Family.",
+  "item.hyrule_terrors.hylian_shield.tooltip_durability": "Its defense and durability outshine all others.",
+  "item.hyrule_terrors.hylian_shield.tooltip_fire": "Fireproof: extinguishes the bearer while held.",
+  "item.hyrule_terrors.hylian_shield.tooltip_lightning": "Storm Conductor: blocking may attract lightning and zap foes."
 }
