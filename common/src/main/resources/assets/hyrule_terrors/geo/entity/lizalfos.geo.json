@@ -201,7 +201,7 @@
 					]
 				},
 				{
-					"name": "right_elbow",
+					"name": "RightHand",
 					"parent": "RightArm",
 					"pivot": [-4.5, 17.36041, 0.53176],
 					"cubes": [
@@ -264,7 +264,7 @@
 					]
 				},
 				{
-					"name": "left_elbow",
+					"name": "LeftHand",
 					"parent": "LeftArm",
 					"pivot": [5, 17.01839, 0.47145],
 					"cubes": [

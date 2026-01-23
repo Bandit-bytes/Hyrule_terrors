@@ -257,6 +257,15 @@ public class ItemRegistry {
                 .arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
         )
     );
+    public static final RegistrySupplier<Item> LIZAL_SPEAR = ITEMS.register(
+            "lizal_spear",
+            () -> new LizalSpear(
+                    new Item.Properties().attributes(SwordItem.createAttributes(Tiers.IRON, 3, -2.5F))
+                            .rarity(Rarity.RARE)
+                            .durability(260)
+                            .arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
+            )
+    );
 
     public static final RegistrySupplier<Item> KNIGHTS_CLAYMORE = ITEMS.register(
         "knights_claymore",

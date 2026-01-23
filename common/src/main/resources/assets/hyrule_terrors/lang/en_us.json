@@ -15,6 +15,7 @@
   "block.hyrule_terrors.bokoblin_head": "Bokoblin Head",
 
   "item.hyrule_terrors.lizalfos_horn_dagger": "Lizalfos Horn Dagger",
+  "item.hyrule_terrors.lizal_spear": "Lizal Spear",
   "item.hyrule_terrors.bokoblin_arm": "Bokoblin Arm",
   "item.hyrule_terrors.silver_longsword": "Silver Longsword",
   "item.hyrule_terrors.knights_claymore": "Knights Claymore",
@@ -115,5 +116,7 @@
   "text.autoconfig.hyrule_terrors.option.lizalfosMovementSpeed": "Speed",
   "item.hyrule_terrors.chuchu_jelly_red.tooltip": "Volatile, fire-infused jelly.",
   "item.hyrule_terrors.chuchu_jelly_red.tooltip1": "Crafting: Red Chuchu Jelly crafts into 2 Magma Cream's.",
-  "item.bokoblin_head.tooltip": "Right Click to equip as a mask! Wearing the mask prevents Bokoblin from alerting nearby Allies and Attacking."
+  "item.bokoblin_head.tooltip": "Right Click to equip as a mask! Wearing the mask prevents Bokoblin from alerting nearby Allies and Attacking.",
+  "item.lizal_spear.tooltip": "A savage spear favored by Lizalfos.",
+  "item.lizal_spear.tooltip_1": "Right-click to lunge forward."
 }
