@@ -19,6 +19,7 @@ public final class HyruleTerrorsFabricClient implements ClientModInitializer {
         EntityRendererRegistry.register(EntityRegistry.LIZALFOS, LizalfosRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.KEESE, KeeseRenderer::new);
         HyruleTerrorsClientMod.initClientAzRenders();
+        HyruleTerrorsClientMod.registerItemProperties();
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.BOKOBLIN_HEAD.get(), RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.BOKOBLIN_WALL_HEAD.get(), RenderType.cutout());
     }

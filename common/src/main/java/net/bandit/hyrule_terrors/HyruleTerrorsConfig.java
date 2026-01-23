@@ -4,6 +4,8 @@ import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry;
 
+import java.util.List;
+
 @Config(name = HyruleTerrorsMod.MOD_ID)
 public class HyruleTerrorsConfig implements ConfigData {
 
@@ -89,5 +91,53 @@ public class HyruleTerrorsConfig implements ConfigData {
     @ConfigEntry.Category("lizalfos")
     @ConfigEntry.Gui.NoTooltip
     public double lizalfosMovementSpeed = 0.3;
+
+    // Master Sword
+    @ConfigEntry.Category("master_sword")
+    @ConfigEntry.Gui.NoTooltip
+    public boolean masterSwordEnable = true;
+
+    @ConfigEntry.Category("master_sword")
+    @ConfigEntry.Gui.NoTooltip
+    public boolean masterSwordAwakenInNetherOrEnd = true;
+
+    @ConfigEntry.Category("master_sword")
+    @ConfigEntry.Gui.NoTooltip
+    public boolean masterSwordAwakenNearSculk = true;
+
+    @ConfigEntry.Category("master_sword")
+    @ConfigEntry.Gui.NoTooltip
+    public boolean masterSwordAwakenNearBosses = true;
+
+    @ConfigEntry.Category("master_sword")
+    @ConfigEntry.Gui.NoTooltip
+    public boolean masterSwordAwakenNearEvilMobsTag = true;
+
+    @ConfigEntry.Category("master_sword")
+    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 64)
+    public int masterSwordCheckRadius = 16;
+
+    @ConfigEntry.Category("master_sword")
+    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 64)
+    public int masterSwordSculkScanRadius = 10;
+
+    @ConfigEntry.Category("master_sword")
+    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 60)
+    public int masterSwordCheckIntervalTicks = 10; // every 0.5s
+
+    @ConfigEntry.Category("master_sword")
+    @ConfigEntry.Gui.NoTooltip
+    public float masterSwordBonusDamageVsEvil = 6.0f;
+
+    @ConfigEntry.Category("master_sword")
+    @ConfigEntry.Gui.NoTooltip
+    public double masterSwordKnockbackResistBonus = 0.25D;
+
+    @ConfigEntry.Category("master_sword")
+    @ConfigEntry.Gui.NoTooltip
+    public List<String> masterSwordExtraBossEntityIds = java.util.List.of();
 
 }

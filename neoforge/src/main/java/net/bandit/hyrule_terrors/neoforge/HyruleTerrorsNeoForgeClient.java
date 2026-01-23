@@ -1,6 +1,7 @@
 package net.bandit.hyrule_terrors.neoforge;
 
 import me.shedaniel.autoconfig.AutoConfig;
+import net.bandit.hyrule_terrors.HyruleTerrorsClientMod;
 import net.bandit.hyrule_terrors.HyruleTerrorsConfig;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.entity.client.renderer.*;
@@ -27,6 +28,7 @@ public class HyruleTerrorsNeoForgeClient {
                 IConfigScreenFactory.class,
                 () -> (modContainer, screen) -> AutoConfig.getConfigScreen(HyruleTerrorsConfig.class, screen).get()
             );
+        event.enqueueWork(HyruleTerrorsClientMod::registerItemProperties);
         event.enqueueWork(() -> {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.BOKOBLIN_HEAD.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.BOKOBLIN_WALL_HEAD.get(), RenderType.cutout());

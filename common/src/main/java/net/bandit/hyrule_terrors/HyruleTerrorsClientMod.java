@@ -1,5 +1,6 @@
 package net.bandit.hyrule_terrors;
 
+import dev.architectury.registry.item.ItemPropertiesRegistry;
 import mod.azure.azurelib.common.render.armor.AzArmorRendererRegistry;
 import mod.azure.azurelib.common.render.item.AzItemRendererRegistry;
 import net.bandit.hyrule_terrors.item.armor.client.renderer.BarbarianArmorRenderer;
@@ -8,6 +9,7 @@ import net.bandit.hyrule_terrors.item.armor.client.renderer.KnightArmorRenderer;
 import net.bandit.hyrule_terrors.item.armor.client.renderer.ZoraArmorRenderer;
 import net.bandit.hyrule_terrors.item.weapon.client.renderer.BokoblinArmRenderer;
 import net.bandit.hyrule_terrors.registry.ItemRegistry;
+import net.minecraft.resources.ResourceLocation;
 
 public class HyruleTerrorsClientMod {
 
@@ -42,4 +44,13 @@ public class HyruleTerrorsClientMod {
             ItemRegistry.KNIGHT_BOOTS.get()
         );
     }
+    public static void registerItemProperties() {
+        ItemPropertiesRegistry.register(
+                ItemRegistry.HYLIAN_SHIELD.get(),
+                ResourceLocation.withDefaultNamespace("blocking"),
+                (stack, level, entity, seed) ->
+                        entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F
+        );
+    }
+
 }

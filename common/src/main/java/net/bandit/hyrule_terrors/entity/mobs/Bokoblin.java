@@ -2,11 +2,14 @@ package net.bandit.hyrule_terrors.entity.mobs;
 
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.helper.AnimationDispatcher;
+import net.bandit.hyrule_terrors.registry.BlockRegistry;
 import net.bandit.hyrule_terrors.registry.ItemRegistry;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -40,7 +43,8 @@ public class Bokoblin extends AbstractTerrorMob {
 
     private int hornCooldownTicks = 0;
     private boolean hasAlertedThisTarget = false;
-
+    private static final ResourceLocation BOKOBLIN_HEAD_ID =
+            ResourceLocation.fromNamespaceAndPath("hyrule_terrors", "bokoblin_head");
     private static final EntityDataAccessor<Boolean> HORN_BLOWER =
             SynchedEntityData.defineId(Bokoblin.class, EntityDataSerializers.BOOLEAN);
 
@@ -214,7 +218,7 @@ public class Bokoblin extends AbstractTerrorMob {
             float chance = 0.30F;
 
             if (this.random.nextFloat() < chance) {
-                this.spawnAtLocation(ItemRegistry.BOKOBLIN_HEAD.get());
+                this.spawnAtLocation(BlockRegistry.BOKOBLIN_HEAD.get());
             }
         }
 
@@ -237,7 +241,7 @@ public class Bokoblin extends AbstractTerrorMob {
     ) {
         SpawnGroupData data = super.finalizeSpawn(level, difficulty, reason, spawnData);
 
-        boolean horn = this.random.nextInt(8) == 0;
+        boolean horn = this.random.nextInt(6) == 0;
         this.setHornBlower(horn);
 
         if (horn) {
@@ -249,6 +253,6 @@ public class Bokoblin extends AbstractTerrorMob {
 
     private boolean isDisguised(Player player) {
         ItemStack helmet = player.getItemBySlot(EquipmentSlot.HEAD);
-        return helmet.is(ItemRegistry.BOKOBLIN_HEAD.get());
+        return BuiltInRegistries.ITEM.getKey(helmet.getItem()).equals(BOKOBLIN_HEAD_ID);
     }
 }
