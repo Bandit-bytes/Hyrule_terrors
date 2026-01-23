@@ -229,6 +229,18 @@ public class ItemRegistry {
             "hylian_shield",
             () -> new HylianShieldItem(new Item.Properties().durability(936).arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.EPIC))
     );
+    public static final RegistrySupplier<Item> MASTER_SWORD = ITEMS.register(
+            "mastersword",
+            () -> new MasterSword(
+                    Tiers.NETHERITE,
+                    5,
+                    -2.2F,
+                    new Item.Properties()
+                            .rarity(Rarity.EPIC)
+                            .durability(2031)
+                            .arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
+            )
+    );
 
     public static final RegistrySupplier<Item> LIZALFOS_HORN_DAGGER = ITEMS.register(
             "lizalfos_horn_dagger",
