@@ -247,10 +247,7 @@ public class ItemRegistry {
     );
     public static final RegistrySupplier<Item> LIZAL_SPEAR = ITEMS.register(
             "lizal_spear",
-            () -> new SwordItem(
-                    Tiers.IRON,
-                    4,
-                    -1.0F,
+            () -> new LizalSpear(
                     new Item.Properties()
                             .rarity(Rarity.RARE)
                             .durability(260)

@@ -147,11 +147,12 @@ public class Lizalfos extends AbstractTerrorMob {
                                         @Nullable SpawnGroupData spawnData, @Nullable CompoundTag tag) {
         SpawnGroupData data = super.finalizeSpawn(level, difficulty, reason, spawnData, tag);
 
-        {
+        if (this.random.nextInt(4) == 0) {
             this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ItemRegistry.LIZAL_SPEAR.get()));
             this.setDropChance(EquipmentSlot.MAINHAND, 0.25F);
         }
 
         return data;
     }
+
 }

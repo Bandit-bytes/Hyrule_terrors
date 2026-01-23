@@ -74,7 +74,7 @@ public class HyruleTerrorsConfig implements ConfigData {
     @ConfigEntry.Category("lizalfos")
     @ConfigEntry.Gui.NoTooltip
     @ConfigEntry.BoundedDiscrete(min = 1, max = 100)
-    public int lizalfosHealth = 20;
+    public int lizalfosHealth = 30;
 
     @ConfigEntry.Category("lizalfos")
     @ConfigEntry.Gui.NoTooltip

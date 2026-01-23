@@ -14,7 +14,7 @@ import java.util.UUID;
 public class lizalfosItemLayer extends AzBlockAndItemLayer<UUID, Lizalfos> {
 
     private static final String BONE_RIGHT_ARM = "RightHand";
-    private static final String BONE_LEFT_ARM  = "LeftArm";
+    private static final String BONE_LEFT_ARM  = "LeftHand";
 
     @Override
     public ItemStack itemStackForBone(AzBone bone, Lizalfos animatable) {
