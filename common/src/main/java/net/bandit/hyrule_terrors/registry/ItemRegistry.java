@@ -98,14 +98,6 @@ public class ItemRegistry {
             () -> new KeeseEyeball(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.UNCOMMON))
     );
 
-    public static final RegistrySupplier<Item> BOKOBLIN_HEAD = ITEMS.register(
-            "bokoblin_head",
-            () -> new BokoblinHeadItem(
-                    BlockRegistry.BOKOBLIN_HEAD.get(),
-                    BlockRegistry.BOKOBLIN_WALL_HEAD.get(),
-                    new Item.Properties().stacksTo(1).arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE)
-            )
-    );
 
     public static final RegistrySupplier<Item> RUPEE = ITEMS.register(
             "rupee",
@@ -233,6 +225,11 @@ public class ItemRegistry {
     );
 
     // WEAPONS
+    public static final RegistrySupplier<Item> HYLIAN_SHIELD = ITEMS.register(
+            "hylian_shield",
+            () -> new HylianShieldItem(new Item.Properties().durability(336).arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.EPIC))
+    );
+
     public static final RegistrySupplier<Item> LIZALFOS_HORN_DAGGER = ITEMS.register(
             "lizalfos_horn_dagger",
             () -> new SwordItem(

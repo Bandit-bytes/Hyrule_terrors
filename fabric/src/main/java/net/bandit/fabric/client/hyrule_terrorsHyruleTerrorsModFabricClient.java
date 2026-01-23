@@ -7,6 +7,7 @@ import net.bandit.hyrule_terrors.registry.BlockRegistry;
 import net.bandit.hyrule_terrors.registry.EntityRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
 import net.minecraft.client.renderer.RenderType;
 
 public final class hyrule_terrorsHyruleTerrorsModFabricClient implements ClientModInitializer {
@@ -20,5 +21,6 @@ public final class hyrule_terrorsHyruleTerrorsModFabricClient implements ClientM
         HyruleTerrorsClientMod.initClientAzRenders();
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.BOKOBLIN_HEAD.get(), RenderType.cutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.BOKOBLIN_WALL_HEAD.get(), RenderType.cutout());
+        HyruleTerrorsClientMod.registerItemProperties();
     }
 }

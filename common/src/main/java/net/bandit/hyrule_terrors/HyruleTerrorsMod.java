@@ -20,8 +20,8 @@ public final class HyruleTerrorsMod {
         config = AutoConfig.getConfigHolder(HyruleTerrorsConfig.class).getConfig();
 
         ItemRegistry.register();
-        BlockRegistry.register();
         EntityRegistry.init();
+        BlockRegistry.register();
         TabRegistry.init();
 
     }
@@ -53,6 +53,5 @@ public final class HyruleTerrorsMod {
 
     public static void initClient() {
         HyruleTerrorsClientMod.initClientAzRenders();
-
     }
 }

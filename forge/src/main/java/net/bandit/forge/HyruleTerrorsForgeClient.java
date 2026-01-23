@@ -1,6 +1,7 @@
 package net.bandit.forge;
 
 import me.shedaniel.autoconfig.AutoConfig;
+import net.bandit.hyrule_terrors.HyruleTerrorsClientMod;
 import net.bandit.hyrule_terrors.HyruleTerrorsConfig;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.entity.client.renderer.*;
@@ -26,6 +27,7 @@ public final class HyruleTerrorsForgeClient {
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.BOKOBLIN_HEAD.get(), RenderType.cutout());
             ItemBlockRenderTypes.setRenderLayer(BlockRegistry.BOKOBLIN_WALL_HEAD.get(), RenderType.cutout());
         });
+        event.enqueueWork(HyruleTerrorsClientMod::registerItemProperties);
         ModLoadingContext.get().registerExtensionPoint(
                 ConfigScreenHandler.ConfigScreenFactory.class,
                 () -> new ConfigScreenHandler.ConfigScreenFactory(
