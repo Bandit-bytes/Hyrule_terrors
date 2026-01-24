@@ -15,7 +15,6 @@ public final class HyruleTerrorsMod {
     public static HyruleTerrorsConfig config;
 
     public static void init() {
-        // Write common init code here.
         AutoConfig.register(HyruleTerrorsConfig.class, JanksonConfigSerializer::new);
         config = AutoConfig.getConfigHolder(HyruleTerrorsConfig.class).getConfig();
 

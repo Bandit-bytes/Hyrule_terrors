@@ -227,14 +227,14 @@ public class ItemRegistry {
     // WEAPONS
     public static final RegistrySupplier<Item> HYLIAN_SHIELD = ITEMS.register(
             "hylian_shield",
-            () -> new HylianShieldItem(new Item.Properties().durability(936).arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.EPIC))
+            () -> new HylianShieldItem(new Item.Properties().durability(1936).arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.EPIC))
     );
     public static final RegistrySupplier<Item> MASTER_SWORD = ITEMS.register(
             "mastersword",
             () -> new MasterSword(
                     Tiers.NETHERITE,
-                    5,
-                    -2.2F,
+                    9,
+                    -2.0F,
                     new Item.Properties()
                             .rarity(Rarity.EPIC)
                             .durability(2031)

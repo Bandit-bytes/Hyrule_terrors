@@ -38,8 +38,13 @@ public class MasterSword extends SwordItem {
 
     private static final String TAG_AWAKENED = "Awakened";
     private static final UUID AWAKEN_KB_UUID = UUID.fromString("3bf2a5b5-8fd2-4a35-8d64-4f4d9a2c5a77");
+    private static final WeakHashMap<Player, ScanState> SCAN_STATE = new WeakHashMap<>();
 
-    private static final WeakHashMap<Player, Long> NEXT_CHECK = new WeakHashMap<>();
+    private static final class ScanState {
+        long nextCheckTime = 0;
+        long lastPosKey = Long.MIN_VALUE;
+        boolean lastAwakenResult = false;
+    }
 
     public static final TagKey<EntityType<?>> EVIL_MOBS_TAG =
             TagKey.create(Registries.ENTITY_TYPE,
@@ -65,33 +70,40 @@ public class MasterSword extends SwordItem {
         HyruleTerrorsConfig cfg = HyruleTerrorsMod.config;
         if (cfg == null || !cfg.masterSwordEnable) return;
 
-        boolean holding = ItemStack.isSameItemSameTags(player.getMainHandItem(), stack)
-                || ItemStack.isSameItemSameTags(player.getOffhandItem(), stack);
+        boolean holding = isSelected || player.getOffhandItem() == stack;
 
         if (!holding) {
             removeKnockbackModifier(player);
             return;
         }
 
-        long time = serverLevel.getGameTime();
-        long next = NEXT_CHECK.getOrDefault(player, 0L);
+        ScanState state = SCAN_STATE.computeIfAbsent(player, p -> new ScanState());
 
-        if (time < next) {
+        long time = serverLevel.getGameTime();
+        if (time < state.nextCheckTime) {
             if (isAwakened(stack)) applyKnockbackModifier(player, cfg.masterSwordKnockbackResistBonus);
             else removeKnockbackModifier(player);
             return;
         }
 
-        NEXT_CHECK.put(player, time + cfg.masterSwordCheckIntervalTicks);
+        long posKey = quantizedPosKey(player.blockPosition(), 2);
+        if (posKey == state.lastPosKey) {
+            state.nextCheckTime = time + cfg.masterSwordCheckIntervalTicks;
+            if (state.lastAwakenResult) applyKnockbackModifier(player, cfg.masterSwordKnockbackResistBonus);
+            else removeKnockbackModifier(player);
+            return;
+        }
+
+        state.lastPosKey = posKey;
+        state.nextCheckTime = time + cfg.masterSwordCheckIntervalTicks;
 
         boolean awakenedNow = shouldAwaken(serverLevel, player, cfg);
+        state.lastAwakenResult = awakenedNow;
+
         boolean awakenedWas = isAwakened(stack);
         if (awakenedNow != awakenedWas) {
             setAwakened(stack, awakenedNow);
-
-            if (awakenedNow) {
-                spawnAwakenParticles(serverLevel, player);
-            }
+            if (awakenedNow) spawnAwakenParticles(serverLevel, player);
         }
 
         if (awakenedNow) applyKnockbackModifier(player, cfg.masterSwordKnockbackResistBonus);
@@ -163,7 +175,7 @@ public class MasterSword extends SwordItem {
         }
 
         if (cfg.masterSwordAwakenNearSculk) {
-            if (isSculkNearby(level, player.blockPosition(), cfg.masterSwordSculkScanRadius)) return true;
+            if (isSculkNearbyLoadedOnly(level, player.blockPosition(), cfg.masterSwordSculkScanRadius)) return true;
         }
 
         return false;
@@ -204,16 +216,23 @@ public class MasterSword extends SwordItem {
         return key != null && cfg.masterSwordExtraBossEntityIds != null && cfg.masterSwordExtraBossEntityIds.contains(key.toString());
     }
 
-    private static boolean isSculkNearby(ServerLevel level, BlockPos center, int radius) {
+    private static boolean isSculkNearbyLoadedOnly(ServerLevel level, BlockPos center, int radius) {
         int r = Mth.clamp(radius, 1, 32);
         BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
+
+        int cx = center.getX();
+        int cy = center.getY();
+        int cz = center.getZ();
 
         for (int dx = -r; dx <= r; dx++) {
             for (int dy = -2; dy <= 2; dy++) {
                 for (int dz = -r; dz <= r; dz++) {
-                    pos.set(center.getX() + dx, center.getY() + dy, center.getZ() + dz);
-                    Block block = level.getBlockState(pos).getBlock();
+                    pos.set(cx + dx, cy + dy, cz + dz);
 
+                    // Prevent any chunk access / loads for far/unloaded areas
+                    if (!level.hasChunkAt(pos)) continue;
+
+                    Block block = level.getBlockState(pos).getBlock();
                     if (block == Blocks.SCULK
                             || block == Blocks.SCULK_CATALYST
                             || block == Blocks.SCULK_SENSOR
@@ -269,5 +288,17 @@ public class MasterSword extends SwordItem {
                 0.20D, 0.35D, 0.20D,
                 0.01D
         );
+    }
+
+    private static long quantizedPosKey(BlockPos pos, int cellSize) {
+        int x = pos.getX() / cellSize;
+        int y = pos.getY() / cellSize;
+        int z = pos.getZ() / cellSize;
+
+        long key = 1469598103934665603L;
+        key = (key ^ x) * 1099511628211L;
+        key = (key ^ y) * 1099511628211L;
+        key = (key ^ z) * 1099511628211L;
+        return key;
     }
 }
