@@ -8,5 +8,6 @@ public final class hyrule_terrorsHyruleTerrorsModFabric implements ModInitialize
     public void onInitialize() {
         HyruleTerrorsMod.init();
         HyruleTerrorsMod.initAzIdentityRegistry();
+        HTWandererTradesFabric.init();
     }
 }
