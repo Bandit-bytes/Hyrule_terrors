@@ -23,7 +23,7 @@ public class BokoblinRenderer extends AzEntityRenderer<Bokoblin> {
         super(
             AzEntityRendererConfig.<Bokoblin>builder(MODEL, TEXTURE)
                 .setAnimatorProvider(BokoblinAnimator::new)
-                    .addRenderLayer(new BokoblinItemLayer())
+                .addRenderLayer(new BokoblinItemLayer())
                 .setShadowRadius(0.5F)
                 .build(),
             context

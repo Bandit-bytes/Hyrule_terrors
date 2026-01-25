@@ -13,21 +13,25 @@ public class HTWandererTradesFabric {
     public static void init() {
         TradeOfferHelper.registerWanderingTraderOffers(2, factories -> {
 
-            factories.add((entity, random) -> new MerchantOffer(
+            factories.add(
+                (entity, random) -> new MerchantOffer(
                     new ItemCost(ItemRegistry.RUPEE.get(), COST),
                     new ItemStack(ItemRegistry.MASTER_SWORD.get(), 1),
                     1,
                     0,
                     0.05F
-            ));
+                )
+            );
 
-            factories.add((entity, random) -> new MerchantOffer(
+            factories.add(
+                (entity, random) -> new MerchantOffer(
                     new ItemCost(ItemRegistry.RUPEE.get(), COST),
                     new ItemStack(ItemRegistry.HYLIAN_SHIELD.get(), 1),
                     1,
                     0,
                     0.05F
-            ));
+                )
+            );
         });
     }
 }

@@ -4,7 +4,6 @@ import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.helper.AnimationDispatcher;
 import net.bandit.hyrule_terrors.registry.ItemRegistry;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -140,10 +139,10 @@ public class Lizalfos extends AbstractTerrorMob {
     @Nullable
     @Override
     public SpawnGroupData finalizeSpawn(
-            ServerLevelAccessor level,
-            DifficultyInstance difficulty,
-            MobSpawnType reason,
-            @Nullable SpawnGroupData spawnData
+        ServerLevelAccessor level,
+        DifficultyInstance difficulty,
+        MobSpawnType reason,
+        @Nullable SpawnGroupData spawnData
     ) {
         SpawnGroupData data = super.finalizeSpawn(level, difficulty, reason, spawnData);
 

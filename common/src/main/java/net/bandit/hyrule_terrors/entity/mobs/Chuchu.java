@@ -63,6 +63,7 @@ public class Chuchu extends AbstractTerrorMob {
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
     }
+
     @Override
     public void aiStep() {
         super.aiStep();
@@ -73,16 +74,18 @@ public class Chuchu extends AbstractTerrorMob {
     }
 
     private void convertToRed() {
-        if (!(this.level() instanceof ServerLevel serverLevel)) return;
-        if (this.isRemoved()) return;
+        if (!(this.level() instanceof ServerLevel serverLevel))
+            return;
+        if (this.isRemoved())
+            return;
 
         ChuchuRed red = EntityRegistry.CHUCHU_RED.get().create(serverLevel);
-        if (red == null) return;
+        if (red == null)
+            return;
 
         red.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), this.getXRot());
 
         red.setDeltaMovement(this.getDeltaMovement());
-
 
         if (this.hasCustomName()) {
             red.setCustomName(this.getCustomName());

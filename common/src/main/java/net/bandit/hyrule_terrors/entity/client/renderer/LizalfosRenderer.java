@@ -24,7 +24,7 @@ public class LizalfosRenderer extends AzEntityRenderer<Lizalfos> {
             AzEntityRendererConfig.<Lizalfos>builder(MODEL, TEXTURE)
                 .setAnimatorProvider(LizalfosAnimator::new)
                 .setDeathMaxRotation(0.5F)
-                    .addRenderLayer(new lizalfosItemLayer())
+                .addRenderLayer(new lizalfosItemLayer())
                 .setShadowRadius(0.75F)
                 .setScale(1.4F)
                 .build(),

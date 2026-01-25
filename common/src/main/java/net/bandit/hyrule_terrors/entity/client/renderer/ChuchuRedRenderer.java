@@ -1,6 +1,5 @@
 package net.bandit.hyrule_terrors.entity.client.renderer;
 
-
 import mod.azure.azurelib.common.render.entity.AzEntityRenderer;
 import mod.azure.azurelib.common.render.entity.AzEntityRendererConfig;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;

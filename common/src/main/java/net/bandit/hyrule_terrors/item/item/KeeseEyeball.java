@@ -11,7 +11,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -56,13 +55,17 @@ public class KeeseEyeball extends Item {
 
     @Override
     public void appendHoverText(
-            ItemStack stack,
-            TooltipContext context,
-            List<Component> tooltipComponents,
-            TooltipFlag tooltipFlag
+        ItemStack stack,
+        TooltipContext context,
+        List<Component> tooltipComponents,
+        TooltipFlag tooltipFlag
     ) {
         if (Screen.hasShiftDown()) {
-            tooltipComponents.add(Component.translatable("item.keese_eyeball.tooltip").withStyle(ChatFormatting.ITALIC).withStyle(ChatFormatting.LIGHT_PURPLE));
+            tooltipComponents.add(
+                Component.translatable("item.keese_eyeball.tooltip")
+                    .withStyle(ChatFormatting.ITALIC)
+                    .withStyle(ChatFormatting.LIGHT_PURPLE)
+            );
             tooltipComponents.add(Component.translatable("item.keese_eyeball.tooltip1").withStyle(ChatFormatting.GRAY));
         } else {
             tooltipComponents.add(Component.translatable("item.hyrule_terrors.hold_shift"));

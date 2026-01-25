@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 
 public class BokoblinHeadBlock extends HorizontalDirectionalBlock {
+
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     public static final MapCodec<BokoblinHeadBlock> CODEC = simpleCodec(BokoblinHeadBlock::new);

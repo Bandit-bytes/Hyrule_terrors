@@ -44,12 +44,14 @@ public class HyruleTerrorsClientMod {
             ItemRegistry.KNIGHT_BOOTS.get()
         );
     }
+
     public static void registerItemProperties() {
         ItemPropertiesRegistry.register(
-                ItemRegistry.HYLIAN_SHIELD.get(),
-                ResourceLocation.withDefaultNamespace("blocking"),
-                (stack, level, entity, seed) ->
-                        entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F
+            ItemRegistry.HYLIAN_SHIELD.get(),
+            ResourceLocation.withDefaultNamespace("blocking"),
+            (stack, level, entity, seed) -> entity != null && entity.isUsingItem() && entity.getUseItem() == stack
+                ? 1.0F
+                : 0.0F
         );
     }
 

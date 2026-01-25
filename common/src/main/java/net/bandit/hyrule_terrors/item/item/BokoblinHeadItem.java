@@ -13,7 +13,6 @@ import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -55,16 +54,17 @@ public class BokoblinHeadItem extends StandingAndWallBlockItem {
 
         return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
     }
+
     @Override
     public void appendHoverText(
-            ItemStack stack,
-            TooltipContext context,
-            List<Component> tooltipComponents,
-            TooltipFlag tooltipFlag
+        ItemStack stack,
+        TooltipContext context,
+        List<Component> tooltipComponents,
+        TooltipFlag tooltipFlag
     ) {
         if (Screen.hasShiftDown()) {
             tooltipComponents.add(
-                    Component.translatable("item.bokoblin_head.tooltip").withStyle(ChatFormatting.DARK_GREEN)
+                Component.translatable("item.bokoblin_head.tooltip").withStyle(ChatFormatting.DARK_GREEN)
             );
         } else {
             tooltipComponents.add(Component.translatable("item.hyrule_terrors.hold_shift"));

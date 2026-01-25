@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 
 public class BokoblinWallHeadBlock extends Block {
+
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     public BokoblinWallHeadBlock(Properties props) {

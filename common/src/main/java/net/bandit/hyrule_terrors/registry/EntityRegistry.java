@@ -34,10 +34,10 @@ public class EntityRegistry {
     );
 
     public static final RegistrySupplier<EntityType<ChuchuRed>> CHUCHU_RED = ENTITIES.register(
-            "chuchu_red",
-            () -> EntityType.Builder.of(ChuchuRed::new, MobCategory.MONSTER)
-                    .sized(0.60f, 0.75f)
-                    .build(HyruleTerrorsMod.modResource("chuchu_red").toString())
+        "chuchu_red",
+        () -> EntityType.Builder.of(ChuchuRed::new, MobCategory.MONSTER)
+            .sized(0.60f, 0.75f)
+            .build(HyruleTerrorsMod.modResource("chuchu_red").toString())
     );
 
     public static final RegistrySupplier<EntityType<Keese>> KEESE = ENTITIES.register(

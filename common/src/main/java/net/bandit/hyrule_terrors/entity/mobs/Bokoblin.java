@@ -3,7 +3,6 @@ package net.bandit.hyrule_terrors.entity.mobs;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.helper.AnimationDispatcher;
 import net.bandit.hyrule_terrors.registry.BlockRegistry;
-import net.bandit.hyrule_terrors.registry.ItemRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -42,11 +41,14 @@ public class Bokoblin extends AbstractTerrorMob {
     public AnimationDispatcher dispatcher;
 
     private int hornCooldownTicks = 0;
+
     private boolean hasAlertedThisTarget = false;
+
     private static final ResourceLocation BOKOBLIN_HEAD_ID =
-            ResourceLocation.fromNamespaceAndPath("hyrule_terrors", "bokoblin_head");
+        ResourceLocation.fromNamespaceAndPath("hyrule_terrors", "bokoblin_head");
+
     private static final EntityDataAccessor<Boolean> HORN_BLOWER =
-            SynchedEntityData.defineId(Bokoblin.class, EntityDataSerializers.BOOLEAN);
+        SynchedEntityData.defineId(Bokoblin.class, EntityDataSerializers.BOOLEAN);
 
     public Bokoblin(EntityType<? extends PathfinderMob> entityType, Level level) {
         super(entityType, level);
@@ -55,11 +57,11 @@ public class Bokoblin extends AbstractTerrorMob {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, HyruleTerrorsMod.config.bokoblinHealth)
-                .add(Attributes.ATTACK_DAMAGE, HyruleTerrorsMod.config.bokoblinAttackDamage)
-                .add(Attributes.ATTACK_SPEED, 1.3)
-                .add(Attributes.ATTACK_KNOCKBACK, 1.0)
-                .add(Attributes.MOVEMENT_SPEED, HyruleTerrorsMod.config.BokoblinMovementSpeed);
+            .add(Attributes.MAX_HEALTH, HyruleTerrorsMod.config.bokoblinHealth)
+            .add(Attributes.ATTACK_DAMAGE, HyruleTerrorsMod.config.bokoblinAttackDamage)
+            .add(Attributes.ATTACK_SPEED, 1.3)
+            .add(Attributes.ATTACK_KNOCKBACK, 1.0)
+            .add(Attributes.MOVEMENT_SPEED, HyruleTerrorsMod.config.BokoblinMovementSpeed);
     }
 
     @Override
@@ -80,6 +82,7 @@ public class Bokoblin extends AbstractTerrorMob {
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.3D, false) {
+
             @Override
             protected void checkAndPerformAttack(LivingEntity target) {
                 if (this.canPerformAttack(target)) {
@@ -95,12 +98,15 @@ public class Bokoblin extends AbstractTerrorMob {
         this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true) {
+
             @Override
             public boolean canUse() {
-                if (!super.canUse()) return false;
+                if (!super.canUse())
+                    return false;
 
                 if (this.target instanceof Player player) {
-                    if (mob.getLastHurtByMob() == player) return true;
+                    if (mob.getLastHurtByMob() == player)
+                        return true;
 
                     return !((Bokoblin) mob).isDisguised(player);
                 }
@@ -109,10 +115,12 @@ public class Bokoblin extends AbstractTerrorMob {
 
             @Override
             public boolean canContinueToUse() {
-                if (!super.canContinueToUse()) return false;
+                if (!super.canContinueToUse())
+                    return false;
 
                 if (this.target instanceof Player player) {
-                    if (mob.getLastHurtByMob() == player) return true;
+                    if (mob.getLastHurtByMob() == player)
+                        return true;
 
                     return !((Bokoblin) mob).isDisguised(player);
                 }
@@ -127,10 +135,13 @@ public class Bokoblin extends AbstractTerrorMob {
     public void aiStep() {
         super.aiStep();
 
-        if (hornCooldownTicks > 0) hornCooldownTicks--;
+        if (hornCooldownTicks > 0)
+            hornCooldownTicks--;
 
-        if (this.level().isClientSide()) return;
-        if (!this.isHornBlower()) return;
+        if (this.level().isClientSide())
+            return;
+        if (!this.isHornBlower())
+            return;
 
         LivingEntity target = this.getTarget();
 
@@ -148,27 +159,29 @@ public class Bokoblin extends AbstractTerrorMob {
     }
 
     private void blowHornAndAlertAllies(Player player) {
-        if (!(this.level() instanceof ServerLevel serverLevel)) return;
-        if (isDisguised(player)) return;
+        if (!(this.level() instanceof ServerLevel serverLevel))
+            return;
+        if (isDisguised(player))
+            return;
 
         SoundEvent hornSound = SoundEvents.GOAT_HORN_SOUND_VARIANTS.get(3).value();
 
         serverLevel.playSound(
-                null,
-                this.blockPosition(),
-                hornSound,
-                SoundSource.HOSTILE,
-                2.0F,
-                1.0F
+            null,
+            this.blockPosition(),
+            hornSound,
+            SoundSource.HOSTILE,
+            2.0F,
+            1.0F
         );
 
         double radius = 24.0D;
         AABB box = this.getBoundingBox().inflate(radius);
 
         List<Bokoblin> allies = serverLevel.getEntitiesOfClass(
-                Bokoblin.class,
-                box,
-                b -> b != this && b.isAlive()
+            Bokoblin.class,
+            box,
+            b -> b != this && b.isAlive()
         );
 
         for (Bokoblin ally : allies) {
@@ -180,11 +193,13 @@ public class Bokoblin extends AbstractTerrorMob {
 
     @Override
     public boolean checkSpawnRules(LevelAccessor level, MobSpawnType spawnType) {
-        if (level.getDifficulty() == Difficulty.PEACEFUL) return false;
+        if (level.getDifficulty() == Difficulty.PEACEFUL)
+            return false;
 
         BlockPos pos = this.blockPosition();
         int blockLight = level.getBrightness(LightLayer.BLOCK, pos);
-        if (blockLight > 4) return false;
+        if (blockLight > 4)
+            return false;
 
         return super.checkSpawnRules(level, spawnType);
     }
@@ -213,7 +228,8 @@ public class Bokoblin extends AbstractTerrorMob {
     protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) {
         super.dropCustomDeathLoot(level, source, recentlyHit);
 
-        if (level.isClientSide()) return;
+        if (level.isClientSide())
+            return;
         if (this.isHornBlower()) {
             float chance = 0.30F;
 
@@ -234,10 +250,10 @@ public class Bokoblin extends AbstractTerrorMob {
     @Nullable
     @Override
     public SpawnGroupData finalizeSpawn(
-            ServerLevelAccessor level,
-            DifficultyInstance difficulty,
-            MobSpawnType reason,
-            @Nullable SpawnGroupData spawnData
+        ServerLevelAccessor level,
+        DifficultyInstance difficulty,
+        MobSpawnType reason,
+        @Nullable SpawnGroupData spawnData
     ) {
         SpawnGroupData data = super.finalizeSpawn(level, difficulty, reason, spawnData);
 

@@ -34,9 +34,16 @@ import java.util.WeakHashMap;
 public class MasterSword extends SwordItem {
 
     private static final String TAG_AWAKENED = "Awakened";
+
     private static final ResourceLocation AWAKEN_KB_ID =
             ResourceLocation.fromNamespaceAndPath(HyruleTerrorsMod.MOD_ID, "master_sword_awaken_kb");
-    private static final WeakHashMap<Player, Long> NEXT_CHECK = new WeakHashMap<>();
+    private static final WeakHashMap<Player, ScanState> SCAN_STATE = new WeakHashMap<>();
+
+    private static final class ScanState {
+        long nextCheckTime = 0;
+        long lastPosKey = Long.MIN_VALUE;
+        boolean lastAwakenResult = false;
+    }
 
     public static final TagKey<EntityType<?>> EVIL_MOBS_TAG =
             TagKey.create(
@@ -64,27 +71,37 @@ public class MasterSword extends SwordItem {
         HyruleTerrorsConfig cfg = HyruleTerrorsMod.config;
         if (cfg == null || !cfg.masterSwordEnable) return;
 
-        // Exact stack instance check (works across components, avoids removed helper)
-        boolean holding = (player.getMainHandItem() == stack) || (player.getOffhandItem() == stack);
+        boolean holding = isSelected || player.getOffhandItem() == stack;
+
         if (!holding) {
             removeKnockbackModifier(player);
             return;
         }
 
-        long time = serverLevel.getGameTime();
-        long next = NEXT_CHECK.getOrDefault(player, 0L);
+        ScanState state = SCAN_STATE.computeIfAbsent(player, p -> new ScanState());
 
-        if (time < next) {
+        long time = serverLevel.getGameTime();
+        if (time < state.nextCheckTime) {
             if (isAwakened(stack)) applyKnockbackModifier(player, cfg.masterSwordKnockbackResistBonus);
             else removeKnockbackModifier(player);
             return;
         }
 
-        NEXT_CHECK.put(player, time + cfg.masterSwordCheckIntervalTicks);
+        long posKey = quantizedPosKey(player.blockPosition(), 2);
+        if (posKey == state.lastPosKey) {
+            state.nextCheckTime = time + cfg.masterSwordCheckIntervalTicks;
+            if (state.lastAwakenResult) applyKnockbackModifier(player, cfg.masterSwordKnockbackResistBonus);
+            else removeKnockbackModifier(player);
+            return;
+        }
+
+        state.lastPosKey = posKey;
+        state.nextCheckTime = time + cfg.masterSwordCheckIntervalTicks;
 
         boolean awakenedNow = shouldAwaken(serverLevel, player, cfg);
-        boolean awakenedWas = isAwakened(stack);
+        state.lastAwakenResult = awakenedNow;
 
+        boolean awakenedWas = isAwakened(stack);
         if (awakenedNow != awakenedWas) {
             setAwakened(stack, awakenedNow);
             if (awakenedNow) spawnAwakenParticles(serverLevel, player);
@@ -115,41 +132,62 @@ public class MasterSword extends SwordItem {
     ) {
         boolean awakened = isAwakened(stack);
 
-        tooltip.add(Component.translatable(
-                        awakened
-                                ? "item." + HyruleTerrorsMod.MOD_ID + ".master_sword.state_awakened"
-                                : "item." + HyruleTerrorsMod.MOD_ID + ".master_sword.state_dormant"
-                )
-                .withStyle(awakened ? ChatFormatting.AQUA : ChatFormatting.GRAY));
+        tooltip.add(
+                Component.translatable(
+                                awakened
+                                        ? "item." + HyruleTerrorsMod.MOD_ID + ".master_sword.state_awakened"
+                                        : "item." + HyruleTerrorsMod.MOD_ID + ".master_sword.state_dormant"
+                        )
+                        .withStyle(awakened ? ChatFormatting.AQUA : ChatFormatting.GRAY)
+        );
 
         if (Screen.hasShiftDown()) {
-            tooltip.add(Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".master_sword.desc")
-                    .withStyle(ChatFormatting.GRAY));
+            tooltip.add(
+                    Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".master_sword.desc")
+                            .withStyle(ChatFormatting.GRAY)
+            );
 
-            tooltip.add(Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".master_sword.triggers")
-                    .withStyle(ChatFormatting.GOLD));
+            tooltip.add(
+                    Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".master_sword.triggers")
+                            .withStyle(ChatFormatting.GOLD)
+            );
 
-            tooltip.add(Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".master_sword.trigger_nether_end")
-                    .withStyle(ChatFormatting.DARK_GRAY));
-            tooltip.add(Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".master_sword.trigger_sculk")
-                    .withStyle(ChatFormatting.DARK_GRAY));
-            tooltip.add(Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".master_sword.trigger_bosses")
-                    .withStyle(ChatFormatting.DARK_GRAY));
-            tooltip.add(Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".master_sword.trigger_evil_tag")
-                    .withStyle(ChatFormatting.DARK_GRAY));
+            tooltip.add(
+                    Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".master_sword.trigger_nether_end")
+                            .withStyle(ChatFormatting.DARK_GRAY)
+            );
+            tooltip.add(
+                    Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".master_sword.trigger_sculk")
+                            .withStyle(ChatFormatting.DARK_GRAY)
+            );
+            tooltip.add(
+                    Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".master_sword.trigger_bosses")
+                            .withStyle(ChatFormatting.DARK_GRAY)
+            );
+            tooltip.add(
+                    Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".master_sword.trigger_evil_tag")
+                            .withStyle(ChatFormatting.DARK_GRAY)
+            );
 
-            tooltip.add(Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".master_sword.effects")
-                    .withStyle(ChatFormatting.GOLD));
-            tooltip.add(Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".master_sword.effect_bonus_damage")
-                    .withStyle(ChatFormatting.DARK_AQUA));
-            tooltip.add(Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".master_sword.effect_kb_resist")
-                    .withStyle(ChatFormatting.DARK_AQUA));
+            tooltip.add(
+                    Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".master_sword.effects")
+                            .withStyle(ChatFormatting.GOLD)
+            );
+            tooltip.add(
+                    Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".master_sword.effect_bonus_damage")
+                            .withStyle(ChatFormatting.DARK_AQUA)
+            );
+            tooltip.add(
+                    Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".master_sword.effect_kb_resist")
+                            .withStyle(ChatFormatting.DARK_AQUA)
+            );
         } else {
-            tooltip.add(Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".hold_shift")
-                    .withStyle(ChatFormatting.DARK_GRAY));
+            tooltip.add(
+                    Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".hold_shift")
+                            .withStyle(ChatFormatting.DARK_GRAY)
+            );
         }
     }
-
 
     private static boolean shouldAwaken(ServerLevel level, Player player, HyruleTerrorsConfig cfg) {
         if (cfg.masterSwordAwakenInNetherOrEnd) {
@@ -165,7 +203,7 @@ public class MasterSword extends SwordItem {
         }
 
         if (cfg.masterSwordAwakenNearSculk) {
-            if (isSculkNearby(level, player.blockPosition(), cfg.masterSwordSculkScanRadius)) return true;
+            if (isSculkNearbyLoadedOnly(level, player.blockPosition(), cfg.masterSwordSculkScanRadius)) return true;
         }
 
         return false;
@@ -175,7 +213,9 @@ public class MasterSword extends SwordItem {
         AABB box = player.getBoundingBox().inflate(radius);
 
         List<LivingEntity> entities = level.getEntitiesOfClass(
-                LivingEntity.class, box, e -> e != player && e.isAlive()
+                LivingEntity.class,
+                box,
+                e -> e != player && e.isAlive()
         );
 
         for (LivingEntity e : entities) {
@@ -214,16 +254,21 @@ public class MasterSword extends SwordItem {
                 && cfg.masterSwordExtraBossEntityIds.contains(key.toString());
     }
 
-    private static boolean isSculkNearby(ServerLevel level, BlockPos center, int radius) {
+    private static boolean isSculkNearbyLoadedOnly(ServerLevel level, BlockPos center, int radius) {
         int r = Mth.clamp(radius, 1, 32);
         BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
+
+        int cx = center.getX();
+        int cy = center.getY();
+        int cz = center.getZ();
 
         for (int dx = -r; dx <= r; dx++) {
             for (int dy = -2; dy <= 2; dy++) {
                 for (int dz = -r; dz <= r; dz++) {
-                    pos.set(center.getX() + dx, center.getY() + dy, center.getZ() + dz);
-                    Block block = level.getBlockState(pos).getBlock();
+                    pos.set(cx + dx, cy + dy, cz + dz);
+                    if (!level.hasChunkAt(pos)) continue;
 
+                    Block block = level.getBlockState(pos).getBlock();
                     if (block == Blocks.SCULK
                             || block == Blocks.SCULK_CATALYST
                             || block == Blocks.SCULK_SENSOR
@@ -260,7 +305,6 @@ public class MasterSword extends SwordItem {
         stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
     }
 
-
     private static void applyKnockbackModifier(Player player, double amount) {
         var attr = player.getAttribute(Attributes.KNOCKBACK_RESISTANCE);
         if (attr == null) return;
@@ -268,11 +312,13 @@ public class MasterSword extends SwordItem {
         AttributeModifier existing = attr.getModifier(AWAKEN_KB_ID);
         if (existing != null) return;
 
-        attr.addTransientModifier(new AttributeModifier(
-                AWAKEN_KB_ID,
-                amount,
-                AttributeModifier.Operation.ADD_VALUE
-        ));
+        attr.addTransientModifier(
+                new AttributeModifier(
+                        AWAKEN_KB_ID,
+                        amount,
+                        AttributeModifier.Operation.ADD_VALUE
+                )
+        );
     }
 
     private static void removeKnockbackModifier(Player player) {
@@ -288,10 +334,26 @@ public class MasterSword extends SwordItem {
     private static void spawnAwakenParticles(ServerLevel level, Player player) {
         level.sendParticles(
                 ParticleTypes.SOUL_FIRE_FLAME,
-                player.getX(), player.getY() + 1.0D, player.getZ(),
+                player.getX(),
+                player.getY() + 1.0D,
+                player.getZ(),
                 8,
-                0.20D, 0.35D, 0.20D,
+                0.20D,
+                0.35D,
+                0.20D,
                 0.01D
         );
+    }
+
+    private static long quantizedPosKey(BlockPos pos, int cellSize) {
+        int x = pos.getX() / cellSize;
+        int y = pos.getY() / cellSize;
+        int z = pos.getZ() / cellSize;
+
+        long key = 1469598103934665603L;
+        key = (key ^ x) * 1099511628211L;
+        key = (key ^ y) * 1099511628211L;
+        key = (key ^ z) * 1099511628211L;
+        return key;
     }
 }

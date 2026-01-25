@@ -20,7 +20,7 @@ public class TabRegistry {
         HyruleTerrorsMod.MOD_ID + "_tab",
         () -> CreativeTabRegistry.create(
             Component.translatable("category." + HyruleTerrorsMod.MOD_ID),
-            () -> new ItemStack(ItemRegistry.BOKOBLIN_FANG)
+            () -> new ItemStack(ItemRegistry.LIZALFOS_TAIL)
         )
     );
 

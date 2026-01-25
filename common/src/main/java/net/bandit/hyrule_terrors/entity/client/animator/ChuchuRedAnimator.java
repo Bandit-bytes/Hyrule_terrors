@@ -5,7 +5,6 @@ import mod.azure.azurelib.common.animation.controller.AzAnimationController;
 import mod.azure.azurelib.common.animation.controller.AzAnimationControllerContainer;
 import mod.azure.azurelib.common.animation.impl.AzEntityAnimator;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
-import net.bandit.hyrule_terrors.entity.mobs.Chuchu;
 import net.bandit.hyrule_terrors.entity.mobs.ChuchuRed;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;

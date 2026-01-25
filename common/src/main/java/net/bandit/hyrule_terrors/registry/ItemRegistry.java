@@ -71,13 +71,13 @@ public class ItemRegistry {
     ); // Blue/Cyan/Light Blue
 
     public static final RegistrySupplier<Item> RED_CHUCHU_SPAWN_EGG = ITEMS.register(
-            "red_chuchu_spawn_egg",
-            () -> new ArchitecturySpawnEggItem(
-                    EntityRegistry.CHUCHU_RED,
-                    0xB71C1C,
-                    0xFF6D00,
-                    new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
-            )
+        "red_chuchu_spawn_egg",
+        () -> new ArchitecturySpawnEggItem(
+            EntityRegistry.CHUCHU_RED,
+            0xB71C1C,
+            0xFF6D00,
+            new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
+        )
     ); // red/orange
 
     public static final RegistrySupplier<Item> KEESE_SPAWN_EGG = ITEMS.register(
@@ -97,14 +97,13 @@ public class ItemRegistry {
     );
 
     public static final RegistrySupplier<Item> KEESE_EYEBALL = ITEMS.register(
-            "keese_eyeball",
-            () -> new KeeseEyeball(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.UNCOMMON))
+        "keese_eyeball",
+        () -> new KeeseEyeball(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.UNCOMMON))
     );
 
-
     public static final RegistrySupplier<Item> RUPEE = ITEMS.register(
-            "rupee",
-            () -> new Item(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE))
+        "rupee",
+        () -> new Item(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE))
     );
 
     public static final RegistrySupplier<Item> STEEL = ITEMS.register(
@@ -138,9 +137,10 @@ public class ItemRegistry {
         "chuchu_jelly",
         () -> new ChuchuJelly(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.UNCOMMON))
     );
+
     public static final RegistrySupplier<Item> CHUCHU_JELLY_RED = ITEMS.register(
-            "chuchu_jelly_red",
-            () -> new ChuchuJellyRed(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.UNCOMMON))
+        "chuchu_jelly_red",
+        () -> new ChuchuJellyRed(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.UNCOMMON))
     );
     // ARMOR
 
@@ -229,14 +229,20 @@ public class ItemRegistry {
 
     // WEAPONS
     public static final RegistrySupplier<Item> HYLIAN_SHIELD = ITEMS.register(
-            "hylian_shield",
-            () -> new HylianShieldItem(new Item.Properties().durability(336).arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.EPIC))
+        "hylian_shield",
+        () -> new HylianShieldItem(
+            new Item.Properties().durability(1936).arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.EPIC)
+        )
     );
+
     public static final RegistrySupplier<Item> MASTER_SWORD = ITEMS.register(
-            "mastersword",
-            () -> new MasterSword(
-                    new Item.Properties().attributes(SwordItem.createAttributes(Tiers.NETHERITE, 5, -2.2F))
-                    .rarity(Rarity.EPIC).durability(2031).arch$tab(TabRegistry.HYRULE_TERRORS_TAB))
+        "mastersword",
+        () -> new MasterSword(
+            new Item.Properties().attributes(SwordItem.createAttributes(Tiers.NETHERITE, 9, -2.0F))
+                .rarity(Rarity.EPIC)
+                .durability(2031)
+                .arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
+        )
     );
 
     public static final RegistrySupplier<Item> LIZALFOS_HORN_DAGGER = ITEMS.register(
@@ -260,14 +266,15 @@ public class ItemRegistry {
                 .arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
         )
     );
+
     public static final RegistrySupplier<Item> LIZAL_SPEAR = ITEMS.register(
-            "lizal_spear",
-            () -> new LizalSpear(
-                    new Item.Properties().attributes(SwordItem.createAttributes(Tiers.IRON, 3, -2.5F))
-                            .rarity(Rarity.RARE)
-                            .durability(260)
-                            .arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
-            )
+        "lizal_spear",
+        () -> new LizalSpear(
+            new Item.Properties().attributes(SwordItem.createAttributes(Tiers.IRON, 3, -2.5F))
+                .rarity(Rarity.RARE)
+                .durability(260)
+                .arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
+        )
     );
 
     public static final RegistrySupplier<Item> KNIGHTS_CLAYMORE = ITEMS.register(

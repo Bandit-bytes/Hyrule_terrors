@@ -28,6 +28,7 @@ import net.minecraft.world.phys.AABB;
 public class ChuchuRed extends AbstractTerrorMob {
 
     public AnimationDispatcher dispatcher;
+
     private boolean hasExploded = false;
 
     public ChuchuRed(EntityType<? extends PathfinderMob> entityType, Level level) {
@@ -37,11 +38,11 @@ public class ChuchuRed extends AbstractTerrorMob {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Monster.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, HyruleTerrorsMod.config.chuchuRedHealth)
-                .add(Attributes.ATTACK_DAMAGE, HyruleTerrorsMod.config.chuchuRedAttackDamage)
-                .add(Attributes.ATTACK_SPEED, 1.0)
-                .add(Attributes.ATTACK_KNOCKBACK, 1.0)
-                .add(Attributes.MOVEMENT_SPEED, 0.3);
+            .add(Attributes.MAX_HEALTH, HyruleTerrorsMod.config.chuchuRedHealth)
+            .add(Attributes.ATTACK_DAMAGE, HyruleTerrorsMod.config.chuchuRedAttackDamage)
+            .add(Attributes.ATTACK_SPEED, 1.0)
+            .add(Attributes.ATTACK_KNOCKBACK, 1.0)
+            .add(Attributes.MOVEMENT_SPEED, 0.3);
     }
 
     @Override
@@ -67,6 +68,7 @@ public class ChuchuRed extends AbstractTerrorMob {
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
+
     @Override
     public boolean hurt(DamageSource source, float amount) {
         if (this.hasExploded) {
@@ -93,39 +95,46 @@ public class ChuchuRed extends AbstractTerrorMob {
         return source.getDirectEntity() instanceof LivingEntity;
     }
 
-
     private void explodeAndIgnite(DamageSource source) {
         if (!(this.level() instanceof ServerLevel serverLevel)) {
             return;
         }
         serverLevel.sendParticles(
-                ParticleTypes.FLAME,
-                this.getX(), this.getY() + 0.5D, this.getZ(),
-                35, 0.35D, 0.35D, 0.35D, 0.02D
+            ParticleTypes.FLAME,
+            this.getX(),
+            this.getY() + 0.5D,
+            this.getZ(),
+            35,
+            0.35D,
+            0.35D,
+            0.35D,
+            0.02D
         );
         serverLevel.playSound(
-                null,
-                this.blockPosition(),
-                SoundEvents.BLAZE_SHOOT,
-                SoundSource.HOSTILE,
-                1.0F,
-                1.0F
+            null,
+            this.blockPosition(),
+            SoundEvents.BLAZE_SHOOT,
+            SoundSource.HOSTILE,
+            1.0F,
+            1.0F
         );
 
         serverLevel.explode(
-                this,
-                this.getX(),
-                this.getY(),
-                this.getZ(),
-                1.8F,
-                true,
-                Level.ExplosionInteraction.NONE
+            this,
+            this.getX(),
+            this.getY(),
+            this.getZ(),
+            1.8F,
+            true,
+            Level.ExplosionInteraction.NONE
         );
 
         final double radius = 3.0D;
         AABB box = this.getBoundingBox().inflate(radius);
 
-        for (LivingEntity living : serverLevel.getEntitiesOfClass(LivingEntity.class, box, e -> e != this && e.isAlive())) {
+        for (
+            LivingEntity living : serverLevel.getEntitiesOfClass(LivingEntity.class, box, e -> e != this && e.isAlive())
+        ) {
             living.setRemainingFireTicks(6);
         }
     }
