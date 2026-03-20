@@ -101,7 +101,7 @@ public class ItemRegistry {
 
     public static final RegistrySupplier<Item> RUPEE = ITEMS.register(
             "rupee",
-            () -> new Item(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE))
+            () -> new RupeeItem(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE))
     );
 
     public static final RegistrySupplier<Item> STEEL = ITEMS.register(
@@ -231,15 +231,7 @@ public class ItemRegistry {
     );
     public static final RegistrySupplier<Item> MASTER_SWORD = ITEMS.register(
             "mastersword",
-            () -> new MasterSword(
-                    Tiers.NETHERITE,
-                    9,
-                    -2.0F,
-                    new Item.Properties()
-                            .rarity(Rarity.EPIC)
-                            .durability(2031)
-                            .arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
-            )
+            () -> new MasterSword(Tiers.NETHERITE, 9, -2.0F, new Item.Properties().rarity(Rarity.EPIC).durability(2031).arch$tab(TabRegistry.HYRULE_TERRORS_TAB))
     );
 
     public static final RegistrySupplier<Item> LIZALFOS_HORN_DAGGER = ITEMS.register(

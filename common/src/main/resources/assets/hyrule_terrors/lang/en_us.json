@@ -123,7 +123,8 @@
   "item.hyrule_terrors.hylian_shield": "Hylian Shield",
   "item.hyrule_terrors.mastersword": "The Master Sword",
   "item.hyrule_terrors.hylian_shield.tooltip_1": "A royal relic of unmatched endurance.",
-
+  "item.rupee.tooltip": "Hyrule Currency",
+  "item.rupee.tooltip1": "Used to purchase high value items from Wandering Traders",
   "item.hyrule_terrors.hylian_shield.tooltip": "Hylian Shield",
   "item.hyrule_terrors.hylian_shield.tooltip_royal": "Passed down through Hyrule’s Royal Family.",
   "item.hyrule_terrors.hylian_shield.tooltip_durability": "Its defense and durability outshine all others.",
