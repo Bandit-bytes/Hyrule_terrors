@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "LJL",
+    "W W"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:green_wool"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "J": {
+      "item": "hyrule_terrors:chuchu_jelly"
+    }
+  },
+  "result": {
+    "id": "hyrule_terrors:hero_boots",
+    "count": 1
+  }
+}

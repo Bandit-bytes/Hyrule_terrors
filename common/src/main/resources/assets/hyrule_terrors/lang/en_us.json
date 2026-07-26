@@ -13,6 +13,8 @@
   "item.hyrule_terrors.keese_eyeball": "Keese Eyeball",
   "item.hyrule_terrors.bokoblin_head": "Bokoblin Head",
   "block.hyrule_terrors.bokoblin_head": "Bokoblin Head",
+  "item.hyrule_terrors.hylian_shield": "Hylian Shield",
+  "item.hyrule_terrors.mastersword": "The Master Sword",
 
   "item.hyrule_terrors.lizalfos_horn_dagger": "Lizalfos Horn Dagger",
   "item.hyrule_terrors.lizal_spear": "Lizal Spear",
@@ -68,7 +70,8 @@
   "item.lizalfos_talon.tooltip1": "Can be crafted into Grey Dye.",
 
   "entity.hyrule_terrors.bokoblin": "Bokoblin",
-  "entity.hyrule_terrors.chuchu": "Chuchu",
+  "entity.hyrule_terrors.chuchu": "Blue Chuchu",
+  "entity.hyrule_terrors.chuchu_red": "Red Chuchu",
   "entity.hyrule_terrors.keese": "Keese",
   "entity.hyrule_terrors.lizalfos": "Lizalfos",
 
@@ -120,8 +123,6 @@
   "item.bokoblin_head.tooltip": "Right Click to equip as a mask! Wearing the mask prevents Bokoblin from alerting nearby Allies and Attacking.",
   "item.lizal_spear.tooltip": "A savage spear favored by Lizalfos.",
   "item.lizal_spear.tooltip_1": "Right-click to lunge forward.",
-  "item.hyrule_terrors.hylian_shield": "Hylian Shield",
-  "item.hyrule_terrors.mastersword": "The Master Sword",
   "item.hyrule_terrors.hylian_shield.tooltip_1": "A royal relic of unmatched endurance.",
 
   "item.hyrule_terrors.hylian_shield.tooltip": "Hylian Shield",
@@ -162,5 +163,18 @@
   "text.autoconfig.hyrule_terrors.option.masterSwordKnockbackResistBonus": "Knockback Resistance Bonus",
   "text.autoconfig.hyrule_terrors.option.masterSwordKnockbackResistBonus.@Tooltip": "Extra knockback resistance granted while holding the awakened Master Sword.",
   "text.autoconfig.hyrule_terrors.option.masterSwordExtraBossEntityIds": "Extra Boss Entity IDs",
-  "text.autoconfig.hyrule_terrors.option.masterSwordExtraBossEntityIds.@Tooltip": "Additional entity IDs that should count as bosses (example: \"minecraft:elder_guardian\")."
+  "text.autoconfig.hyrule_terrors.option.masterSwordExtraBossEntityIds.@Tooltip": "Additional entity IDs that should count as bosses (example: \"minecraft:elder_guardian\").",
+
+  "item.hyrule_terrors.hero_helmet": "Cap of the Hero",
+  "item.hyrule_terrors.hero_chestplate": "Tunic of the Hero",
+  "item.hyrule_terrors.hero_leggings": "Trousers of the Hero",
+  "item.hyrule_terrors.hero_boots": "Boots of the Hero",
+
+  "item.hyrule_terrors.hero_helmet.tooltip": "A simple green cap said to have belonged to an ancient hero.",
+  "item.hyrule_terrors.hero_chestplate.tooltip": "A traditional tunic carrying the spirit of adventures long past.",
+  "item.hyrule_terrors.hero_leggings.tooltip": "Classic trousers fashioned in the style of Hyrule's earliest legends.",
+  "item.hyrule_terrors.hero_boots.tooltip": "Well-traveled boots made for a hero answering destiny's call.",
+
+  "item.hyrule_terrors.hero_armor.set_bonus": "Full Set Bonus: Hero's Resolve",
+  "item.hyrule_terrors.hero_armor.set_bonus.description": "Grants Strength while at full health."
 }

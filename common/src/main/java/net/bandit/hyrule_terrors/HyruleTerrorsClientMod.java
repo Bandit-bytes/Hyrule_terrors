@@ -3,10 +3,7 @@ package net.bandit.hyrule_terrors;
 import dev.architectury.registry.item.ItemPropertiesRegistry;
 import mod.azure.azurelib.common.render.armor.AzArmorRendererRegistry;
 import mod.azure.azurelib.common.render.item.AzItemRendererRegistry;
-import net.bandit.hyrule_terrors.item.armor.client.renderer.BarbarianArmorRenderer;
-import net.bandit.hyrule_terrors.item.armor.client.renderer.EvilSpiritRenderer;
-import net.bandit.hyrule_terrors.item.armor.client.renderer.KnightArmorRenderer;
-import net.bandit.hyrule_terrors.item.armor.client.renderer.ZoraArmorRenderer;
+import net.bandit.hyrule_terrors.item.armor.client.renderer.*;
 import net.bandit.hyrule_terrors.item.weapon.client.renderer.BokoblinArmRenderer;
 import net.bandit.hyrule_terrors.registry.ItemRegistry;
 import net.minecraft.resources.ResourceLocation;
@@ -42,6 +39,13 @@ public class HyruleTerrorsClientMod {
             ItemRegistry.KNIGHT_CHESTPLATE.get(),
             ItemRegistry.KNIGHT_LEGGINGS.get(),
             ItemRegistry.KNIGHT_BOOTS.get()
+        );
+        AzArmorRendererRegistry.register(
+            HeroSetRenderer::new,
+            ItemRegistry.HERO_HELMET.get(),
+            ItemRegistry.HERO_CHESTPLATE.get(),
+            ItemRegistry.HERO_LEGGINGS.get(),
+            ItemRegistry.HERO_BOOTS.get()
         );
     }
 

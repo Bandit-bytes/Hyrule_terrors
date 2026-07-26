@@ -5,10 +5,7 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.item.HyruleWeaponMaterials;
-import net.bandit.hyrule_terrors.item.armor.sets.BarbarianArmorItem;
-import net.bandit.hyrule_terrors.item.armor.sets.EvilSpiritArmorItem;
-import net.bandit.hyrule_terrors.item.armor.sets.KnightArmorItem;
-import net.bandit.hyrule_terrors.item.armor.sets.ZoraArmorItem;
+import net.bandit.hyrule_terrors.item.armor.sets.*;
 import net.bandit.hyrule_terrors.item.item.*;
 import net.bandit.hyrule_terrors.item.weapon.weapons.BokoblinArm;
 import net.bandit.hyrule_terrors.item.weapon.weapons.BoulderBreaker;
@@ -162,6 +159,28 @@ public class ItemRegistry {
     public static final RegistrySupplier<Item> ZORA_BOOTS = ITEMS.register(
         "zora_boots",
         () -> new ZoraArmorItem(ArmorItem.Type.BOOTS, defaultProps)
+    );
+
+    // Hero Set
+
+    public static final RegistrySupplier<Item> HERO_HELMET = ITEMS.register(
+        "hero_helmet",
+        () -> new HeroArmorItem(ArmorItem.Type.HELMET, defaultProps)
+    );
+
+    public static final RegistrySupplier<Item> HERO_CHESTPLATE = ITEMS.register(
+        "hero_chestplate",
+        () -> new HeroArmorItem(ArmorItem.Type.CHESTPLATE, defaultProps)
+    );
+
+    public static final RegistrySupplier<Item> HERO_LEGGINGS = ITEMS.register(
+        "hero_leggings",
+        () -> new HeroArmorItem(ArmorItem.Type.LEGGINGS, defaultProps)
+    );
+
+    public static final RegistrySupplier<Item> HERO_BOOTS = ITEMS.register(
+        "hero_boots",
+        () -> new HeroArmorItem(ArmorItem.Type.BOOTS, defaultProps)
     );
 
     // Barbarian Armor

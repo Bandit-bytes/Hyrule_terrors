@@ -8,10 +8,7 @@ import net.bandit.hyrule_terrors.entity.mobs.Bokoblin;
 import net.bandit.hyrule_terrors.entity.mobs.Chuchu;
 import net.bandit.hyrule_terrors.entity.mobs.Keese;
 import net.bandit.hyrule_terrors.entity.mobs.Lizalfos;
-import net.bandit.hyrule_terrors.item.armor.client.renderer.BarbarianArmorRenderer;
-import net.bandit.hyrule_terrors.item.armor.client.renderer.EvilSpiritRenderer;
-import net.bandit.hyrule_terrors.item.armor.client.renderer.KnightArmorRenderer;
-import net.bandit.hyrule_terrors.item.armor.client.renderer.ZoraArmorRenderer;
+import net.bandit.hyrule_terrors.item.armor.client.renderer.*;
 import net.bandit.hyrule_terrors.item.weapon.client.renderer.BokoblinArmRenderer;
 import net.bandit.hyrule_terrors.registry.EntityRegistry;
 import net.bandit.hyrule_terrors.registry.ItemRegistry;
@@ -52,6 +49,10 @@ public final class HyruleTerrorsNeoForge {
             ItemRegistry.ZORA_CHESTPLATE.get(),
             ItemRegistry.ZORA_LEGGINGS.get(),
             ItemRegistry.ZORA_BOOTS.get(),
+            ItemRegistry.HERO_HELMET.get(),
+            ItemRegistry.HERO_CHESTPLATE.get(),
+            ItemRegistry.HERO_LEGGINGS.get(),
+            ItemRegistry.HERO_BOOTS.get(),
             ItemRegistry.EVIL_SPIRIT_HELMET.get(),
             ItemRegistry.EVIL_SPIRIT_CHESTPLATE.get(),
             ItemRegistry.EVIL_SPIRIT_LEGGINGS.get(),
@@ -97,6 +98,13 @@ public final class HyruleTerrorsNeoForge {
             ItemRegistry.KNIGHT_CHESTPLATE.get(),
             ItemRegistry.KNIGHT_LEGGINGS.get(),
             ItemRegistry.KNIGHT_BOOTS.get()
+        );
+        AzArmorRendererRegistry.register(
+            HeroSetRenderer::new,
+            ItemRegistry.HERO_HELMET.get(),
+            ItemRegistry.HERO_CHESTPLATE.get(),
+            ItemRegistry.HERO_LEGGINGS.get(),
+            ItemRegistry.HERO_BOOTS.get()
         );
     }
 
