@@ -6,6 +6,7 @@ import mod.azure.azurelib.common.render.item.AzItemRendererRegistry;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.entity.mobs.Bokoblin;
 import net.bandit.hyrule_terrors.entity.mobs.Chuchu;
+import net.bandit.hyrule_terrors.entity.mobs.ChuchuYellow;
 import net.bandit.hyrule_terrors.entity.mobs.Keese;
 import net.bandit.hyrule_terrors.entity.mobs.Lizalfos;
 import net.bandit.hyrule_terrors.item.armor.client.renderer.*;
@@ -137,6 +138,13 @@ public final class HyruleTerrorsNeoForge {
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
             Chuchu::checkMobSpawnRules,
+            RegisterSpawnPlacementsEvent.Operation.REPLACE
+        );
+        event.register(
+            EntityRegistry.CHUCHU_YELLOW.get(),
+            SpawnPlacementTypes.ON_GROUND,
+            Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+            ChuchuYellow::checkMobSpawnRules,
             RegisterSpawnPlacementsEvent.Operation.REPLACE
         );
     }

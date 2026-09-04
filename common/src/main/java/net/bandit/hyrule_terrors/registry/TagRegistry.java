@@ -3,9 +3,15 @@ package net.bandit.hyrule_terrors.registry;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.biome.Biome;
 
 public class TagRegistry {
+
+    public static final TagKey<EntityType<?>> TERROR_ATTACK_TARGETS = TagKey.create(
+        Registries.ENTITY_TYPE,
+        HyruleTerrorsMod.modResource("terror_attack_targets")
+    );
 
     // MOB BIOME SPAWN TAGS
     public static TagKey<Biome> CHUCHU_BIOMES = TagKey.create(

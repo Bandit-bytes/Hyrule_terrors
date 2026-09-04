@@ -40,6 +40,7 @@ public class HyruleTerrorsNeoForgeClient {
         event.registerEntityRenderer(EntityRegistry.BOKOBLIN.get(), BokoblinRenderer::new);
         event.registerEntityRenderer(EntityRegistry.CHUCHU.get(), ChuchuRenderer::new);
         event.registerEntityRenderer(EntityRegistry.CHUCHU_RED.get(), ChuchuRedRenderer::new);
+        event.registerEntityRenderer(EntityRegistry.CHUCHU_YELLOW.get(), ChuchuYellowRenderer::new);
         event.registerEntityRenderer(EntityRegistry.LIZALFOS.get(), LizalfosRenderer::new);
         event.registerEntityRenderer(EntityRegistry.KEESE.get(), KeeseRenderer::new);
     }

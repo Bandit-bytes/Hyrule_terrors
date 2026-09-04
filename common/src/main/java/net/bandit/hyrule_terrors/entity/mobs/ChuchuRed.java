@@ -1,6 +1,7 @@
 package net.bandit.hyrule_terrors.entity.mobs;
 
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
+import net.bandit.hyrule_terrors.entity.ai.TerrorTargeting;
 import net.bandit.hyrule_terrors.helper.AnimationDispatcher;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -55,7 +56,7 @@ public class ChuchuRed extends AbstractTerrorMob {
             protected void checkAndPerformAttack(LivingEntity target) {
                 if (this.canPerformAttack(target)) {
                     super.checkAndPerformAttack(target);
-                    if (this.mob instanceof Chuchu chuchu) {
+                    if (this.mob instanceof ChuchuRed chuchu) {
                         chuchu.dispatcher.attack();
                     }
                 }
@@ -67,6 +68,7 @@ public class ChuchuRed extends AbstractTerrorMob {
 
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 10, true, false, TerrorTargeting::isWhitelistedTarget));
     }
 
     @Override

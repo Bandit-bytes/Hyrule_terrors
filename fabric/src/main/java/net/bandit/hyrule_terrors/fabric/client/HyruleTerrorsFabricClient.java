@@ -16,6 +16,7 @@ public final class HyruleTerrorsFabricClient implements ClientModInitializer {
         EntityRendererRegistry.register(EntityRegistry.BOKOBLIN, BokoblinRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.CHUCHU, ChuchuRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.CHUCHU_RED, ChuchuRedRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.CHUCHU_YELLOW, ChuchuYellowRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.LIZALFOS, LizalfosRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.KEESE, KeeseRenderer::new);
         HyruleTerrorsClientMod.initClientAzRenders();

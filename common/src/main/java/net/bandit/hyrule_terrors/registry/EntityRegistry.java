@@ -40,6 +40,13 @@ public class EntityRegistry {
             .build(HyruleTerrorsMod.modResource("chuchu_red").toString())
     );
 
+    public static final RegistrySupplier<EntityType<ChuchuYellow>> CHUCHU_YELLOW = ENTITIES.register(
+        "chuchu_yellow",
+        () -> EntityType.Builder.of(ChuchuYellow::new, MobCategory.MONSTER)
+            .sized(0.60f, 0.75f)
+            .build(HyruleTerrorsMod.modResource("chuchu_yellow").toString())
+    );
+
     public static final RegistrySupplier<EntityType<Keese>> KEESE = ENTITIES.register(
         "keese",
         () -> EntityType.Builder.of(Keese::new, MobCategory.MONSTER)
@@ -86,6 +93,26 @@ public class EntityRegistry {
         );
 
         SpawnPlacementsRegistry.register(
+            EntityRegistry.CHUCHU_YELLOW,
+            SpawnPlacementTypes.ON_GROUND,
+            Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+            ChuchuYellow::checkMobSpawnRules
+        );
+        BiomeModifications.addProperties(
+            b -> b.hasTag(TagRegistry.CHUCHU_BIOMES),
+            (ctx, b) -> b.getSpawnProperties()
+                .addSpawn(
+                    MobCategory.MONSTER,
+                    new MobSpawnSettings.SpawnerData(
+                        CHUCHU_YELLOW.get(),
+                        HyruleTerrorsMod.config.chuchuYellowSpawnWeight,
+                        1,
+                        3
+                    )
+                )
+        );
+
+        SpawnPlacementsRegistry.register(
             EntityRegistry.LIZALFOS,
             SpawnPlacementTypes.ON_GROUND,
             Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
@@ -120,6 +147,7 @@ public class EntityRegistry {
         EntityAttributeRegistry.register(BOKOBLIN, Bokoblin::createAttributes);
         EntityAttributeRegistry.register(CHUCHU, Chuchu::createAttributes);
         EntityAttributeRegistry.register(CHUCHU_RED, ChuchuRed::createAttributes);
+        EntityAttributeRegistry.register(CHUCHU_YELLOW, ChuchuYellow::createAttributes);
         EntityAttributeRegistry.register(LIZALFOS, Lizalfos::createAttributes);
         EntityAttributeRegistry.register(KEESE, Keese::createAttributes);
     }

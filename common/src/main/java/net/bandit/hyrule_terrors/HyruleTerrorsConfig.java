@@ -56,6 +56,22 @@ public class HyruleTerrorsConfig implements ConfigData {
     @ConfigEntry.BoundedDiscrete(min = 1, max = 20)
     public int chuchuRedAttackDamage = 2;
 
+    // Yellow Chuchu
+    @ConfigEntry.Category("yellow_chuchu")
+    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 100)
+    public int chuchuYellowHealth = 10;
+
+    @ConfigEntry.Category("yellow_chuchu")
+    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 20)
+    public int chuchuYellowAttackDamage = 2;
+
+    @ConfigEntry.Category("yellow_chuchu")
+    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.BoundedDiscrete(max = 100)
+    public int chuchuYellowSpawnWeight = 3;
+
     // Keese
     @ConfigEntry.Category("keese")
     @ConfigEntry.Gui.NoTooltip
