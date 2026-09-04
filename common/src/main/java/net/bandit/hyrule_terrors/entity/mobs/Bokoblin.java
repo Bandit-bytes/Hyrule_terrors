@@ -129,14 +129,17 @@ public class Bokoblin extends AbstractTerrorMob {
             }
         });
 
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(
-            this,
-            LivingEntity.class,
-            10,
-            true,
-            false,
-            TerrorTargeting::isWhitelistedTarget
-        ));
+        this.targetSelector.addGoal(
+            3,
+            new NearestAttackableTargetGoal<>(
+                this,
+                LivingEntity.class,
+                10,
+                true,
+                false,
+                TerrorTargeting::isWhitelistedTarget
+            )
+        );
 
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
     }

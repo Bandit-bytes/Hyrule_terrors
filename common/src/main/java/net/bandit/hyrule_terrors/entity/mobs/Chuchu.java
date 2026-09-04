@@ -62,7 +62,17 @@ public class Chuchu extends AbstractTerrorMob {
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.8D));
 
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 10, true, false, TerrorTargeting::isWhitelistedTarget));
+        this.targetSelector.addGoal(
+            3,
+            new NearestAttackableTargetGoal<>(
+                this,
+                LivingEntity.class,
+                10,
+                true,
+                false,
+                TerrorTargeting::isWhitelistedTarget
+            )
+        );
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
     }
 

@@ -25,8 +25,11 @@ import java.util.List;
 public class ChuchuJellyYellow extends Item {
 
     private static final double DISCHARGE_RADIUS = 5.0D;
+
     private static final float DISCHARGE_DAMAGE = 5.0F;
+
     private static final int DISCHARGE_COOLDOWN_TICKS = 20 * 8;
+
     private static final int SLOW_DURATION_TICKS = 20 * 2;
 
     public ChuchuJellyYellow(Properties properties) {

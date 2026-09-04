@@ -2,8 +2,8 @@ package net.bandit.hyrule_terrors.entity.mobs;
 
 import mod.azure.azurelib.common.util.MoveAnalysis;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
-import net.bandit.hyrule_terrors.entity.ai.TerrorTargeting;
 import net.bandit.hyrule_terrors.entity.ai.RandomFlyingGoal;
+import net.bandit.hyrule_terrors.entity.ai.TerrorTargeting;
 import net.bandit.hyrule_terrors.entity.attack.FlyingAttackGoal;
 import net.bandit.hyrule_terrors.helper.AnimationDispatcher;
 import net.minecraft.core.BlockPos;
@@ -63,7 +63,17 @@ public class Keese extends Bat {
         this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 12.0F));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, net.minecraft.world.entity.LivingEntity.class, 10, true, false, TerrorTargeting::isWhitelistedTarget));
+        this.targetSelector.addGoal(
+            2,
+            new NearestAttackableTargetGoal<>(
+                this,
+                net.minecraft.world.entity.LivingEntity.class,
+                10,
+                true,
+                false,
+                TerrorTargeting::isWhitelistedTarget
+            )
+        );
     }
 
     @Override

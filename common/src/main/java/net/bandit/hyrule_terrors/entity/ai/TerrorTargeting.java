@@ -4,9 +4,7 @@ import net.bandit.hyrule_terrors.registry.TagRegistry;
 import net.minecraft.world.entity.LivingEntity;
 
 /**
- * Shared targeting helpers for Hyrule Terrors mobs.
- *
- * Additional vanilla or modded targets can be added through the
+ * Shared targeting helpers for Hyrule Terrors mobs. Additional vanilla or modded targets can be added through the
  * hyrule_terrors:terror_attack_targets entity type tag without recompiling.
  */
 public final class TerrorTargeting {

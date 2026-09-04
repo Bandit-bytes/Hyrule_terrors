@@ -5,12 +5,9 @@ import mod.azure.azurelib.common.model.AzBone;
 import mod.azure.azurelib.common.render.armor.bone.AzDefaultArmorBoneProvider;
 
 /**
- * Barbarian armor uses the normal AzureLib left/right bone convention.
- *
- * The previous implementation intentionally crossed the leg mappings
- * (left player leg -> right armor leg and vice versa). That makes the greaves
- * and boots separate from the animated player legs during walking, EMF player
- * animations, and Better Combat poses.
+ * Barbarian armor uses the normal AzureLib left/right bone convention. The previous implementation intentionally
+ * crossed the leg mappings (left player leg -> right armor leg and vice versa). That makes the greaves and boots
+ * separate from the animated player legs during walking, EMF player animations, and Better Combat poses.
  */
 public class BarbarianBoneProvider extends AzDefaultArmorBoneProvider {
 

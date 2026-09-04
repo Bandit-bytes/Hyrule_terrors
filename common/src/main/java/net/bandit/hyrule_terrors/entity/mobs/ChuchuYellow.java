@@ -38,11 +38,9 @@ import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.state.BlockState;
 
 /**
- * Electric Yellow ChuChu variant.
- *
- * It alternates between charged and discharged states. While charged, touching
- * it shocks players and direct melee hits are reflected back to the attacker.
- * Projectiles can safely damage it while charged.
+ * Electric Yellow ChuChu variant. It alternates between charged and discharged states. While charged, touching it
+ * shocks players and direct melee hits are reflected back to the attacker. Projectiles can safely damage it while
+ * charged.
  */
 public class ChuchuYellow extends AbstractTerrorMob {
 
@@ -52,6 +50,7 @@ public class ChuchuYellow extends AbstractTerrorMob {
     );
 
     private static final int CHARGED_DURATION = 20 * 5;
+
     private static final int DISCHARGED_DURATION = 20 * 3;
 
     public AnimationDispatcher dispatcher;
@@ -92,6 +91,7 @@ public class ChuchuYellow extends AbstractTerrorMob {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new PanicGoal(this, 1.25D));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.3D, false) {
+
             @Override
             protected void checkAndPerformAttack(LivingEntity target) {
                 if (this.canPerformAttack(target)) {
@@ -137,14 +137,15 @@ public class ChuchuYellow extends AbstractTerrorMob {
 
         if (--this.chargeStateTicks <= 0) {
             this.setCharged(!this.isCharged());
-            this.level().playSound(
-                null,
-                this.blockPosition(),
-                SoundEvents.LIGHTNING_BOLT_IMPACT,
-                SoundSource.HOSTILE,
-                0.35F,
-                this.isCharged() ? 1.6F : 0.8F
-            );
+            this.level()
+                .playSound(
+                    null,
+                    this.blockPosition(),
+                    SoundEvents.LIGHTNING_BOLT_IMPACT,
+                    SoundSource.HOSTILE,
+                    0.35F,
+                    this.isCharged() ? 1.6F : 0.8F
+                );
         }
     }
 
