@@ -134,6 +134,30 @@ public class HyruleTerrorsConfig implements ConfigData {
     @ConfigEntry.Gui.NoTooltip
     public double lizalfosMovementSpeed = 0.3;
 
+    // Stalmoblin
+    @ConfigEntry.Category("stalmoblin")
+    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 100)
+    public int stalmoblinHealth = 30;
+
+    @ConfigEntry.Category("stalmoblin")
+    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 20)
+    public int stalmoblinAttackDamage = 6;
+
+    @ConfigEntry.Category("stalmoblin")
+    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.BoundedDiscrete(max = 100)
+    public int stalmoblinSpawnWeight = 4;
+
+    @ConfigEntry.Category("stalmoblin")
+    @ConfigEntry.Gui.NoTooltip
+    public double stalmoblinMovementSpeed = 0.25;
+
+    @ConfigEntry.Category("stalmoblin")
+    @ConfigEntry.Gui.NoTooltip
+    public boolean stalmoblinBurnsInDaylight = true;
+
     // Master Sword
     @ConfigEntry.Category("master_sword")
     @ConfigEntry.Gui.Tooltip

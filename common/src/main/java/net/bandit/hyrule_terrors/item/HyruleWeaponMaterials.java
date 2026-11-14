@@ -1,6 +1,7 @@
 package net.bandit.hyrule_terrors.item;
 
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
@@ -19,6 +20,16 @@ public class HyruleWeaponMaterials implements Tier {
         3,
         BlockTags.NEEDS_STONE_TOOL,
         () -> Ingredient.of(Items.BONE)
+    );
+
+    /** Spiked Moblin Club: iron-grade, very enchantable, mended with planks. */
+    public static final Tier MOBLIN_CLUB_TIER = new HyruleWeaponMaterials(
+        450,
+        2.0f,
+        5.0f,
+        12,
+        BlockTags.INCORRECT_FOR_IRON_TOOL,
+        () -> Ingredient.of(ItemTags.PLANKS)
     );
 
     int uses;

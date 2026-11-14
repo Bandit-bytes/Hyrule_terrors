@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "hyrule_terrors:stalmoblin",
     "minecraft:warden",
     "minecraft:wither",
     "minecraft:ender_dragon",

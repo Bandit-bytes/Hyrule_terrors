@@ -6,6 +6,7 @@ import mod.azure.azurelib.common.render.item.AzItemRendererRegistry;
 import net.bandit.hyrule_terrors.entity.client.renderer.*;
 import net.bandit.hyrule_terrors.item.armor.client.renderer.*;
 import net.bandit.hyrule_terrors.item.weapon.client.renderer.BokoblinArmRenderer;
+import net.bandit.hyrule_terrors.item.weapon.client.renderer.SpikedMoblinClubRenderer;
 import net.bandit.hyrule_terrors.registry.EntityRegistry;
 import net.bandit.hyrule_terrors.registry.ItemRegistry;
 import net.bandit.hyrule_terrors.util.TooltipHelper;
@@ -31,6 +32,7 @@ public class HyruleTerrorsClientMod {
         sink.register(EntityRegistry.CHUCHU_YELLOW.get(), ChuchuYellowRenderer::new);
         sink.register(EntityRegistry.CHUCHU_WHITE.get(), ChuchuWhiteRenderer::new);
         sink.register(EntityRegistry.LIZALFOS.get(), LizalfosRenderer::new);
+        sink.register(EntityRegistry.STALMOBLIN.get(), StalmoblinRenderer::new);
         sink.register(EntityRegistry.KEESE.get(), KeeseRenderer::new);
         sink.register(EntityRegistry.FIRE_KEESE.get(), ctx -> new KeeseRenderer(ctx, KeeseRenderer.FIRE_TEXTURE));
         sink.register(EntityRegistry.ICE_KEESE.get(), ctx -> new KeeseRenderer(ctx, KeeseRenderer.ICE_TEXTURE));
@@ -49,6 +51,7 @@ public class HyruleTerrorsClientMod {
 
     public static void initClientAzRenders() {
         AzItemRendererRegistry.register(ItemRegistry.BOKOBLIN_ARM.get(), BokoblinArmRenderer::new);
+        AzItemRendererRegistry.register(ItemRegistry.SPIKED_MOBLIN_CLUB.get(), SpikedMoblinClubRenderer::new);
         AzArmorRendererRegistry.register(
             ZoraArmorRenderer::new,
             ItemRegistry.ZORA_HELMET.get(),

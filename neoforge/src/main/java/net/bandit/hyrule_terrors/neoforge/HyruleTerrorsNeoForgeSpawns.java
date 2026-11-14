@@ -8,6 +8,7 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.SpawnPlacementType;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -26,6 +27,7 @@ public final class HyruleTerrorsNeoForgeSpawns {
     public static void registerSpawnPlacements(RegisterSpawnPlacementsEvent event) {
         ground(event, EntityRegistry.BOKOBLIN.get(), Bokoblin::checkMobSpawnRules);
         ground(event, EntityRegistry.LIZALFOS.get(), Lizalfos::checkMobSpawnRules);
+        ground(event, EntityRegistry.STALMOBLIN.get(), Monster::checkMonsterSpawnRules);
         ground(event, EntityRegistry.CHUCHU.get(), Chuchu::checkMobSpawnRules);
         ground(event, EntityRegistry.CHUCHU_RED.get(), ChuchuRed::checkMobSpawnRules);
         ground(event, EntityRegistry.CHUCHU_YELLOW.get(), ChuchuYellow::checkMobSpawnRules);

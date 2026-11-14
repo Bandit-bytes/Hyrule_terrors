@@ -10,6 +10,7 @@ import net.bandit.hyrule_terrors.item.item.*;
 import net.bandit.hyrule_terrors.item.weapon.weapons.BokoblinArm;
 import net.bandit.hyrule_terrors.item.weapon.weapons.BoulderBreaker;
 import net.bandit.hyrule_terrors.item.weapon.weapons.KnightsClaymore;
+import net.bandit.hyrule_terrors.item.weapon.weapons.SpikedMoblinClub;
 import net.bandit.hyrule_terrors.item.weapon.weapons.SilverLongsword;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -57,6 +58,16 @@ public class ItemRegistry {
             new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
         )
     ); // Green/Yellow
+
+    public static final RegistrySupplier<Item> STALMOBLIN_SPAWN_EGG = ITEMS.register(
+        "stalmoblin_spawn_egg",
+        () -> new ArchitecturySpawnEggItem(
+            EntityRegistry.STALMOBLIN,
+            0xD6C78A,
+            0x3B3220,
+            new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
+        )
+    ); // Bone/Dark spots
 
     public static final RegistrySupplier<Item> CHUCHU_SPAWN_EGG = ITEMS.register(
         "chuchu_spawn_egg",
@@ -517,6 +528,18 @@ public class ItemRegistry {
         () -> new BokoblinArm(
             new Item.Properties().attributes(SwordItem.createAttributes(HyruleWeaponMaterials.BOKOBLIN_TIER, 2, -1f))
                 .durability(100) // intentionally weak joke weapon
+                .rarity(Rarity.UNCOMMON)
+                .arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
+        )
+    );
+
+    public static final RegistrySupplier<Item> SPIKED_MOBLIN_CLUB = ITEMS.register(
+        "spiked_moblin_club",
+        () -> new SpikedMoblinClub(
+            HyruleWeaponMaterials.MOBLIN_CLUB_TIER,
+            new Item.Properties().attributes(
+                SwordItem.createAttributes(HyruleWeaponMaterials.MOBLIN_CLUB_TIER, 6, -3.1F)
+            )
                 .rarity(Rarity.UNCOMMON)
                 .arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
         )

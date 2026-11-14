@@ -12,6 +12,7 @@ import net.bandit.hyrule_terrors.entity.projectile.SwordBeam;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.block.Blocks;
@@ -64,6 +65,14 @@ public class EntityRegistry {
         () -> EntityType.Builder.of(Bokoblin::new, MobCategory.MONSTER)
             .sized(0.75f, 1.75f)
             .build(HyruleTerrorsMod.modResource("bokoblin").toString())
+    );
+
+    public static final RegistrySupplier<EntityType<Stalmoblin>> STALMOBLIN = ENTITIES.register(
+        "stalmoblin",
+        () -> EntityType.Builder.of(Stalmoblin::new, MobCategory.MONSTER)
+            .sized(0.9f, 2.6f)
+            .clientTrackingRange(10)
+            .build(HyruleTerrorsMod.modResource("stalmoblin").toString())
     );
 
     public static final RegistrySupplier<EntityType<ChuchuWhite>> CHUCHU_WHITE = ENTITIES.register(
@@ -182,6 +191,15 @@ public class EntityRegistry {
             3
         );
         addSpawn(
+            STALMOBLIN,
+            SpawnPlacementTypes.ON_GROUND,
+            Monster::checkMonsterSpawnRules,
+            TagRegistry.STALMOBLIN_BIOMES,
+            cfg.stalmoblinSpawnWeight,
+            1,
+            2
+        );
+        addSpawn(
             KEESE,
             SpawnPlacementTypes.NO_RESTRICTIONS,
             Keese::checkMobSpawnRules,
@@ -225,6 +243,7 @@ public class EntityRegistry {
         EntityAttributeRegistry.register(CHUCHU_RED, ChuchuRed::createAttributes);
         EntityAttributeRegistry.register(CHUCHU_YELLOW, ChuchuYellow::createAttributes);
         EntityAttributeRegistry.register(LIZALFOS, Lizalfos::createAttributes);
+        EntityAttributeRegistry.register(STALMOBLIN, Stalmoblin::createAttributes);
         EntityAttributeRegistry.register(KEESE, Keese::createAttributes);
         EntityAttributeRegistry.register(CHUCHU_WHITE, ChuchuWhite::createAttributes);
         EntityAttributeRegistry.register(FIRE_KEESE, ElementalKeese::createElementalAttributes);

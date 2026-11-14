@@ -49,4 +49,6 @@ public class TagRegistry {
         Registries.BIOME,
         HyruleTerrorsMod.modResource("lizalfos_spawn_in")
     );
+
+    public static TagKey<Biome> STALMOBLIN_BIOMES = biome("stalmoblin_spawn_in");
 }
