@@ -263,5 +263,6 @@
   "item.hyrule_terrors.evil_spirit_helmet.tooltip": "A mask that seethes with malice.",
   "item.hyrule_terrors.evil_spirit_chestplate.tooltip": "Armor forged in darkness.",
   "item.hyrule_terrors.evil_spirit_leggings.tooltip": "Greaves that drink the light.",
-  "item.hyrule_terrors.evil_spirit_boots.tooltip": "Boots that leave no footprints."
+  "item.hyrule_terrors.evil_spirit_boots.tooltip": "Boots that leave no footprints.",
+  "tag.item.c.ingots.steel": "Steel Ingots"
 }

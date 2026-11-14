@@ -19,16 +19,11 @@
     "kill": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
-        "killing_blow": [
-          {
-            "condition": "minecraft:damage_source_properties",
-            "predicate": {
-              "direct_entity": {
-                "type": "hyrule_terrors:sword_beam"
-              }
-            }
+        "killing_blow": {
+          "direct_entity": {
+            "type": "hyrule_terrors:sword_beam"
           }
-        ]
+        }
       }
     }
   }
