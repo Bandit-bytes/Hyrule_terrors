@@ -1,5 +1,9 @@
 {
   "values": [
-    "hyrule_terrors:keese"
-  ]
+    "hyrule_terrors:keese",
+    "hyrule_terrors:fire_keese",
+    "hyrule_terrors:ice_keese",
+    "hyrule_terrors:electric_keese"
+  ],
+  "replace": false
 }

@@ -1,7 +1,8 @@
 package net.bandit.hyrule_terrors.item.item;
 
+import net.bandit.hyrule_terrors.util.CombatHelper;
+import net.bandit.hyrule_terrors.util.TooltipHelper;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -11,7 +12,6 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
@@ -126,13 +126,11 @@ public class LizalSpear extends SwordItem {
         if (target == null)
             return;
 
-        float base = (float) player.getAttributeValue(Attributes.ATTACK_DAMAGE);
-        float bonus = 2.0F;
-        float damage = base + bonus;
-
-        boolean hurt = target.hurt(player.damageSources().playerAttack(player), damage);
+        // A single real attack (enchantments, crits, durability) plus a small lunge bonus. Previously this dealt the
+        // full hit twice: once via hurt() and again via attack().
+        player.attack(target);
+        boolean hurt = CombatHelper.dealBonusDamage(target, player.damageSources().playerAttack(player), 2.0F);
         if (hurt) {
-            player.attack(target);
             Vec3 kb = look.scale(0.6D);
             target.push(kb.x, 0.1D, kb.z);
 
@@ -155,12 +153,13 @@ public class LizalSpear extends SwordItem {
         List<Component> tooltipComponents,
         TooltipFlag tooltipFlag
     ) {
-        if (Screen.hasShiftDown()) {
+        if (TooltipHelper.hasShiftDown()) {
             tooltipComponents.add(
                 Component.translatable("item.lizal_spear.tooltip").withStyle(ChatFormatting.DARK_GREEN)
             );
             tooltipComponents.add(
-                Component.literal("Right-click: Lunge").withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC)
+                Component.translatable("item.lizal_spear.tooltip_1")
+                    .withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC)
             );
         } else {
             tooltipComponents.add(Component.translatable("item.hyrule_terrors.hold_shift"));

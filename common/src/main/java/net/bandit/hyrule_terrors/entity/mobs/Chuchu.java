@@ -11,6 +11,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -27,7 +28,7 @@ public class Chuchu extends AbstractTerrorMob {
 
     public AnimationDispatcher dispatcher;
 
-    public Chuchu(EntityType<? extends PathfinderMob> entityType, Level level) {
+    public Chuchu(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
         dispatcher = new AnimationDispatcher(this);
     }
@@ -80,8 +81,27 @@ public class Chuchu extends AbstractTerrorMob {
     public void aiStep() {
         super.aiStep();
 
-        if (!this.level().isClientSide() && this.isOnFire()) {
+        if (this.level().isClientSide()) {
+            return;
+        }
+        // Chuchus take on the element they are exposed to, like in Breath of the Wild.
+        if (this.isOnFire()) {
             this.convertToRed();
+        } else if (this.isFullyFrozen()) {
+            ChuchuWhite white = this.convertTo(EntityRegistry.CHUCHU_WHITE.get(), true);
+            if (white != null) {
+                white.setTicksFrozen(0);
+            }
+        }
+    }
+
+    @Override
+    public void thunderHit(ServerLevel level, LightningBolt lightning) {
+        ChuchuYellow yellow = this.convertTo(EntityRegistry.CHUCHU_YELLOW.get(), true);
+        if (yellow != null) {
+            yellow.setCharged(true);
+        } else {
+            super.thunderHit(level, lightning);
         }
     }
 
@@ -148,18 +168,4 @@ public class Chuchu extends AbstractTerrorMob {
         this.playSound(SoundEvents.SLIME_JUMP, 0.15F, 1.0F);
     }
 
-    @Override
-    protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) {
-        super.dropCustomDeathLoot(level, source, recentlyHit);
-
-        if (level.isClientSide())
-            return;
-        this.dropExperience();
-    }
-
-    protected void dropExperience() {
-        int baseXP = 5;
-        int xpDrop = baseXP + this.random.nextInt(3);
-        this.level().addFreshEntity(new ExperienceOrb(this.level(), this.getX(), this.getY(), this.getZ(), xpDrop));
-    }
 }

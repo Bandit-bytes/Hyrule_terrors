@@ -10,11 +10,11 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -23,6 +23,8 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 
@@ -32,7 +34,7 @@ public class ChuchuRed extends AbstractTerrorMob {
 
     private boolean hasExploded = false;
 
-    public ChuchuRed(EntityType<? extends PathfinderMob> entityType, Level level) {
+    public ChuchuRed(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
         dispatcher = new AnimationDispatcher(this);
     }
@@ -88,10 +90,11 @@ public class ChuchuRed extends AbstractTerrorMob {
         }
 
         if (!this.level().isClientSide() && shouldExplodeFrom(source)) {
+            // Like in BotW, a Red Chuchu bursts into flames when struck. It now dies through the normal damage path
+            // (instead of being silently discarded) so it drops its jelly, rupees and experience.
             this.hasExploded = true;
             explodeAndIgnite(source);
-            this.discard();
-            return true;
+            return super.hurt(source, Math.max(amount, this.getHealth() + 1.0F));
         }
 
         return super.hurt(source, amount);
@@ -147,8 +150,24 @@ public class ChuchuRed extends AbstractTerrorMob {
         for (
             LivingEntity living : serverLevel.getEntitiesOfClass(LivingEntity.class, box, e -> e != this && e.isAlive())
         ) {
-            living.setRemainingFireTicks(6);
+            living.igniteForSeconds(3.0F);
         }
+    }
+
+    @Override
+    public boolean fireImmune() {
+        return true;
+    }
+
+    @Override
+    public boolean checkSpawnRules(LevelAccessor level, MobSpawnType spawnType) {
+        if (level.getDifficulty() == Difficulty.PEACEFUL) {
+            return false;
+        }
+        if (level.getBrightness(LightLayer.BLOCK, this.blockPosition()) > 4) {
+            return false;
+        }
+        return super.checkSpawnRules(level, spawnType);
     }
 
     @Override
@@ -171,18 +190,4 @@ public class ChuchuRed extends AbstractTerrorMob {
         this.playSound(SoundEvents.SLIME_JUMP, 0.15F, 1.0F);
     }
 
-    @Override
-    protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) {
-        super.dropCustomDeathLoot(level, source, recentlyHit);
-
-        if (level.isClientSide())
-            return;
-        this.dropExperience();
-    }
-
-    protected void dropExperience() {
-        int baseXP = 5;
-        int xpDrop = baseXP + this.random.nextInt(3);
-        this.level().addFreshEntity(new ExperienceOrb(this.level(), this.getX(), this.getY(), this.getZ(), xpDrop));
-    }
 }

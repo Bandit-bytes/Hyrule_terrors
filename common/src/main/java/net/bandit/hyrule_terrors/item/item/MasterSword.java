@@ -2,8 +2,10 @@ package net.bandit.hyrule_terrors.item.item;
 
 import net.bandit.hyrule_terrors.HyruleTerrorsConfig;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
+import net.bandit.hyrule_terrors.entity.projectile.SwordBeam;
+import net.bandit.hyrule_terrors.util.CombatHelper;
+import net.bandit.hyrule_terrors.util.TooltipHelper;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.particles.ParticleTypes;
@@ -13,8 +15,12 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.Mth;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -131,11 +137,82 @@ public class MasterSword extends SwordItem {
         HyruleTerrorsConfig cfg = HyruleTerrorsMod.config;
 
         if (cfg != null && cfg.masterSwordEnable && isAwakened(stack) && isEvilTarget(target, cfg)) {
-            float bonus = cfg.masterSwordBonusDamageVsEvil;
-            target.hurt(attacker.damageSources().magic(), bonus);
+            CombatHelper.dealBonusDamage(
+                target,
+                attacker.damageSources().indirectMagic(attacker, attacker),
+                cfg.masterSwordBonusDamageVsEvil
+            );
         }
 
         return super.hurtEnemy(stack, target, attacker);
+    }
+
+    /**
+     * Sword beam: like in Breath of the Wild, the Master Sword fires a beam of light when its wielder is at full
+     * health.
+     */
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
+        ItemStack stack = player.getItemInHand(hand);
+        HyruleTerrorsConfig cfg = HyruleTerrorsMod.config;
+
+        if (cfg == null || !cfg.masterSwordBeamEnable || player.getCooldowns().isOnCooldown(this)) {
+            return InteractionResultHolder.pass(stack);
+        }
+        if (player.getHealth() < player.getMaxHealth()) {
+            return InteractionResultHolder.pass(stack);
+        }
+
+        if (!level.isClientSide) {
+            SwordBeam beam = new SwordBeam(level, player, isAwakened(stack));
+            beam.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.2F, 0.0F);
+            level.addFreshEntity(beam);
+            stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
+            level.playSound(
+                null,
+                player.getX(),
+                player.getY(),
+                player.getZ(),
+                SoundEvents.AMETHYST_BLOCK_CHIME,
+                SoundSource.PLAYERS,
+                1.2F,
+                1.6F
+            );
+            level.playSound(
+                null,
+                player.getX(),
+                player.getY(),
+                player.getZ(),
+                SoundEvents.PLAYER_ATTACK_SWEEP,
+                SoundSource.PLAYERS,
+                0.8F,
+                1.3F
+            );
+        }
+
+        player.getCooldowns().addCooldown(this, cfg.masterSwordBeamCooldownTicks);
+        player.swing(hand, true);
+        return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
+    }
+
+    /**
+     * Called every player tick (see HyruleTerrorsEvents). Removes the awakened knockback bonus once the player is no
+     * longer holding an awakened Master Sword, including when it was dropped or moved, which inventoryTick alone could
+     * not detect.
+     */
+    public static void tickKnockbackCleanup(Player player) {
+        if (player.level().isClientSide)
+            return;
+        var attr = player.getAttribute(Attributes.KNOCKBACK_RESISTANCE);
+        if (attr == null || attr.getModifier(AWAKEN_KB_ID) == null)
+            return;
+        if (isHoldingAwakened(player.getMainHandItem()) || isHoldingAwakened(player.getOffhandItem()))
+            return;
+        attr.removeModifier(AWAKEN_KB_ID);
+    }
+
+    private static boolean isHoldingAwakened(ItemStack stack) {
+        return stack.getItem() instanceof MasterSword && isAwakened(stack);
     }
 
     @Override
@@ -156,7 +233,7 @@ public class MasterSword extends SwordItem {
                 .withStyle(awakened ? ChatFormatting.AQUA : ChatFormatting.GRAY)
         );
 
-        if (Screen.hasShiftDown()) {
+        if (TooltipHelper.hasShiftDown()) {
             tooltip.add(
                 Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".master_sword.desc")
                     .withStyle(ChatFormatting.GRAY)
@@ -195,6 +272,10 @@ public class MasterSword extends SwordItem {
             tooltip.add(
                 Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".master_sword.effect_kb_resist")
                     .withStyle(ChatFormatting.DARK_AQUA)
+            );
+            tooltip.add(
+                Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".master_sword.beam")
+                    .withStyle(ChatFormatting.GOLD)
             );
         } else {
             tooltip.add(
@@ -261,7 +342,7 @@ public class MasterSword extends SwordItem {
         ).isEmpty();
     }
 
-    private static boolean isEvilTarget(LivingEntity target, HyruleTerrorsConfig cfg) {
+    public static boolean isEvilTarget(LivingEntity target, HyruleTerrorsConfig cfg) {
         EntityType<?> type = target.getType();
 
         if (type == EntityType.WARDEN || type == EntityType.WITHER || type == EntityType.ENDER_DRAGON)
@@ -306,7 +387,7 @@ public class MasterSword extends SwordItem {
         return false;
     }
 
-    private static boolean isAwakened(ItemStack stack) {
+    public static boolean isAwakened(ItemStack stack) {
         CompoundTag tag = getCustomDataTag(stack);
         return tag.getBoolean(TAG_AWAKENED);
     }

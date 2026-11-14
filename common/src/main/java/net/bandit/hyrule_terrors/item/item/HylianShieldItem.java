@@ -1,27 +1,30 @@
 package net.bandit.hyrule_terrors.item.item;
 
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
+import net.bandit.hyrule_terrors.util.TooltipHelper;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ShieldItem;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.phys.AABB;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 public class HylianShieldItem extends ShieldItem {
 
@@ -39,9 +42,11 @@ public class HylianShieldItem extends ShieldItem {
 
     private static final int BURST_SLOW_AMPLIFIER = 2;
 
-    private static final String TAG_STORM_CD = "HylianStormCD";
-
-    private static final String TAG_LAST_ZAP = "HylianLastZapTick";
+    /**
+     * Per-player storm cooldown, tracked as the game time when the shield can next call lightning. Kept off the
+     * ItemStack on purpose: rewriting stack data every tick resyncs the item constantly and makes it bob in hand.
+     */
+    private static final Map<UUID, Long> NEXT_STORM_TIME = new HashMap<>();
 
     public HylianShieldItem(Properties props) {
         super(props);
@@ -51,43 +56,33 @@ public class HylianShieldItem extends ShieldItem {
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
         super.inventoryTick(stack, level, entity, slotId, isSelected);
 
-        if (level.isClientSide)
-            return;
-        if (!(entity instanceof Player player))
+        if (!(level instanceof ServerLevel serverLevel) || !(entity instanceof Player player))
             return;
 
         if (isHoldingThisExactStack(player, stack) && player.isOnFire()) {
             player.clearFire();
         }
 
-        int cd = getInt(stack, TAG_STORM_CD, 0);
-        if (cd > 0)
-            setInt(stack, TAG_STORM_CD, cd - 1);
         if (!isBlockingWithThisExactStack(player, stack))
             return;
-        if ((level.getGameTime() % STORM_CHECK_INTERVAL) != 0)
+        long now = level.getGameTime();
+        if ((now % STORM_CHECK_INTERVAL) != 0)
             return;
         if (!level.isThundering())
             return;
-        if (getInt(stack, TAG_STORM_CD, 0) > 0)
+        if (now < NEXT_STORM_TIME.getOrDefault(player.getUUID(), 0L))
             return;
 
         BlockPos pos = player.blockPosition();
         if (!level.canSeeSky(pos))
             return;
-
-        int blockLight = level.getBrightness(LightLayer.BLOCK, pos);
-        if (blockLight > 13)
+        if (level.getBrightness(LightLayer.BLOCK, pos) > 13)
             return;
-
         if (player.getRandom().nextFloat() > LIGHTNING_CHANCE)
             return;
 
-        setInt(stack, TAG_STORM_CD, STORM_COOLDOWN_TICKS);
-
-        if (level instanceof ServerLevel serverLevel) {
-            pullLightningAndBurst(serverLevel, player, stack);
-        }
+        NEXT_STORM_TIME.put(player.getUUID(), now + STORM_COOLDOWN_TICKS);
+        pullLightningAndBurst(serverLevel, player, stack);
     }
 
     private static boolean isHoldingThisExactStack(Player player, ItemStack stack) {
@@ -99,53 +94,39 @@ public class HylianShieldItem extends ShieldItem {
     }
 
     private static void pullLightningAndBurst(ServerLevel level, Player player, ItemStack stack) {
-        long now = level.getGameTime();
-        long lastZap = getLong(stack, TAG_LAST_ZAP, -1L);
-        if (lastZap == now)
-            return;
-        setLong(stack, TAG_LAST_ZAP, now);
-
         var bolt = EntityType.LIGHTNING_BOLT.create(level);
         if (bolt != null) {
             bolt.moveTo(player.getX(), player.getY(), player.getZ());
+            // Mark the bolt as caused by the player so it doesn't count as a natural strike, and the shield
+            // bearer is protected below.
+            if (player instanceof ServerPlayer serverPlayer) {
+                bolt.setCause(serverPlayer);
+            }
             level.addFreshEntity(bolt);
         }
 
         AABB box = player.getBoundingBox().inflate(BURST_RADIUS);
-
         List<LivingEntity> targets = level.getEntitiesOfClass(
             LivingEntity.class,
             box,
-            e -> e != player && e.isAlive()
+            e -> e != player && e.isAlive() && e instanceof Enemy
         );
 
-        boolean hitAny = false;
-
         for (LivingEntity target : targets) {
-            if (target.getType().getCategory() != MobCategory.MONSTER)
-                continue;
-
-            hitAny = true;
-
-            target.hurt(level.damageSources().lightningBolt(), BURST_DAMAGE);
+            target.hurt(level.damageSources().indirectMagic(player, player), BURST_DAMAGE);
             target.addEffect(
-                new net.minecraft.world.effect.MobEffectInstance(
-                    net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN,
-                    BURST_SLOW_TICKS,
-                    BURST_SLOW_AMPLIFIER,
-                    false,
-                    true
-                )
+                new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, BURST_SLOW_TICKS, BURST_SLOW_AMPLIFIER, false, true)
             );
         }
 
-        if (hitAny) {
-            stack.hurtAndBreak(
-                1,
-                player,
-                LivingEntity.getSlotForHand(player.getUsedItemHand())
-            );
+        if (!targets.isEmpty()) {
+            stack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
         }
+    }
+
+    /** The bearer of a raised Hylian Shield is not harmed by the lightning it calls down. */
+    public static boolean shouldNegateLightning(LivingEntity entity) {
+        return entity.isUsingItem() && entity.getUseItem().getItem() instanceof HylianShieldItem;
     }
 
     @Override
@@ -155,7 +136,7 @@ public class HylianShieldItem extends ShieldItem {
         List<Component> tooltipComponents,
         TooltipFlag tooltipFlag
     ) {
-        if (Screen.hasShiftDown()) {
+        if (TooltipHelper.hasShiftDown()) {
             tooltipComponents.add(
                 Component.translatable("item." + HyruleTerrorsMod.MOD_ID + ".hylian_shield.tooltip")
                     .withStyle(ChatFormatting.GOLD)
@@ -186,42 +167,5 @@ public class HylianShieldItem extends ShieldItem {
                     .withStyle(ChatFormatting.ITALIC, ChatFormatting.GRAY)
             );
         }
-    }
-
-    private static CompoundTag getCustomDataTag(ItemStack stack) {
-        CustomData data = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
-        return data.copyTag();
-    }
-
-    private static void setCustomDataTag(ItemStack stack, CompoundTag tag) {
-        stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
-    }
-
-    private static int getInt(ItemStack stack, String key, int def) {
-        CompoundTag tag = getCustomDataTag(stack);
-        return tag.contains(key) ? tag.getInt(key) : def;
-    }
-
-    private static void setInt(ItemStack stack, String key, int value) {
-        CompoundTag tag = getCustomDataTag(stack);
-        int prev = tag.contains(key) ? tag.getInt(key) : Integer.MIN_VALUE;
-        if (prev == value)
-            return;
-        tag.putInt(key, value);
-        setCustomDataTag(stack, tag);
-    }
-
-    private static long getLong(ItemStack stack, String key, long def) {
-        CompoundTag tag = getCustomDataTag(stack);
-        return tag.contains(key) ? tag.getLong(key) : def;
-    }
-
-    private static void setLong(ItemStack stack, String key, long value) {
-        CompoundTag tag = getCustomDataTag(stack);
-        long prev = tag.contains(key) ? tag.getLong(key) : Long.MIN_VALUE;
-        if (prev == value)
-            return;
-        tag.putLong(key, value);
-        setCustomDataTag(stack, tag);
     }
 }

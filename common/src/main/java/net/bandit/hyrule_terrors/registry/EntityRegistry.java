@@ -5,11 +5,16 @@ import dev.architectury.registry.level.entity.EntityAttributeRegistry;
 import dev.architectury.registry.level.entity.SpawnPlacementsRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
+import net.bandit.hyrule_terrors.HyruleTerrorsConfig;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.entity.mobs.*;
+import net.bandit.hyrule_terrors.entity.projectile.SwordBeam;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MobSpawnSettings;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.Heightmap;
 
 public class EntityRegistry {
@@ -61,85 +66,156 @@ public class EntityRegistry {
             .build(HyruleTerrorsMod.modResource("bokoblin").toString())
     );
 
+    public static final RegistrySupplier<EntityType<ChuchuWhite>> CHUCHU_WHITE = ENTITIES.register(
+        "chuchu_white",
+        () -> EntityType.Builder.of(ChuchuWhite::new, MobCategory.MONSTER)
+            .sized(0.60f, 0.75f)
+            .build(HyruleTerrorsMod.modResource("chuchu_white").toString())
+    );
+
+    public static final RegistrySupplier<EntityType<ElementalKeese>> FIRE_KEESE = ENTITIES.register(
+        "fire_keese",
+        () -> EntityType.Builder.of(ElementalKeese::fire, MobCategory.MONSTER)
+            .sized(0.55f, 0.75f)
+            .fireImmune()
+            .build(HyruleTerrorsMod.modResource("fire_keese").toString())
+    );
+
+    public static final RegistrySupplier<EntityType<ElementalKeese>> ICE_KEESE = ENTITIES.register(
+        "ice_keese",
+        () -> EntityType.Builder.of(ElementalKeese::ice, MobCategory.MONSTER)
+            .sized(0.55f, 0.75f)
+            .immuneTo(Blocks.POWDER_SNOW)
+            .build(HyruleTerrorsMod.modResource("ice_keese").toString())
+    );
+
+    public static final RegistrySupplier<EntityType<ElementalKeese>> ELECTRIC_KEESE = ENTITIES.register(
+        "electric_keese",
+        () -> EntityType.Builder.of(ElementalKeese::electric, MobCategory.MONSTER)
+            .sized(0.55f, 0.75f)
+            .build(HyruleTerrorsMod.modResource("electric_keese").toString())
+    );
+
+    public static final RegistrySupplier<EntityType<SwordBeam>> SWORD_BEAM = ENTITIES.register(
+        "sword_beam",
+        () -> EntityType.Builder.<SwordBeam>of(SwordBeam::new, MobCategory.MISC)
+            .sized(0.6f, 0.6f)
+            .clientTrackingRange(4)
+            .updateInterval(10)
+            .build(HyruleTerrorsMod.modResource("sword_beam").toString())
+    );
+
+    private static <T extends Mob> void addSpawn(
+        RegistrySupplier<EntityType<T>> type,
+        SpawnPlacementType placement,
+        SpawnPlacements.SpawnPredicate<T> predicate,
+        TagKey<Biome> biomes,
+        int weight,
+        int min,
+        int max
+    ) {
+        SpawnPlacementsRegistry.register(type, placement, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, predicate);
+        if (weight <= 0) {
+            return;
+        }
+        BiomeModifications.addProperties(
+            b -> b.hasTag(biomes),
+            (ctx, b) -> b.getSpawnProperties()
+                .addSpawn(MobCategory.MONSTER, new MobSpawnSettings.SpawnerData(type.get(), weight, min, max))
+        );
+    }
+
     private static void initSpawns() {
-        SpawnPlacementsRegistry.register(
-            EntityRegistry.BOKOBLIN,
+        HyruleTerrorsConfig cfg = HyruleTerrorsMod.config;
+        addSpawn(
+            BOKOBLIN,
             SpawnPlacementTypes.ON_GROUND,
-            Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            Bokoblin::checkMobSpawnRules
+            Bokoblin::checkMobSpawnRules,
+            TagRegistry.BOKOBLIN_BIOMES,
+            cfg.bokoblinSpawnWeight,
+            1,
+            3
         );
-        BiomeModifications.addProperties(
-            b -> b.hasTag(TagRegistry.BOKOBLIN_BIOMES),
-            (ctx, b) -> b.getSpawnProperties()
-                .addSpawn(
-                    MobCategory.MONSTER,
-                    new MobSpawnSettings.SpawnerData(BOKOBLIN.get(), HyruleTerrorsMod.config.bokoblinSpawnWeight, 1, 3)
-                )
-        );
-
-        SpawnPlacementsRegistry.register(
-            EntityRegistry.CHUCHU,
+        addSpawn(
+            CHUCHU,
             SpawnPlacementTypes.ON_GROUND,
-            Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            Chuchu::checkMobSpawnRules
+            Chuchu::checkMobSpawnRules,
+            TagRegistry.CHUCHU_BIOMES,
+            cfg.chuchuSpawnWeight,
+            2,
+            5
         );
-        BiomeModifications.addProperties(
-            b -> b.hasTag(TagRegistry.CHUCHU_BIOMES),
-            (ctx, b) -> b.getSpawnProperties()
-                .addSpawn(
-                    MobCategory.MONSTER,
-                    new MobSpawnSettings.SpawnerData(CHUCHU.get(), HyruleTerrorsMod.config.chuchuSpawnWeight, 2, 5)
-                )
-        );
-
-        SpawnPlacementsRegistry.register(
-            EntityRegistry.CHUCHU_YELLOW,
+        addSpawn(
+            CHUCHU_YELLOW,
             SpawnPlacementTypes.ON_GROUND,
-            Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            ChuchuYellow::checkMobSpawnRules
+            ChuchuYellow::checkMobSpawnRules,
+            TagRegistry.CHUCHU_YELLOW_BIOMES,
+            cfg.chuchuYellowSpawnWeight,
+            1,
+            3
         );
-        BiomeModifications.addProperties(
-            b -> b.hasTag(TagRegistry.CHUCHU_BIOMES),
-            (ctx, b) -> b.getSpawnProperties()
-                .addSpawn(
-                    MobCategory.MONSTER,
-                    new MobSpawnSettings.SpawnerData(
-                        CHUCHU_YELLOW.get(),
-                        HyruleTerrorsMod.config.chuchuYellowSpawnWeight,
-                        1,
-                        3
-                    )
-                )
-        );
-
-        SpawnPlacementsRegistry.register(
-            EntityRegistry.LIZALFOS,
+        addSpawn(
+            CHUCHU_RED,
             SpawnPlacementTypes.ON_GROUND,
-            Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            Lizalfos::checkMobSpawnRules
+            ChuchuRed::checkMobSpawnRules,
+            TagRegistry.CHUCHU_RED_BIOMES,
+            cfg.chuchuRedSpawnWeight,
+            1,
+            3
         );
-        BiomeModifications.addProperties(
-            b -> b.hasTag(TagRegistry.LIZALFOS_BIOMES),
-            (ctx, b) -> b.getSpawnProperties()
-                .addSpawn(
-                    MobCategory.MONSTER,
-                    new MobSpawnSettings.SpawnerData(LIZALFOS.get(), HyruleTerrorsMod.config.lizalfosSpawnWeight, 1, 3)
-                )
+        addSpawn(
+            CHUCHU_WHITE,
+            SpawnPlacementTypes.ON_GROUND,
+            ChuchuWhite::checkMobSpawnRules,
+            TagRegistry.CHUCHU_WHITE_BIOMES,
+            cfg.chuchuWhiteSpawnWeight,
+            1,
+            3
         );
-
-        SpawnPlacementsRegistry.register(
-            EntityRegistry.KEESE,
+        addSpawn(
+            LIZALFOS,
+            SpawnPlacementTypes.ON_GROUND,
+            Lizalfos::checkMobSpawnRules,
+            TagRegistry.LIZALFOS_BIOMES,
+            cfg.lizalfosSpawnWeight,
+            1,
+            3
+        );
+        addSpawn(
+            KEESE,
             SpawnPlacementTypes.NO_RESTRICTIONS,
-            Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-            Keese::checkMobSpawnRules
+            Keese::checkMobSpawnRules,
+            TagRegistry.KEESE_BIOMES,
+            cfg.keeseSpawnWeight,
+            2,
+            4
         );
-        BiomeModifications.addProperties(
-            b -> b.hasTag(TagRegistry.KEESE_BIOMES),
-            (ctx, b) -> b.getSpawnProperties()
-                .addSpawn(
-                    MobCategory.MONSTER,
-                    new MobSpawnSettings.SpawnerData(KEESE.get(), HyruleTerrorsMod.config.keeseSpawnWeight, 2, 4)
-                )
+        addSpawn(
+            FIRE_KEESE,
+            SpawnPlacementTypes.NO_RESTRICTIONS,
+            Keese::checkMobSpawnRules,
+            TagRegistry.FIRE_KEESE_BIOMES,
+            cfg.elementalKeeseSpawnWeight,
+            1,
+            3
+        );
+        addSpawn(
+            ICE_KEESE,
+            SpawnPlacementTypes.NO_RESTRICTIONS,
+            Keese::checkMobSpawnRules,
+            TagRegistry.ICE_KEESE_BIOMES,
+            cfg.elementalKeeseSpawnWeight,
+            1,
+            3
+        );
+        addSpawn(
+            ELECTRIC_KEESE,
+            SpawnPlacementTypes.NO_RESTRICTIONS,
+            Keese::checkMobSpawnRules,
+            TagRegistry.ELECTRIC_KEESE_BIOMES,
+            cfg.elementalKeeseSpawnWeight,
+            1,
+            3
         );
     }
 
@@ -150,6 +226,10 @@ public class EntityRegistry {
         EntityAttributeRegistry.register(CHUCHU_YELLOW, ChuchuYellow::createAttributes);
         EntityAttributeRegistry.register(LIZALFOS, Lizalfos::createAttributes);
         EntityAttributeRegistry.register(KEESE, Keese::createAttributes);
+        EntityAttributeRegistry.register(CHUCHU_WHITE, ChuchuWhite::createAttributes);
+        EntityAttributeRegistry.register(FIRE_KEESE, ElementalKeese::createElementalAttributes);
+        EntityAttributeRegistry.register(ICE_KEESE, ElementalKeese::createElementalAttributes);
+        EntityAttributeRegistry.register(ELECTRIC_KEESE, ElementalKeese::createElementalAttributes);
     }
 
     public static void init() {

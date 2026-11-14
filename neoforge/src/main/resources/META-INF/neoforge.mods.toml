@@ -1,7 +1,7 @@
 modLoader = "javafml"
 loaderVersion = "[4,)"
 issueTrackerURL = "https://github.com/Bandit-bytes/Hyrule_terrors/issues"
-license = "ALL RIGHTS RESERVED"
+license = "All Rights Reserved"
 logoFile = "assets/hyrule_terrors/icon.png"
 
 [[mods]]
@@ -9,22 +9,23 @@ modId = "hyrule_terrors"
 version = "${version}"
 displayName = "Hyrule Terrors"
 authors = "Bandit-Bytes"
+displayURL = "https://www.curseforge.com/projects/1216095"
 description = '''
-A mod that adds creatures, structures, armors, and items inspired by The Legend of Zelda.
+Breath of the Wild inspired monsters, armor sets, weapons, elixirs and gear: Bokoblins, Lizalfos, elemental Chuchus and Keese, the Master Sword, Hylian Shield, Paraglider and more.
 '''
 #logoFile = ""
 
 [[dependencies.hyrule_terrors]]
 modId = "neoforge"
 type = "required"
-versionRange = "[21,)"
+versionRange = "[21.1,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.hyrule_terrors]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.21.1,)"
+versionRange = "[1.21.1,1.21.2)"
 ordering = "NONE"
 side = "BOTH"
 
@@ -38,7 +39,7 @@ side = "BOTH"
 [[dependencies.hyrule_terrors]]
 modId = "azurelib"
 type = "required"
-versionRange = "[3.1.1,)"
+versionRange = "[3.2.8,)"
 ordering = "NONE"
 side = "BOTH"
 

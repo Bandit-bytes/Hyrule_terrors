@@ -4,8 +4,10 @@ import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.entity.ai.TerrorTargeting;
 import net.bandit.hyrule_terrors.helper.AnimationDispatcher;
 import net.bandit.hyrule_terrors.registry.BlockRegistry;
+import net.bandit.hyrule_terrors.registry.ItemRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -51,7 +53,7 @@ public class Bokoblin extends AbstractTerrorMob {
     private static final EntityDataAccessor<Boolean> HORN_BLOWER =
         SynchedEntityData.defineId(Bokoblin.class, EntityDataSerializers.BOOLEAN);
 
-    public Bokoblin(EntityType<? extends PathfinderMob> entityType, Level level) {
+    public Bokoblin(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
         dispatcher = new AnimationDispatcher(this);
     }
@@ -69,6 +71,18 @@ public class Bokoblin extends AbstractTerrorMob {
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
         builder.define(HORN_BLOWER, false);
+    }
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+        tag.putBoolean("HornBlower", this.isHornBlower());
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        this.setHornBlower(tag.getBoolean("HornBlower"));
     }
 
     public boolean isHornBlower() {
@@ -250,14 +264,6 @@ public class Bokoblin extends AbstractTerrorMob {
                 this.spawnAtLocation(BlockRegistry.BOKOBLIN_HEAD.get());
             }
         }
-
-        this.dropExperience();
-    }
-
-    protected void dropExperience() {
-        int baseXP = 5;
-        int xpDrop = baseXP + this.random.nextInt(3);
-        this.level().addFreshEntity(new ExperienceOrb(this.level(), this.getX(), this.getY(), this.getZ(), xpDrop));
     }
 
     @Nullable
@@ -276,6 +282,20 @@ public class Bokoblin extends AbstractTerrorMob {
         if (horn) {
             this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.GOAT_HORN));
             this.setDropChance(EquipmentSlot.MAINHAND, 0.25F);
+        } else {
+            // Bokoblins in Hyrule are rarely unarmed: hand out crude weapons.
+            int roll = this.random.nextInt(10);
+            ItemStack weapon = switch (roll) {
+                case 0, 1, 2 -> new ItemStack(Items.WOODEN_SWORD);
+                case 3, 4 -> new ItemStack(Items.WOODEN_AXE);
+                case 5 -> new ItemStack(Items.STONE_SWORD);
+                case 6 -> new ItemStack(ItemRegistry.BOKOBLIN_ARM.get());
+                default -> ItemStack.EMPTY;
+            };
+            if (!weapon.isEmpty()) {
+                this.setItemSlot(EquipmentSlot.MAINHAND, weapon);
+                this.setDropChance(EquipmentSlot.MAINHAND, 0.08F);
+            }
         }
         return data;
     }

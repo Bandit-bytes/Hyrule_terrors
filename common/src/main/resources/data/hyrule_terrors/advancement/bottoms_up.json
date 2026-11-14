@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "hyrule_terrors:hearty_elixir"
+    },
+    "title": {
+      "translate": "advancements.hyrule_terrors.bottoms_up.title"
+    },
+    "description": {
+      "translate": "advancements.hyrule_terrors.bottoms_up.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "hyrule_terrors:hyrule_terrors",
+  "criteria": {
+    "drink": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "hyrule_terrors:hearty_elixir",
+            "hyrule_terrors:mighty_elixir",
+            "hyrule_terrors:tough_elixir",
+            "hyrule_terrors:hasty_elixir",
+            "hyrule_terrors:sneaky_elixir",
+            "hyrule_terrors:fireproof_elixir",
+            "hyrule_terrors:electro_elixir",
+            "hyrule_terrors:chilly_elixir"
+          ]
+        }
+      }
+    }
+  }
+}

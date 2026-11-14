@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "hyrule_terrors:chuchu_jelly"
+    },
+    {
+      "item": "hyrule_terrors:lizalfos_talon"
+    }
+  ],
+  "result": {
+    "id": "hyrule_terrors:tough_elixir",
+    "count": 1
+  }
+}

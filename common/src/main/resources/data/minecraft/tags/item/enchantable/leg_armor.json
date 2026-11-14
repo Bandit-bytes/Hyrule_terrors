@@ -3,6 +3,8 @@
     "hyrule_terrors:barbarian_leggings",
     "hyrule_terrors:evil_spirit_leggings",
     "hyrule_terrors:knight_leggings",
-    "hyrule_terrors:zora_leggings"
-  ]
+    "hyrule_terrors:zora_leggings",
+    "hyrule_terrors:hero_leggings"
+  ],
+  "replace": false
 }

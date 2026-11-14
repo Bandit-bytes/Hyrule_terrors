@@ -2,9 +2,8 @@ package net.bandit.hyrule_terrors.item.weapon.weapons;
 
 import net.bandit.hyrule_terrors.item.HyruleWeaponMaterials;
 import net.bandit.hyrule_terrors.item.weapon.dispatcher.HyruleItemDispatcher;
-import net.bandit.hyrule_terrors.registry.TabRegistry;
+import net.bandit.hyrule_terrors.util.TooltipHelper;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -23,12 +22,7 @@ public class BokoblinArm extends Item {
     public final HyruleItemDispatcher dispatcher;
 
     public BokoblinArm(Properties properties) {
-        super(
-            new Properties().attributes(SwordItem.createAttributes(HyruleWeaponMaterials.BOKOBLIN_TIER, 2, -1f))
-                .durability(100)
-                .rarity(Rarity.UNCOMMON)
-                .arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
-        );
+        super(properties);
         this.dispatcher = new HyruleItemDispatcher();
     }
 
@@ -66,7 +60,8 @@ public class BokoblinArm extends Item {
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
         super.inventoryTick(stack, level, entity, slotId, isSelected);
 
-        if (!level.isClientSide() && isSelected && entity instanceof Player player) {
+        // Re-sending a looping animation every tick flooded clients with packets; once a second is plenty.
+        if (!level.isClientSide() && isSelected && entity instanceof Player player && player.tickCount % 20 == 0) {
             dispatcher.serverFire(player, stack);
         }
     }
@@ -77,25 +72,26 @@ public class BokoblinArm extends Item {
             attacker.level()
                 .playSound(null, attacker.blockPosition(), SoundEvents.SKELETON_HURT, SoundSource.PLAYERS, 1.0F, 1.0F);
         }
-        if (attacker instanceof Player player && !player.getAbilities().instabuild) {
+        // Damage the arm before it can slip away, so durability is applied to the stack still in hand.
+        stack.hurtAndBreak(1, attacker, EquipmentSlot.MAINHAND);
+
+        if (attacker instanceof Player player && !player.getAbilities().instabuild && !stack.isEmpty()) {
             if (attacker.getRandom().nextFloat() < 0.10f) {
                 InteractionHand hand = player.getMainHandItem() == stack
                     ? InteractionHand.MAIN_HAND
                     : player.getOffhandItem() == stack ? InteractionHand.OFF_HAND : null;
 
                 if (hand != null) {
-                    player.drop(stack, false);
                     player.setItemInHand(hand, ItemStack.EMPTY);
+                    player.drop(stack, false);
+                    player.displayClientMessage(
+                        Component.translatable("item.hyrule_terrors.bokoblin_arm.slipped")
+                            .withStyle(ChatFormatting.GRAY),
+                        true
+                    );
                 }
-
-                player.displayClientMessage(
-                    Component.literal("The Bokoblin Arm slips from your hand!").withStyle(ChatFormatting.GRAY),
-                    true
-                );
             }
         }
-
-        stack.hurtAndBreak(1, attacker, (EquipmentSlot.MAINHAND));
         return true;
     }
 
@@ -106,7 +102,7 @@ public class BokoblinArm extends Item {
         List<Component> tooltipComponents,
         TooltipFlag tooltipFlag
     ) {
-        if (Screen.hasShiftDown()) {
+        if (TooltipHelper.hasShiftDown()) {
             tooltipComponents.add(Component.translatable("item.Bokoblin_arm.tooltip").withStyle(ChatFormatting.BLUE));
             tooltipComponents.add(Component.translatable("item.bokoblin_arm.tooltip1").withStyle(ChatFormatting.GRAY));
         } else {
@@ -117,5 +113,10 @@ public class BokoblinArm extends Item {
     @Override
     public boolean isValidRepairItem(ItemStack toRepair, ItemStack repairWith) {
         return repairWith.is(Items.BONE) || super.isValidRepairItem(toRepair, repairWith);
+    }
+
+    @Override
+    public int getEnchantmentValue() {
+        return HyruleWeaponMaterials.BOKOBLIN_TIER.getEnchantmentValue();
     }
 }

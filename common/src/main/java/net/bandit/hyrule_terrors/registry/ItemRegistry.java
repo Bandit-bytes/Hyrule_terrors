@@ -12,7 +12,12 @@ import net.bandit.hyrule_terrors.item.weapon.weapons.BoulderBreaker;
 import net.bandit.hyrule_terrors.item.weapon.weapons.KnightsClaymore;
 import net.bandit.hyrule_terrors.item.weapon.weapons.SilverLongsword;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.*;
+
+import java.util.List;
+import java.util.function.Supplier;
 
 public class ItemRegistry {
 
@@ -92,7 +97,48 @@ public class ItemRegistry {
             new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
         )
     ); // Black/Gray
-       // Items
+
+    public static final RegistrySupplier<Item> WHITE_CHUCHU_SPAWN_EGG = ITEMS.register(
+        "white_chuchu_spawn_egg",
+        () -> new ArchitecturySpawnEggItem(
+            EntityRegistry.CHUCHU_WHITE,
+            0xE8F6FF,
+            0x9FD8F5,
+            new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
+        )
+    );
+
+    public static final RegistrySupplier<Item> FIRE_KEESE_SPAWN_EGG = ITEMS.register(
+        "fire_keese_spawn_egg",
+        () -> new ArchitecturySpawnEggItem(
+            EntityRegistry.FIRE_KEESE,
+            0x3A1A12,
+            0xFF7A1F,
+            new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
+        )
+    );
+
+    public static final RegistrySupplier<Item> ICE_KEESE_SPAWN_EGG = ITEMS.register(
+        "ice_keese_spawn_egg",
+        () -> new ArchitecturySpawnEggItem(
+            EntityRegistry.ICE_KEESE,
+            0x24384A,
+            0x9FE3FF,
+            new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
+        )
+    );
+
+    public static final RegistrySupplier<Item> ELECTRIC_KEESE_SPAWN_EGG = ITEMS.register(
+        "electric_keese_spawn_egg",
+        () -> new ArchitecturySpawnEggItem(
+            EntityRegistry.ELECTRIC_KEESE,
+            0x2E2A14,
+            0xF2D53C,
+            new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
+        )
+    );
+
+    // Items
 
     public static final RegistrySupplier<Item> BOKOBLIN_FANG = ITEMS.register(
         "bokoblin_fang",
@@ -106,7 +152,17 @@ public class ItemRegistry {
 
     public static final RegistrySupplier<Item> RUPEE = ITEMS.register(
         "rupee",
-        () -> new Item(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE))
+        () -> new RupeeItem(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.UNCOMMON), 1)
+    );
+
+    public static final RegistrySupplier<Item> RUPEE_BLUE = ITEMS.register(
+        "rupee_blue",
+        () -> new RupeeItem(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE), 5)
+    );
+
+    public static final RegistrySupplier<Item> RUPEE_RED = ITEMS.register(
+        "rupee_red",
+        () -> new RupeeItem(new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.EPIC), 20)
     );
 
     public static final RegistrySupplier<Item> STEEL = ITEMS.register(
@@ -152,6 +208,85 @@ public class ItemRegistry {
             new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.UNCOMMON)
         )
     );
+
+    public static final RegistrySupplier<Item> CHUCHU_JELLY_WHITE = ITEMS.register(
+        "chuchu_jelly_white",
+        () -> new ChuchuJellyWhite(
+            new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.UNCOMMON)
+        )
+    );
+
+    // Elixirs
+    private static final int ELIXIR_MINUTES_3 = 20 * 60 * 3;
+
+    private static final int ELIXIR_MINUTES_5 = 20 * 60 * 5;
+
+    private static RegistrySupplier<Item> elixir(String name, Supplier<List<MobEffectInstance>> effects) {
+        return ITEMS.register(
+            name,
+            () -> new ElixirItem(
+                new Item.Properties().arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.UNCOMMON),
+                effects
+            )
+        );
+    }
+
+    public static final RegistrySupplier<Item> HEARTY_ELIXIR = elixir(
+        "hearty_elixir",
+        () -> List.of(
+            new MobEffectInstance(MobEffects.HEAL, 1, 1),
+            new MobEffectInstance(MobEffects.ABSORPTION, 20 * 120, 2)
+        )
+    );
+
+    public static final RegistrySupplier<Item> MIGHTY_ELIXIR = elixir(
+        "mighty_elixir",
+        () -> List.of(new MobEffectInstance(MobEffects.DAMAGE_BOOST, ELIXIR_MINUTES_3, 0))
+    );
+
+    public static final RegistrySupplier<Item> TOUGH_ELIXIR = elixir(
+        "tough_elixir",
+        () -> List.of(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, ELIXIR_MINUTES_3, 0))
+    );
+
+    public static final RegistrySupplier<Item> HASTY_ELIXIR = elixir(
+        "hasty_elixir",
+        () -> List.of(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, ELIXIR_MINUTES_3, 1))
+    );
+
+    public static final RegistrySupplier<Item> SNEAKY_ELIXIR = elixir(
+        "sneaky_elixir",
+        () -> List.of(new MobEffectInstance(MobEffects.INVISIBILITY, ELIXIR_MINUTES_3, 0))
+    );
+
+    public static final RegistrySupplier<Item> FIREPROOF_ELIXIR = elixir(
+        "fireproof_elixir",
+        () -> List.of(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, ELIXIR_MINUTES_5, 0))
+    );
+
+    public static final RegistrySupplier<Item> ELECTRO_ELIXIR = elixir(
+        "electro_elixir",
+        () -> List.of(new MobEffectInstance(EffectRegistry.SHOCK_RESISTANCE, ELIXIR_MINUTES_5, 0))
+    );
+
+    public static final RegistrySupplier<Item> CHILLY_ELIXIR = elixir(
+        "chilly_elixir",
+        () -> List.of(new MobEffectInstance(EffectRegistry.FROST_RESISTANCE, ELIXIR_MINUTES_5, 0))
+    );
+
+    public static final RegistrySupplier<Item> PARAGLIDER = ITEMS.register(
+        "paraglider",
+        () -> new ParagliderItem(
+            new Item.Properties().durability(432).arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE)
+        )
+    );
+
+    /** Render-only item used by the Master Sword's beam projectile. Not shown in the creative tab. */
+    public static final RegistrySupplier<Item> SWORD_BEAM = ITEMS.register(
+        "sword_beam",
+        () -> new Item(new Item.Properties())
+    );
+
     // ARMOR
 
     public static final RegistrySupplier<Item> ZORA_HELMET = ITEMS.register(
@@ -333,10 +468,10 @@ public class ItemRegistry {
     public static final RegistrySupplier<Item> LIZALFOS_HORN_DAGGER = ITEMS.register(
         "lizalfos_horn_dagger",
         () -> new SwordItem(
-            Tiers.DIAMOND,
+            Tiers.IRON,
             new Item.Properties().attributes(SwordItem.createAttributes(Tiers.IRON, 2, -1.5F))
                 .rarity(Rarity.UNCOMMON)
-                .durability(461) // Diamond
+                .durability(461)
                 .arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
         )
     );
@@ -387,8 +522,8 @@ public class ItemRegistry {
     public static final RegistrySupplier<Item> BOKOBLIN_ARM = ITEMS.register(
         "bokoblin_arm",
         () -> new BokoblinArm(
-            new Item.Properties().attributes(SwordItem.createAttributes(HyruleWeaponMaterials.BOKOBLIN_TIER, -1, -2f))
-                .durability(101) // intentionally weak joke weapon
+            new Item.Properties().attributes(SwordItem.createAttributes(HyruleWeaponMaterials.BOKOBLIN_TIER, 2, -1f))
+                .durability(100) // intentionally weak joke weapon
                 .rarity(Rarity.UNCOMMON)
                 .arch$tab(TabRegistry.HYRULE_TERRORS_TAB)
         )

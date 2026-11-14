@@ -1,0 +1,73 @@
+name: Bug report
+description: Something is broken, crashing, or not working as described.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please search [existing issues](https://github.com/Bandit-bytes/Hyrule_terrors/issues) first.
+  - type: dropdown
+    id: loader
+    attributes:
+      label: Mod loader
+      options:
+        - Fabric
+        - NeoForge
+    validations:
+      required: true
+  - type: input
+    id: mod-version
+    attributes:
+      label: Hyrule Terrors version
+      placeholder: e.g. 2.3.0-1.21.1
+    validations:
+      required: true
+  - type: input
+    id: mc-version
+    attributes:
+      label: Minecraft version
+      placeholder: e.g. 1.21.1
+    validations:
+      required: true
+  - type: input
+    id: deps
+    attributes:
+      label: AzureLib / Architectury / Cloth Config versions
+      placeholder: e.g. AzureLib 3.2.8, Architectury 13.0.11, Cloth Config 15.0.140
+  - type: dropdown
+    id: side
+    attributes:
+      label: Where does it happen?
+      options:
+        - Singleplayer
+        - Multiplayer (dedicated server)
+        - Both
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Spawn a Red Chuchu
+        2. Hit it with a sword
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: logs
+    attributes:
+      label: Crash report / latest.log
+      description: Upload to https://mclo.gs or https://gist.github.com and paste the link.
+  - type: textarea
+    id: mods
+    attributes:
+      label: Other mods installed
+      description: If you're using a modpack, name it. Can you reproduce it with only Hyrule Terrors and its dependencies?

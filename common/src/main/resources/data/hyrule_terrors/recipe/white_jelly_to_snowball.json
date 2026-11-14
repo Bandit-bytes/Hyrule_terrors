@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "hyrule_terrors:chuchu_jelly_white"
+    }
+  ],
+  "result": {
+    "id": "minecraft:snowball",
+    "count": 4
+  }
+}

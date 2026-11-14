@@ -1,0 +1,19 @@
+name: Feature request
+description: Suggest a new monster, item, armor set, or mechanic.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like to see?
+      description: Describe the feature. If it's from Breath of the Wild / Tears of the Kingdom, say how it works there.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why would it make the mod better?
+  - type: textarea
+    id: extra
+    attributes:
+      label: References / screenshots

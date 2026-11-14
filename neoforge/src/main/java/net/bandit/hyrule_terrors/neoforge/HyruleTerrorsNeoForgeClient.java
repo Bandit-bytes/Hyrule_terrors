@@ -4,9 +4,7 @@ import me.shedaniel.autoconfig.AutoConfig;
 import net.bandit.hyrule_terrors.HyruleTerrorsClientMod;
 import net.bandit.hyrule_terrors.HyruleTerrorsConfig;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
-import net.bandit.hyrule_terrors.entity.client.renderer.*;
 import net.bandit.hyrule_terrors.registry.BlockRegistry;
-import net.bandit.hyrule_terrors.registry.EntityRegistry;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.neoforged.api.distmarker.Dist;
@@ -22,7 +20,7 @@ public class HyruleTerrorsNeoForgeClient {
 
     @SubscribeEvent
     public static void onClientSetup(final FMLClientSetupEvent event) {
-        HyruleTerrorsMod.initClient();
+        HyruleTerrorsClientMod.initClient();
         ModLoadingContext.get()
             .registerExtensionPoint(
                 IConfigScreenFactory.class,
@@ -37,11 +35,7 @@ public class HyruleTerrorsNeoForgeClient {
 
     @SubscribeEvent
     public static void registerRenderers(final EntityRenderersEvent.RegisterRenderers event) {
-        event.registerEntityRenderer(EntityRegistry.BOKOBLIN.get(), BokoblinRenderer::new);
-        event.registerEntityRenderer(EntityRegistry.CHUCHU.get(), ChuchuRenderer::new);
-        event.registerEntityRenderer(EntityRegistry.CHUCHU_RED.get(), ChuchuRedRenderer::new);
-        event.registerEntityRenderer(EntityRegistry.CHUCHU_YELLOW.get(), ChuchuYellowRenderer::new);
-        event.registerEntityRenderer(EntityRegistry.LIZALFOS.get(), LizalfosRenderer::new);
-        event.registerEntityRenderer(EntityRegistry.KEESE.get(), KeeseRenderer::new);
+        HyruleTerrorsClientMod.registerEntityRenderers(event::registerEntityRenderer);
+        HyruleTerrorsClientMod.initClientAzRenders();
     }
 }

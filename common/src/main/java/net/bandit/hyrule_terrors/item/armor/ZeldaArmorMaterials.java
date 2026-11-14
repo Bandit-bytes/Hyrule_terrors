@@ -16,14 +16,14 @@ public class ZeldaArmorMaterials {
     public static final Holder<ArmorMaterial> ZORA_ARMOR = ZeldaArmorMaterialsRegister.registerArmorMaterial(
         HyruleTerrorsMod.MOD_ID,
         "zora_armor",
-        Util.make(new EnumMap(ArmorItem.Type.class), enumMap -> {
+        Util.make(new EnumMap<ArmorItem.Type, Integer>(ArmorItem.Type.class), enumMap -> {
             enumMap.put(ArmorItem.Type.BOOTS, 2);
             enumMap.put(ArmorItem.Type.LEGGINGS, 5);
             enumMap.put(ArmorItem.Type.CHESTPLATE, 6);
             enumMap.put(ArmorItem.Type.HELMET, 2);
             enumMap.put(ArmorItem.Type.BODY, 5);
         }),
-        9,
+        12,
         SoundEvents.ARMOR_EQUIP_IRON,
         1.0F,
         0.2F,
@@ -33,14 +33,14 @@ public class ZeldaArmorMaterials {
     public static final Holder<ArmorMaterial> HERO_ARMOR = ZeldaArmorMaterialsRegister.registerArmorMaterial(
         HyruleTerrorsMod.MOD_ID,
         "hero_armor",
-        Util.make(new EnumMap(ArmorItem.Type.class), enumMap -> {
+        Util.make(new EnumMap<ArmorItem.Type, Integer>(ArmorItem.Type.class), enumMap -> {
             enumMap.put(ArmorItem.Type.BOOTS, 2);
             enumMap.put(ArmorItem.Type.LEGGINGS, 5);
             enumMap.put(ArmorItem.Type.CHESTPLATE, 6);
             enumMap.put(ArmorItem.Type.HELMET, 2);
             enumMap.put(ArmorItem.Type.BODY, 5);
         }),
-        9,
+        15,
         SoundEvents.ARMOR_EQUIP_LEATHER,
         1.0F,
         0.2F,
@@ -50,14 +50,14 @@ public class ZeldaArmorMaterials {
     public static final Holder<ArmorMaterial> EVIL_SPIRIT = ZeldaArmorMaterialsRegister.registerArmorMaterial(
         HyruleTerrorsMod.MOD_ID,
         "evil_spirit",
-        Util.make(new EnumMap(ArmorItem.Type.class), enumMap -> {
+        Util.make(new EnumMap<ArmorItem.Type, Integer>(ArmorItem.Type.class), enumMap -> {
             enumMap.put(ArmorItem.Type.BOOTS, 4);
             enumMap.put(ArmorItem.Type.LEGGINGS, 7);
             enumMap.put(ArmorItem.Type.CHESTPLATE, 9);
             enumMap.put(ArmorItem.Type.HELMET, 4);
             enumMap.put(ArmorItem.Type.BODY, 7);
         }),
-        9,
+        15,
         SoundEvents.ARMOR_EQUIP_NETHERITE,
         2.0F,
         0.5F,
@@ -67,31 +67,31 @@ public class ZeldaArmorMaterials {
     public static final Holder<ArmorMaterial> KNIGHT_ARMOR = ZeldaArmorMaterialsRegister.registerArmorMaterial(
         HyruleTerrorsMod.MOD_ID,
         "knight_armor",
-        Util.make(new EnumMap(ArmorItem.Type.class), enumMap -> {
+        Util.make(new EnumMap<ArmorItem.Type, Integer>(ArmorItem.Type.class), enumMap -> {
             enumMap.put(ArmorItem.Type.BOOTS, 3);
             enumMap.put(ArmorItem.Type.LEGGINGS, 6);
             enumMap.put(ArmorItem.Type.CHESTPLATE, 8);
             enumMap.put(ArmorItem.Type.HELMET, 3);
             enumMap.put(ArmorItem.Type.BODY, 6);
         }),
-        9,
+        10,
         SoundEvents.ARMOR_EQUIP_DIAMOND,
         1.5F,
         0.4F,
         () -> Ingredient.of(Items.DIAMOND)
     );
 
-    public static final Holder<ArmorMaterial> BARBARAIN_ARMOR = ZeldaArmorMaterialsRegister.registerArmorMaterial(
+    public static final Holder<ArmorMaterial> BARBARIAN_ARMOR = ZeldaArmorMaterialsRegister.registerArmorMaterial(
         HyruleTerrorsMod.MOD_ID,
         "barbarian_armor",
-        Util.make(new EnumMap(ArmorItem.Type.class), enumMap -> {
+        Util.make(new EnumMap<ArmorItem.Type, Integer>(ArmorItem.Type.class), enumMap -> {
             enumMap.put(ArmorItem.Type.BOOTS, 1);
             enumMap.put(ArmorItem.Type.LEGGINGS, 4);
             enumMap.put(ArmorItem.Type.CHESTPLATE, 6);
             enumMap.put(ArmorItem.Type.HELMET, 4);
             enumMap.put(ArmorItem.Type.BODY, 6);
         }),
-        9,
+        12,
         SoundEvents.ARMOR_EQUIP_LEATHER,
         3.5F,
         0.6F,

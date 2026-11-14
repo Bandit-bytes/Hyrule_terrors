@@ -29,6 +29,22 @@ public class TagRegistry {
         HyruleTerrorsMod.modResource("keese_spawn_in")
     );
 
+    public static final TagKey<Biome> CHUCHU_YELLOW_BIOMES = biome("chuchu_yellow_spawn_in");
+
+    public static final TagKey<Biome> CHUCHU_RED_BIOMES = biome("chuchu_red_spawn_in");
+
+    public static final TagKey<Biome> CHUCHU_WHITE_BIOMES = biome("chuchu_white_spawn_in");
+
+    public static final TagKey<Biome> FIRE_KEESE_BIOMES = biome("fire_keese_spawn_in");
+
+    public static final TagKey<Biome> ICE_KEESE_BIOMES = biome("ice_keese_spawn_in");
+
+    public static final TagKey<Biome> ELECTRIC_KEESE_BIOMES = biome("electric_keese_spawn_in");
+
+    private static TagKey<Biome> biome(String path) {
+        return TagKey.create(Registries.BIOME, HyruleTerrorsMod.modResource(path));
+    }
+
     public static TagKey<Biome> LIZALFOS_BIOMES = TagKey.create(
         Registries.BIOME,
         HyruleTerrorsMod.modResource("lizalfos_spawn_in")

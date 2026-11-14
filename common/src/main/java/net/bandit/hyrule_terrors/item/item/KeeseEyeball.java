@@ -1,7 +1,7 @@
 package net.bandit.hyrule_terrors.item.item;
 
+import net.bandit.hyrule_terrors.util.TooltipHelper;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -60,7 +60,7 @@ public class KeeseEyeball extends Item {
         List<Component> tooltipComponents,
         TooltipFlag tooltipFlag
     ) {
-        if (Screen.hasShiftDown()) {
+        if (TooltipHelper.hasShiftDown()) {
             tooltipComponents.add(
                 Component.translatable("item.keese_eyeball.tooltip")
                     .withStyle(ChatFormatting.ITALIC)

@@ -56,6 +56,27 @@ public class HyruleTerrorsConfig implements ConfigData {
     @ConfigEntry.BoundedDiscrete(min = 1, max = 20)
     public int chuchuRedAttackDamage = 2;
 
+    @ConfigEntry.Category("red_chuchu")
+    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.BoundedDiscrete(max = 100)
+    public int chuchuRedSpawnWeight = 3;
+
+    // White (Ice) Chuchu
+    @ConfigEntry.Category("white_chuchu")
+    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 100)
+    public int chuchuWhiteHealth = 12;
+
+    @ConfigEntry.Category("white_chuchu")
+    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.BoundedDiscrete(min = 1, max = 20)
+    public int chuchuWhiteAttackDamage = 2;
+
+    @ConfigEntry.Category("white_chuchu")
+    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.BoundedDiscrete(max = 100)
+    public int chuchuWhiteSpawnWeight = 4;
+
     // Yellow Chuchu
     @ConfigEntry.Category("yellow_chuchu")
     @ConfigEntry.Gui.NoTooltip
@@ -88,6 +109,11 @@ public class HyruleTerrorsConfig implements ConfigData {
     @ConfigEntry.BoundedDiscrete(max = 100)
     public int keeseSpawnWeight = 5;
 
+    @ConfigEntry.Category("keese")
+    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.BoundedDiscrete(max = 100)
+    public int elementalKeeseSpawnWeight = 3;
+
     // Lizalfos
     @ConfigEntry.Category("lizalfos")
     @ConfigEntry.Gui.NoTooltip
@@ -110,50 +136,68 @@ public class HyruleTerrorsConfig implements ConfigData {
 
     // Master Sword
     @ConfigEntry.Category("master_sword")
-    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.Gui.Tooltip
     public boolean masterSwordEnable = true;
 
     @ConfigEntry.Category("master_sword")
-    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.Gui.Tooltip
     public boolean masterSwordAwakenInNetherOrEnd = true;
 
     @ConfigEntry.Category("master_sword")
-    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.Gui.Tooltip
     public boolean masterSwordAwakenNearSculk = true;
 
     @ConfigEntry.Category("master_sword")
-    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.Gui.Tooltip
     public boolean masterSwordAwakenNearBosses = true;
 
     @ConfigEntry.Category("master_sword")
-    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.Gui.Tooltip
     public boolean masterSwordAwakenNearEvilMobsTag = true;
 
     @ConfigEntry.Category("master_sword")
-    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.Gui.Tooltip
     @ConfigEntry.BoundedDiscrete(min = 1, max = 64)
     public int masterSwordCheckRadius = 16;
 
     @ConfigEntry.Category("master_sword")
-    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.Gui.Tooltip
     @ConfigEntry.BoundedDiscrete(min = 1, max = 64)
     public int masterSwordSculkScanRadius = 10;
 
     @ConfigEntry.Category("master_sword")
-    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.Gui.Tooltip
     @ConfigEntry.BoundedDiscrete(min = 1, max = 60)
     public int masterSwordCheckIntervalTicks = 10; // every 0.5s
 
     @ConfigEntry.Category("master_sword")
-    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.Gui.Tooltip
     public float masterSwordBonusDamageVsEvil = 6.0f;
 
     @ConfigEntry.Category("master_sword")
-    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.Gui.Tooltip
     public double masterSwordKnockbackResistBonus = 0.25D;
 
     @ConfigEntry.Category("master_sword")
-    @ConfigEntry.Gui.NoTooltip
+    @ConfigEntry.Gui.Tooltip
     public List<String> masterSwordExtraBossEntityIds = java.util.List.of();
+
+    @ConfigEntry.Category("master_sword")
+    @ConfigEntry.Gui.Tooltip
+    public boolean masterSwordBeamEnable = true;
+
+    @ConfigEntry.Category("master_sword")
+    @ConfigEntry.Gui.Tooltip
+    public float masterSwordBeamDamage = 8.0f;
+
+    @ConfigEntry.Category("master_sword")
+    @ConfigEntry.Gui.Tooltip
+    @ConfigEntry.BoundedDiscrete(min = 5, max = 200)
+    public int masterSwordBeamCooldownTicks = 20;
+
+    // Loot
+    @ConfigEntry.Category("loot")
+    @ConfigEntry.Gui.Tooltip
+    public boolean addLegendaryChestLoot = true;
 
 }

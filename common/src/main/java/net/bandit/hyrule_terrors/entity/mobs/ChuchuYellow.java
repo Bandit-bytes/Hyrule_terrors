@@ -16,10 +16,8 @@ import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
@@ -57,7 +55,7 @@ public class ChuchuYellow extends AbstractTerrorMob {
 
     private int chargeStateTicks = CHARGED_DURATION;
 
-    public ChuchuYellow(EntityType<? extends PathfinderMob> entityType, Level level) {
+    public ChuchuYellow(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
         dispatcher = new AnimationDispatcher(this);
     }
@@ -240,12 +238,4 @@ public class ChuchuYellow extends AbstractTerrorMob {
         this.playSound(SoundEvents.SLIME_JUMP, 0.15F, 1.0F);
     }
 
-    @Override
-    protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) {
-        super.dropCustomDeathLoot(level, source, recentlyHit);
-        if (!level.isClientSide()) {
-            int xpDrop = 5 + this.random.nextInt(3);
-            level.addFreshEntity(new ExperienceOrb(level, this.getX(), this.getY(), this.getZ(), xpDrop));
-        }
-    }
 }

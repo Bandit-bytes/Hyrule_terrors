@@ -1,6 +1,7 @@
 plugins {
     id 'com.github.johnrengelman.shadow'
     id 'com.diffplug.spotless' version "7.0.0.BETA3"
+    id 'me.modmuss50.mod-publish-plugin' version '1.1.0'
 }
 
 architectury {
@@ -77,4 +78,24 @@ spotless {
 
 tasks.build {
     dependsOn("spotlessApply")
+}
+
+// CurseForge upload. Dry run by default; pass -Ppublish to actually upload.
+//   ./gradlew :neoforge:publishMods -Ppublish
+// The token is read from ~/.gradle/gradle.properties (curseforge_token), never from this repo.
+publishMods {
+    file = remapJar.archiveFile
+    changelog = rootProject.file("CHANGELOG.md").text.split(/(?m)^## /)[1].with { "## " + it.trim() }
+    type = STABLE
+    displayName = "Hyrule Terrors ${project.version} (NeoForge)"
+    modLoaders.add("neoforge")
+    dryRun = !providers.gradleProperty("publish").isPresent()
+
+    curseforge {
+        accessToken = providers.gradleProperty("curseforge_token")
+        projectId = rootProject.curseforge_project_id
+        minecraftVersions.add(rootProject.minecraft_version)
+        javaVersions.add(JavaVersion.VERSION_21)
+        requires("architectury-api", "azurelib", "cloth-config")
+    }
 }

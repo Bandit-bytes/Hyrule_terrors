@@ -20,10 +20,12 @@ public final class HyruleTerrorsMod {
         AutoConfig.register(HyruleTerrorsConfig.class, JanksonConfigSerializer::new);
         config = AutoConfig.getConfigHolder(HyruleTerrorsConfig.class).getConfig();
 
+        EffectRegistry.register();
         ItemRegistry.register();
         BlockRegistry.register();
         EntityRegistry.init();
         TabRegistry.init();
+        HyruleTerrorsEvents.init();
     }
 
     public static void initAzIdentityRegistry() {
@@ -56,7 +58,4 @@ public final class HyruleTerrorsMod {
         return ResourceLocation.fromNamespaceAndPath(MOD_ID, name);
     }
 
-    public static void initClient() {
-        HyruleTerrorsClientMod.initClientAzRenders();
-    }
 }

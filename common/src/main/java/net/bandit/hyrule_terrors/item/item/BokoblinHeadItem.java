@@ -1,7 +1,7 @@
 package net.bandit.hyrule_terrors.item.item;
 
+import net.bandit.hyrule_terrors.util.TooltipHelper;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -62,7 +62,7 @@ public class BokoblinHeadItem extends StandingAndWallBlockItem {
         List<Component> tooltipComponents,
         TooltipFlag tooltipFlag
     ) {
-        if (Screen.hasShiftDown()) {
+        if (TooltipHelper.hasShiftDown()) {
             tooltipComponents.add(
                 Component.translatable("item.bokoblin_head.tooltip").withStyle(ChatFormatting.DARK_GREEN)
             );

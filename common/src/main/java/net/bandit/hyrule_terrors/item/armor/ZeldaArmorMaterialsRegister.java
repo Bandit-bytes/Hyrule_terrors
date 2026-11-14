@@ -23,43 +23,30 @@ public class ZeldaArmorMaterialsRegister {
         Holder<SoundEvent> equipSound,
         float toughness,
         float knockbackResistance,
-        Supplier<Ingredient> ingredientItem
+        Supplier<Ingredient> repairIngredient
     ) {
-        List<ArmorMaterial.Layer> list = List.of(
-            new ArmorMaterial.Layer(ResourceLocation.fromNamespaceAndPath(modId, armorId))
-        );
-        return register(
-            armorId,
-            typeProtection,
-            enchantability,
-            equipSound,
-            toughness,
-            knockbackResistance,
-            ingredientItem,
-            list
-        );
-    }
+        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(modId, armorId);
+        List<ArmorMaterial.Layer> layers = List.of(new ArmorMaterial.Layer(id));
 
-    private static Holder<ArmorMaterial> register(
-        String string,
-        EnumMap<ArmorItem.Type, Integer> enumMap,
-        int i,
-        Holder<SoundEvent> holder,
-        float f,
-        float g,
-        Supplier<Ingredient> supplier,
-        List<ArmorMaterial.Layer> list
-    ) {
-        EnumMap<ArmorItem.Type, Integer> enumMap2 = new EnumMap(ArmorItem.Type.class);
-
+        EnumMap<ArmorItem.Type, Integer> defense = new EnumMap<>(ArmorItem.Type.class);
         for (ArmorItem.Type type : ArmorItem.Type.values()) {
-            enumMap2.put(type, (Integer) enumMap.get(type));
+            defense.put(type, typeProtection.getOrDefault(type, 0));
         }
 
+        // Registered under our own namespace (previously these landed in "minecraft:", which could collide with
+        // vanilla or other mods using the same names).
         return Registry.registerForHolder(
             BuiltInRegistries.ARMOR_MATERIAL,
-            ResourceLocation.withDefaultNamespace(string),
-            new ArmorMaterial(enumMap2, i, holder, supplier, list, f, g)
+            id,
+            new ArmorMaterial(
+                defense,
+                enchantability,
+                equipSound,
+                repairIngredient,
+                layers,
+                toughness,
+                knockbackResistance
+            )
         );
     }
 }

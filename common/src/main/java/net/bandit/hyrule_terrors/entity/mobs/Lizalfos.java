@@ -5,7 +5,6 @@ import net.bandit.hyrule_terrors.entity.ai.TerrorTargeting;
 import net.bandit.hyrule_terrors.helper.AnimationDispatcher;
 import net.bandit.hyrule_terrors.registry.ItemRegistry;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.Difficulty;
@@ -31,7 +30,7 @@ public class Lizalfos extends AbstractTerrorMob {
 
     public AnimationDispatcher dispatcher;
 
-    public Lizalfos(EntityType<? extends PathfinderMob> entityType, Level level) {
+    public Lizalfos(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
         dispatcher = new AnimationDispatcher(this);
     }
@@ -101,7 +100,14 @@ public class Lizalfos extends AbstractTerrorMob {
     public void tick() {
         super.tick();
 
-        if (this.getHealth() < this.getMaxHealth() * 0.3) {
+        // Badly hurt Lizalfos scramble away. This used to repath and resend the crawl animation every tick on both
+        // sides; it now runs server-side, a few times a second, and only once the previous path has finished.
+        if (
+            !this.level().isClientSide()
+                && this.getHealth() < this.getMaxHealth() * 0.3F
+                && this.tickCount % 10 == 0
+                && this.getNavigation().isDone()
+        ) {
             this.dispatcher.crawl();
             this.getNavigation()
                 .moveTo(
@@ -131,21 +137,6 @@ public class Lizalfos extends AbstractTerrorMob {
     @Override
     protected void playStepSound(BlockPos pos, BlockState state) {
         this.playSound(SoundEvents.TURTLE_SHAMBLE, 0.15F, 1.0F);
-    }
-
-    @Override
-    protected void dropCustomDeathLoot(ServerLevel level, DamageSource source, boolean recentlyHit) {
-        super.dropCustomDeathLoot(level, source, recentlyHit);
-
-        if (level.isClientSide())
-            return;
-        this.dropExperience();
-    }
-
-    protected void dropExperience() {
-        int baseXP = 5;
-        int xpDrop = baseXP + this.random.nextInt(3);
-        this.level().addFreshEntity(new ExperienceOrb(this.level(), this.getX(), this.getY(), this.getZ(), xpDrop));
     }
 
     @Nullable

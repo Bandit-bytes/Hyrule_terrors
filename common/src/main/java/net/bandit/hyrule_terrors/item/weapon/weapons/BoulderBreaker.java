@@ -1,10 +1,12 @@
 package net.bandit.hyrule_terrors.item.weapon.weapons;
 
+import net.bandit.hyrule_terrors.util.CombatHelper;
+import net.bandit.hyrule_terrors.util.TooltipHelper;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
@@ -14,7 +16,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
@@ -33,23 +34,29 @@ public class BoulderBreaker extends SwordItem {
             level.playSound(null, attacker.blockPosition(), SoundEvents.STONE_BREAK, SoundSource.PLAYERS, 1.0F, 0.75F);
         }
 
+        // Armor-crusher: extra damage against armored foes.
         if (target.getArmorCoverPercentage() > 0.25f && attacker instanceof Player player) {
-            target.hurt(level.damageSources().playerAttack(player), 3.0F);
+            CombatHelper.dealBonusDamage(target, level.damageSources().playerAttack(player), 3.0F);
         }
 
         target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 1, false, false));
 
-        if (level.isClientSide()) {
+        // hurtEnemy only runs on the server, so particles have to be sent from here.
+        if (level instanceof ServerLevel serverLevel) {
             BlockState stateBelow = level.getBlockState(target.blockPosition().below());
-            level.addParticle(
-                new BlockParticleOption(ParticleTypes.BLOCK, stateBelow),
-                target.getX(),
-                target.getY(),
-                target.getZ(),
-                0.0D,
-                0.1D,
-                0.0D
-            );
+            if (!stateBelow.isAir()) {
+                serverLevel.sendParticles(
+                    new BlockParticleOption(ParticleTypes.BLOCK, stateBelow),
+                    target.getX(),
+                    target.getY() + 0.1D,
+                    target.getZ(),
+                    16,
+                    0.3D,
+                    0.05D,
+                    0.3D,
+                    0.15D
+                );
+            }
         }
 
         return super.hurtEnemy(stack, target, attacker);
@@ -57,10 +64,19 @@ public class BoulderBreaker extends SwordItem {
 
     @Override
     public float getDestroySpeed(ItemStack stack, BlockState state) {
-        if (state.is(Blocks.STONE) || state.is(BlockTags.MINEABLE_WITH_PICKAXE)) {
+        if (state.is(BlockTags.MINEABLE_WITH_PICKAXE)) {
             return 8.0F;
         }
         return super.getDestroySpeed(stack, state);
+    }
+
+    @Override
+    public boolean isCorrectToolForDrops(ItemStack stack, BlockState state) {
+        // Without this, stone broke quickly but dropped nothing.
+        if (state.is(BlockTags.MINEABLE_WITH_PICKAXE)) {
+            return !state.is(getTier().getIncorrectBlocksForDrops());
+        }
+        return super.isCorrectToolForDrops(stack, state);
     }
 
     @Override
@@ -75,7 +91,7 @@ public class BoulderBreaker extends SwordItem {
         List<Component> tooltipComponents,
         TooltipFlag tooltipFlag
     ) {
-        if (Screen.hasShiftDown()) {
+        if (TooltipHelper.hasShiftDown()) {
             tooltipComponents.add(
                 Component.translatable("item.hyrule_terrors.boulder_breaker.tooltip").withStyle(ChatFormatting.RED)
             );

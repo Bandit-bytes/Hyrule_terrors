@@ -1,5 +1,8 @@
 {
   "values": [
-    "#minecraft:enchantable/armor"
-  ]
+    "#minecraft:enchantable/armor",
+    "hyrule_terrors:hylian_shield",
+    "hyrule_terrors:paraglider"
+  ],
+  "replace": false
 }

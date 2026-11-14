@@ -1,7 +1,7 @@
 package net.bandit.hyrule_terrors.item.item;
 
+import net.bandit.hyrule_terrors.util.TooltipHelper;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -22,7 +22,7 @@ public class LizalfosHorn extends Item {
         List<Component> tooltipComponents,
         TooltipFlag tooltipFlag
     ) {
-        if (Screen.hasShiftDown()) {
+        if (TooltipHelper.hasShiftDown()) {
             tooltipComponents.add(Component.translatable("item.lizalfos_horn.tooltip"));
             tooltipComponents.add(Component.translatable("item.lizalfos_horn.tooltip1").withStyle(ChatFormatting.GRAY));
         } else {

@@ -9,10 +9,14 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "condition": "random_chance_with_enchanted_bonus",
+              "condition": "minecraft:random_chance_with_enchanted_bonus",
               "enchantment": "minecraft:looting",
               "unenchanted_chance": 0.3,
-              "enchanted_chance": 0.2
+              "enchanted_chance": {
+                "type": "minecraft:linear",
+                "base": 0.35,
+                "per_level_above_first": 0.05
+              }
             }
           ]
         }
@@ -52,10 +56,14 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "condition": "random_chance_with_enchanted_bonus",
+              "condition": "minecraft:random_chance_with_enchanted_bonus",
               "enchantment": "minecraft:looting",
               "unenchanted_chance": 0.2,
-              "enchanted_chance": 0.1
+              "enchanted_chance": {
+                "type": "minecraft:linear",
+                "base": 0.25,
+                "per_level_above_first": 0.05
+              }
             }
           ]
         }
@@ -69,12 +77,37 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "condition": "random_chance_with_enchanted_bonus",
+              "condition": "minecraft:random_chance_with_enchanted_bonus",
               "enchantment": "minecraft:looting",
               "unenchanted_chance": 0.1,
-              "enchanted_chance": 0.05
+              "enchanted_chance": {
+                "type": "minecraft:linear",
+                "base": 0.15,
+                "per_level_above_first": 0.05
+              }
             }
           ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "hyrule_terrors:rupee_blue"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance_with_enchanted_bonus",
+          "enchantment": "minecraft:looting",
+          "unenchanted_chance": 0.05,
+          "enchanted_chance": {
+            "type": "minecraft:linear",
+            "base": 0.07,
+            "per_level_above_first": 0.02
+          }
         }
       ]
     }

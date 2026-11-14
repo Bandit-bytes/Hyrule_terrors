@@ -3,15 +3,16 @@
   "id": "hyrule_terrors",
   "version": "${version}",
   "name": "Hyrule Terrors",
-  "description": "",
+  "description": "Breath of the Wild inspired monsters, armor sets, weapons, elixirs and gear: Bokoblins, Lizalfos, elemental Chuchus and Keese, the Master Sword, Hylian Shield, Paraglider and more.",
   "authors": [
     "Bandit-Bytes"
   ],
   "contact": {
-    "homepage": "",
+    "homepage": "https://www.curseforge.com/projects/1216095",
+    "sources": "https://github.com/Bandit-bytes/Hyrule_terrors",
     "issues": "https://github.com/Bandit-bytes/Hyrule_terrors/issues"
   },
-  "license": "ALL RIGHTS RESERVED",
+  "license": "ARR",
   "icon": "assets/hyrule_terrors/icon.png",
   "environment": "*",
   "entrypoints": {
@@ -29,15 +30,15 @@
     "hyrule_terrors.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.18.3",
+    "fabricloader": ">=0.16.10",
     "minecraft": "~1.21.1",
     "java": ">=21",
     "architectury": ">=13.0.8",
     "fabric-api": "*",
-    "azurelib": ">=3.1.3",
+    "azurelib": ">=3.2.8",
     "cloth-config": ">=15.0.140"
   },
-  "recommends":  {
+  "recommends": {
     "modmenu": "*"
   },
   "custom": {

@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "P P",
     "SNS",
@@ -13,7 +14,7 @@
       "item": "hyrule_terrors:chuchu_jelly"
     },
     "N": {
-      "item": "minecraft:netherite_ingot"
+      "item": "minecraft:nautilus_shell"
     }
   },
   "result": {

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Discord
+    url: https://discord.pixeldreamstudios.net
+    about: Questions, help and general chat.
+  - name: CurseForge
+    url: https://www.curseforge.com/projects/1216095
+    about: Downloads and release notes.

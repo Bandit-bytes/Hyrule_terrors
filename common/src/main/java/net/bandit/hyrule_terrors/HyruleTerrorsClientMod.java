@@ -3,12 +3,49 @@ package net.bandit.hyrule_terrors;
 import dev.architectury.registry.item.ItemPropertiesRegistry;
 import mod.azure.azurelib.common.render.armor.AzArmorRendererRegistry;
 import mod.azure.azurelib.common.render.item.AzItemRendererRegistry;
+import net.bandit.hyrule_terrors.entity.client.renderer.*;
 import net.bandit.hyrule_terrors.item.armor.client.renderer.*;
 import net.bandit.hyrule_terrors.item.weapon.client.renderer.BokoblinArmRenderer;
+import net.bandit.hyrule_terrors.registry.EntityRegistry;
 import net.bandit.hyrule_terrors.registry.ItemRegistry;
+import net.bandit.hyrule_terrors.util.TooltipHelper;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 
 public class HyruleTerrorsClientMod {
+
+    /** Client-only setup shared by both loaders. */
+    public static void initClient() {
+        TooltipHelper.setShiftSupplier(Screen::hasShiftDown);
+    }
+
+    /** Entity renderers shared by both loaders; each loader passes its own registration callback. */
+    public static void registerEntityRenderers(EntityRendererSink sink) {
+        sink.register(EntityRegistry.BOKOBLIN.get(), BokoblinRenderer::new);
+        sink.register(EntityRegistry.CHUCHU.get(), ChuchuRenderer::new);
+        sink.register(EntityRegistry.CHUCHU_RED.get(), ChuchuRedRenderer::new);
+        sink.register(EntityRegistry.CHUCHU_YELLOW.get(), ChuchuYellowRenderer::new);
+        sink.register(EntityRegistry.CHUCHU_WHITE.get(), ChuchuWhiteRenderer::new);
+        sink.register(EntityRegistry.LIZALFOS.get(), LizalfosRenderer::new);
+        sink.register(EntityRegistry.KEESE.get(), KeeseRenderer::new);
+        sink.register(EntityRegistry.FIRE_KEESE.get(), ctx -> new KeeseRenderer(ctx, KeeseRenderer.FIRE_TEXTURE));
+        sink.register(EntityRegistry.ICE_KEESE.get(), ctx -> new KeeseRenderer(ctx, KeeseRenderer.ICE_TEXTURE));
+        sink.register(
+            EntityRegistry.ELECTRIC_KEESE.get(),
+            ctx -> new KeeseRenderer(ctx, KeeseRenderer.ELECTRIC_TEXTURE)
+        );
+        sink.register(EntityRegistry.SWORD_BEAM.get(), ctx -> new ThrownItemRenderer<>(ctx, 1.5F, true));
+    }
+
+    @FunctionalInterface
+    public interface EntityRendererSink {
+
+        <T extends Entity> void register(EntityType<? extends T> type, EntityRendererProvider<T> provider);
+    }
 
     public static void initClientAzRenders() {
         AzItemRendererRegistry.register(ItemRegistry.BOKOBLIN_ARM.get(), BokoblinArmRenderer::new);
