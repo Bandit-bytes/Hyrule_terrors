@@ -47,8 +47,7 @@ public final class HyruleTrades {
                 cost(ItemRegistry.RUPEE_RED, 3),
                 Optional.of(cost(ItemRegistry.RUPEE, 4)),
                 1
-            ),
-            sell(ItemRegistry.PARAGLIDER, cost(ItemRegistry.RUPEE_RED, 2), 1)
+            )
         );
     }
 

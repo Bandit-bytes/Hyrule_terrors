@@ -8,12 +8,11 @@
 - **Fire, Ice and Electric Keese**, each with an elemental bite and a death burst.
 - **Red Chuchus now spawn naturally** in deserts, badlands and savannas.
 - **Master Sword Sword Beam**: at full health, right-click to fire a beam of light (configurable).
-- **Paraglider**: hold right-click while falling to glide, with no fall damage.
 - **8 Elixirs** (Hearty, Mighty, Tough, Hasty, Sneaky, Fireproof, Electro, Chilly), brewed from Chuchu jelly and monster parts.
 - New effects: **Shock Resistance** and **Frost Resistance**. A raised Hylian Shield also protects its bearer from the lightning it calls down.
 - **Blue and Red Rupees**, convertible with Green Rupees at a crafting table.
-- **Wandering Trader overhaul**: buys monster parts for Rupees, sells elixirs, and rarely offers the Paraglider, Hylian Shield and Master Sword.
-- **Legendary chest loot**: the Master Sword in Ancient Cities, the Hylian Shield in Strongholds, the Paraglider in Stronghold libraries and Woodland Mansions, and Rupees and elixirs in dungeons and temples (can be disabled in the config).
+- **Wandering Trader overhaul**: buys monster parts for Rupees, sells elixirs, and rarely offers the Hylian Shield and Master Sword.
+- **Legendary chest loot**: the Master Sword in Ancient Cities, the Hylian Shield in Strongholds, and Rupees and elixirs in dungeons and temples (can be disabled in the config).
 - Bokoblins now spawn carrying crude weapons.
 - 8 new advancements.
 
@@ -31,6 +30,7 @@
 - Master Sword's knockback-resistance bonus could stick around after you dropped the sword.
 - Hyrule monsters didn't despawn on Peaceful, didn't stop you sleeping, and dropped XP even when not killed by a player.
 - Keese's bat AI fought its own attack AI; Keese now dive properly while hunting.
+- Keese wings (and ears and tail) were invisible from some angles because only one side of each flat plane was textured.
 - Low-health Lizalfos repathed every tick (a server lag source).
 - Bokoblin horn-blowers forgot their role after a world reload.
 - Bokoblin Arm sent an animation packet every tick while held.

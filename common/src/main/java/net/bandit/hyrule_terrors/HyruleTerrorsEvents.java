@@ -69,12 +69,9 @@ public final class HyruleTerrorsEvents {
         if (key.equals(BuiltInLootTables.ANCIENT_CITY)) {
             context.addPool(rarePool(ItemRegistry.MASTER_SWORD.get(), 4, 96));
         }
-        // The Hylian Shield and Paraglider turn up in forgotten strongholds.
+        // The Hylian Shield turns up in forgotten strongholds.
         if (key.equals(BuiltInLootTables.STRONGHOLD_CORRIDOR) || key.equals(BuiltInLootTables.STRONGHOLD_CROSSING)) {
             context.addPool(rarePool(ItemRegistry.HYLIAN_SHIELD.get(), 5, 95));
-        }
-        if (key.equals(BuiltInLootTables.STRONGHOLD_LIBRARY) || key.equals(BuiltInLootTables.WOODLAND_MANSION)) {
-            context.addPool(rarePool(ItemRegistry.PARAGLIDER.get(), 15, 85));
         }
         // Rupees and elixirs make dungeon loot feel Hylian.
         if (

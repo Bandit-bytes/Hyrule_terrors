@@ -274,13 +274,6 @@ public class ItemRegistry {
         () -> List.of(new MobEffectInstance(EffectRegistry.FROST_RESISTANCE, ELIXIR_MINUTES_5, 0))
     );
 
-    public static final RegistrySupplier<Item> PARAGLIDER = ITEMS.register(
-        "paraglider",
-        () -> new ParagliderItem(
-            new Item.Properties().durability(432).arch$tab(TabRegistry.HYRULE_TERRORS_TAB).rarity(Rarity.RARE)
-        )
-    );
-
     /** Render-only item used by the Master Sword's beam projectile. Not shown in the creative tab. */
     public static final RegistrySupplier<Item> SWORD_BEAM = ITEMS.register(
         "sword_beam",

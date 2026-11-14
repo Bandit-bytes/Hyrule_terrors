@@ -53,7 +53,7 @@ Every set has a full-set bonus.
 | Knight | Resistance, plus extra Knight's Claymore damage |
 | Evil Spirit | Strength II and Night Vision |
 
-## Elixirs & Gear
+## Elixirs & Rupees
 
 Brew elixirs at a crafting table from a **glass bottle + Chuchu jelly + a monster part**:
 
@@ -68,8 +68,7 @@ Brew elixirs at a crafting table from a **glass bottle + Chuchu jelly + a monste
 | Electro | **Shock Resistance**: immune to lightning and electric attacks |
 | Chilly | **Frost Resistance**: immune to freezing |
 
-- **Paraglider**: hold right-click while falling to glide, with no fall damage.
-- **Rupees**: Green (1), Blue (5) and Red (20). Monsters drop them and they convert at a crafting table. Wandering Traders buy monster parts for Rupees and sell elixirs, the Paraglider, the Hylian Shield and the Master Sword.
+- **Rupees**: Green (1), Blue (5) and Red (20). Monsters drop them and they convert at a crafting table. Wandering Traders buy monster parts for Rupees and sell elixirs, the Hylian Shield and the Master Sword.
 
 ## Installation
 
