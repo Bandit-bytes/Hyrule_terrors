@@ -34,6 +34,7 @@
 - Low-health Lizalfos repathed every tick (a server lag source).
 - Bokoblin horn-blowers forgot their role after a world reload.
 - Bokoblin Arm sent an animation packet every tick while held.
+- Bokoblin Arm had a faint white outline around its fingers (the thin edges of the claw planes were sampling a light texture pixel).
 - NeoForge: mobs were registered for spawning twice (once ignoring the config), spawn rules and AzureLib item identities were only registered client-side (broke dedicated servers), and renderers were registered twice.
 - Armor materials were registered in the `minecraft:` namespace.
 - Tooltips referenced a client-only class from common code (a dedicated-server crash risk).
