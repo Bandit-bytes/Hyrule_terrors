@@ -27,8 +27,22 @@ public class SpikedMoblinClub extends SwordItem {
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         Level level = attacker.level();
         if (!level.isClientSide()) {
-            level.playSound(null, target.blockPosition(), SoundEvents.ZOMBIE_ATTACK_WOODEN_DOOR, SoundSource.PLAYERS, 0.6F, 0.9F);
-            level.playSound(null, target.blockPosition(), SoundEvents.MACE_SMASH_GROUND, SoundSource.PLAYERS, 0.4F, 1.2F);
+            level.playSound(
+                null,
+                target.blockPosition(),
+                SoundEvents.ZOMBIE_ATTACK_WOODEN_DOOR,
+                SoundSource.PLAYERS,
+                0.6F,
+                0.9F
+            );
+            level.playSound(
+                null,
+                target.blockPosition(),
+                SoundEvents.MACE_SMASH_GROUND,
+                SoundSource.PLAYERS,
+                0.4F,
+                1.2F
+            );
 
             target.knockback(0.8D, attacker.getX() - target.getX(), attacker.getZ() - target.getZ());
             if (attacker.getRandom().nextFloat() < 0.25F) {

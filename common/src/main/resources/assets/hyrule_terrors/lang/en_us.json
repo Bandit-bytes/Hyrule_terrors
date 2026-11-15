@@ -270,5 +270,16 @@
   "item.hyrule_terrors.evil_spirit_chestplate.tooltip": "Armor forged in darkness.",
   "item.hyrule_terrors.evil_spirit_leggings.tooltip": "Greaves that drink the light.",
   "item.hyrule_terrors.evil_spirit_boots.tooltip": "Boots that leave no footprints.",
+  "item.hyrule_terrors.phantom_helmet": "Phantom Helm",
+  "item.hyrule_terrors.phantom_chestplate": "Phantom Armor",
+  "item.hyrule_terrors.phantom_leggings": "Phantom Greaves",
+  "item.hyrule_terrors.phantom_boots": "Phantom Boots",
+  "item.hyrule_terrors.phantom_armor.tooltip": "Armor modeled after Ganon's phantom knights.",
+  "item.hyrule_terrors.phantom_armor.set_bonus": "Full Set Bonus: Phantom's Might",
+  "item.hyrule_terrors.phantom_armor.set_bonus.description": "Grants Strength and Resistance.",
+  "item.hyrule_terrors.phantom_helmet.tooltip": "A horned helm. Red eyes burn behind the visor.",
+  "item.hyrule_terrors.phantom_chestplate.tooltip": "A dark breastplate etched with pale swirls.",
+  "item.hyrule_terrors.phantom_leggings.tooltip": "Plated greaves over black cloth.",
+  "item.hyrule_terrors.phantom_boots.tooltip": "Heavy sabatons that march without rest.",
   "tag.item.c.ingots.steel": "Steel Ingots"
 }

@@ -10,8 +10,8 @@ import net.bandit.hyrule_terrors.item.item.*;
 import net.bandit.hyrule_terrors.item.weapon.weapons.BokoblinArm;
 import net.bandit.hyrule_terrors.item.weapon.weapons.BoulderBreaker;
 import net.bandit.hyrule_terrors.item.weapon.weapons.KnightsClaymore;
-import net.bandit.hyrule_terrors.item.weapon.weapons.SpikedMoblinClub;
 import net.bandit.hyrule_terrors.item.weapon.weapons.SilverLongsword;
+import net.bandit.hyrule_terrors.item.weapon.weapons.SpikedMoblinClub;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -449,6 +449,39 @@ public class ItemRegistry {
         () -> new EvilSpiritArmorItem(
             ArmorItem.Type.BOOTS,
             armorProps(ArmorItem.Type.BOOTS, NETHERITE_DURABILITY, Rarity.EPIC)
+        )
+    );
+
+    // Phantom Armor
+    public static final RegistrySupplier<Item> PHANTOM_HELMET = ITEMS.register(
+        "phantom_helmet",
+        () -> new PhantomArmorItem(
+            ArmorItem.Type.HELMET,
+            armorProps(ArmorItem.Type.HELMET, DIAMOND_DURABILITY, Rarity.EPIC)
+        )
+    );
+
+    public static final RegistrySupplier<Item> PHANTOM_CHESTPLATE = ITEMS.register(
+        "phantom_chestplate",
+        () -> new PhantomArmorItem(
+            ArmorItem.Type.CHESTPLATE,
+            armorProps(ArmorItem.Type.CHESTPLATE, DIAMOND_DURABILITY, Rarity.EPIC)
+        )
+    );
+
+    public static final RegistrySupplier<Item> PHANTOM_LEGGINGS = ITEMS.register(
+        "phantom_leggings",
+        () -> new PhantomArmorItem(
+            ArmorItem.Type.LEGGINGS,
+            armorProps(ArmorItem.Type.LEGGINGS, DIAMOND_DURABILITY, Rarity.EPIC)
+        )
+    );
+
+    public static final RegistrySupplier<Item> PHANTOM_BOOTS = ITEMS.register(
+        "phantom_boots",
+        () -> new PhantomArmorItem(
+            ArmorItem.Type.BOOTS,
+            armorProps(ArmorItem.Type.BOOTS, DIAMOND_DURABILITY, Rarity.EPIC)
         )
     );
 

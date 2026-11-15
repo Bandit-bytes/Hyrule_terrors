@@ -81,6 +81,13 @@ public class HyruleTerrorsClientMod {
             ItemRegistry.KNIGHT_BOOTS.get()
         );
         AzArmorRendererRegistry.register(
+            PhantomArmorRenderer::new,
+            ItemRegistry.PHANTOM_HELMET.get(),
+            ItemRegistry.PHANTOM_CHESTPLATE.get(),
+            ItemRegistry.PHANTOM_LEGGINGS.get(),
+            ItemRegistry.PHANTOM_BOOTS.get()
+        );
+        AzArmorRendererRegistry.register(
             HeroSetRenderer::new,
             ItemRegistry.HERO_HELMET.get(),
             ItemRegistry.HERO_CHESTPLATE.get(),

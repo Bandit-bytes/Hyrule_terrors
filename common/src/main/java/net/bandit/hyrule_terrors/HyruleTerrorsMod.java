@@ -50,7 +50,11 @@ public final class HyruleTerrorsMod {
             ItemRegistry.KNIGHT_HELMET.get(),
             ItemRegistry.KNIGHT_CHESTPLATE.get(),
             ItemRegistry.KNIGHT_LEGGINGS.get(),
-            ItemRegistry.KNIGHT_BOOTS.get()
+            ItemRegistry.KNIGHT_BOOTS.get(),
+            ItemRegistry.PHANTOM_HELMET.get(),
+            ItemRegistry.PHANTOM_CHESTPLATE.get(),
+            ItemRegistry.PHANTOM_LEGGINGS.get(),
+            ItemRegistry.PHANTOM_BOOTS.get()
         );
     }
 

@@ -81,6 +81,23 @@ public class ZeldaArmorMaterials {
         () -> Ingredient.of(Items.DIAMOND)
     );
 
+    public static final Holder<ArmorMaterial> PHANTOM_ARMOR = ZeldaArmorMaterialsRegister.registerArmorMaterial(
+        HyruleTerrorsMod.MOD_ID,
+        "phantom_armor",
+        Util.make(new EnumMap<ArmorItem.Type, Integer>(ArmorItem.Type.class), enumMap -> {
+            enumMap.put(ArmorItem.Type.BOOTS, 3);
+            enumMap.put(ArmorItem.Type.LEGGINGS, 7);
+            enumMap.put(ArmorItem.Type.CHESTPLATE, 8);
+            enumMap.put(ArmorItem.Type.HELMET, 3);
+            enumMap.put(ArmorItem.Type.BODY, 7);
+        }),
+        12,
+        SoundEvents.ARMOR_EQUIP_NETHERITE,
+        2.0F,
+        0.4F,
+        () -> Ingredient.of(Items.DIAMOND)
+    );
+
     public static final Holder<ArmorMaterial> BARBARIAN_ARMOR = ZeldaArmorMaterialsRegister.registerArmorMaterial(
         HyruleTerrorsMod.MOD_ID,
         "barbarian_armor",
