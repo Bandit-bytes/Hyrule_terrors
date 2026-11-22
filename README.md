@@ -11,6 +11,7 @@
 
 <p align="center">
   <a href="https://www.curseforge.com/projects/1216095"><img src="https://img.shields.io/badge/CurseForge-Hyrule%20Terrors-F16436?logo=curseforge&logoColor=white" alt="CurseForge"></a>
+  <a href="https://modrinth.com/mod/zelda-hyrule-terrors"><img src="https://img.shields.io/badge/Modrinth-Hyrule%20Terrors-00AF5C?logo=modrinth&logoColor=white" alt="Modrinth"></a>
   <img src="https://img.shields.io/badge/Minecraft-1.21.1-62B47A" alt="Minecraft 1.21.1">
   <img src="https://img.shields.io/badge/Loaders-Fabric%20%7C%20NeoForge-blue" alt="Fabric | NeoForge">
   <a href="https://discord.pixeldreamstudios.net"><img src="https://img.shields.io/badge/Discord-Join-5865F2?logo=discord&logoColor=white" alt="Discord"></a>
@@ -18,14 +19,20 @@
 
 ---
 
-Hyrule Terrors brings the wilds of Hyrule into your world. Bokoblin camps dot the plains, Chuchus take on the
-elements around them, Keese swarm the caves, and the legendary Master Sword waits in the deep dark for a worthy hero.
+Hyrule Terrors brings the wilds of Hyrule into your world. Bokoblin camps dot the plains, Stalmoblins rise after dark,
+Chuchus take on the elements around them, Keese swarm the caves, and the legendary Master Sword waits in the deep dark
+for a worthy hero.
+
+> This is the **1.21.1** version (Fabric & NeoForge). A 1.20.1 version (Fabric & Forge) with the same content is
+> available on [CurseForge](https://www.curseforge.com/projects/1216095) and
+> [Modrinth](https://modrinth.com/mod/zelda-hyrule-terrors).
 
 ## Monsters
 
 | Monster | Where | What to know |
 |---|---|---|
 | **Bokoblin** | Plains, forests, Bokoblin forts | Carries crude weapons. Horn-blowers alert the whole camp; wear a **Bokoblin Head** to walk among them unnoticed. |
+| **Stalmoblin** | Plains, forests, savannas and taigas, at night | A skeletal Moblin, usually swinging a **Spiked Moblin Club**. Undead, so Smite hurts it and healing harms it, and it burns in daylight. |
 | **Lizalfos** | Mountains, forests | Fast and tough. Sometimes wields a **Lizal Spear**, and scrambles away when badly hurt. |
 | **Blue Chuchu** | Flower fields, forests | Takes on its surroundings: **fire turns it Red, freezing turns it White, lightning turns it Yellow.** |
 | **Red Chuchu** | Deserts, badlands, savannas | Bursts into flames when struck. |
@@ -39,6 +46,7 @@ elements around them, Keese swarm the caves, and the legendary Master Sword wait
 - **Master Sword**: awakens near sculk, bosses, evil mobs, or in the Nether/End, dealing bonus damage to evil foes. **At full health, right-click to fire a Sword Beam.** Sleeps in Ancient City chests.
 - **Hylian Shield**: enormous durability, fireproof while held, and when raised in a thunderstorm it calls lightning down on nearby monsters.
 - **Boulder Breaker**: a two-handed Goron crusher that also mines stone like a pickaxe.
+- **Spiked Moblin Club**: slow, crushing swings that knock foes back and can briefly slow them. Dropped by Stalmoblins.
 - **Knight's Claymore**, **Silver Longsword**, **Lizal Spear** (right-click lunge), **Lizalfos Horn Dagger**, and the not-entirely-dead **Bokoblin Arm**.
 
 ## Armor Sets
@@ -48,10 +56,11 @@ Every set has a full-set bonus.
 | Set | Bonus |
 |---|---|
 | Hero (Cap, Tunic, Trousers, Boots) | Strength while at full health |
-| Zora | Water Breathing and faster swimming |
+| Zora | Water Breathing, plus Dolphin's Grace while swimming |
 | Barbarian | Strength |
 | Knight | Resistance, plus extra Knight's Claymore damage |
 | Evil Spirit | Strength II and Night Vision |
+| Phantom | Strength and Resistance |
 
 ## Elixirs & Rupees
 
@@ -108,7 +117,7 @@ Jars are written to `fabric/build/libs/` and `neoforge/build/libs/`. Requires JD
 ## Reporting issues
 
 Found a bug or have an idea? [Open an issue](https://github.com/Bandit-bytes/Hyrule_terrors/issues/new/choose) and
-please include your loader, mod version and a log.
+please include your Minecraft version, loader, mod version and a log.
 
 ## License
 
