@@ -23,8 +23,8 @@ Hyrule Terrors brings the wilds of Hyrule into your world. Bokoblin camps dot th
 Chuchus take on the elements around them, Keese swarm the caves, and the legendary Master Sword waits in the deep dark
 for a worthy hero.
 
-> This is the **1.20.1** version (Fabric & Forge). The 1.21.1 version (Fabric & NeoForge) lives at
-> [Bandit-bytes/Hyrule_terrors](https://github.com/Bandit-bytes/Hyrule_terrors). Both get the same content.
+> This is the **1.20.1** version (Fabric & Forge), on the `1.20.1` branch. The 1.21.1 version (Fabric & NeoForge) is
+> on [`master`](https://github.com/Bandit-bytes/Hyrule_terrors/tree/master). Both get the same content.
 
 ## Monsters
 
@@ -106,8 +106,8 @@ Master Sword's "evil" list is the `hyrule_terrors:evil_mobs` entity tag, so modp
 ## Building from source
 
 ```bash
-git clone https://github.com/Bandit-bytes/hyrule_terrors-1.20.git
-cd hyrule_terrors-1.20
+git clone -b 1.20.1 https://github.com/Bandit-bytes/Hyrule_terrors.git
+cd Hyrule_terrors
 ./gradlew build
 ```
 
