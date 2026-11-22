@@ -1,5 +1,6 @@
 plugins {
     id 'com.github.johnrengelman.shadow'
+    id 'me.modmuss50.mod-publish-plugin' version '1.1.0'
 }
 
 architectury {
@@ -60,4 +61,37 @@ shadowJar {
 
 remapJar {
     input.set shadowJar.archiveFile
+}
+
+// CurseForge + Modrinth upload. Dry run by default; pass -Ppublish to actually upload.
+//   ./gradlew :fabric:publishMods -Ppublish
+// The tokens are read from ~/.gradle/gradle.properties (curseforge_token, modrinth_token), never from this repo.
+// Upload to one site only with publishCurseforge or publishModrinth instead of publishMods.
+publishMods {
+    file = remapJar.archiveFile
+    changelog = rootProject.file("CHANGELOG.md").text.split(/(?m)^## /)[1].with { "## " + it.trim() }
+    type = STABLE
+    displayName = "Hyrule Terrors ${project.version} (Fabric)"
+    modLoaders.add("fabric")
+    dryRun = !providers.gradleProperty("publish").isPresent()
+
+    curseforge {
+        accessToken = providers.gradleProperty("curseforge_token")
+        projectId = rootProject.curseforge_project_id
+        minecraftVersions.add(rootProject.minecraft_version.trim())
+        javaVersions.add(JavaVersion.VERSION_17)
+        // Needed on both sides (CurseForge requires an environment tag).
+        clientRequired = true
+        serverRequired = true
+        requires("architectury-api", "azurelib", "cloth-config", "fabric-api")
+        optional("modmenu")
+    }
+
+    modrinth {
+        accessToken = providers.gradleProperty("modrinth_token")
+        projectId = rootProject.modrinth_project_id
+        minecraftVersions.add(rootProject.minecraft_version.trim())
+        requires("architectury-api", "azurelib", "cloth-config", "fabric-api")
+        optional("modmenu")
+    }
 }
