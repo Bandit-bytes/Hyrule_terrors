@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.4.0 - Stalmoblin Update
+
+### New
+- **Stalmoblin**: a hunched skeletal Moblin that spawns at night in plains, forests, savannas and taigas. It is undead (Smite hurts it, healing harms it, poison doesn't affect it), burns in daylight (configurable), and counts as an evil mob for the Master Sword. Drops bones and Rupees. Config options for health, damage, speed, spawn weight and daylight burning.
+- **Spiked Moblin Club**: a slow, heavy two-handed club. Hits knock targets back and can briefly slow them. Stalmoblins usually carry one. Repaired with planks; takes sword enchantments; includes Better Combat attributes.
+- **Phantom armor set**: armor modeled after Ganon's phantom knights, crafted from Steel and Amethyst Shards (the helmet also takes a Keese Eyeball). Full set grants Strength and Resistance.
+
 ## 2.3.0 - Breath of the Wild Update
 
 ### New
