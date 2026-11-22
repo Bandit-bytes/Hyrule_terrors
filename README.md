@@ -23,9 +23,8 @@ Hyrule Terrors brings the wilds of Hyrule into your world. Bokoblin camps dot th
 Chuchus take on the elements around them, Keese swarm the caves, and the legendary Master Sword waits in the deep dark
 for a worthy hero.
 
-> This is the **1.21.1** version (Fabric & NeoForge). A 1.20.1 version (Fabric & Forge) with the same content is
-> available on [CurseForge](https://www.curseforge.com/projects/1216095) and
-> [Modrinth](https://modrinth.com/mod/zelda-hyrule-terrors).
+> This is the **1.21.1** version (Fabric & NeoForge), on `master`. The 1.20.1 version (Fabric & Forge) with the same
+> content is on the [`1.20.1`](https://github.com/Bandit-bytes/Hyrule_terrors/tree/1.20.1) branch.
 
 ## Monsters
 
@@ -112,7 +111,8 @@ cd Hyrule_terrors
 ./gradlew build
 ```
 
-Jars are written to `fabric/build/libs/` and `neoforge/build/libs/`. Requires JDK 21.
+Jars are written to `fabric/build/libs/` and `neoforge/build/libs/`. Requires JDK 21. For the 1.20.1 version, clone with
+`-b 1.20.1`.
 
 ## Reporting issues
 
