@@ -1,16 +1,16 @@
 package net.bandit.hyrule_terrors.item.weapon.weapons;
 
 import net.bandit.hyrule_terrors.item.armor.sets.ZoraArmorItem;
+import net.bandit.hyrule_terrors.util.ArmorSetHelper;
+import net.bandit.hyrule_terrors.util.CombatHelper;
+import net.bandit.hyrule_terrors.util.TooltipHelper;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -28,59 +28,39 @@ public class SilverLongsword extends SwordItem {
             level.playSound(null, attacker.blockPosition(), SoundEvents.TRIDENT_HIT, SoundSource.PLAYERS, 1.0F, 1.0F);
         }
 
-        boolean isWet = attacker.isInWaterOrRain();
-        boolean wearingFullZoraSet = false;
-
-        if (attacker instanceof Player player) {
-            ItemStack head = player.getInventory().getArmor(3);
-            ItemStack chest = player.getInventory().getArmor(2);
-            ItemStack legs = player.getInventory().getArmor(1);
-            ItemStack boots = player.getInventory().getArmor(0);
-
-            wearingFullZoraSet =
-                    head.getItem() instanceof ZoraArmorItem &&
-                            chest.getItem() instanceof ZoraArmorItem &&
-                            legs.getItem() instanceof ZoraArmorItem &&
-                            boots.getItem() instanceof ZoraArmorItem;
-        }
-
-        if (isWet && !level.isClientSide()) {
+        if (attacker.isInWaterOrRain() && !level.isClientSide()) {
             float bonusDamage = 4.0F;
-
-            if (wearingFullZoraSet) {
+            if (ArmorSetHelper.hasFullSet(attacker, ZoraArmorItem.class)) {
                 bonusDamage += 2.0F;
             }
-
-            target.hurt(level.damageSources().magic(), bonusDamage);
+            CombatHelper.dealBonusDamage(target, level.damageSources().indirectMagic(attacker, attacker), bonusDamage);
         }
-
         return super.hurtEnemy(stack, target, attacker);
     }
 
     @Override
     public boolean isValidRepairItem(ItemStack toRepair, ItemStack repairWith) {
-        return repairWith.is(Items.PRISMARINE_CRYSTALS)
-                || repairWith.is(Items.PRISMARINE_SHARD)
-                || super.isValidRepairItem(toRepair, repairWith);
+        return repairWith.is(Items.PRISMARINE_CRYSTALS) || repairWith.is(Items.PRISMARINE_SHARD)
+            || super.isValidRepairItem(toRepair, repairWith);
     }
 
     @Override
     public void appendHoverText(
-            ItemStack stack,
-            @Nullable Level level,
-            List<Component> tooltipComponents,
-            TooltipFlag tooltipFlag
+        ItemStack stack,
+        @org.jetbrains.annotations.Nullable net.minecraft.world.level.Level level,
+        List<Component> tooltipComponents,
+        TooltipFlag tooltipFlag
     ) {
-        if (Screen.hasShiftDown()) {
+        if (TooltipHelper.hasShiftDown()) {
             tooltipComponents.add(
-                    Component.translatable("item.hyrule_terrors.silver_longsword.tooltip").withStyle(ChatFormatting.AQUA)
+                Component.translatable("item.hyrule_terrors.silver_longsword.tooltip").withStyle(ChatFormatting.AQUA)
             );
             tooltipComponents.add(
-                    Component.translatable("item.hyrule_terrors.silver_longsword.tooltip1").withStyle(ChatFormatting.GRAY)
+                Component.translatable("item.hyrule_terrors.silver_longsword.tooltip1").withStyle(ChatFormatting.GRAY)
             );
         } else {
             tooltipComponents.add(
-                    Component.translatable("item.hyrule_terrors.hold_shift").withStyle(ChatFormatting.DARK_GRAY)
+                Component.translatable("item.hyrule_terrors.hold_shift").withStyle(ChatFormatting.DARK_GRAY)
             );
         }
     }

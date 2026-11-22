@@ -1,13 +1,11 @@
 package net.bandit.hyrule_terrors.item.item;
 
+import net.bandit.hyrule_terrors.util.TooltipHelper;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
@@ -16,9 +14,7 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -32,12 +28,12 @@ public class ChuchuJelly extends Item {
 
     @Override
     public void appendHoverText(
-            ItemStack stack,
-            @Nullable Level level,
-            List<Component> tooltipComponents,
-            TooltipFlag tooltipFlag
+        ItemStack stack,
+        @org.jetbrains.annotations.Nullable net.minecraft.world.level.Level level,
+        List<Component> tooltipComponents,
+        TooltipFlag tooltipFlag
     ) {
-        if (Screen.hasShiftDown()) {
+        if (TooltipHelper.hasShiftDown()) {
             tooltipComponents.add(Component.translatable("item.chuchu_jelly.tooltip").withStyle(ChatFormatting.BLUE));
             tooltipComponents.add(Component.translatable("item.chuchu_jelly.tooltip1").withStyle(ChatFormatting.GRAY));
         } else {
@@ -46,13 +42,10 @@ public class ChuchuJelly extends Item {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
-        player.startUsingItem(hand);
-        return InteractionResultHolder.consume(player.getItemInHand(hand));
-    }
-
-    @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entity) {
+        // Roll the effect first, then let vanilla handle eating (hunger, saturation, stack shrink). The old code
+        // skipped
+        // super entirely, so the jelly never actually fed you.
         if (!level.isClientSide && entity instanceof Player player) {
             RandomSource random = level.getRandom();
 
@@ -79,21 +72,7 @@ public class ChuchuJelly extends Item {
 
         }
 
-        if (entity instanceof Player p && !p.getAbilities().instabuild) {
-            stack.shrink(1);
-        }
-
-        return stack;
-    }
-
-    @Override
-    public int getUseDuration(ItemStack itemStack) {
-        return super.getUseDuration(itemStack);
-    }
-
-    @Override
-    public UseAnim getUseAnimation(ItemStack stack) {
-        return UseAnim.EAT;
+        return super.finishUsingItem(stack, level, entity);
     }
 
     @Override

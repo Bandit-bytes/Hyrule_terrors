@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "hyrule_terrors:chuchu_jelly"
+    },
+    {
+      "item": "hyrule_terrors:bokoblin_horn"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "hyrule_terrors:mighty_elixir"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "display": {
+    "icon": {
+      "item": "hyrule_terrors:bokoblin_head"
+    },
+    "title": {
+      "translate": "advancements.hyrule_terrors.disguise.title"
+    },
+    "description": {
+      "translate": "advancements.hyrule_terrors.disguise.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "hyrule_terrors:hyrule_terrors",
+  "criteria": {
+    "wear": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "equipment": {
+                "head": {
+                  "items": [
+                    "hyrule_terrors:bokoblin_head"
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

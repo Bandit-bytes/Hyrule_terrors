@@ -3,25 +3,25 @@ package net.bandit.hyrule_terrors.entity.mobs;
 import mod.azure.azurelib.util.MoveAnalysis;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.entity.ai.RandomFlyingGoal;
+import net.bandit.hyrule_terrors.entity.ai.TerrorTargeting;
 import net.bandit.hyrule_terrors.entity.attack.FlyingAttackGoal;
 import net.bandit.hyrule_terrors.helper.AnimationDispatcher;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.ExperienceOrb;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.FlyingMoveControl;
-import net.minecraft.world.entity.ai.goal.FloatGoal;
-import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
-import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ambient.Bat;
+import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -29,7 +29,11 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class Keese extends Bat {
+/**
+ * Keese: cave bats that swarm the player. Built on vanilla {@link Bat} for its flight physics, but tagged as an
+ * {@link Enemy} so it behaves like a hostile mob (Peaceful despawn, golem targeting, no sleeping nearby).
+ */
+public class Keese extends Bat implements Enemy {
 
     public AnimationDispatcher dispatcher;
 
@@ -44,6 +48,7 @@ public class Keese extends Bat {
         dispatcher = new AnimationDispatcher(this);
         this.moveControl = new FlyingMoveControl(this, 10, true);
         this.setNoGravity(true);
+        this.xpReward = 5;
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -64,7 +69,47 @@ public class Keese extends Bat {
         this.goalSelector.addGoal(3, new LookAtPlayerGoal(this, Player.class, 12.0F));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.targetSelector.addGoal(
+            2,
+            new NearestAttackableTargetGoal<>(
+                this,
+                net.minecraft.world.entity.LivingEntity.class,
+                10,
+                true,
+                false,
+                TerrorTargeting::isWhitelistedTarget
+            )
+        );
     }
+
+    @Override
+    protected void customServerAiStep() {
+        // Bat's own AI randomly steers every tick and fights the attack goal. Let goals drive while hunting.
+        if (this.getTarget() != null) {
+            if (this.isResting()) {
+                this.setResting(false);
+            }
+            return;
+        }
+        super.customServerAiStep();
+    }
+
+    @Override
+    public boolean shouldDespawnInPeaceful() {
+        return true;
+    }
+
+    @Override
+    public boolean doHurtTarget(Entity target) {
+        boolean hit = super.doHurtTarget(target);
+        if (hit && target instanceof LivingEntity living) {
+            onElementalHit(living);
+        }
+        return hit;
+    }
+
+    /** Hook for elemental Keese variants. */
+    protected void onElementalHit(LivingEntity target) {}
 
     @Override
     public void swing(net.minecraft.world.InteractionHand hand, boolean updateSelf) {
@@ -115,19 +160,5 @@ public class Keese extends Bat {
     @Override
     protected void playStepSound(BlockPos pos, BlockState state) {
         this.playSound(SoundEvents.BAT_TAKEOFF, 0.15F, 1.0F);
-    }
-    @Override
-    protected void dropCustomDeathLoot(DamageSource source, int looting, boolean recentlyHit) {
-        super.dropCustomDeathLoot(source, looting, recentlyHit);
-
-        if (!this.level().isClientSide()) {
-            this.dropExperience();
-        }
-    }
-
-    protected void dropExperience() {
-        int baseXP = 5;
-        int xpDrop = baseXP + this.random.nextInt(3);
-        this.level().addFreshEntity(new ExperienceOrb(this.level(), this.getX(), this.getY(), this.getZ(), xpDrop));
     }
 }

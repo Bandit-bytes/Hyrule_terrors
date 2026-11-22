@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "P P",
     "SNS",
@@ -17,7 +18,7 @@
     }
   },
   "result": {
-    "item": "hyrule_terrors:barbarian_chestplate",
-    "count": 1
+    "count": 1,
+    "item": "hyrule_terrors:barbarian_chestplate"
   }
 }

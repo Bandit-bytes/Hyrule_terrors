@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:desert",
+    {
+      "id": "#c:desert",
+      "required": false
+    },
+    {
+      "id": "#forge:is_desert",
+      "required": false
+    },
+    "#minecraft:is_savanna",
+    {
+      "id": "#c:savanna",
+      "required": false
+    }
+  ]
+}

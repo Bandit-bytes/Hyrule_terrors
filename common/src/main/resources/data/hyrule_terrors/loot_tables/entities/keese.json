@@ -5,13 +5,13 @@
       "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
           "name": "hyrule_terrors:rupee",
+          "type": "minecraft:item",
           "conditions": [
             {
               "condition": "minecraft:random_chance_with_looting",
-              "chance": 0.2,
-              "looting_multiplier": 0.1
+              "chance": 0.3,
+              "looting_multiplier": 0.05
             }
           ]
         }
@@ -21,17 +21,18 @@
       "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
           "name": "hyrule_terrors:keese_eyeball",
+          "type": "minecraft:item",
           "conditions": [
             {
               "condition": "minecraft:random_chance_with_looting",
-              "chance": 0.2,
-              "looting_multiplier": 0.1
+              "chance": 0.4,
+              "looting_multiplier": 0.05
             }
           ]
         }
       ]
     }
-  ]
+  ],
+  "random_sequence": "hyrule_terrors:entities/keese"
 }

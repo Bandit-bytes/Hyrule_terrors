@@ -4,7 +4,6 @@ import mod.azure.azurelib.render.entity.AzEntityRenderer;
 import mod.azure.azurelib.render.entity.AzEntityRendererConfig;
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
 import net.bandit.hyrule_terrors.entity.client.animator.LizalfosAnimator;
-import net.bandit.hyrule_terrors.entity.client.renderer.layer.BokoblinItemLayer;
 import net.bandit.hyrule_terrors.entity.client.renderer.layer.lizalfosItemLayer;
 import net.bandit.hyrule_terrors.entity.mobs.Lizalfos;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -25,7 +24,7 @@ public class LizalfosRenderer extends AzEntityRenderer<Lizalfos> {
             AzEntityRendererConfig.<Lizalfos>builder(MODEL, TEXTURE)
                 .setAnimatorProvider(LizalfosAnimator::new)
                 .setDeathMaxRotation(0.5F)
-                    .addRenderLayer(new lizalfosItemLayer())
+                .addRenderLayer(new lizalfosItemLayer())
                 .setShadowRadius(0.75F)
                 .setScale(1.4F)
                 .build(),
@@ -35,6 +34,6 @@ public class LizalfosRenderer extends AzEntityRenderer<Lizalfos> {
 
     @Override
     public ResourceLocation getTextureLocation(Lizalfos entity) {
-        return TEXTURE;
+        return config().textureLocation(entity);
     }
 }

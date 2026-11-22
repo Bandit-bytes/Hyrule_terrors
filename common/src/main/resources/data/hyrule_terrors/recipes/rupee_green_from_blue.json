@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "hyrule_terrors:rupee_blue"
+    }
+  ],
+  "result": {
+    "count": 5,
+    "item": "hyrule_terrors:rupee"
+  }
+}

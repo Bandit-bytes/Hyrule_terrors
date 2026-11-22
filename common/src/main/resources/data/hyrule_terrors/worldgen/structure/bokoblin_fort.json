@@ -1,7 +1,7 @@
 {
   "type": "minecraft:jigsaw",
   "liquid_settings": "ignore_waterlogging",
-  "biomes": "#minecraft:is_forest",
+  "biomes": "#hyrule_terrors:bokoblin_spawn_in",
   "step": "surface_structures",
   "spawn_overrides": {
     "monster": {

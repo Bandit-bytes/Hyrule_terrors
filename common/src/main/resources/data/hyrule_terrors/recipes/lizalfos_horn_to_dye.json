@@ -1,12 +1,13 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "category": "misc",
   "ingredients": [
     {
       "item": "hyrule_terrors:lizalfos_horn"
     }
   ],
   "result": {
-    "item": "minecraft:white_dye",
-    "count": 4
+    "count": 4,
+    "item": "minecraft:white_dye"
   }
 }

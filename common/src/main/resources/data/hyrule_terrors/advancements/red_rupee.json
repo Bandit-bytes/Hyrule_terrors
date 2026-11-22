@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "hyrule_terrors:rupee_red"
+    },
+    "title": {
+      "translate": "advancements.hyrule_terrors.red_rupee.title"
+    },
+    "description": {
+      "translate": "advancements.hyrule_terrors.red_rupee.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "hyrule_terrors:hyrule_terrors",
+  "criteria": {
+    "has": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hyrule_terrors:rupee_red"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

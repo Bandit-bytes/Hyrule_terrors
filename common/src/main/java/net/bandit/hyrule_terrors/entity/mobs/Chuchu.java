@@ -1,6 +1,7 @@
 package net.bandit.hyrule_terrors.entity.mobs;
 
 import net.bandit.hyrule_terrors.HyruleTerrorsMod;
+import net.bandit.hyrule_terrors.entity.ai.TerrorTargeting;
 import net.bandit.hyrule_terrors.helper.AnimationDispatcher;
 import net.bandit.hyrule_terrors.registry.EntityRegistry;
 import net.minecraft.core.BlockPos;
@@ -10,6 +11,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -26,7 +28,7 @@ public class Chuchu extends AbstractTerrorMob {
 
     public AnimationDispatcher dispatcher;
 
-    public Chuchu(EntityType<? extends PathfinderMob> entityType, Level level) {
+    public Chuchu(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
         dispatcher = new AnimationDispatcher(this);
     }
@@ -45,16 +47,14 @@ public class Chuchu extends AbstractTerrorMob {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.goalSelector.addGoal(1, new PanicGoal(this, 1.25D));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.3D, false) {
+
             @Override
             protected void checkAndPerformAttack(LivingEntity target, double distanceToSqr) {
-                double reachSqr = this.getAttackReachSqr(target);
-
-                if (distanceToSqr <= reachSqr && this.getTicksUntilNextAttack()<= 0) {
-                    this.resetAttackCooldown();
-                    if (this.mob instanceof Chuchu Chuchu) {
-                        Chuchu.dispatcher.attack();
+                if (distanceToSqr <= this.getAttackReachSqr(target) && this.getTicksUntilNextAttack() <= 0) {
+                    super.checkAndPerformAttack(target, distanceToSqr);
+                    if (this.mob instanceof Chuchu chuchu) {
+                        chuchu.dispatcher.attack();
                     }
-                    this.mob.doHurtTarget(target);
                 }
             }
         });
@@ -63,28 +63,61 @@ public class Chuchu extends AbstractTerrorMob {
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.8D));
 
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.targetSelector.addGoal(
+            3,
+            new NearestAttackableTargetGoal<>(
+                this,
+                LivingEntity.class,
+                10,
+                true,
+                false,
+                TerrorTargeting::isWhitelistedTarget
+            )
+        );
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
     }
+
     @Override
     public void aiStep() {
         super.aiStep();
 
-        if (!this.level().isClientSide() && this.isOnFire()) {
+        if (this.level().isClientSide()) {
+            return;
+        }
+        // Chuchus take on the element they are exposed to, like in Breath of the Wild.
+        if (this.isOnFire()) {
             this.convertToRed();
+        } else if (this.isFullyFrozen()) {
+            ChuchuWhite white = this.convertTo(EntityRegistry.CHUCHU_WHITE.get(), true);
+            if (white != null) {
+                white.setTicksFrozen(0);
+            }
+        }
+    }
+
+    @Override
+    public void thunderHit(ServerLevel level, LightningBolt lightning) {
+        ChuchuYellow yellow = this.convertTo(EntityRegistry.CHUCHU_YELLOW.get(), true);
+        if (yellow != null) {
+            yellow.setCharged(true);
+        } else {
+            super.thunderHit(level, lightning);
         }
     }
 
     private void convertToRed() {
-        if (!(this.level() instanceof ServerLevel serverLevel)) return;
-        if (this.isRemoved()) return;
+        if (!(this.level() instanceof ServerLevel serverLevel))
+            return;
+        if (this.isRemoved())
+            return;
 
         ChuchuRed red = EntityRegistry.CHUCHU_RED.get().create(serverLevel);
-        if (red == null) return;
+        if (red == null)
+            return;
 
         red.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), this.getXRot());
 
         red.setDeltaMovement(this.getDeltaMovement());
-
 
         if (this.hasCustomName()) {
             red.setCustomName(this.getCustomName());
@@ -99,7 +132,6 @@ public class Chuchu extends AbstractTerrorMob {
             this.discard();
         }
     }
-
 
     @Override
     public boolean checkSpawnRules(LevelAccessor level, MobSpawnType spawnType) {
@@ -136,18 +168,4 @@ public class Chuchu extends AbstractTerrorMob {
         this.playSound(SoundEvents.SLIME_JUMP, 0.15F, 1.0F);
     }
 
-    @Override
-    protected void dropCustomDeathLoot(DamageSource source, int looting, boolean recentlyHit) {
-        super.dropCustomDeathLoot(source, looting, recentlyHit);
-
-        if (!this.level().isClientSide()) {
-            this.dropExperience();
-        }
-    }
-
-    protected void dropExperience() {
-        int baseXP = 5;
-        int xpDrop = baseXP + this.random.nextInt(3);
-        this.level().addFreshEntity(new ExperienceOrb(this.level(), this.getX(), this.getY(), this.getZ(), xpDrop));
-    }
 }

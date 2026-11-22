@@ -5,13 +5,13 @@
       "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
           "name": "hyrule_terrors:rupee",
+          "type": "minecraft:item",
           "conditions": [
             {
               "condition": "minecraft:random_chance_with_looting",
-              "chance": 0.2,
-              "looting_multiplier": 0.1
+              "chance": 0.3,
+              "looting_multiplier": 0.05
             }
           ]
         }
@@ -21,8 +21,8 @@
       "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
           "name": "hyrule_terrors:chuchu_jelly",
+          "type": "minecraft:item",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -42,5 +42,6 @@
         }
       ]
     }
-  ]
+  ],
+  "random_sequence": "hyrule_terrors:entities/chuchu"
 }

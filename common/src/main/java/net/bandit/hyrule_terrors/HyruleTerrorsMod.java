@@ -3,14 +3,16 @@ package net.bandit.hyrule_terrors;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.JanksonConfigSerializer;
 import mod.azure.azurelib.animation.cache.AzIdentityRegistry;
-import net.bandit.hyrule_terrors.registry.BlockRegistry;
-import net.bandit.hyrule_terrors.registry.EntityRegistry;
-import net.bandit.hyrule_terrors.registry.ItemRegistry;
-import net.bandit.hyrule_terrors.registry.TabRegistry;
+import net.bandit.hyrule_terrors.registry.*;
 import net.minecraft.resources.ResourceLocation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public final class HyruleTerrorsMod {
+
     public static final String MOD_ID = "hyrule_terrors";
+
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     public static HyruleTerrorsConfig config;
 
@@ -18,31 +20,41 @@ public final class HyruleTerrorsMod {
         AutoConfig.register(HyruleTerrorsConfig.class, JanksonConfigSerializer::new);
         config = AutoConfig.getConfigHolder(HyruleTerrorsConfig.class).getConfig();
 
+        EffectRegistry.register();
         ItemRegistry.register();
-        EntityRegistry.init();
         BlockRegistry.register();
+        EntityRegistry.init();
         TabRegistry.init();
-
+        HyruleTerrorsEvents.init();
     }
+
     public static void initAzIdentityRegistry() {
         AzIdentityRegistry.register(
-                ItemRegistry.BOKOBLIN_ARM.get(),
-                ItemRegistry.ZORA_HELMET.get(),
-                ItemRegistry.ZORA_CHESTPLATE.get(),
-                ItemRegistry.ZORA_LEGGINGS.get(),
-                ItemRegistry.ZORA_BOOTS.get(),
-                ItemRegistry.EVIL_SPIRIT_HELMET.get(),
-                ItemRegistry.EVIL_SPIRIT_CHESTPLATE.get(),
-                ItemRegistry.EVIL_SPIRIT_LEGGINGS.get(),
-                ItemRegistry.EVIL_SPIRIT_BOOTS.get(),
-                ItemRegistry.BARBARIAN_HELMET.get(),
-                ItemRegistry.BARBARIAN_CHESTPLATE.get(),
-                ItemRegistry.BARBARIAN_LEGGINGS.get(),
-                ItemRegistry.BARBARIAN_BOOTS.get(),
-                ItemRegistry.KNIGHT_HELMET.get(),
-                ItemRegistry.KNIGHT_CHESTPLATE.get(),
-                ItemRegistry.KNIGHT_LEGGINGS.get(),
-                ItemRegistry.KNIGHT_BOOTS.get()
+            ItemRegistry.BOKOBLIN_ARM.get(),
+            ItemRegistry.ZORA_HELMET.get(),
+            ItemRegistry.ZORA_CHESTPLATE.get(),
+            ItemRegistry.ZORA_LEGGINGS.get(),
+            ItemRegistry.ZORA_BOOTS.get(),
+            ItemRegistry.HERO_HELMET.get(),
+            ItemRegistry.HERO_CHESTPLATE.get(),
+            ItemRegistry.HERO_LEGGINGS.get(),
+            ItemRegistry.HERO_BOOTS.get(),
+            ItemRegistry.EVIL_SPIRIT_HELMET.get(),
+            ItemRegistry.EVIL_SPIRIT_CHESTPLATE.get(),
+            ItemRegistry.EVIL_SPIRIT_LEGGINGS.get(),
+            ItemRegistry.EVIL_SPIRIT_BOOTS.get(),
+            ItemRegistry.BARBARIAN_HELMET.get(),
+            ItemRegistry.BARBARIAN_CHESTPLATE.get(),
+            ItemRegistry.BARBARIAN_LEGGINGS.get(),
+            ItemRegistry.BARBARIAN_BOOTS.get(),
+            ItemRegistry.KNIGHT_HELMET.get(),
+            ItemRegistry.KNIGHT_CHESTPLATE.get(),
+            ItemRegistry.KNIGHT_LEGGINGS.get(),
+            ItemRegistry.KNIGHT_BOOTS.get(),
+            ItemRegistry.PHANTOM_HELMET.get(),
+            ItemRegistry.PHANTOM_CHESTPLATE.get(),
+            ItemRegistry.PHANTOM_LEGGINGS.get(),
+            ItemRegistry.PHANTOM_BOOTS.get()
         );
     }
 
@@ -50,7 +62,4 @@ public final class HyruleTerrorsMod {
         return new ResourceLocation(MOD_ID, name);
     }
 
-    public static void initClient() {
-        HyruleTerrorsClientMod.initClientAzRenders();
-    }
 }

@@ -12,25 +12,26 @@ import net.minecraft.resources.ResourceLocation;
 public class BokoblinRenderer extends AzEntityRenderer<Bokoblin> {
 
     private static final ResourceLocation MODEL = HyruleTerrorsMod.modResource(
-            "geo/entity/bokoblin.geo.json"
+        "geo/entity/bokoblin.geo.json"
     );
 
     private static final ResourceLocation TEXTURE = HyruleTerrorsMod.modResource(
-            "textures/entity/bokoblin.png"
+        "textures/entity/bokoblin.png"
     );
 
     public BokoblinRenderer(EntityRendererProvider.Context context) {
         super(
-                AzEntityRendererConfig.<Bokoblin>builder(MODEL, TEXTURE)
-                        .setAnimatorProvider(BokoblinAnimator::new)
-                        .addRenderLayer(new BokoblinItemLayer())
-                        .build(),
-                context
+            AzEntityRendererConfig.<Bokoblin>builder(MODEL, TEXTURE)
+                .setAnimatorProvider(BokoblinAnimator::new)
+                .addRenderLayer(new BokoblinItemLayer())
+                .setShadowRadius(0.5F)
+                .build(),
+            context
         );
     }
 
     @Override
     public ResourceLocation getTextureLocation(Bokoblin entity) {
-        return TEXTURE;
+        return config().textureLocation(entity);
     }
 }

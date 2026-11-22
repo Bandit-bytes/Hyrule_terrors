@@ -1,0 +1,68 @@
+{
+  "display": {
+    "icon": {
+      "item": "hyrule_terrors:chuchu_jelly"
+    },
+    "title": {
+      "translate": "advancements.hyrule_terrors.chuchu_collector.title"
+    },
+    "description": {
+      "translate": "advancements.hyrule_terrors.chuchu_collector.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "hyrule_terrors:hyrule_terrors",
+  "criteria": {
+    "blue": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hyrule_terrors:chuchu_jelly"
+            ]
+          }
+        ]
+      }
+    },
+    "red": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hyrule_terrors:chuchu_jelly_red"
+            ]
+          }
+        ]
+      }
+    },
+    "yellow": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hyrule_terrors:chuchu_jelly_yellow"
+            ]
+          }
+        ]
+      }
+    },
+    "white": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hyrule_terrors:chuchu_jelly_white"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

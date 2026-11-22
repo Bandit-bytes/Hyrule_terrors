@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 
 public class BokoblinHeadBlock extends HorizontalDirectionalBlock {
+
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     public BokoblinHeadBlock(Properties props) {
@@ -26,4 +27,3 @@ public class BokoblinHeadBlock extends HorizontalDirectionalBlock {
         builder.add(FACING);
     }
 }
-

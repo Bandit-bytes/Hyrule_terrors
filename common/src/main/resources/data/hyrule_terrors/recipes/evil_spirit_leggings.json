@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "SLC",
     "S S",
@@ -17,7 +18,7 @@
     }
   },
   "result": {
-    "item": "hyrule_terrors:evil_spirit_leggings",
-    "count": 1
+    "count": 1,
+    "item": "hyrule_terrors:evil_spirit_leggings"
   }
 }

@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "S S",
     "S S"
@@ -10,7 +11,7 @@
     }
   },
   "result": {
-    "item": "hyrule_terrors:knight_boots",
-    "count": 1
+    "count": 1,
+    "item": "hyrule_terrors:knight_boots"
   }
 }

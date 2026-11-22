@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:is_mountain",
+    {
+      "id": "#c:mountain",
+      "required": false
+    },
+    {
+      "id": "#forge:is_mountain",
+      "required": false
+    },
+    "#minecraft:is_forest",
+    {
+      "id": "#c:forest",
+      "required": false
+    }
+  ]
+}

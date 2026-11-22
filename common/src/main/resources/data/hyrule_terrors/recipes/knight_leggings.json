@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "SSS",
     "S S",
@@ -11,7 +12,7 @@
     }
   },
   "result": {
-    "item": "hyrule_terrors:knight_leggings",
-    "count": 1
+    "count": 1,
+    "item": "hyrule_terrors:knight_leggings"
   }
 }

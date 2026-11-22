@@ -1,11 +1,9 @@
 package net.bandit.hyrule_terrors.item;
 
-import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.TagKey;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
@@ -17,8 +15,18 @@ public class HyruleWeaponMaterials implements Tier {
         1.0f,
         3.0f,
         3,
-        BlockTags.NEEDS_STONE_TOOL,
+        1,
         () -> Ingredient.of(Items.BONE)
+    );
+
+    /** Spiked Moblin Club: iron-grade, very enchantable, mended with planks. */
+    public static final Tier MOBLIN_CLUB_TIER = new HyruleWeaponMaterials(
+        450,
+        2.0f,
+        5.0f,
+        12,
+        2,
+        () -> Ingredient.of(ItemTags.PLANKS)
     );
 
     int uses;
@@ -29,7 +37,7 @@ public class HyruleWeaponMaterials implements Tier {
 
     int enchantmentValue;
 
-    TagKey<Block> incorrectBlocksForDrops;
+    int level;
 
     Supplier<Ingredient> repairIngredient;
 
@@ -38,14 +46,14 @@ public class HyruleWeaponMaterials implements Tier {
         float damage,
         float speed,
         int enchantmentValue,
-        TagKey<Block> incorrectBlocksForDrops,
+        int level,
         Supplier<Ingredient> repairIngredient
     ) {
         this.uses = uses;
         this.damage = damage;
         this.speed = speed;
         this.enchantmentValue = enchantmentValue;
-        this.incorrectBlocksForDrops = incorrectBlocksForDrops;
+        this.level = level;
         this.repairIngredient = repairIngredient;
     }
 
@@ -66,13 +74,8 @@ public class HyruleWeaponMaterials implements Tier {
 
     @Override
     public int getLevel() {
-        return 0;
+        return level;
     }
-
-//    @Override
-//    public @NotNull TagKey<Block> getIncorrectBlocksForDrops() {
-//        return incorrectBlocksForDrops;
-//    }
 
     @Override
     public int getEnchantmentValue() {

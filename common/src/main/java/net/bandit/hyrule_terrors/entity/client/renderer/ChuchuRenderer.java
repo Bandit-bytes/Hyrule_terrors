@@ -31,7 +31,6 @@ public class ChuchuRenderer extends AzEntityRenderer<Chuchu> {
 
     @Override
     public ResourceLocation getTextureLocation(Chuchu entity) {
-        return TEXTURE;
+        return config().textureLocation(entity);
     }
-
 }

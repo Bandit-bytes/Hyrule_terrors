@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "pattern": [
     "S C",
     "SNS",
@@ -20,7 +21,7 @@
     }
   },
   "result": {
-    "item": "hyrule_terrors:evil_spirit_chestplate",
-    "count": 1
+    "count": 1,
+    "item": "hyrule_terrors:evil_spirit_chestplate"
   }
 }

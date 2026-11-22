@@ -1,37 +1,40 @@
 package net.bandit.hyrule_terrors.item.item;
 
+import net.bandit.hyrule_terrors.util.CombatHelper;
+import net.bandit.hyrule_terrors.util.TooltipHelper;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.phys.AABB;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.Tiers;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
 
 public class LizalSpear extends SwordItem {
 
     private static final int LUNGE_COOLDOWN_TICKS = 20 * 5;
+
     private static final float LUNGE_STRENGTH = 1.25F;
+
     private static final float UPWARD_BOOST = 0.05F;
+
     private static final int DURABILITY_COST = 1;
 
     public LizalSpear(Properties properties) {
-        super(Tiers.IRON, 3, -2.6F, properties);
+        super(Tiers.IRON, 3, -2.5F, properties);
     }
 
     @Override
@@ -45,10 +48,23 @@ public class LizalSpear extends SwordItem {
         if (!level.isClientSide && player instanceof ServerPlayer sp) {
             lunge(sp);
             tryLungeHit(sp, stack);
-            stack.hurtAndBreak(DURABILITY_COST, sp, p -> p.broadcastBreakEvent(hand));
+            stack.hurtAndBreak(
+                DURABILITY_COST,
+                sp,
+                p -> p.broadcastBreakEvent(
+                hand == InteractionHand.MAIN_HAND
+                    ? EquipmentSlot.MAINHAND
+                    : EquipmentSlot.OFFHAND)
+            );
             sp.getCooldowns().addCooldown(this, LUNGE_COOLDOWN_TICKS);
-
-            level.playSound(null, sp.blockPosition(), SoundEvents.TRIDENT_RIPTIDE_1, SoundSource.PLAYERS, 1.0F, 1.0F);
+            level.playSound(
+                null,
+                sp.blockPosition(),
+                SoundEvents.TRIDENT_RIPTIDE_1,
+                SoundSource.PLAYERS,
+                1.0F,
+                1.0F
+            );
         }
 
         player.swing(hand, true);
@@ -62,7 +78,8 @@ public class LizalSpear extends SwordItem {
         double z = look.z;
 
         double len = Math.sqrt(x * x + z * z);
-        if (len < 1.0e-4) return;
+        if (len < 1.0e-4)
+            return;
 
         x /= len;
         z /= len;
@@ -78,17 +95,22 @@ public class LizalSpear extends SwordItem {
         Vec3 look = player.getLookAngle().normalize();
 
         AABB box = player.getBoundingBox()
-                .expandTowards(look.scale(reach))
-                .inflate(1.0D, 1.0D, 1.0D);
+            .expandTowards(look.scale(reach))
+            .inflate(1.0D, 1.0D, 1.0D);
 
         LivingEntity target = null;
         double bestDistSqr = Double.MAX_VALUE;
 
-        for (Entity e : player.level().getEntities(player, box, ent -> ent instanceof LivingEntity le && le.isAlive() && ent.isPickable())) {
+        for (
+            Entity e : player.level()
+                .getEntities(player, box, ent -> ent instanceof LivingEntity le && le.isAlive() && ent.isPickable())
+        ) {
             LivingEntity le = (LivingEntity) e;
             if (le instanceof Player p) {
-                if (p.isSpectator() || p.isCreative()) continue;
-                if (!player.canHarmPlayer(p)) continue;
+                if (p.isSpectator() || p.isCreative())
+                    continue;
+                if (!player.canHarmPlayer(p))
+                    continue;
             }
 
             double distSqr = le.distanceToSqr(player);
@@ -102,33 +124,50 @@ public class LizalSpear extends SwordItem {
             }
         }
 
-        if (target == null) return;
+        if (target == null)
+            return;
 
-        float base = (float) player.getAttributeValue(Attributes.ATTACK_DAMAGE);
-        float bonus = 2.0F;
-        float damage = base + bonus;
-
-        boolean hurt = target.hurt(player.damageSources().playerAttack(player), damage);
+        // A single real attack (enchantments, crits, durability) plus a small lunge bonus. Previously this dealt the
+        // full hit twice: once via hurt() and again via attack().
+        player.attack(target);
+        boolean hurt = CombatHelper.dealBonusDamage(target, player.damageSources().playerAttack(player), 2.0F);
         if (hurt) {
-            player.doEnchantDamageEffects(player, target);
-
             Vec3 kb = look.scale(0.6D);
             target.push(kb.x, 0.1D, kb.z);
 
-            player.level().playSound(null, player.blockPosition(), SoundEvents.PLAYER_ATTACK_STRONG, SoundSource.PLAYERS, 0.9F, 1.0F);
+            player.level()
+                .playSound(
+                    null,
+                    player.blockPosition(),
+                    SoundEvents.PLAYER_ATTACK_STRONG,
+                    SoundSource.PLAYERS,
+                    0.9F,
+                    1.0F
+                );
         }
     }
 
-
-
     @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        if (Screen.hasShiftDown()) {
-            tooltipComponents.add(Component.translatable("item.lizal_spear.tooltip").withStyle(ChatFormatting.DARK_GREEN));
-            tooltipComponents.add(Component.literal("Right-click: Lunge").withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));
+    public void appendHoverText(
+        ItemStack stack,
+        @org.jetbrains.annotations.Nullable net.minecraft.world.level.Level level,
+        List<Component> tooltipComponents,
+        TooltipFlag tooltipFlag
+    ) {
+        if (TooltipHelper.hasShiftDown()) {
+            tooltipComponents.add(
+                Component.translatable("item.lizal_spear.tooltip").withStyle(ChatFormatting.DARK_GREEN)
+            );
+            tooltipComponents.add(
+                Component.translatable("item.lizal_spear.tooltip_1")
+                    .withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC)
+            );
         } else {
             tooltipComponents.add(Component.translatable("item.hyrule_terrors.hold_shift"));
-            tooltipComponents.add(Component.translatable("item.lizal_spear.tooltip_1").withStyle(ChatFormatting.ITALIC, ChatFormatting.GRAY));
+            tooltipComponents.add(
+                Component.translatable("item.lizal_spear.tooltip_1")
+                    .withStyle(ChatFormatting.ITALIC, ChatFormatting.GRAY)
+            );
         }
     }
 }

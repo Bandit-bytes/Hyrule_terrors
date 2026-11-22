@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "hyrule_terrors:sword_beam"
+    },
+    "title": {
+      "translate": "advancements.hyrule_terrors.sword_beam.title"
+    },
+    "description": {
+      "translate": "advancements.hyrule_terrors.sword_beam.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "hyrule_terrors:master_sword",
+  "criteria": {
+    "kill": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "killing_blow": {
+          "direct_entity": {
+            "type": "hyrule_terrors:sword_beam"
+          }
+        }
+      }
+    }
+  }
+}

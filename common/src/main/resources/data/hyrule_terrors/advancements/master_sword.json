@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "hyrule_terrors:mastersword"
+    },
+    "title": {
+      "translate": "advancements.hyrule_terrors.master_sword.title"
+    },
+    "description": {
+      "translate": "advancements.hyrule_terrors.master_sword.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "hyrule_terrors:hyrule_terrors",
+  "criteria": {
+    "has": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "hyrule_terrors:mastersword"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

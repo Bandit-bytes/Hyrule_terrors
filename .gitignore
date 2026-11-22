@@ -10,3 +10,5 @@
 /forge/.gradle/
 /forge/build/
 /forge/build/classes/java/main/
+/fabric/run/
+/forge/run/

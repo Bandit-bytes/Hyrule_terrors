@@ -1,13 +1,11 @@
 package net.bandit.hyrule_terrors.item.item;
 
+import net.bandit.hyrule_terrors.util.TooltipHelper;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -19,16 +17,20 @@ public class ChuchuJellyRed extends Item {
 
     @Override
     public void appendHoverText(
-            ItemStack stack,
-            @Nullable Level level,
-            List<Component> tooltipComponents,
-            TooltipFlag tooltipFlag
+        ItemStack stack,
+        @org.jetbrains.annotations.Nullable net.minecraft.world.level.Level level,
+        List<Component> tooltipComponents,
+        TooltipFlag tooltipFlag
     ) {
-        if (Screen.hasShiftDown()) {
-            tooltipComponents.add(Component.translatable("item.hyrule_terrors.chuchu_jelly_red.tooltip")
-                    .withStyle(ChatFormatting.RED));
-            tooltipComponents.add(Component.translatable("item.hyrule_terrors.chuchu_jelly_red.tooltip1")
-                    .withStyle(ChatFormatting.GRAY));
+        if (TooltipHelper.hasShiftDown()) {
+            tooltipComponents.add(
+                Component.translatable("item.hyrule_terrors.chuchu_jelly_red.tooltip")
+                    .withStyle(ChatFormatting.RED)
+            );
+            tooltipComponents.add(
+                Component.translatable("item.hyrule_terrors.chuchu_jelly_red.tooltip1")
+                    .withStyle(ChatFormatting.GRAY)
+            );
         } else {
             tooltipComponents.add(Component.translatable("item.hyrule_terrors.hold_shift"));
         }

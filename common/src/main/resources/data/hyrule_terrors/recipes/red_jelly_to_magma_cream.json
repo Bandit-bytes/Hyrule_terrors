@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "hyrule_terrors:chuchu_jelly_red"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "minecraft:magma_cream"
+  }
+}

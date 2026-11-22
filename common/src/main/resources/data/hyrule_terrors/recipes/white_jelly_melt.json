@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "item": "hyrule_terrors:chuchu_jelly_white"
+  },
+  "result": "hyrule_terrors:chuchu_jelly",
+  "experience": 0.5,
+  "cookingtime": 200
+}

@@ -5,24 +5,8 @@
       "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "hyrule_terrors:rupee",
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance_with_looting",
-              "chance": 0.2,
-              "looting_multiplier": 0.1
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
           "name": "hyrule_terrors:lizalfos_horn",
+          "type": "minecraft:item",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -46,13 +30,45 @@
       "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
           "name": "hyrule_terrors:lizalfos_talon",
+          "type": "minecraft:item",
           "conditions": [
             {
               "condition": "minecraft:random_chance_with_looting",
               "chance": 0.2,
-              "looting_multiplier": 0.1
+              "looting_multiplier": 0.05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "name": "hyrule_terrors:rupee",
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance_with_looting",
+              "chance": 0.3,
+              "looting_multiplier": 0.05
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "name": "hyrule_terrors:lizalfos_tail",
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance_with_looting",
+              "chance": 0.2,
+              "looting_multiplier": 0.05
             }
           ]
         }
@@ -63,16 +79,17 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "hyrule_terrors:lizalfos_tail",
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance_with_looting",
-              "chance": 0.2,
-              "looting_multiplier": 0.1
-            }
-          ]
+          "name": "hyrule_terrors:rupee_blue"
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:random_chance_with_looting",
+          "chance": 0.08,
+          "looting_multiplier": 0.02
         }
       ]
     }
-  ]
+  ],
+  "random_sequence": "hyrule_terrors:entities/lizalfos"
 }

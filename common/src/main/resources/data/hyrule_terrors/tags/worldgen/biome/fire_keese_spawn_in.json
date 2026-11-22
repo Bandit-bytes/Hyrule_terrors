@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:is_nether",
+    "#minecraft:is_badlands",
+    {
+      "id": "#c:badlands",
+      "required": false
+    }
+  ]
+}

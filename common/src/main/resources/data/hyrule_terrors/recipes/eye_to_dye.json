@@ -1,12 +1,13 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "category": "misc",
   "ingredients": [
     {
       "item": "hyrule_terrors:keese_eyeball"
     }
   ],
   "result": {
-    "item": "minecraft:orange_dye",
-    "count": 4
+    "count": 4,
+    "item": "minecraft:orange_dye"
   }
 }
