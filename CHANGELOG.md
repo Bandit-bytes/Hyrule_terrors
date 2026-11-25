@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.4.1
+
+### Fixed
+- **Mod weapons could not hit anything with Better Combat installed.** The Master Sword, Silver Longsword, Knight's Claymore, Boulder Breaker, Lizal Spear, Lizalfos Horn Dagger, Bokoblin Arm and Spiked Moblin Club swung but never connected, because their Better Combat attack range was read as 0. Their ranges now match Better Combat's own defaults for each weapon type.
+
 ## 2.4.0 - Breath of the Wild Update
 
 Brings the 1.20.1 version up to date with the 1.21.1 release.
